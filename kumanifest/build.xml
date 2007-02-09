@@ -1,0 +1,36 @@
+<project name="kumanifest" default="clean" basedir=".">
+	<taskdef name="izpack" classpath="/home/emre/programlar/IzPack/lib/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
+
+
+	<property name="build" location="bin" />
+	<property name="source" location="." />
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build}" />
+	</target>
+	<target name="compile" depends="init">
+		<javac srcdir="${source}" destdir="${build}">
+			<classpath>
+				<pathelement path="${classpath}" />
+				<fileset dir="lib">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="kumanifest.jar" basedir="${build}" includes="**/*.class" />
+	</target>
+
+	<target name="build" depends="jar">
+		<izpack input="kumanifest.xml" output="KumanifestInstaller.jar" basedir="${basedir}" />
+	</target>
+
+	<target name="clean" depends="build">
+		<delete dir="${build}" />
+		<delete file="kumanifest.jar" />
+	</target>
+
+</project>
