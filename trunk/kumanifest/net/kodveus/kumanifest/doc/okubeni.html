@@ -1,0 +1,82 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+</head>
+<body>
+<p>
+<pre>
+    Gemi taşımacılığı yükleme, boşaltma, manifesto takip programı.
+    Copyright (C) 2006  <a href=http://www.blogcu.com/kodveus>Kod ve Us</a>
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+    
+    <a href=mailto:kodveus@gmail.com>kodveus_at_gmail.com</a>
+</pre>
+</p>
+İngilizce Lisans metni:
+<a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GNU
+General Public License</a>
+Türkçe Lisans metni:
+<a href="http://www.arayan.com/da/gpl_tr.html" target="_blank">Genel
+Kamu Lisansı</a>
+<h3>Kurulum Aşamaları</h3>
+<ol>
+	<li><a
+		href="http://dev.mysql.com/downloads/mysql/5.0.html#downloads"
+		target="_blank">Mysql</a> (>4.0) kurmanız gerekmektedir (<a
+		href=http://dev.mysql.com/doc/refman/5.0/en/installing-cs.html target=_blank>Yardım</a>).</li>
+	<li><a href="http://www.java.com/en/download/manual.jsp"
+		target="_blank">Java</a> (>1.5) kurmanız gerekmektedir.</li>
+	<li>Mysql kurduktan sonra bir veritabanı yaratmanız veya var olan
+	bir veritabanı kullanmanız gerekmektedir.</li>
+	<ol>
+		<li>seçenek <a href="http://www.phpmyadmin.net/" target="_blank">phpMyAdmin</a>
+		veya <a href="http://sourceforge.net/projects/mysqlnavigator/"
+			target="_blank">Mysql Navigator</a> tarzı Mysql veritabanı yönetim
+		programları kullanarak yaratabilirsiniz.</li>
+		<li>seçenek komut satırından mysql aracını kullanarak
+		yapabilirsiniz İlk önce root ile giriş yapmanız gerekiyor <i>
+		komut satiri>mysql -u root -p</i> Daha sonra kumanifest isimli
+		veritabanını yaratıyoruz <i> mysql> CREATE DATABASE kumanifest;</i> Bu
+		veritabanını kullanarak <i> mysql> USE kumanifest;</i> Kendi
+		kullanıcımıza hakları veriyoruz <i>mysql> GRANT ALL ON
+		kumanifest.* TO 'kullanici_adiniz'@'istemci_adresiniz';</i></li>
+		<li>seçenek olarak root hakkı olmaması durumunda veritabanı
+		yöneticisinden veritabanını yaratmasını istemelisiniz.</li>
+	</ol>
+	<li>Veritabanı yapısının oluşturulması gerekmektedir.</li>
+	<ol>
+		<li>Kurulum işlemi bittikten sonra kurulum dizini içerisindeki
+		"dbkurulum" betik dosyasını çalıştırınız. Bu dosya veritabanı yapısını
+		oluşturacaktır.</li>
+		<li>Komut satırından <i>mysql -h sunucu -u kullanici -p
+		veritabani < kumanifest.sql</i> komutuyla da yapılabilir.</li>
+		<li>Mysql yönetim programlarında kumanifest.sql dosyası betik
+		olarak çalıştırılabilir. (<a href="http://www.phpmyadmin.net/"
+			target="_blank">phpMyAdmin</a> , <a
+			href="http://sourceforge.net/projects/mysqlnavigator/"
+			target="_blank">Mysql Navigator</a> gibi)</li>
+	</ol>
+	<li>Veritabanı yapısı da hatasız kurulursa programı
+	çalıştırabilirsiniz.</li>
+	<ol>
+		<li>Kurulum dizini içerisindeki <i>calistir</i> betik dosyası
+		çalıştırılabilir.</li>
+		<li><i>java -classpath
+		.:kumanifest.jar:./lib/commons-beanutils.jar:./lib/commons-collections.jar:./lib/commons-digester.jar:./lib/commons-javaflow.jar:./lib/commons-logging.jar:./lib/GUIAraclar.jar:./lib/itext.jar:./lib/jasperreports.jar:./lib/jr-bsh-compiler.jar:./lib/mysql.jar:./lib/poi.jar
+		net.kodveus.kumanifest.AnaPencere</i> komutu çalıştırılabilir.</li>
+	</ol>
+</ol>
+</body>
+</html>

@@ -1,0 +1,29 @@
+KURULUM icin yapilacaklar
+-windows icin bat dosyasindaki ayrac ; yapilacak
+-windows icin turkce karakter destegi olmuyor
+-mysql ve java baglantilari direk kurulum sayfalarina yapical, ek olarak yard¹m sayfalarina
+baglanti verilecek yada kodveus ta anlatimi yapilacak
+-lisans ve aç¹klama üste al¹n¹p kurulum aºamalar¹ linux ve windows için ayr¹ ayr¹ yap¹lmal¹
+-masaustu kisayollari olusturulacak
+
+-customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
+
+-Gemi secilince sagdaki panelde combo box voyage lar ile doldurulacak.
+
+-(YAPILDI)solda BL secilince BL bilgileri sag panele doldurulacak
+
+-gemi kilitlemede status sahasi mi kullanilacak
+
+-Issued/Not Issued BLs
+
+-Restore Item eklenecek
+
+-silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)
+
+-agacta tiklanan disindakiler collapse edilmeli
+
+-(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
+
+-Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
+
+-About panelinde linklere tÄ±klanÄ±nca a?§Ä±lmasÄ± yapÄ±lmalÄ±

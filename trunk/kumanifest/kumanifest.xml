@@ -1,0 +1,80 @@
+<installation version="1.0">
+
+<info>
+    <appname>kumanifest</appname>
+    <appversion>0.9</appversion>
+    <authors>
+        <author name="Kod ve Us" email="kodveus@gmail.com" />
+    </authors>
+    <url>http://www.blogcu.com/kodveus</url>
+    <javaversion>1.5</javaversion>
+</info>
+
+<guiprefs height="600" resizable="yes" width="800">
+    <laf name="metouia">
+        <os family="unix" />
+    </laf>
+    <laf name="looks">
+        <os family="windows" />
+        <param name="variant" value="extwin" />
+    </laf>
+</guiprefs>
+
+<variables>
+  <variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/kumanifest-install.log"/> 
+  	<!-- This means that the log name will be My-install and that it will be stored at the root of the installation. -->
+  	<!-- Any path is fine. If value is set to "Default" then "$INSTALL_PATH/uninstall/install.log" is used. -->
+  	<!-- And if variable isn't defined then no log is written. -->
+  <variable name="desktopshortcutcheckboxenabled" value="true"/> 
+  	<!-- This automatically checks the "Create Desktop Shortcuts" button. Default value is "False". -->
+</variables>
+
+<locale>
+    <langpack iso3="eng"/>
+    <langpack iso3="tur"/>
+</locale>
+
+<native type="izpack" name="ShellLink.dll" />
+
+<resources>
+    <res src="net/kodveus/kumanifest/doc/okubeni.html" id="HTMLInfoPanel.info"/>
+    <res src="net/kodveus/kumanifest/doc/gpl.txt" id="LicencePanel.licence"/>
+    <res src="net/kodveus/kumanifest/images/kvu.gif" id="installer.langsel.img"/>
+	 <res src="shortcutSpec.xml" id="shortcutSpec.xml" />
+    <res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml" />
+</resources>
+
+<panels>
+    <panel classname="HelloPanel"/>
+    <panel classname="HTMLInfoPanel"/>
+    <panel classname="LicencePanel"/>
+    <panel classname="PacksPanel"/>
+    <panel classname="TargetPanel"/>
+	<panel classname="ShortcutPanel"/>
+    <panel classname="InstallPanel"/>
+    <panel classname="SimpleFinishPanel"/>
+</panels>
+
+<packs>
+    <pack name="Core" required="yes">
+         <description>Kumanifest için gereksinim duyulan çekirdek dosyalar.</description>
+         <fileset dir="" targetdir="$INSTALL_PATH">
+           <include name="kumanifest.jar" />
+           <include name="lib/*.jar" />
+           <include name="net/kodveus/kumanifest/report/source/**/*.jrxml" />
+           <include name="net/kodveus/kumanifest/images/*.*" />
+         </fileset>
+         <file src="net/kodveus/kumanifest/script/calistir.sh" os="unix" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/dbkurulum.sh" os="unix" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/calistir.bat" os="windows" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/dbkurulum.bat" os="windows" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/database/kumanifest.sql" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/doc/okubeni.html" targetdir="$INSTALL_PATH/doc/"/>
+         <file src="net/kodveus/kumanifest/doc/gpl.txt" targetdir="$INSTALL_PATH/doc/"/>
+         <file src="net/kodveus/kumanifest/doc/gpl_tr.html" targetdir="$INSTALL_PATH/doc/"/>
+         <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
+         <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
+    </pack>
+</packs>
+
+</installation>
