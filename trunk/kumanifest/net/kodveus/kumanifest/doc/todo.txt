@@ -6,6 +6,10 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 -lisans ve aç¹klama üste al¹n¹p kurulum aºamalar¹ linux ve windows için ayr¹ ayr¹ yap¹lmal¹
 -masaustu kisayollari olusturulacak
 
+
+
+-rapor ve clay vt goruntusunun guncellemeleri yapilacak
+
 -customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
 
 -Gemi secilince sagdaki panelde combo box voyage lar ile doldurulacak.
@@ -22,7 +26,13 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 
 -agacta tiklanan disindakiler collapse edilmeli
 
+-Updatecargo calismiyor
+
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
+
+-solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak 
+
+-paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
