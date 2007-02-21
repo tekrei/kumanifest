@@ -61,19 +61,24 @@ public class RightPanel extends JPanel {
 				public void stateChanged(ChangeEvent evt) {
 					ToolbarHelper.getInstance().setToolbarInterface(
 							(ToolbarInterface) tabPane.getSelectedComponent());
-					// Eger container yukleniyorsa containerleri update edelim
-					if (tabPane.getSelectedComponent() == containerPanel) {
-						System.out.println("Containers loading for blId:"+blPanel.getSelectedBlId());
-						containerPanel.setBlId(blPanel.getSelectedBlId());
-					}
+					checkContainerTab();
 				}
 			});
 		}
 		return tabPane;
 	}
 
+	public void checkContainerTab()
+	{
+//		 Eger container yukleniyorsa containerleri update edelim
+		if (tabPane.getSelectedComponent() == containerPanel) {
+			System.out.println("Containers loading for blId:"+blPanel.getSelectedBlId());
+			containerPanel.setBlId(blPanel.getSelectedBlId());
+		}
+	}
 	public void loadBL(BL bl) {
 		blPanel.loadToPanel(bl);
+		checkContainerTab();
 	}
 
 }
