@@ -1,9 +1,9 @@
 KURULUM icin yapilacaklar
 -windows icin bat dosyasindaki ayrac ; yapilacak
 -windows icin turkce karakter destegi olmuyor
--mysql ve java baglantilari direk kurulum sayfalarina yapical, ek olarak yard¹m sayfalarina
+-mysql ve java baglantilari direk kurulum sayfalarina yapical, ek olarak yardï¿½m sayfalarina
 baglanti verilecek yada kodveus ta anlatimi yapilacak
--lisans ve aç¹klama üste al¹n¹p kurulum aºamalar¹ linux ve windows için ayr¹ ayr¹ yap¹lmal¹
+-lisans ve aï¿½klama ï¿½ste alï¿½nï¿½p kurulum aï¿½amalarï¿½ linux ve windows iï¿½in ayrï¿½ ayrï¿½ yapï¿½lmalï¿½
 -masaustu kisayollari olusturulacak
 
 
@@ -11,8 +11,6 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 -rapor ve clay vt goruntusunun guncellemeleri yapilacak
 
 -customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
-
--Gemi secilince sagdaki panelde combo box voyage lar ile doldurulacak.
 
 -(YAPILDI)solda BL secilince BL bilgileri sag panele doldurulacak
 
@@ -28,12 +26,14 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 
 -Updatecargo calismiyor
 
+-konteyner guncelleme isleminde hata
+
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
 
--solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak 
+-(YAPILDI)solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak 
 
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
--About panelinde linklere tÄ±klanÄ±nca a?§Ä±lmasÄ± yapÄ±lmalÄ±
+-About panelinde linklere tÄ±klanÄ±nca a?ï¿½Ä±lmasÄ± yapÄ±lmalÄ±

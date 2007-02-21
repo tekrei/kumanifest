@@ -71,7 +71,7 @@ public class ContainerOperation implements OperationInterface {
 				+ container.getBlId() + "," + " containerType = "
 				+ container.getContainerType().getContainerTypeId() + ","
 				+ " sealNo = '" + container.getSealNo() + "', "
-				+ " otherSealNo = '" + container.getSealNo() + "', "
+				+ " otherSealNo = '" + container.getOtherSealNo() + "', "
 				+ " containerSize = "
 				+ container.getContainerSize().getContainerSizeId() + ","
 				+ " taraWeight = " + container.getTaraWeight() + ","

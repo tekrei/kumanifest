@@ -34,6 +34,8 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 
 	private JTextField txtRelCom = null;
 
+	private JTextField txtOtherSealNo = null;
+	
 	private JTextField txtTareWeight = null;
 
 	private JSteppedComboBox cmbContainerType = null;
@@ -71,18 +73,21 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		this.add(GUIHelper.getInstance().createTextLabel("Container No:",
 				new java.awt.Rectangle(10, 20, 141, 21)), null);
 		this.add(GUIHelper.getInstance().createTextLabel("Seal No:",
-				new java.awt.Rectangle(10, 50, 141, 21)), null);
+				new java.awt.Rectangle(410, 20, 81, 21)), null);
 		this.add(GUIHelper.getInstance().createTextLabel("Container Type:",
 				new java.awt.Rectangle(10, 80, 141, 21)), null);
 		this.add(GUIHelper.getInstance().createTextLabel("Container Size:",
 				new java.awt.Rectangle(10, 110, 141, 21)), null);
-		this.add(GUIHelper.getInstance().createTextLabel("Tare Weight:",
+		this.add(GUIHelper.getInstance().createTextLabel("O.Seal No:",
 				new java.awt.Rectangle(410, 50, 81, 21)), null);
+		this.add(GUIHelper.getInstance().createTextLabel("Tare Weight:",
+				new java.awt.Rectangle(10, 50, 141, 21)), null);
 		this.add(getTxtContainerNo(), null);
 		this.add(getTxtSealNo(), null);
 		this.add(GUIHelper.getInstance().createTextLabel("RelCom:",
 				new java.awt.Rectangle(260, 110, 61, 21)), null);
 		this.add(getTxtRelCom(), null);
+		this.add(getTxtOtherSealNo(), null);
 		this.add(getTxtTareWeight(), null);
 		this.add(getCmbContainerType(), null);
 		this.add(getLstContainer(), null);
@@ -104,7 +109,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JTextField getTxtSealNo() {
 		if (txtSealNo == null) {
 			txtSealNo = new JTextField();
-			txtSealNo.setBounds(new java.awt.Rectangle(160, 50, 241, 21));
+			txtSealNo.setBounds(new java.awt.Rectangle(500, 20, 231, 21));
 		}
 		return txtSealNo;
 	}
@@ -120,11 +125,19 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JTextField getTxtTareWeight() {
 		if (txtTareWeight == null) {
 			txtTareWeight = new JTextField();
-			txtTareWeight.setBounds(new java.awt.Rectangle(500, 50, 231, 21));
+			txtTareWeight.setBounds(new java.awt.Rectangle(160, 50, 241, 21));
 		}
 		return txtTareWeight;
 	}
-
+	
+	private JTextField getTxtOtherSealNo() {
+		if (txtOtherSealNo == null) {
+			txtOtherSealNo = new JTextField();
+			txtOtherSealNo.setBounds(new java.awt.Rectangle(500, 50, 231, 21));
+		}
+		return txtOtherSealNo;
+	}
+	
 	private JSteppedComboBox getCmbContainerType() {
 		if (cmbContainerType == null) {
 			cmbContainerType = new JSteppedComboBox(ContainerTypeOperation
@@ -174,6 +187,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		container.setContainerType((ContainerType) cmbContainerType
 				.getSelectedItem());
 		container.setSealNo(txtSealNo.getText());
+		container.setOtherSealNo(txtOtherSealNo.getText());
 		container.setRelCom(Long.parseLong(txtRelCom.getText()));
 		container.setTaraWeight(Double.parseDouble(txtTareWeight.getText()));
 		container.setBlId(blId);
@@ -185,6 +199,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		txtContainerNo.setText(container.getContainerNo());
 		cmbContainerSize.setSelectedItem(container.getContainerSize());
 		cmbContainerType.setSelectedItem(container.getContainerType());
+		txtOtherSealNo.setText(container.getOtherSealNo());
 		txtSealNo.setText(container.getSealNo());
 		txtRelCom.setText(Long.toString(container.getRelCom()));
 		txtTareWeight.setText(Double.toString(container.getTaraWeight()));
