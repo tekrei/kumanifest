@@ -1,8 +1,8 @@
+#kumanifest nedir?
 = kumanifest nedir? =
 Belki de en kritik soru şu an bu. Nedir bu kumanifest? Ne işe yarar? Nereden çıkmıştır? Bu sayfada elden geldiğince bu sorulara cevap arayacağız.
 
 kumanifest, Kodveus' un  geliştirmekte olduğu;  özellikle konteyner taşımacılığı ile uğraşan firmaların ihtiyaç duyduğu yükleme girişlerinin yapılabilmesi, manifesto, yükleme ve boşaltma listeleri, konşimento gibi raporların hazırlanabilmesi ve gümrük tescil  işlemlerinin EDI dosyaları ile yapılabilmesini sağlayan  bir projedir.
-
 
 
 
