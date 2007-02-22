@@ -1,9 +1,8 @@
 #summary Kod ve Us Kimdir?
 
-= Introduction =
+= Biz Kimiz =
 
 Biz Ege Üniversitesi Bilgisayar Mühendisliğinde tanışan aynı şehirden çıkan iki kişiyiz. Lisans bittikten sonra biraz daha okumaya karar verdik ve Yüksek Lisansı aynı bölümde yaptık. Kafamızda sürekli bazı fikirler oluşuyordu, Serbest yazılıma iyice merak sarmıştık. 
 
 3. Sınıfta başlayan staj proje arkadaşlığı daha büyük projeler yapmak üzere evrimleşti. IBM Linux projesine katıldık ama bitiremedik. Daha sonra Yüksek lisans sürecinde kafamızdaki paylaşmak istediklerimizi paylaşmak için bir site kurduk. Ayrıca kafamızdaki bazı projeleri serbest yazılım olarak üretmeye karar verdik. Bu amaçla bir kaç yazılıma başladık. Yoğun geçen yaşamlarımızın bize verdiği az zamanda ortak bir şeyler yapmaya çalışırken sayımız arttı azaldı ama sürekli bir şeyler ürettik. Üretmeye de devam ediyoruz. İlk serbest yazılım projemizi internet üzerinden dağıtabildiğimiz zaman biz bütün emeklerimizin gerçekten bir işe yaradığını görmüş olacağız. Her ne kadar sitemiz sayesinde bu emeklerin boşa gitmediğini görsek te biz de bir şeyler başarıyoruz demek için bir projemizi internetten indirilebilir halde yayınlamaya ihtiyacımız var.
-
 
