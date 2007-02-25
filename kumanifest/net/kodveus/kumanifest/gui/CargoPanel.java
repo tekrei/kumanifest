@@ -64,8 +64,9 @@ public class CargoPanel extends JPanel {
 		containerId = _containerId;
 		cargoId = _cargoId;
 		containerPanel = _containerPanel;
-		loadToPanel((Cargo) CargoOperation.getInstance().get(cargoId));
 		initialize();
+		//FIX Once sahalar ilklenmeli daha sonra degerler yuklenmeli
+		loadToPanel((Cargo) CargoOperation.getInstance().get(cargoId));
 	}
 
 	public CargoPanel(ContainerPanel _containerPanel, Long _containerId) {
@@ -172,19 +173,26 @@ public class CargoPanel extends JPanel {
 			btnOk = new JButton();
 			btnOk.setBounds(new Rectangle(90, 220, 241, 21));
 			btnOk.setText("OK");
+			btnOk.setMnemonic('o');
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Cargo cargo = generateRecordFromGUI();
-					if (cargo.getCargoId() == null) {
-						CargoOperation.getInstance().create(cargo);
-					} else {
-						CargoOperation.getInstance().update(cargo);
-					}
-					containerPanel.loadCargos();
+					performOperation();
 				}
 			});
 		}
 		return btnOk;
+	}
+
+	private void performOperation() {
+		Cargo cargo = generateRecordFromGUI();
+		if (cargo.getCargoId() == null) {
+			CargoOperation.getInstance().create(cargo);
+		} else {
+			CargoOperation.getInstance().update(cargo);
+		}
+		containerPanel.loadCargos();
+		this.setVisible(false);
+		containerPanel.remove(this);
 	}
 
 	private JTextField getTxtUnno() {
@@ -212,11 +220,6 @@ public class CargoPanel extends JPanel {
 		return txtNetWeight;
 	}
 
-    /**
-     * This method initializes txtPackTotal	
-     * 	
-     * @return javax.swing.JTextField	
-     */
     private JTextField getTxtPackTotal() {
         if (txtPackTotal == null) {
             txtPackTotal = new JTextField();
