@@ -24,10 +24,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-import net.kodveus.kumanifest.gui.StartPanel;
-import net.kodveus.kumanifest.gui.RightPanel;
 import net.kodveus.kumanifest.gui.LeftPanel;
-import net.kodveus.kumanifest.jdo.BL;
+import net.kodveus.kumanifest.gui.RightPanel;
+import net.kodveus.kumanifest.gui.StartPanel;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
@@ -91,7 +90,7 @@ public class MainFrame extends JFrame {
 		new MainFrame();
 	}
 
-	public void loadBL(BL bl) {
-		pnlSag.loadBL(bl);
+	public void loadBL(Long id) {
+		pnlSag.loadBL(id);
 	}
 }
