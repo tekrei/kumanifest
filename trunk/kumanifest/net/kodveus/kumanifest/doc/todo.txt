@@ -34,7 +34,7 @@ BL eklemeden sonra sayfa temizlenmeli
 
 -(YAPILDI)Updatecargo calismiyor
 
--konteyner guncelleme isleminde hata
+-(DUZELTILDI)konteyner guncelleme isleminde hata (Aslinda yapiliyor ama execute komutunun ciktisi false oluyor :S Bunu incelemek lazim bl icin de boyle)
 
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
 
@@ -44,4 +44,4 @@ BL eklemeden sonra sayfa temizlenmeli
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
--About panelinde linklere tıklanınca a?�ılması yapılmalı
+-About panelinde linklere tıklanınca acilması yapılmalı
