@@ -74,8 +74,8 @@ public class ContainerOperation implements OperationInterface {
 				+ " otherSealNo = '" + container.getOtherSealNo() + "', "
 				+ " containerSize = "
 				+ container.getContainerSize().getContainerSizeId() + ","
-				+ " taraWeight = " + container.getTaraWeight() + ","
-				+ " status = " + container.getStatus() + " WHERE "
+				+ " status = " + container.getStatus()  + ","
+				+ " taraWeight = " + container.getTaraWeight()+ " WHERE "
 				+ "containerId = " + container.getContainerId();
 		try {
 			return DBManager.getInstance().execute(sql);
