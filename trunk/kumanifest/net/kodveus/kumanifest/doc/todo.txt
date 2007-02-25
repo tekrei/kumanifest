@@ -9,6 +9,10 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 -kumanifest.sql dosyasinda\
 1. check oiption lar kalkacak
 2. FK tanimlari da tekliye indirilecek
+3. AutoInceremt sahalar gelmiyor
+
+BL eklemeden sonra sayfa temizlenmeli
+-arka arkaya BL ekleme yapilamiyor
 
 -rapor ve clay vt goruntusunun guncellemeleri yapilacak
 
