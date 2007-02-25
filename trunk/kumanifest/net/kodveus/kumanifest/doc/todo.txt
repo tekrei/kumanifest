@@ -6,7 +6,9 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 -lisans ve a�klama �ste al�n�p kurulum a�amalar� linux ve windows i�in ayr� ayr� yap�lmal�
 -masaustu kisayollari olusturulacak
 
-
+-kumanifest.sql dosyasinda\
+1. check oiption lar kalkacak
+2. FK tanimlari da tekliye indirilecek
 
 -rapor ve clay vt goruntusunun guncellemeleri yapilacak
 
