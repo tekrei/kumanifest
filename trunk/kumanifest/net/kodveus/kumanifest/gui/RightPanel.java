@@ -10,6 +10,7 @@ import javax.swing.event.ChangeListener;
 import net.kodveus.kumanifest.MainFrame;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
+import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
 public class RightPanel extends JPanel {
@@ -76,8 +77,8 @@ public class RightPanel extends JPanel {
 			containerPanel.setBlId(blPanel.getSelectedBlId());
 		}
 	}
-	public void loadBL(BL bl) {
-		blPanel.loadToPanel(bl);
+	public void loadBL(Long blId) {
+		blPanel.loadToPanel((BL)BLOperation.getInstance().get(blId));
 		checkContainerTab();
 	}
 
