@@ -29,6 +29,8 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private AutoscrollableJTree tree;
 
+	DefaultMutableTreeNode zeroRoot;
+	
 	DefaultMutableTreeNode importRoot;
 
 	DefaultMutableTreeNode exportRoot;
@@ -67,12 +69,12 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private DefaultTreeModel getTreeModel() {
 		if (treeModel == null) {
-			DefaultMutableTreeNode root = new DefaultMutableTreeNode("BL");
+			zeroRoot = new DefaultMutableTreeNode("Kumanifest");
 			importRoot = new DefaultMutableTreeNode("IMPORT");
 			exportRoot = new DefaultMutableTreeNode("EXPORT");
-			root.add(importRoot);
-			root.add(exportRoot);
-			treeModel = new DefaultTreeModel(root);
+			zeroRoot.add(importRoot);
+			zeroRoot.add(exportRoot);
+			treeModel = new DefaultTreeModel(zeroRoot);
 		}
 		return treeModel;
 	}
@@ -94,7 +96,7 @@ public class TreeHelper implements TreeSelectionListener {
 					.nextElement()).getPath());
 			tree.expandPath(t);
 		}
-	}
+	}	
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
