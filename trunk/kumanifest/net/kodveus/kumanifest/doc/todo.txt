@@ -1,12 +1,12 @@
 KURULUM icin yapilacaklar
--windows icin bat dosyasindaki ayrac ; yapilacak
+-(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
 -windows icin turkce karakter destegi olmuyor
--mysql ve java baglantilari direk kurulum sayfalarina yapical, ek olarak yard�m sayfalarina
+-(YAPILDI)mysql ve java baglantilari direk kurulum sayfalarina yapilacak, ek olarak yardim sayfalarina
 baglanti verilecek yada kodveus ta anlatimi yapilacak
--lisans ve a�klama �ste al�n�p kurulum a�amalar� linux ve windows i�in ayr� ayr� yap�lmal�
+-lisans ve aciklama uste alinip kurulum asamalari linux ve windows icin ayri ayri yapilmali
 -masaustu kisayollari olusturulacak
 
--kumanifest.sql dosyasinda\
+-kumanifest.sql dosyasinda
 1. check oiption lar kalkacak
 2. FK tanimlari da tekliye indirilecek
 3. AutoInceremt sahalar gelmiyor
