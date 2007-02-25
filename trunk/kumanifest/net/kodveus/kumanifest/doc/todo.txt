@@ -1,3 +1,5 @@
+Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir mi?
+
 KURULUM icin yapilacaklar
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
 -windows icin turkce karakter destegi olmuyor
@@ -30,7 +32,7 @@ BL eklemeden sonra sayfa temizlenmeli
 
 -agacta tiklanan disindakiler collapse edilmeli
 
--Updatecargo calismiyor
+-(YAPILDI)Updatecargo calismiyor
 
 -konteyner guncelleme isleminde hata
 

@@ -319,7 +319,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnUpdateCargo.setMnemonic('u');
 			btnUpdateCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GUIHelper.getInstance().showPanel("New Cargo",
+					GUIHelper.getInstance().showPanel("Update Cargo",
 							new CargoPanel(self, containerId, cargoId));
 				}
 			});
