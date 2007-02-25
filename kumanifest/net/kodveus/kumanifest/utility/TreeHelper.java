@@ -97,6 +97,16 @@ public class TreeHelper implements TreeSelectionListener {
 			tree.expandPath(t);
 		}
 	}	
+	
+	private void collapseLeaf(DefaultMutableTreeNode root){
+		Enumeration<?> enumeration = root.depthFirstEnumeration();
+
+		for (; enumeration.hasMoreElements();) {
+			TreePath t = new TreePath(((DefaultMutableTreeNode)enumeration
+					.nextElement()).getPath());
+			tree.collapsePath(t);
+		}		
+	}
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
@@ -112,7 +122,7 @@ public class TreeHelper implements TreeSelectionListener {
 			updateVoyageLeaf(secilen);
 		} else if (userObject instanceof BL) {
 			blId = ((BL) userObject).getBlId();
-			_anaPencere.loadBL((BL) userObject);
+			_anaPencere.loadBL(blId);
 		} else {
 			if (userObject.toString().equals("EXPORT")) {
 				updateTypeLeaf(exportRoot);
