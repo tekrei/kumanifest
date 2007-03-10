@@ -215,4 +215,9 @@ public class TreeHelper implements TreeSelectionListener {
 	public Long getBLId() {
 		return blId;
 	}
+
+	public void updateTree() {
+		// TODO Agactaki tum acik dallari guncellemek lazim
+		
+	}
 }

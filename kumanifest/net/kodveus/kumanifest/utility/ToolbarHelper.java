@@ -111,5 +111,7 @@ public class ToolbarHelper implements ActionListener {
 		} else if (event.getActionCommand().equals("last")) {
 			toolbarInterface.last();
 		}
+		//Agaci guncelleyelim
+		TreeHelper.getInstance().updateTree();
 	}
 }
