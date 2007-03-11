@@ -5,6 +5,8 @@ Surum 0.95 gereksinimleri (Acil Isler)
 
 -BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
+-raporu kapatinca programda kapaniyor
+
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
 -raporlar kapaninca program kapaniyor
