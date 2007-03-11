@@ -12,6 +12,7 @@
 	<classpathentry kind="lib" path="lib/jr-bsh-compiler.jar"/>
 	<classpathentry kind="lib" path="lib/itext.jar"/>
 	<classpathentry kind="lib" path="lib/poi.jar"/>
-	<classpathentry kind="lib" path="lib/GUIAraclar.jar" sourcepath="/GUIAraclar/src"/>
+	<classpathentry sourcepath="/GUIAraclar/src" kind="lib" path="lib/GUIAraclar.jar"/>
+	<classpathentry kind="lib" path="/home/mehmetkis/workspace/kumanifest/lib/nimrodlf.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

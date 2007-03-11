@@ -23,12 +23,15 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
 import net.kodveus.kumanifest.gui.StartPanel;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
+
 
 public class MainFrame extends JFrame {
 
@@ -42,7 +45,7 @@ public class MainFrame extends JFrame {
 
 	private RightPanel pnlSag = null;
 
-	public MainFrame() {
+	public MainFrame(){
 		super();
 		if ((new StartPanel()).start()) {
 			initialize();
@@ -86,8 +89,35 @@ public class MainFrame extends JFrame {
 		return splPane;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		setUIType();
 		new MainFrame();
+	}
+	public static void setUIType() throws Exception
+	{		
+		UIManager.setLookAndFeel( new com.nilo.plaf.nimrod.NimRODLookAndFeel());
+		/*//veya
+		 * http://personales.ya.com/nimrod/faq-en.html
+		 NimRODTheme nt = new NimRODTheme();
+		nt.setPrimary1( new Color(10,10,10));
+		nt.setPrimary2( new Color(20,20,20));
+		nt.setPrimary3( new Color(30,30,30));
+
+		NimRODLookAndFeel NimRODLF = new NimRODLookAndFeel();
+		NimRODLF.setCurrentTheme( nt);
+		UIManager.setLookAndFeel( NimRODLF);*/
+		
+//		UIManager.setLookAndFeel(XPLookAndFeel.class.getName());
+		//UIManager.setLookAndFeel ("com.sun.java.swing.plaf.motif.MotifLookAndFeel" ) ;
+		/*LookAndFeel laf; 
+		laf = new NapkinLookAndFeel(); 
+		UIManager.setLookAndFeel(laf);	*/	
+//		 first tell SkinLF which theme to use
+        /*Skin theSkinToUse = SkinLookAndFeel.loadThemePack("themepack.zip");
+        SkinLookAndFeel.setSkin(theSkinToUse);
+
+        // finally set the Skin Look And Feel
+        UIManager.setLookAndFeel(new SkinLookAndFeel());*/
 	}
 
 	public void loadBL(Long id) {

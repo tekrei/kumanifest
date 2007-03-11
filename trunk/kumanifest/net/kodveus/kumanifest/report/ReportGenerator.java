@@ -31,7 +31,7 @@ public class ReportGenerator {
 
 	public void generateBillOfLading(HashMap<String,Object> map) throws Exception {
 		raporlama.createEmptyReport("billoflading/BillOfLading.jrxml");
-		map.put("REPORT_DIR", Reporting.rootPath + "billofloading/");
+		map.put("REPORT_DIR", Reporting.rootPath + "billoflading/");
 		exportReport(map);
 	}
 
