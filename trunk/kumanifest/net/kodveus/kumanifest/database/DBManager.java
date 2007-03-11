@@ -33,13 +33,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class DBManager {
 	public static final int MYSQL = 0;
 
 	public static final int ORACLE = 1;
 
 	public static final int OBDC = 2;
-
+	
 	private static DBManager _instance;
 
 	private String[] defaultSuruculer = { "com.mysql.jdbc.Driver",
@@ -125,7 +127,7 @@ public class DBManager {
 			conn = bh.baglantiAl();
 
 			PreparedStatement ps = conn.prepareStatement(sql);
-			System.out.println("executeUpdate:" + sql);
+			mesaj("executeUpdate:" + sql);
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -158,7 +160,7 @@ public class DBManager {
 			rs.next();
 			long key = rs.getLong(1);
 
-			System.out.println("insert:" + sql);
+			mesaj("insert:" + sql);
 			return key;
 
 		} catch (SQLException e) {
@@ -178,7 +180,7 @@ public class DBManager {
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			System.out.println("executeQuery:" + sql);
+			mesaj("executeQuery:" + sql);
 			return ps.executeQuery();
 		} catch (SQLException e) {
 			throw e;
@@ -187,6 +189,10 @@ public class DBManager {
 				bh.baglantiBirak(conn);
 			}
 		}
+	}
+	
+	private void mesaj(String str){
+		LogHelper.getInstance().bilgi(str);
 	}
 
 	public Connection getConnection() {

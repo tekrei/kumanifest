@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class KUMProperties extends java.util.Properties {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +20,7 @@ public class KUMProperties extends java.util.Properties {
 			load(new FileInputStream("vt.props"));
 			return true;
 		} catch (IOException e) {
-			System.out.println(e.toString());
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}

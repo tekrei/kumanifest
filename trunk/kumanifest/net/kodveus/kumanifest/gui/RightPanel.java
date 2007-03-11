@@ -11,6 +11,7 @@ import net.kodveus.kumanifest.MainFrame;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.operation.BLOperation;
+import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
 public class RightPanel extends JPanel {
@@ -73,7 +74,7 @@ public class RightPanel extends JPanel {
 	{
 //		 Eger container yukleniyorsa containerleri update edelim
 		if (tabPane.getSelectedComponent() == containerPanel) {
-			System.out.println("Containers loading for blId:"+blPanel.getSelectedBlId());
+			LogHelper.getInstance().bilgi("Containers loading for blId:"+blPanel.getSelectedBlId());
 			containerPanel.setBlId(blPanel.getSelectedBlId());
 		}
 	}

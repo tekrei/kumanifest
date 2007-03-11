@@ -5,6 +5,7 @@ import java.net.URL;
 import javax.swing.JApplet;
 import javax.swing.JOptionPane;
 
+import net.kodveus.kumanifest.utility.LogHelper;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -32,7 +33,7 @@ public class PrintReport extends JApplet {
 	public void init() {
 		String strUrl = getParameter("url");// JasperPrinti gonderecek olan
 		// metodun adresi
-		System.out.println("DEBUG URL:" + strUrl);
+		LogHelper.getInstance().bilgi("DEBUG URL:" + strUrl);
 		if (strUrl != null) {
 			try {
 				url = getURL(strUrl);

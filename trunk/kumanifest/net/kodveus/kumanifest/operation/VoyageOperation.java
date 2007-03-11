@@ -12,6 +12,7 @@ import net.kodveus.kumanifest.jdo.Office;
 import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.jdo.Voyage;
 import net.kodveus.kumanifest.utility.FormatHelper;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class VoyageOperation implements OperationInterface {
 
@@ -44,7 +45,6 @@ public class VoyageOperation implements OperationInterface {
 					+ FormatHelper.convertDate(voyage.getArrivalDate()) + "','"
 					+ FormatHelper.convertDate(voyage.getDepartureDate())
 					+ "','" + voyage.getNameOfCaptain() + "')";
-			System.out.println(sql);
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
