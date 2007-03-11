@@ -58,7 +58,7 @@ voyage.firstleavedport = location.locationId WHERE voyage.voyageid=$P{prmVoyageI
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="67"  isSplitAllowed="true" >
+			<band height="66"  isSplitAllowed="true" >
 				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="40"

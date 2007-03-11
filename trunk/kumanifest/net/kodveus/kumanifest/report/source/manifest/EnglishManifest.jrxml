@@ -169,7 +169,7 @@
 					<reportElement
 						x="58"
 						y="4"
-						width="592"
+						width="532"
 						height="79"
 						key="subreport-2"/>
 					<subreportParameter  name="prmVoyageId">
@@ -178,6 +178,19 @@
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<subreportExpression  class="java.lang.String"><![CDATA[$P{REPORT_DIR} + "EnglishManifest_srVesselDetails.jasper"]]></subreportExpression>
 				</subreport>
+				<staticText>
+					<reportElement
+						x="592"
+						y="8"
+						width="99"
+						height="28"
+						key="staticText-24"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[MANIFEST]]></text>
+				</staticText>
 			</band>
 		</pageHeader>
 		<columnHeader>
