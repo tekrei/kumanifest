@@ -1,16 +1,10 @@
 Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir mi?
 
-BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
+-BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
--kumanifest.sql dosyasinda
-1. check oiption lar kalkacak
-2. FK tanimlari da tekliye indirilecek
-3. AutoInceremt sahalar gelmiyor
+-paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
-BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont falan ekleniyor diye temizlemek isi zorlastirmaz mi?)
--arka arkaya BL ekleme yapilamiyor
-
--rapor ve clay vt goruntusunun guncellemeleri yapilacak
+-Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
 -customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
 
@@ -22,9 +16,15 @@ BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont fa
 
 -silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)
 
--paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
+-(DUZELTILDI)kumanifest.sql dosyasinda
+	1. check oiption lar kalkacak
+	2. FK tanimlari da tekliye indirilecek
+	3. AutoInceremt sahalar gelmiyor
 
--Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
+(KALDIRILDI)BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont falan ekleniyor diye temizlemek isi zorlastirmaz mi?)
+	-arka arkaya BL ekleme yapilamiyor
+
+-(YAPILDI)rapor ve clay vt goruntusunun guncellemeleri yapilacak
 
 -(YAPILDI)solda BL secilince BL bilgileri sag panele doldurulacak
 
