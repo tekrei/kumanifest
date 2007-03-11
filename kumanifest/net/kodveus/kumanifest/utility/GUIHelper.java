@@ -54,8 +54,8 @@ public class GUIHelper {
 		dialog.setSize(width, height);
 		dialog.setVisible(true);
 	}
-	
-	public JLabel createTextLabel(String label,java.awt.Rectangle bounds){
+
+	public JLabel createTextLabel(String label, java.awt.Rectangle bounds) {
 		JLabel jlabel = new JLabel(label);
 		jlabel.setBounds(bounds);
 		return jlabel;

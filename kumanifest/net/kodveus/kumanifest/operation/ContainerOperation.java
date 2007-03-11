@@ -39,8 +39,8 @@ public class ContainerOperation implements OperationInterface {
 					+ container.getSealNo() + "','"
 					+ container.getOtherSealNo() + "',"
 					+ container.getContainerSize().getContainerSizeId() + ","
-					+ container.getTaraWeight() + ","
-					+ container.getStatus()+ ")";
+					+ container.getTaraWeight() + "," + container.getStatus()
+					+ ")";
 
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
@@ -74,9 +74,9 @@ public class ContainerOperation implements OperationInterface {
 				+ " otherSealNo = '" + container.getOtherSealNo() + "', "
 				+ " containerSize = "
 				+ container.getContainerSize().getContainerSizeId() + ","
-				+ " status = " + container.getStatus()  + ","
-				+ " taraWeight = " + container.getTaraWeight()+ " WHERE "
-				+ "containerId = " + container.getContainerId();
+				+ " status = " + container.getStatus() + "," + " taraWeight = "
+				+ container.getTaraWeight() + " WHERE " + "containerId = "
+				+ container.getContainerId();
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {

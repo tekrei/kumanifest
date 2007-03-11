@@ -32,7 +32,6 @@ import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
-
 public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -45,11 +44,11 @@ public class MainFrame extends JFrame {
 
 	private RightPanel pnlSag = null;
 
-	public MainFrame(String logLevel){
+	public MainFrame(String logLevel) {
 		super();
-		if(logLevel.equalsIgnoreCase("debug")){
+		if (logLevel.equalsIgnoreCase("debug")) {
 			LogHelper.getInstance().infoLevel();
-		}else{
+		} else {
 			LogHelper.getInstance().severeLevel();
 		}
 		if ((new StartPanel()).start()) {
@@ -60,7 +59,8 @@ public class MainFrame extends JFrame {
 	private void initialize() {
 		this.setSize(1024, 768);
 		this.setTitle("KUManifest");
-		this.setIconImage(Toolkit.getDefaultToolkit().createImage("net/kodveus/kumanifest/images/rudder.png"));
+		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
+				"net/kodveus/kumanifest/images/rudder.png"));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(getJContentPane());
 		ToolbarHelper.getInstance().getRecordToolbar().add(
@@ -96,39 +96,40 @@ public class MainFrame extends JFrame {
 
 	public static void main(String[] args) throws Exception {
 		setUIType();
-		//Log seviyesi kontrolu
+		// Log seviyesi kontrolu
 		String level = "";
-		if(args.length>0){
+		if (args.length > 0) {
 			level = args[0];
 		}
 		new MainFrame(level);
 	}
-	
-	public static void setUIType() throws Exception
-	{		
-		UIManager.setLookAndFeel( new com.nilo.plaf.nimrod.NimRODLookAndFeel());
-		/*//veya
-		 * http://personales.ya.com/nimrod/faq-en.html
-		 NimRODTheme nt = new NimRODTheme();
-		nt.setPrimary1( new Color(10,10,10));
-		nt.setPrimary2( new Color(20,20,20));
-		nt.setPrimary3( new Color(30,30,30));
 
-		NimRODLookAndFeel NimRODLF = new NimRODLookAndFeel();
-		NimRODLF.setCurrentTheme( nt);
-		UIManager.setLookAndFeel( NimRODLF);*/
-		
-//		UIManager.setLookAndFeel(XPLookAndFeel.class.getName());
-		//UIManager.setLookAndFeel ("com.sun.java.swing.plaf.motif.MotifLookAndFeel" ) ;
-		/*LookAndFeel laf; 
-		laf = new NapkinLookAndFeel(); 
-		UIManager.setLookAndFeel(laf);	*/	
-//		 first tell SkinLF which theme to use
-        /*Skin theSkinToUse = SkinLookAndFeel.loadThemePack("themepack.zip");
-        SkinLookAndFeel.setSkin(theSkinToUse);
+	public static void setUIType() throws Exception {
+		UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
+		/*
+		 * //veya http://personales.ya.com/nimrod/faq-en.html NimRODTheme nt =
+		 * new NimRODTheme(); nt.setPrimary1( new Color(10,10,10));
+		 * nt.setPrimary2( new Color(20,20,20)); nt.setPrimary3( new
+		 * Color(30,30,30));
+		 * 
+		 * NimRODLookAndFeel NimRODLF = new NimRODLookAndFeel();
+		 * NimRODLF.setCurrentTheme( nt); UIManager.setLookAndFeel( NimRODLF);
+		 */
 
-        // finally set the Skin Look And Feel
-        UIManager.setLookAndFeel(new SkinLookAndFeel());*/
+		// UIManager.setLookAndFeel(XPLookAndFeel.class.getName());
+		// UIManager.setLookAndFeel
+		// ("com.sun.java.swing.plaf.motif.MotifLookAndFeel" ) ;
+		/*
+		 * LookAndFeel laf; laf = new NapkinLookAndFeel();
+		 * UIManager.setLookAndFeel(laf);
+		 */
+		// first tell SkinLF which theme to use
+		/*
+		 * Skin theSkinToUse = SkinLookAndFeel.loadThemePack("themepack.zip");
+		 * SkinLookAndFeel.setSkin(theSkinToUse);
+		 *  // finally set the Skin Look And Feel UIManager.setLookAndFeel(new
+		 * SkinLookAndFeel());
+		 */
 	}
 
 	public void loadBL(Long id) {

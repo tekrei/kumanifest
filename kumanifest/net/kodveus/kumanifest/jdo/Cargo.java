@@ -37,7 +37,7 @@ public class Cargo extends TemelVeriSinif {
 	private String unno;
 
 	private Double netWeight;
-	
+
 	private Double packTotal;
 
 	public Double getPackTotal() {
