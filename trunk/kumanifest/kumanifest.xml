@@ -10,14 +10,14 @@
     <javaversion>1.5</javaversion>
 </info>
 
-<guiprefs height="600" resizable="no" width="800">
-    <laf name="liquid">
-        <os family="unix" />
-    </laf>
-    <laf name="looks">
-        <os family="windows" />
-        <param name="variant" value="extwin" />
-    </laf>
+<guiprefs height="600" resizable="yes" width="800">
+	<modifier key="layoutAnchor" value="CENTER"/>
+	<modifier key="headingPanelCounter" value="progressbar"/>
+	<modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
+	<modifier key="allYGap" value="3"/>
+	<modifier key="paragraphYGap" value="10"/>	
+	<modifier key="filler1YGap" value="5"/>
+	<modifier key="filler3XGap" value="10"/>    
 </guiprefs>
 
 <variables>
@@ -34,8 +34,6 @@
     <langpack iso3="tur"/>
 </locale>
 
-<!--<native type="izpack" name="ShellLink.dll" os="windows"/>-->
-
 <resources>
     <res src="net/kodveus/kumanifest/doc/okubeni.html" id="HTMLInfoPanel.info"/>
     <res src="net/kodveus/kumanifest/doc/gpl.txt" id="LicencePanel.licence"/>
@@ -45,13 +43,13 @@
 </resources>
 
 <panels>
-    <panel classname="HelloPanel"/>
+    <panel classname="CheckedHelloPanel" />
     <panel classname="HTMLInfoPanel"/>
     <panel classname="LicencePanel"/>
-    <panel classname="PacksPanel"/>
     <panel classname="TargetPanel"/>
-	<panel classname="ShortcutPanel"/>
+    <panel classname="PacksPanel"/>
     <panel classname="InstallPanel"/>
+	<panel classname="ShortcutPanel"/>
     <panel classname="SimpleFinishPanel"/>
 </panels>
 
@@ -77,5 +75,11 @@
          <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
     </pack>
 </packs>
+
+<!-- The native libraries to add -->
+<!--<native type="izpack" name="ShellLink.dll"/>
+<native type="3rdparty" name="COIOSHelper.dll" stage="both">
+    <os family="windows"/>
+</native>-->
 
 </installation>
