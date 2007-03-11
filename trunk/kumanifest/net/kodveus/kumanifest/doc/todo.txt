@@ -14,8 +14,6 @@ BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont fa
 
 -customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
 
--(YAPILDI)solda BL secilince BL bilgileri sag panele doldurulacak
-
 -gemi kilitlemede status sahasi mi kullanilacak
 
 -Issued/Not Issued BLs
@@ -24,7 +22,13 @@ BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont fa
 
 -silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)
 
--agacta tiklanan disindakiler collapse edilmeli
+-paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
+
+-Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
+
+-(YAPILDI)solda BL secilince BL bilgileri sag panele doldurulacak
+
+-(YAPILDI)About panelinde linklere tıklanınca acilması yapılmalı
 
 -(YAPILDI)Updatecargo calismiyor
 
@@ -33,12 +37,6 @@ BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont fa
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
 
 -(YAPILDI)solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak 
-
--paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
-
--Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
-
--(YAPILDI)About panelinde linklere tıklanınca acilması yapılmalı
 
 KURULUM icin yapilacaklar
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
