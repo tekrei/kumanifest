@@ -11,14 +11,10 @@ import net.kodveus.kumanifest.MainFrame;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.operation.BLOperation;
-import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
 public class RightPanel extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JTabbedPane tabPane = null;
@@ -70,20 +66,24 @@ public class RightPanel extends JPanel {
 		return tabPane;
 	}
 
-	public void checkContainerTab()
-	{
-//		 Eger container yukleniyorsa containerleri update edelim
+	public void checkContainerTab() {
+		// Eger container yukleniyorsa containerleri update edelim
 		if (tabPane.getSelectedComponent() == containerPanel) {
-			LogHelper.getInstance().bilgi("Containers loading for blId:"+blPanel.getSelectedBlId());
-			containerPanel.setBlId(blPanel.getSelectedBlId());
+			if (blPanel.getSelectedBlId() != null) {
+				containerPanel.setBlId(blPanel.getSelectedBlId());
+			}else{
+				//Eger secili bir bl yoksa container paneli acilmasin
+				tabPane.setSelectedComponent(blPanel);
+			}
 		}
 	}
+
 	public void loadBL(Long blId) {
-		if(blId==null){
+		if (blId == null) {
 			blPanel.clear();
 			return;
 		}
-		blPanel.loadToPanel((BL)BLOperation.getInstance().get(blId));
+		blPanel.loadToPanel((BL) BLOperation.getInstance().get(blId));
 		checkContainerTab();
 	}
 

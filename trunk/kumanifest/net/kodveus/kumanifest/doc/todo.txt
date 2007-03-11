@@ -7,7 +7,7 @@ BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 2. FK tanimlari da tekliye indirilecek
 3. AutoInceremt sahalar gelmiyor
 
-BL eklemeden sonra sayfa temizlenmeli
+BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont falan ekleniyor diye temizlemek isi zorlastirmaz mi?)
 -arka arkaya BL ekleme yapilamiyor
 
 -rapor ve clay vt goruntusunun guncellemeleri yapilacak
