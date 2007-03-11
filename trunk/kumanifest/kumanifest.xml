@@ -6,7 +6,7 @@
     <authors>
         <author name="Kod ve Us" email="kodveus@gmail.com" />
     </authors>
-    <url>http://www.blogcu.com/kodveus</url>
+    <url>http://www.kodveus.com</url>
     <javaversion>1.5</javaversion>
 </info>
 
@@ -72,6 +72,7 @@
          <file src="net/kodveus/kumanifest/doc/okubeni.html" targetdir="$INSTALL_PATH/doc/"/>
          <file src="net/kodveus/kumanifest/doc/gpl.txt" targetdir="$INSTALL_PATH/doc/"/>
          <file src="net/kodveus/kumanifest/doc/gpl_tr.html" targetdir="$INSTALL_PATH/doc/"/>
+         <file src="net/kodveus/kumanifest/doc/NimRODLF_License.html" targetdir="$INSTALL_PATH/doc/"/>
          <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
          <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
     </pack>
