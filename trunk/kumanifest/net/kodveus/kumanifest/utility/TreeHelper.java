@@ -30,13 +30,13 @@ public class TreeHelper implements TreeSelectionListener {
 	private AutoscrollableJTree tree;
 
 	private DefaultMutableTreeNode zeroRoot;
-	
+
 	private DefaultMutableTreeNode importRoot;
 
 	private DefaultMutableTreeNode exportRoot;
 
 	private DefaultTreeModel treeModel;
-	
+
 	private DefaultMutableTreeNode selectedNode;
 
 	private MainFrame _anaPencere;
@@ -82,7 +82,7 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	public void valueChanged(TreeSelectionEvent e) {
-		try {			
+		try {
 			updateLeafs();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -94,20 +94,20 @@ public class TreeHelper implements TreeSelectionListener {
 		Enumeration<?> enumeration = root.depthFirstEnumeration();
 
 		for (; enumeration.hasMoreElements();) {
-			TreePath t = new TreePath(((DefaultMutableTreeNode)enumeration
+			TreePath t = new TreePath(((DefaultMutableTreeNode) enumeration
 					.nextElement()).getPath());
 			tree.expandPath(t);
 		}
-	}	
-	
-	private void collapseLeaf(DefaultMutableTreeNode root){
+	}
+
+	private void collapseLeaf(DefaultMutableTreeNode root) {
 		Enumeration<?> enumeration = root.depthFirstEnumeration();
 
 		for (; enumeration.hasMoreElements();) {
-			TreePath t = new TreePath(((DefaultMutableTreeNode)enumeration
+			TreePath t = new TreePath(((DefaultMutableTreeNode) enumeration
 					.nextElement()).getPath());
 			tree.collapsePath(t);
-		}		
+		}
 	}
 
 	private void updateLeafs() {

@@ -71,8 +71,8 @@ public class RightPanel extends JPanel {
 		if (tabPane.getSelectedComponent() == containerPanel) {
 			if (blPanel.getSelectedBlId() != null) {
 				containerPanel.setBlId(blPanel.getSelectedBlId());
-			}else{
-				//Eger secili bir bl yoksa container paneli acilmasin
+			} else {
+				// Eger secili bir bl yoksa container paneli acilmasin
 				tabPane.setSelectedComponent(blPanel);
 			}
 		}

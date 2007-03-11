@@ -35,7 +35,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JTextField txtRelCom = null;
 
 	private JTextField txtOtherSealNo = null;
-	
+
 	private JTextField txtTareWeight = null;
 
 	private JSteppedComboBox cmbContainerType = null;
@@ -129,7 +129,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		}
 		return txtTareWeight;
 	}
-	
+
 	private JTextField getTxtOtherSealNo() {
 		if (txtOtherSealNo == null) {
 			txtOtherSealNo = new JTextField();
@@ -137,7 +137,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		}
 		return txtOtherSealNo;
 	}
-	
+
 	private JSteppedComboBox getCmbContainerType() {
 		if (cmbContainerType == null) {
 			cmbContainerType = new JSteppedComboBox(ContainerTypeOperation
@@ -206,8 +206,8 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		blId = container.getBlId();
 		containerId = container.getContainerId();
 	}
-	
-	public void clear(){
+
+	public void clear() {
 		loadToPanel(new Container());
 	}
 

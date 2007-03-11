@@ -9,8 +9,8 @@ public interface OperationInterface {
 	public abstract long create(VeriSinif vs);
 
 	public abstract boolean delete(VeriSinif vs);
-	
-	//TODO public abstract boolean delete(Long id);
+
+	// TODO public abstract boolean delete(Long id);
 
 	public abstract boolean update(VeriSinif vs);
 

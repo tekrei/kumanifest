@@ -288,11 +288,11 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		cmbPlaceOfReceipt.setSelectedItem(bl.getPlaceOfReceipt());
 		txtShipper.setText(bl.getShipper());
 		cmbVoyage.setSelectedItem(bl.getVoyage());
-		LogHelper.getInstance().bilgi("bl.getBlId:"+bl.getBlId());
+		LogHelper.getInstance().bilgi("bl.getBlId:" + bl.getBlId());
 		id = bl.getBlId();
 	}
-	
-	public void clear(){
+
+	public void clear() {
 		loadToPanel(new BL());
 	}
 
@@ -313,7 +313,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	public void delete() {
 		if (BLOperation.getInstance().delete(generateRecordFromGUI())) {
 			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
-			//Silince ekrani temizleyelim
+			// Silince ekrani temizleyelim
 			clear();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");

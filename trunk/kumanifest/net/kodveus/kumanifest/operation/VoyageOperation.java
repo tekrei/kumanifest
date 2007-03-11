@@ -12,7 +12,6 @@ import net.kodveus.kumanifest.jdo.Office;
 import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.jdo.Voyage;
 import net.kodveus.kumanifest.utility.FormatHelper;
-import net.kodveus.kumanifest.utility.LogHelper;
 
 public class VoyageOperation implements OperationInterface {
 

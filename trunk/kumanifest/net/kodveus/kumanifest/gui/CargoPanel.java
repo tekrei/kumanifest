@@ -54,18 +54,18 @@ public class CargoPanel extends JPanel {
 
 	private ContainerPanel containerPanel;
 
-    private JLabel jLabel3 = null;
+	private JLabel jLabel3 = null;
 
-    private JTextField txtPackTotal = null;
+	private JTextField txtPackTotal = null;
 
-    public CargoPanel(ContainerPanel _containerPanel, Long _containerId,
+	public CargoPanel(ContainerPanel _containerPanel, Long _containerId,
 			Long _cargoId) {
 		super();
 		containerId = _containerId;
 		cargoId = _cargoId;
 		containerPanel = _containerPanel;
 		initialize();
-		//FIX Once sahalar ilklenmeli daha sonra degerler yuklenmeli
+		// FIX Once sahalar ilklenmeli daha sonra degerler yuklenmeli
 		loadToPanel((Cargo) CargoOperation.getInstance().get(cargoId));
 	}
 
@@ -79,7 +79,7 @@ public class CargoPanel extends JPanel {
 
 	private void initialize() {
 		jLabel3 = new JLabel();
-		jLabel3.setBounds(new java.awt.Rectangle(11,191,79,17));
+		jLabel3.setBounds(new java.awt.Rectangle(11, 191, 79, 17));
 		jLabel3.setText("Pack Total:");
 		jLabel112 = new JLabel();
 		jLabel112.setBounds(new Rectangle(10, 160, 81, 21));
@@ -152,7 +152,7 @@ public class CargoPanel extends JPanel {
 		cargo.setContainerId(containerId);
 		cargo.setImco(txtImco.getText());
 		cargo.setNetWeight(Double.parseDouble(txtNetWeight.getText()));
-        cargo.setPackTotal(Double.parseDouble(txtPackTotal.getText()));
+		cargo.setPackTotal(Double.parseDouble(txtPackTotal.getText()));
 		cargo.setPack((Pack) cmbPack.getSelectedItem());
 		cargo.setUnno(txtUnno.getText());
 		return cargo;
@@ -163,7 +163,7 @@ public class CargoPanel extends JPanel {
 		cmbCommodity.setSelectedItem(cargo.getCommodity());
 		txtImco.setText(cargo.getImco());
 		txtNetWeight.setText(Double.toString(cargo.getNetWeight()));
-        txtPackTotal.setText(Double.toString(cargo.getPackTotal()));
+		txtPackTotal.setText(Double.toString(cargo.getPackTotal()));
 		cmbPack.setSelectedItem(cargo.getPack());
 		txtUnno.setText(cargo.getUnno());
 	}
@@ -220,11 +220,11 @@ public class CargoPanel extends JPanel {
 		return txtNetWeight;
 	}
 
-    private JTextField getTxtPackTotal() {
-        if (txtPackTotal == null) {
-            txtPackTotal = new JTextField();
-            txtPackTotal.setBounds(new java.awt.Rectangle(100,190,291,21));
-        }
-        return txtPackTotal;
-    }
+	private JTextField getTxtPackTotal() {
+		if (txtPackTotal == null) {
+			txtPackTotal = new JTextField();
+			txtPackTotal.setBounds(new java.awt.Rectangle(100, 190, 291, 21));
+		}
+		return txtPackTotal;
+	}
 } // @jve:decl-index=0:visual-constraint="-17,-3"

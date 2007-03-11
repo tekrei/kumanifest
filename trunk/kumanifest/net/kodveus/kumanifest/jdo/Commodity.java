@@ -58,10 +58,11 @@ public class Commodity extends TemelVeriSinif {
 	public String toString() {
 		return code + " " + name;
 	}
-	
+
 	public boolean equals(Object object) {
 		try {
-			return ((Commodity) object).getCommodityId().equals(this.getCommodityId());
+			return ((Commodity) object).getCommodityId().equals(
+					this.getCommodityId());
 		} catch (Exception e) {
 			return false;
 		}

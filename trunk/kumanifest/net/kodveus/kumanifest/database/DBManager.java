@@ -41,7 +41,7 @@ public class DBManager {
 	public static final int ORACLE = 1;
 
 	public static final int OBDC = 2;
-	
+
 	private static DBManager _instance;
 
 	private String[] defaultSuruculer = { "com.mysql.jdbc.Driver",
@@ -190,8 +190,8 @@ public class DBManager {
 			}
 		}
 	}
-	
-	private void mesaj(String str){
+
+	private void mesaj(String str) {
 		LogHelper.getInstance().bilgi(str);
 	}
 

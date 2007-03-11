@@ -161,7 +161,7 @@ public class DatabaseConfiguration extends JDialog {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * This method initializes txtAdres
 	 * 
