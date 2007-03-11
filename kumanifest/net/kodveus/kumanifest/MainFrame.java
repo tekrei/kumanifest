@@ -28,6 +28,7 @@ import javax.swing.UIManager;
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
 import net.kodveus.kumanifest.gui.StartPanel;
+import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
@@ -44,8 +45,13 @@ public class MainFrame extends JFrame {
 
 	private RightPanel pnlSag = null;
 
-	public MainFrame(){
+	public MainFrame(String logLevel){
 		super();
+		if(logLevel.equalsIgnoreCase("debug")){
+			LogHelper.getInstance().infoLevel();
+		}else{
+			LogHelper.getInstance().severeLevel();
+		}
 		if ((new StartPanel()).start()) {
 			initialize();
 		}
@@ -90,8 +96,14 @@ public class MainFrame extends JFrame {
 
 	public static void main(String[] args) throws Exception {
 		setUIType();
-		new MainFrame();
+		//Log seviyesi kontrolu
+		String level = "";
+		if(args.length>0){
+			level = args[0];
+		}
+		new MainFrame(level);
 	}
+	
 	public static void setUIType() throws Exception
 	{		
 		UIManager.setLookAndFeel( new com.nilo.plaf.nimrod.NimRODLookAndFeel());

@@ -163,7 +163,6 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateVesselLeaf(DefaultMutableTreeNode root) {
 		// Secilen Vessel'in Voyage'larini dolduracagiz
-		System.out.println(((Office)((DefaultMutableTreeNode)root.getParent()).getUserObject()));
 		Long officeId = ((Office) ((DefaultMutableTreeNode) root.getParent())
 				.getUserObject()).getOfficeId();
 		Long vesselId = ((Vessel) root.getUserObject()).getVesselId();
@@ -198,7 +197,6 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	private int getIsExport(DefaultMutableTreeNode node) {
-		System.out.println("getIsExport Node:"+node);
 		if (node.getUserObject() != null
 				&& node.getUserObject() instanceof VeriSinif) {
 			return getIsExport((DefaultMutableTreeNode) node.getParent());

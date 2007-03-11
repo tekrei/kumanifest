@@ -161,24 +161,7 @@ public class DatabaseConfiguration extends JDialog {
 		}
 		return result;
 	}
-
-	/*
-	 * private void createDatabaseStructure(KUMProperties props) { try { //
-	 * Execute a command without arguments String command = "mysql -h " +
-	 * props.getProperty("adres") + " -u " + props.getProperty("kullanici") + "
-	 * -p" + props.getProperty("sifre") + " " + props.getProperty("vtAdi") + " <
-	 * kumanifest.sql"; System.out.println("command:"+command); Process proc =
-	 * Runtime.getRuntime().exec(command); BufferedReader br = new
-	 * BufferedReader(new InputStreamReader(proc.getErrorStream())); String line =
-	 * null; System.out.println("<ERROR>"); while ( (line = br.readLine()) !=
-	 * null) System.out.println(line); System.out.println("</ERROR>"); br = new
-	 * BufferedReader(new InputStreamReader(proc.getInputStream()));
-	 * System.out.println("<OUTPUT>"); while ( (line = br.readLine()) != null)
-	 * System.out.println(line); System.out.println("</OUTPUT>");
-	 * System.out.println("Process exitValue: " + proc.waitFor());
-	 *  } catch (Exception e) { e.printStackTrace(); } }
-	 */
-
+	
 	/**
 	 * This method initializes txtAdres
 	 * 
