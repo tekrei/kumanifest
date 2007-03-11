@@ -125,7 +125,7 @@ public class AboutPanel extends JDialog implements HyperlinkListener {
 			+ "&nbsp;&nbsp;&#169; 2006 by <a href=http://www.kodveus.com>Kod ve Us</a></center><br>"
 			+ "<br>Credits:<A HREF=\"mailto:tekrei@gmail.com\">Tahir Emre KALAYCI</A> "
 			+ "<A HREF=\"mailto:mehmet.kis@gmail.com\">Mehmet KIŞ</A><br></center>"
-			+ "Reports: <a href=\"http://www.izforge.com/izpack/\">JasperReports and IReport designer</a><br>"
+			+ "Reports: <a href=\"http://www.jasperforge.org\">JasperReports and IReport designer</a><br>"
 			+ "Database: <a href=\"http://www.mysql.com\">MySQL</a><br>"
 			+ "Installer: <a href=\"http://www.izforge.com/izpack/\">IzPack</a><br>"
 			+ "UI: <a href=\"http://personales.ya.com/nimrod/index-en.html\">Nimrod</a><br>"
