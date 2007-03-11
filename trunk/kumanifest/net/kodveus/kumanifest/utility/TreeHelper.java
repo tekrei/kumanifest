@@ -80,7 +80,7 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	public void valueChanged(TreeSelectionEvent e) {
-		try {
+		try {			
 			updateLeafs();
 		} catch (Exception ex) {
 			ex.printStackTrace();
