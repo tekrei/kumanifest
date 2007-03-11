@@ -1,12 +1,6 @@
 Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir mi?
 
-KURULUM icin yapilacaklar
--(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
--windows icin turkce karakter destegi olmuyor
--(YAPILDI)mysql ve java baglantilari direk kurulum sayfalarina yapilacak, ek olarak yardim sayfalarina
-baglanti verilecek yada kodveus ta anlatimi yapilacak
--lisans ve aciklama uste alinip kurulum asamalari linux ve windows icin ayri ayri yapilmali
--masaustu kisayollari olusturulacak
+BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
 -kumanifest.sql dosyasinda
 1. check oiption lar kalkacak
@@ -45,3 +39,11 @@ BL eklemeden sonra sayfa temizlenmeli
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
 -About panelinde linklere tıklanınca acilması yapılmalı
+
+KURULUM icin yapilacaklar
+-(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
+-windows icin turkce karakter destegi olmuyor
+-(YAPILDI)mysql ve java baglantilari direk kurulum sayfalarina yapilacak, ek olarak yardim sayfalarina
+baglanti verilecek yada kodveus ta anlatimi yapilacak
+-lisans ve aciklama uste alinip kurulum asamalari linux ve windows icin ayri ayri yapilmali
+-masaustu kisayollari olusturulacak

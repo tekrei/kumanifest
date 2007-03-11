@@ -29,6 +29,9 @@
 	<parameter name="REPORT_DIR" isForPrompting="false" class="java.lang.String">
 		<defaultValueExpression ><![CDATA["/home/mehmetkis/workspace/kumanifest/net/kodveus/kumanifest/report/source/billoflading/"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_DIR" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["/home/mehmetkis/workspace/kumanifest/net/kodveus/kumanifest/report/source/billoflading/"]]></defaultValueExpression>
+	</parameter>
 	<queryString><![CDATA[SELECT * FROM `vwboflading`]]></queryString>
 
 	<field name="blid" class="java.lang.Long"/>
@@ -712,7 +715,7 @@
 						<subreportParameterExpression><![CDATA[$F{blid}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression  class="java.lang.String"><![CDATA["BillOfLading_srContCount.jasper"]]></subreportExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{REPORT_DIR} +"BillOfLading_srContCount.jasper"]]></subreportExpression>
 				</subreport>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
