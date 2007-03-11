@@ -35,8 +35,8 @@
 </locale>
 
 <resources>
-    <res src="net/kodveus/kumanifest/doc/okubeni.html" id="HTMLInfoPanel.info"/>
-    <res src="net/kodveus/kumanifest/doc/gpl.txt" id="LicencePanel.licence"/>
+    <res src="doc/okubeni.html" id="HTMLInfoPanel.info"/>
+    <res src="legal/gpl.txt" id="LicencePanel.licence"/>
     <res src="net/kodveus/kumanifest/images/kvu.gif" id="installer.langsel.img"/>
 	<res src="shortcutSpec.xml" id="shortcutSpec.xml" />
     <res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml" />
@@ -61,16 +61,14 @@
            <include name="lib/*.jar" />
            <include name="net/kodveus/kumanifest/report/source/**/*.jrxml" />
            <include name="net/kodveus/kumanifest/images/*.*" />
+         	<include name="legal/*.*"/>
+         	<include name="doc/*.*"/>
          </fileset>
          <file src="net/kodveus/kumanifest/script/calistir.sh" os="unix" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/script/dbkurulum.sh" os="unix" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/script/calistir.bat" os="windows" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/script/dbkurulum.bat" os="windows" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/database/kumanifest.sql" targetdir="$INSTALL_PATH/"/>
-         <file src="net/kodveus/kumanifest/doc/okubeni.html" targetdir="$INSTALL_PATH/doc/"/>
-         <file src="net/kodveus/kumanifest/doc/gpl.txt" targetdir="$INSTALL_PATH/doc/"/>
-         <file src="net/kodveus/kumanifest/doc/gpl_tr.html" targetdir="$INSTALL_PATH/doc/"/>
-         <file src="net/kodveus/kumanifest/doc/NimRODLF_License.html" targetdir="$INSTALL_PATH/doc/"/>
          <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
          <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
     </pack>

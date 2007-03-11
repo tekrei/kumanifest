@@ -130,7 +130,7 @@ public class AboutPanel extends JDialog implements HyperlinkListener {
 			+ "Installer: <a href=\"http://www.izforge.com/izpack/\">IzPack</a><br>"
 			+ "UI: <a href=\"http://personales.ya.com/nimrod/index-en.html\">Nimrod</a><br>"
 			+ "</font><br>"
-			+ "(Please check doc folder for license files)"
+			+ "(Please check legal folder for license files)"
 			+ "<pre>This program is free software; you can redistribute it and/or modify\n"
 			+ "it under the terms of the GNU General Public License as published by\n"
 			+ "the Free Software Foundation; either version 2 of the License, or\n"
