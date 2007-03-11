@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class DatabaseConfiguration extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -157,7 +159,7 @@ public class DatabaseConfiguration extends JDialog {
 			DBManager.check(props);
 			result = true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return result;
 	}

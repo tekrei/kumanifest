@@ -1,6 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
 import net.kodveus.gui.araclar.AliasMap;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class Cargo extends TemelVeriSinif {
 
@@ -18,7 +19,7 @@ public class Cargo extends TemelVeriSinif {
 			aliasMap.addAlias("NetWeight", "netWeight");
 			aliasMap.addAlias("Pack Total", "packTotal");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 

@@ -1,5 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class Commodity extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -51,7 +53,7 @@ public class Commodity extends TemelVeriSinif {
 			aliasMap.addAlias("Name", "name");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 

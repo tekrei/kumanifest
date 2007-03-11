@@ -4,6 +4,8 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class ContainerSize extends TemelVeriSinif {
 
 	/**
@@ -47,7 +49,7 @@ public class ContainerSize extends TemelVeriSinif {
 			aliasMap.addAlias("Size", "size");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 
@@ -60,7 +62,6 @@ public class ContainerSize extends TemelVeriSinif {
 			return ((ContainerSize) object).getContainerSizeId().equals(
 					this.containerSizeId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

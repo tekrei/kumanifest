@@ -42,11 +42,6 @@ public class RightPanel extends JPanel {
 		this.add(getTabPane(), java.awt.BorderLayout.CENTER);
 	}
 
-	/**
-	 * This method initializes jTabbedPane
-	 * 
-	 * @return javax.swing.JTabbedPane
-	 */
 	private JTabbedPane getTabPane() {
 		if (tabPane == null) {
 			tabPane = new JTabbedPane();
@@ -81,6 +76,7 @@ public class RightPanel extends JPanel {
 	public void loadBL(Long blId) {
 		if (blId == null) {
 			blPanel.clear();
+			checkContainerTab();
 			return;
 		}
 		blPanel.loadToPanel((BL) BLOperation.getInstance().get(blId));

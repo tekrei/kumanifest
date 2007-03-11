@@ -4,6 +4,8 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class ContainerType extends TemelVeriSinif {
 
 	/**
@@ -47,7 +49,7 @@ public class ContainerType extends TemelVeriSinif {
 			aliasMap.addAlias("Type", "type");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 
@@ -60,7 +62,6 @@ public class ContainerType extends TemelVeriSinif {
 			return ((ContainerType) object).getContainerTypeId().equals(
 					this.containerTypeId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

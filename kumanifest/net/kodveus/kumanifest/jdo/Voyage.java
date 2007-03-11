@@ -141,7 +141,6 @@ public class Voyage extends TemelVeriSinif {
 		try {
 			return ((Voyage) object).getVoyageId().equals(this.voyageId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}
