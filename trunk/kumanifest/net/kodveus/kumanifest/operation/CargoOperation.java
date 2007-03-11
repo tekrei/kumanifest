@@ -10,6 +10,7 @@ import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Cargo;
 import net.kodveus.kumanifest.jdo.Commodity;
 import net.kodveus.kumanifest.jdo.Pack;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class CargoOperation implements OperationInterface {
 
@@ -53,7 +54,7 @@ public class CargoOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 
@@ -71,7 +72,7 @@ public class CargoOperation implements OperationInterface {
 			return DBManager.getInstance().executeUpdate(sql);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -90,7 +91,7 @@ public class CargoOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -148,7 +149,7 @@ public class CargoOperation implements OperationInterface {
 				al.add(cargo);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -166,7 +167,7 @@ public class CargoOperation implements OperationInterface {
 				rsToCargo(rs, cargo);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			cargo = null;
 		}
 		return cargo;
@@ -185,7 +186,7 @@ public class CargoOperation implements OperationInterface {
 				rsToCargo(rs, cargo);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			cargo = null;
 		}
 		return cargo;

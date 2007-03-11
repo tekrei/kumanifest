@@ -11,6 +11,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Country;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class CountryOperation implements OperationInterface {
 
@@ -34,7 +35,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCode() + "', '" + country.getName() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -46,7 +47,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCountryId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -59,7 +60,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCountryId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -85,7 +86,7 @@ public class CountryOperation implements OperationInterface {
 				al.add(country);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -115,7 +116,7 @@ public class CountryOperation implements OperationInterface {
 			}
 			return country;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			country = null;
 		}
 		return country;
@@ -134,7 +135,7 @@ public class CountryOperation implements OperationInterface {
 				rsToCountry(rs, country);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			country = null;
 		}
 		return country;

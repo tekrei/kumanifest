@@ -10,6 +10,7 @@ import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Country;
 import net.kodveus.kumanifest.jdo.Location;
 import net.kodveus.kumanifest.jdo.Vessel;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class VesselOperation implements OperationInterface {
 
@@ -42,7 +43,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getPort().getLocationId() + ")";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -54,7 +55,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getVesselId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -72,7 +73,7 @@ public class VesselOperation implements OperationInterface {
 					+ " vesselId = " + vessel.getVesselId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -130,7 +131,7 @@ public class VesselOperation implements OperationInterface {
 
 			select(al, sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -171,7 +172,7 @@ public class VesselOperation implements OperationInterface {
 					+ " AND officeId=" + officeId + ")";
 			select(al, sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}

@@ -7,6 +7,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Location;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class LocationOperation implements OperationInterface {
 
@@ -31,7 +32,7 @@ public class LocationOperation implements OperationInterface {
 					+ "', '" + location.getCode() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -43,7 +44,7 @@ public class LocationOperation implements OperationInterface {
 					+ location.getLocationId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -57,7 +58,7 @@ public class LocationOperation implements OperationInterface {
 					+ "' WHERE locationId=" + location.getLocationId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -92,7 +93,7 @@ public class LocationOperation implements OperationInterface {
 				al.add(location);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -122,7 +123,7 @@ public class LocationOperation implements OperationInterface {
 			}
 			return location;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			location = null;
 		}
 		return location;
@@ -141,7 +142,7 @@ public class LocationOperation implements OperationInterface {
 				rsToLocation(rs, location);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			location = null;
 		}
 		return location;

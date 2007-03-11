@@ -10,6 +10,7 @@ import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Container;
 import net.kodveus.kumanifest.jdo.ContainerSize;
 import net.kodveus.kumanifest.jdo.ContainerType;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class ContainerOperation implements OperationInterface {
 
@@ -44,7 +45,7 @@ public class ContainerOperation implements OperationInterface {
 
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 
@@ -57,7 +58,7 @@ public class ContainerOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -80,7 +81,7 @@ public class ContainerOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -162,7 +163,7 @@ public class ContainerOperation implements OperationInterface {
 			}
 			select(al, sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -180,7 +181,7 @@ public class ContainerOperation implements OperationInterface {
 				rsToContainer(rs, container);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			container = null;
 		}
 		return container;
@@ -199,7 +200,7 @@ public class ContainerOperation implements OperationInterface {
 				rsToContainer(rs, container);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			container = null;
 		}
 		return container;
