@@ -1,5 +1,5 @@
 <project name="kumanifest" default="clean" basedir=".">
-	<taskdef name="izpack" classpath="/home/emre/programlar/IzPack/lib/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
+	<taskdef name="izpack" classpath="/home/emre/programlar/izpack/lib/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
 
 
 	<property name="build" location="bin" />
