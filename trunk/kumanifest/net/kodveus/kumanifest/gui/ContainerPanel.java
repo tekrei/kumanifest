@@ -332,11 +332,15 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	public void setBlId(Long selectedBlId) {
+		//Detay ekrani temizlensin
+		clear();
 		blId = selectedBlId;
 		Container container = new Container();
 		container.setBlId(selectedBlId);
 		lstContainer.listeGuncelle(ContainerOperation.getInstance().ara(
 				container));
+		//Container'in kargolari yuklensin
+		loadCargos();
 		this.updateUI();
 	}
 

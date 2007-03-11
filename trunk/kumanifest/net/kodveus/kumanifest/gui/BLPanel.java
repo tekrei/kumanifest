@@ -16,7 +16,6 @@ import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
-import net.kodveus.kumanifest.utility.LogHelper;
 
 public class BLPanel extends JPanel implements ToolbarInterface {
 
@@ -288,16 +287,12 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		cmbPlaceOfReceipt.setSelectedItem(bl.getPlaceOfReceipt());
 		txtShipper.setText(bl.getShipper());
 		cmbVoyage.setSelectedItem(bl.getVoyage());
-		LogHelper.getInstance().bilgi("bl.getBlId:" + bl.getBlId());
 		id = bl.getBlId();
 	}
 
 	public void clear() {
-		loadToPanel(new BL());
+		loadToPanel(new BL());		
 	}
-
-	// TODO Bu metodlar toolbara tiklaninca yapilacak islemleri panel bazli
-	// olarak gerceklestirmeli
 
 	public void add() {
 		BL bl = generateRecordFromGUI();

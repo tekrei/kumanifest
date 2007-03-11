@@ -84,6 +84,7 @@ public class RightPanel extends JPanel {
 			return;
 		}
 		blPanel.loadToPanel((BL) BLOperation.getInstance().get(blId));
+		//Container panel bosaltilmali
 		checkContainerTab();
 	}
 
