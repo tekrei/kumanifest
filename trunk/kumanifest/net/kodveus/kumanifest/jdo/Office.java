@@ -1,5 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class Office extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -51,7 +53,7 @@ public class Office extends TemelVeriSinif {
 			aliasMap.addAlias("Description", "description");
 			aliasMap.addAlias("Code", "code");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 
@@ -63,7 +65,6 @@ public class Office extends TemelVeriSinif {
 		try {
 			return ((Office) object).getOfficeId().equals(this.officeId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

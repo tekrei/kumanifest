@@ -4,6 +4,8 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class Country extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class Country extends TemelVeriSinif {
 			aliasMap.addAlias("Code", "code");
 			aliasMap.addAlias("Name", "name");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 
@@ -56,7 +58,6 @@ public class Country extends TemelVeriSinif {
 		try {
 			return ((Country) object).getCountryId().equals(this.countryId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

@@ -199,7 +199,6 @@ public class BL extends TemelVeriSinif {
 		try {
 			return ((BL) object).getBlId().equals(this.blId);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 	}

@@ -1,5 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class Container extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -15,7 +17,7 @@ public class Container extends TemelVeriSinif {
 			aliasMap.addAlias("RelCom", "relCom");
 			aliasMap.addAlias("Tara Weight", "taraWeight");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 

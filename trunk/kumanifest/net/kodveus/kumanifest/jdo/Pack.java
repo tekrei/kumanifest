@@ -1,5 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class Pack extends TemelVeriSinif {
 
 	/**
@@ -43,7 +45,7 @@ public class Pack extends TemelVeriSinif {
 			aliasMap.addAlias("Type", "type");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 

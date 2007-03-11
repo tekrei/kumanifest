@@ -1,6 +1,7 @@
 package net.kodveus.kumanifest.jdo;
 
 import net.kodveus.gui.araclar.AliasMap;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class Location extends TemelVeriSinif {
 
@@ -54,7 +55,7 @@ public class Location extends TemelVeriSinif {
 			aliasMap.addAlias("Port", "isport");
 			aliasMap.addAlias("Code", "code");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 	}
 

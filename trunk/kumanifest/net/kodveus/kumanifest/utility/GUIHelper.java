@@ -32,7 +32,7 @@ public class GUIHelper {
 					RESIM_KONUM + imageName);
 			return new ImageIcon(image);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return null;
 		}
 	}

@@ -1,8 +1,18 @@
 Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir mi?
 
+Surum 0.95 gereksinimleri (Acil Isler)
+--------------------------
+
 -BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
+
+-raporlar kapaninca program kapaniyor
+
+-kutuphaneler son surume guncellenmeli
+
+Sonraki surum gereksinimleri
+------------------------------
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
