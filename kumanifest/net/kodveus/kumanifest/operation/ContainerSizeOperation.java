@@ -11,6 +11,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.ContainerSize;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class ContainerSizeOperation implements OperationInterface {
 
@@ -35,7 +36,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -47,7 +48,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getContainerSizeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -62,7 +63,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getContainerSizeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -90,7 +91,7 @@ public class ContainerSizeOperation implements OperationInterface {
 				al.add(containerSize);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -120,7 +121,7 @@ public class ContainerSizeOperation implements OperationInterface {
 			}
 			return containerSize;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			containerSize = null;
 		}
 		return containerSize;
@@ -139,7 +140,7 @@ public class ContainerSizeOperation implements OperationInterface {
 				rsToContainerSize(rs, containerSize);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			containerSize = null;
 		}
 		return containerSize;

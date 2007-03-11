@@ -7,6 +7,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Office;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class OfficeOperation implements OperationInterface {
 
@@ -33,7 +34,7 @@ public class OfficeOperation implements OperationInterface {
 					+ "', '" + office.getCode() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -45,7 +46,7 @@ public class OfficeOperation implements OperationInterface {
 					+ office.getOfficeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -59,7 +60,7 @@ public class OfficeOperation implements OperationInterface {
 					+ office.getOfficeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -88,7 +89,7 @@ public class OfficeOperation implements OperationInterface {
 				al.add(office);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -118,7 +119,7 @@ public class OfficeOperation implements OperationInterface {
 			}
 			return office;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			office = null;
 		}
 		return office;
@@ -137,7 +138,7 @@ public class OfficeOperation implements OperationInterface {
 				rsToOffice(rs, office);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			office = null;
 		}
 		return office;

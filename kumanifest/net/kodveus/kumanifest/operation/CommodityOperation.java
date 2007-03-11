@@ -7,6 +7,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Commodity;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class CommodityOperation extends Operation implements OperationInterface {
 
@@ -33,7 +34,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 					+ "', '" + commodity.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -47,7 +48,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 			String sql = "DELETE FROM commodity WHERE commodityId=" + id;
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -61,7 +62,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 					+ commodity.getCommodityId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -98,7 +99,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 				al.add(commodity);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public abstract class Operation {
 
@@ -24,7 +25,7 @@ public abstract class Operation {
 			}
 			return vs;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return null;
 		}
 	}
@@ -39,7 +40,7 @@ public abstract class Operation {
 			}
 			return vs;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return null;
 		}
 	}

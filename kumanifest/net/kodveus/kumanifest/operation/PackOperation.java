@@ -7,6 +7,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Pack;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class PackOperation implements OperationInterface {
 
@@ -30,7 +31,7 @@ public class PackOperation implements OperationInterface {
 					+ pack.getType() + "', '" + pack.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -41,7 +42,7 @@ public class PackOperation implements OperationInterface {
 			String sql = "DELETE FROM pack WHERE packId=" + pack.getPackId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -54,7 +55,7 @@ public class PackOperation implements OperationInterface {
 					+ "' WHERE packId=" + pack.getPackId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -80,7 +81,7 @@ public class PackOperation implements OperationInterface {
 				al.add(pack);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -110,7 +111,7 @@ public class PackOperation implements OperationInterface {
 			}
 			return pack;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			pack = null;
 		}
 		return pack;
@@ -129,7 +130,7 @@ public class PackOperation implements OperationInterface {
 				rsToPack(rs, pack);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			pack = null;
 		}
 		return pack;

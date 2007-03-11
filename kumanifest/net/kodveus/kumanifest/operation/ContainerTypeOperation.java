@@ -11,6 +11,7 @@ import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.ContainerType;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class ContainerTypeOperation implements OperationInterface {
 
@@ -35,7 +36,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 	}
@@ -47,7 +48,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getContainerTypeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -62,7 +63,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getContainerTypeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -90,7 +91,7 @@ public class ContainerTypeOperation implements OperationInterface {
 				al.add(containerType);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
@@ -120,7 +121,7 @@ public class ContainerTypeOperation implements OperationInterface {
 			}
 			return containerType;
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			containerType = null;
 		}
 		return containerType;
@@ -139,7 +140,7 @@ public class ContainerTypeOperation implements OperationInterface {
 				rsToContainerType(rs, containerType);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			containerType = null;
 		}
 		return containerType;

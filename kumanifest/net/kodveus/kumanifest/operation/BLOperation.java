@@ -10,6 +10,7 @@ import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.jdo.Location;
 import net.kodveus.kumanifest.jdo.Voyage;
+import net.kodveus.kumanifest.utility.LogHelper;
 
 public class BLOperation extends Operation implements OperationInterface {
 
@@ -49,7 +50,7 @@ public class BLOperation extends Operation implements OperationInterface {
 		try {
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return 0;
 		}
 
@@ -71,7 +72,7 @@ public class BLOperation extends Operation implements OperationInterface {
 			return DBManager.getInstance().executeUpdate(sql);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -128,7 +129,7 @@ public class BLOperation extends Operation implements OperationInterface {
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 			return false;
 		}
 	}
@@ -213,7 +214,7 @@ public class BLOperation extends Operation implements OperationInterface {
 
 			select(al, sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogHelper.getInstance().istisna(e);
 		}
 		return al;
 	}
