@@ -206,6 +206,10 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		blId = container.getBlId();
 		containerId = container.getContainerId();
 	}
+	
+	public void clear(){
+		loadToPanel(new Container());
+	}
 
 	public void add() {
 		Container container = generateRecordFromGUI();

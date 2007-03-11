@@ -78,6 +78,10 @@ public class RightPanel extends JPanel {
 		}
 	}
 	public void loadBL(Long blId) {
+		if(blId==null){
+			blPanel.clear();
+			return;
+		}
 		blPanel.loadToPanel((BL)BLOperation.getInstance().get(blId));
 		checkContainerTab();
 	}

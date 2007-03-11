@@ -29,13 +29,15 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private AutoscrollableJTree tree;
 
-	DefaultMutableTreeNode zeroRoot;
+	private DefaultMutableTreeNode zeroRoot;
 	
-	DefaultMutableTreeNode importRoot;
+	private DefaultMutableTreeNode importRoot;
 
-	DefaultMutableTreeNode exportRoot;
+	private DefaultMutableTreeNode exportRoot;
 
 	private DefaultTreeModel treeModel;
+	
+	private DefaultMutableTreeNode selectedNode;
 
 	private MainFrame _anaPencere;
 
@@ -110,16 +112,17 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
-		DefaultMutableTreeNode secilen = (DefaultMutableTreeNode) tree
+		selectedNode = (DefaultMutableTreeNode) tree
 				.getLastSelectedPathComponent();
-		Object userObject = secilen.getUserObject();
+		Object userObject = selectedNode.getUserObject();
+		_anaPencere.loadBL(null);
 		if (userObject instanceof Office) {
-			updateOfficeLeaf(secilen);
+			updateOfficeLeaf(selectedNode);
 		} else if (userObject instanceof Vessel) {
-			updateVesselLeaf(secilen);
+			updateVesselLeaf(selectedNode);
 		} else if (userObject instanceof Voyage) {
 			voyageId = ((Voyage) userObject).getVoyageId();
-			updateVoyageLeaf(secilen);
+			updateVoyageLeaf(selectedNode);
 		} else if (userObject instanceof BL) {
 			blId = ((BL) userObject).getBlId();
 			_anaPencere.loadBL(blId);
@@ -160,6 +163,7 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateVesselLeaf(DefaultMutableTreeNode root) {
 		// Secilen Vessel'in Voyage'larini dolduracagiz
+		System.out.println(((Office)((DefaultMutableTreeNode)root.getParent()).getUserObject()));
 		Long officeId = ((Office) ((DefaultMutableTreeNode) root.getParent())
 				.getUserObject()).getOfficeId();
 		Long vesselId = ((Vessel) root.getUserObject()).getVesselId();
@@ -194,6 +198,7 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	private int getIsExport(DefaultMutableTreeNode node) {
+		System.out.println("getIsExport Node:"+node);
 		if (node.getUserObject() != null
 				&& node.getUserObject() instanceof VeriSinif) {
 			return getIsExport((DefaultMutableTreeNode) node.getParent());
@@ -217,7 +222,7 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	public void updateTree() {
-		// TODO Agactaki tum acik dallari guncellemek lazim
-		
+		// TODO Agactaki tum acik bl dallari guncellemek lazim
+		updateLeafs();
 	}
 }

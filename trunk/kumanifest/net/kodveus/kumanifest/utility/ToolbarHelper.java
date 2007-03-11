@@ -43,6 +43,7 @@ public class ToolbarHelper implements ActionListener {
 					"Delete record to database"));
 			record.add(addToolbarButton(true, null, "update",
 					"Update record to database"));
+			record.add(addToolbarButton(true, null, "clear", "Clear Screen"));
 		}
 		return record;
 	}
@@ -104,6 +105,8 @@ public class ToolbarHelper implements ActionListener {
 			toolbarInterface.update();
 		} else if (event.getActionCommand().equals("next")) {
 			toolbarInterface.next();
+		} else if (event.getActionCommand().equals("clear")) {
+			toolbarInterface.clear();
 		} else if (event.getActionCommand().equals("previous")) {
 			toolbarInterface.previous();
 		} else if (event.getActionCommand().equals("first")) {
