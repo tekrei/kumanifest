@@ -1,8 +1,8 @@
 Proje Bağımlılıkları ve Lisans Bilgileri
-kumanifest -> GPL
+kumanifest (http://kodveus.blogcu.com) -> GPL
 NimRODLF (http://personales.ya.com/nimrod/index-en.html) -> LGPL
 JasperReports (http://www.jaspersoft.com/) -> LGPL
 Mysql Connector/J 5.0 (http://www.mysql.com/products/connector/j/) ->GPL
 iText (http://www.lowagie.com/iText/) -> LGPL
 Jakarta POI (http://jakarta.apache.org/poi/) -> Apache 2.0 Licence
-Commons -> Apache 2.0 Licence
+Commons (http://jakarta.apache.org/commons) -> Apache 2.0 Licence
