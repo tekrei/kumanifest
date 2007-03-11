@@ -38,7 +38,7 @@ BL eklemeden sonra sayfa temizlenmeli (Ilk olarak BL eklenip onun ustune cont fa
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
--About panelinde linklere tıklanınca acilması yapılmalı
+-(YAPILDI)About panelinde linklere tıklanınca acilması yapılmalı
 
 KURULUM icin yapilacaklar
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
