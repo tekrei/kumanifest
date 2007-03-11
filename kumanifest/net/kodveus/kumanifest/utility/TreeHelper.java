@@ -205,10 +205,9 @@ public class TreeHelper implements TreeSelectionListener {
 			return 1;
 		} else if (node.toString().equals("IMPORT")) {
 			return 0;
-		} else {
-			// Bu duruma dusmesini beklemiyoruz
-			return -1;
 		}
+		// Bu duruma dusmesini beklemiyoruz
+		return -1;
 	}
 
 	public Long getVoyageId() {
