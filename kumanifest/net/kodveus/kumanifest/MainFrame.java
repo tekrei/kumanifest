@@ -24,7 +24,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
