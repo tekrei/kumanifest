@@ -118,15 +118,16 @@ public class DBManager {
 				surucuAdi, 5);
 	}
 
-	public boolean execute(String sql) throws Exception {
+	public boolean executeUpdate(String sql) throws Exception {
 		Connection conn = null;
 
 		try {
 			conn = bh.baglantiAl();
 
 			PreparedStatement ps = conn.prepareStatement(sql);
-			System.out.println("execute:" + sql);
-			return ps.execute();
+			System.out.println("executeUpdate:" + sql);
+			ps.executeUpdate();
+			return true;
 		} catch (SQLException e) {
 			throw e;
 		} finally {

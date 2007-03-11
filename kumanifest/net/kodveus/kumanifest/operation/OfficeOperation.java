@@ -43,7 +43,7 @@ public class OfficeOperation implements OperationInterface {
 			Office office = (Office) vs;
 			String sql = "DELETE FROM office WHERE officeId="
 					+ office.getOfficeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -57,7 +57,7 @@ public class OfficeOperation implements OperationInterface {
 					+ "',description = '" + office.getDescription()
 					+ "',code = '" + office.getCode() + "' WHERE officeId="
 					+ office.getOfficeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

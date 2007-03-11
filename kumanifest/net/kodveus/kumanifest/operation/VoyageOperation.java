@@ -57,7 +57,7 @@ public class VoyageOperation implements OperationInterface {
 		String sql = "DELETE FROM voyage WHERE voyageId="
 				+ voyage.getVoyageId();
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -81,7 +81,7 @@ public class VoyageOperation implements OperationInterface {
 				+ " nameOfCaptain = '" + voyage.getNameOfCaptain() + "'"
 				+ " WHERE voyageId =" + voyage.getVoyageId();
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

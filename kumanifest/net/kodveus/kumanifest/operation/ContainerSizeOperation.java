@@ -45,7 +45,7 @@ public class ContainerSizeOperation implements OperationInterface {
 			ContainerSize containerSize = (ContainerSize) vs;
 			String sql = "DELETE FROM containersize WHERE containerSizeId="
 					+ containerSize.getContainerSizeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -60,7 +60,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getDescription()
 					+ "' WHERE containerSizeId="
 					+ containerSize.getContainerSizeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

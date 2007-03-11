@@ -28,7 +28,7 @@ BL eklemeden sonra sayfa temizlenmeli
 
 -(YAPILDI)Updatecargo calismiyor
 
--(DUZELTILDI)konteyner guncelleme isleminde hata (Aslinda yapiliyor ama execute komutunun ciktisi false oluyor :S Bunu incelemek lazim bl icin de boyle)
+-(ONARILDI)(DUZELTILDI)konteyner guncelleme isleminde hata (Aslinda yapiliyor ama execute komutunun ciktisi false oluyor :S Bunu incelemek lazim bl icin de boyle)
 
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
 
