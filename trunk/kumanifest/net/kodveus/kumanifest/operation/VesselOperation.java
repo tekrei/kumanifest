@@ -52,7 +52,7 @@ public class VesselOperation implements OperationInterface {
 			Vessel vessel = (Vessel) vs;
 			String sql = "DELETE FROM vessel WHERE vesselId="
 					+ vessel.getVesselId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -70,7 +70,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getCompany() + "'," + " port = "
 					+ vessel.getPort().getLocationId() + "," + " WHERE "
 					+ " vesselId = " + vessel.getVesselId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

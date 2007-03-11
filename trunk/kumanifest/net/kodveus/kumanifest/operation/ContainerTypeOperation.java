@@ -45,7 +45,7 @@ public class ContainerTypeOperation implements OperationInterface {
 			ContainerType containerType = (ContainerType) vs;
 			String sql = "DELETE FROM containertype WHERE containerTypeId="
 					+ containerType.getContainerTypeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -60,7 +60,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getDescription()
 					+ "' WHERE containerTypeId="
 					+ containerType.getContainerTypeId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

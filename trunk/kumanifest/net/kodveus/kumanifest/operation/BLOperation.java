@@ -68,7 +68,7 @@ public class BLOperation extends Operation implements OperationInterface {
 		String sql = "DELETE FROM bl WHERE blId=" + id;
 
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,7 +126,7 @@ public class BLOperation extends Operation implements OperationInterface {
 				+ "' WHERE blId = " + bl.getBlId();
 
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

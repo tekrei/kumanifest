@@ -312,6 +312,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	public void delete() {
 		if (BLOperation.getInstance().delete(generateRecordFromGUI())) {
 			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
+			//Silince ekrani temizleyelim
+			clear();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}

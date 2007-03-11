@@ -68,7 +68,7 @@ public class CargoOperation implements OperationInterface {
 		String sql = "DELETE FROM cargo WHERE cargoId=" + id;
 
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,7 +88,7 @@ public class CargoOperation implements OperationInterface {
 				+ cargo.getCargoId();
 
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

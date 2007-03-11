@@ -55,7 +55,7 @@ public class ContainerOperation implements OperationInterface {
 		String sql = "DELETE FROM container WHERE containerId="
 				+ container.getContainerId();
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -78,7 +78,7 @@ public class ContainerOperation implements OperationInterface {
 				+ " taraWeight = " + container.getTaraWeight()+ " WHERE "
 				+ "containerId = " + container.getContainerId();
 		try {
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

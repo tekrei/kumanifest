@@ -45,7 +45,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 	public boolean delete(Long id) {
 		try {
 			String sql = "DELETE FROM commodity WHERE commodityId=" + id;
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -59,7 +59,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 					+ "',name = '" + commodity.getName() + "',description = '"
 					+ commodity.getDescription() + "' WHERE commodityId="
 					+ commodity.getCommodityId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

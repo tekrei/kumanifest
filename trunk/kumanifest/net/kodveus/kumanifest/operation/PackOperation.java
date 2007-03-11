@@ -39,7 +39,7 @@ public class PackOperation implements OperationInterface {
 		try {
 			Pack pack = (Pack) vs;
 			String sql = "DELETE FROM pack WHERE packId=" + pack.getPackId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -52,7 +52,7 @@ public class PackOperation implements OperationInterface {
 			String sql = "UPDATE pack SET type = '" + pack.getType()
 					+ "',description = '" + pack.getDescription()
 					+ "' WHERE packId=" + pack.getPackId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

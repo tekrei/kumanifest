@@ -44,7 +44,7 @@ public class CountryOperation implements OperationInterface {
 			Country country = (Country) vs;
 			String sql = "DELETE FROM country WHERE countryId="
 					+ country.getCountryId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -57,7 +57,7 @@ public class CountryOperation implements OperationInterface {
 			String sql = "UPDATE country SET code = '" + country.getCode()
 					+ "',name = '" + country.getName() + "' WHERE countryId="
 					+ country.getCountryId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

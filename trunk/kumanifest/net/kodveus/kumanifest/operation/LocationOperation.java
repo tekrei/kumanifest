@@ -41,7 +41,7 @@ public class LocationOperation implements OperationInterface {
 			Location location = (Location) vs;
 			String sql = "DELETE FROM location WHERE locationId="
 					+ location.getLocationId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -55,7 +55,7 @@ public class LocationOperation implements OperationInterface {
 					+ location.getLocation() + "',isport = '"
 					+ location.getIsport() + "',code = '" + location.getCode()
 					+ "' WHERE locationId=" + location.getLocationId();
-			return DBManager.getInstance().execute(sql);
+			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
