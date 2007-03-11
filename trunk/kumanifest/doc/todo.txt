@@ -7,6 +7,8 @@ Surum 0.95 gereksinimleri (Acil Isler)
 
 -raporu kapatinca programda kapaniyor
 
+-SQL dosyasina viewlerin yaratilmasi da eklenmeli
+
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
 -kutuphaneler son surume guncellenmeli
