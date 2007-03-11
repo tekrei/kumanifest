@@ -68,7 +68,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getVesselName() + "'," + " flag ="
 					+ vessel.getFlag().getCountryId() + "," + " company = '"
 					+ vessel.getCompany() + "'," + " port = "
-					+ vessel.getPort().getLocationId() + "," + " WHERE "
+					+ vessel.getPort().getLocationId() + " WHERE "
 					+ " vesselId = " + vessel.getVesselId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {

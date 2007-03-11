@@ -266,7 +266,7 @@
 </foreign-key>
 </foreign-key-list>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYblId" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="blId" sort="ASC"/>
 </index>
@@ -387,6 +387,19 @@
 <variant type-name-pattern="DOUBLE ZEROFILL"/>
 </data-type>
 </column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="packTotal" remarks="">
+<column-description></column-description>
+<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
+<variant type-name-pattern="DOUBLE"/>
+<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
+<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
+<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
+<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
+<variant type-name-pattern="DOUBLE UNSIGNED"/>
+<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="DOUBLE ZEROFILL"/>
+</data-type>
+</column>
 </column-list>
 <primary-key alias="" name="PRIMARY" remarks="">
 <primary-key-description></primary-key-description>
@@ -417,7 +430,7 @@
 </foreign-key>
 </foreign-key-list>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYcargoıd" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="cargoId" sort="ASC"/>
 </index>
@@ -478,7 +491,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYcomId" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="commodityId" sort="ASC"/>
 </index>
@@ -489,19 +502,6 @@
 <table-figure-bounds height="-1" width="-1" x="407" y="116"/>
 <column-list>
 <column alias="" auto-increment="true" column-size="20" decimal-digits="0" default-value="" mandatory="true" name="containerId" remarks="">
-<column-description></column-description>
-<data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT(%n)">
-<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
-<variant type-name-pattern="BIGINT"/>
-<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED"/>
-<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED ZEROFILL"/>
-<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) ZEROFILL"/>
-<variant type-name-pattern="BIGINT UNSIGNED"/>
-<variant type-name-pattern="BIGINT UNSIGNED ZEROFILL"/>
-<variant type-name-pattern="BIGINT ZEROFILL"/>
-</data-type>
-</column>
-<column alias="" auto-increment="false" column-size="20" decimal-digits="0" default-value="" mandatory="false" name="relCom" remarks="">
 <column-description></column-description>
 <data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT(%n)">
 <variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
@@ -584,19 +584,6 @@
 <variant type-name-pattern="DOUBLE ZEROFILL"/>
 </data-type>
 </column>
-<column alias="" auto-increment="false" column-size="22" decimal-digits="0" default-value="" mandatory="false" name="netWeight" remarks="">
-<column-description></column-description>
-<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
-<variant type-name-pattern="DOUBLE"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
-<variant type-name-pattern="DOUBLE UNSIGNED"/>
-<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
-<variant type-name-pattern="DOUBLE ZEROFILL"/>
-</data-type>
-</column>
 <column alias="" auto-increment="false" column-size="20" decimal-digits="0" default-value="" mandatory="false" name="status" remarks="">
 <column-description></column-description>
 <data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT(%n)">
@@ -610,17 +597,17 @@
 <variant type-name-pattern="BIGINT ZEROFILL"/>
 </data-type>
 </column>
-<column alias="" auto-increment="false" column-size="22" decimal-digits="0" default-value="" mandatory="false" name="packTotal" remarks="">
+<column alias="" auto-increment="false" column-size="20" decimal-digits="0" default-value="" mandatory="false" name="relcom" remarks="">
 <column-description></column-description>
-<data-type jdbc-type="8" name="DOUBLE" selected-variant-pattern="DOUBLE">
-<variant type-name-pattern="DOUBLE"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s)"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) UNSIGNED ZEROFILL"/>
-<variant precision-max="17" precision-min="0" precision-variable="%p" scale-max="128" scale-min="0" scale-variable="%s" type-name-pattern="DOUBLE(%p, %s) ZEROFILL"/>
-<variant type-name-pattern="DOUBLE UNSIGNED"/>
-<variant type-name-pattern="DOUBLE UNSIGNED ZEROFILL"/>
-<variant type-name-pattern="DOUBLE ZEROFILL"/>
+<data-type jdbc-type="-5" name="BIGINT" selected-variant-pattern="BIGINT(%n)">
+<variant type-name-pattern="BIGINT"/>
+<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n)"/>
+<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED"/>
+<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) UNSIGNED ZEROFILL"/>
+<variant precision-max="19" precision-min="0" precision-variable="%n" type-name-pattern="BIGINT(%n) ZEROFILL"/>
+<variant type-name-pattern="BIGINT UNSIGNED"/>
+<variant type-name-pattern="BIGINT UNSIGNED ZEROFILL"/>
+<variant type-name-pattern="BIGINT ZEROFILL"/>
 </data-type>
 </column>
 </column-list>
@@ -653,7 +640,7 @@
 </foreign-key>
 </foreign-key-list>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYcont" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="containerId" sort="ASC"/>
 </index>
@@ -710,7 +697,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYconsi" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="containerSizeId" sort="ASC"/>
 </index>
@@ -755,7 +742,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYcontt" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="containerTypeId" sort="ASC"/>
 </index>
@@ -800,7 +787,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYcountry" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="countryId" sort="ASC"/>
 </index>
@@ -851,7 +838,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYloc" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="locationId" sort="ASC"/>
 </index>
@@ -900,7 +887,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYoff" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="officeId" sort="ASC"/>
 </index>
@@ -943,7 +930,7 @@
 <unique-key-list/>
 <foreign-key-list/>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYpack" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="packId" sort="ASC"/>
 </index>
@@ -1046,7 +1033,7 @@
 </foreign-key>
 </foreign-key-list>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYves" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="vesselId" sort="ASC"/>
 </index>
@@ -1216,7 +1203,7 @@
 </foreign-key>
 </foreign-key-list>
 <index-list>
-<index alias="" name="PRIMARY" remarks="" unique="true">
+<index alias="" name="PRIMARYvoy" remarks="" unique="true">
 <index-description></index-description>
 <index-column name="voyageId" sort="ASC"/>
 </index>
