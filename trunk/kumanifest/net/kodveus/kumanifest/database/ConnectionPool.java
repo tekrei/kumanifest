@@ -1,30 +1,19 @@
-/**
- * =======================================================
- * BizSakladik : Verilerin veritabanina saklanmasinda Java 
- * tarafindan kullanilmak uzere gelistirilmis bir kalici 
- * katman altyapisidir.
- * =======================================================
- * Copyright (C) 2006 AYKIRI MUHENDISLER
- * ======================================
- * This library is free software; you can redistribute it and/or modify it 
- * under the terms of the GNU Lesser General Public License as published by 
- * the Free Software Foundation; either version 2.1 of the License, or 
- * (at your option) any later version.
+/* Gemi taşımacılığı yükleme, boşaltma, manifesto takip programı.
+ * Copyright (C) 2006  Kod ve Us
  *
- * This library is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public 
- * License for more details.
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, 
- * USA.  
- * 
- * [Java is a trademark or registered trademark of Sun Microsystems, Inc. 
- * in the United States and other countries.]
- * 
- * Copyright (C) 2006 AYKIRI MUHENDISLER
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package net.kodveus.kumanifest.database;
 
