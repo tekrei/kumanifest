@@ -53,7 +53,7 @@ public class Office extends TemelVeriSinif {
 			aliasMap.addAlias("Description", "description");
 			aliasMap.addAlias("Code", "code");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

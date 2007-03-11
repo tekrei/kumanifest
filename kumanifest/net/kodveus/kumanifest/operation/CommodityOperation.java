@@ -34,7 +34,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 					+ "', '" + commodity.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -48,7 +48,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 			String sql = "DELETE FROM commodity WHERE commodityId=" + id;
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -62,7 +62,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 					+ commodity.getCommodityId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -99,7 +99,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 				al.add(commodity);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}

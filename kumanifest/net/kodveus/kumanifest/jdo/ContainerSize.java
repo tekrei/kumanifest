@@ -49,7 +49,7 @@ public class ContainerSize extends TemelVeriSinif {
 			aliasMap.addAlias("Size", "size");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

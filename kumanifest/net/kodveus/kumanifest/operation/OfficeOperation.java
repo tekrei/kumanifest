@@ -34,7 +34,7 @@ public class OfficeOperation implements OperationInterface {
 					+ "', '" + office.getCode() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -46,7 +46,7 @@ public class OfficeOperation implements OperationInterface {
 					+ office.getOfficeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -60,7 +60,7 @@ public class OfficeOperation implements OperationInterface {
 					+ office.getOfficeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -89,7 +89,7 @@ public class OfficeOperation implements OperationInterface {
 				al.add(office);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -119,7 +119,7 @@ public class OfficeOperation implements OperationInterface {
 			}
 			return office;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			office = null;
 		}
 		return office;
@@ -138,7 +138,7 @@ public class OfficeOperation implements OperationInterface {
 				rsToOffice(rs, office);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			office = null;
 		}
 		return office;

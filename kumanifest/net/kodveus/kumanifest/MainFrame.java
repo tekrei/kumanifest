@@ -47,7 +47,7 @@ public class MainFrame extends JFrame {
 	public MainFrame(String logLevel) {
 		super();
 		if (logLevel.equalsIgnoreCase("debug")) {
-			LogHelper.getInstance().infoLevel();
+			LogHelper.getInstance().finestLevel();
 		} else {
 			LogHelper.getInstance().severeLevel();
 		}
@@ -126,9 +126,8 @@ public class MainFrame extends JFrame {
 		// first tell SkinLF which theme to use
 		/*
 		 * Skin theSkinToUse = SkinLookAndFeel.loadThemePack("themepack.zip");
-		 * SkinLookAndFeel.setSkin(theSkinToUse);
-		 *  // finally set the Skin Look And Feel UIManager.setLookAndFeel(new
-		 * SkinLookAndFeel());
+		 * SkinLookAndFeel.setSkin(theSkinToUse); // finally set the Skin Look
+		 * And Feel UIManager.setLookAndFeel(new SkinLookAndFeel());
 		 */
 	}
 

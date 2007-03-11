@@ -46,7 +46,7 @@ public class Country extends TemelVeriSinif {
 			aliasMap.addAlias("Code", "code");
 			aliasMap.addAlias("Name", "name");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

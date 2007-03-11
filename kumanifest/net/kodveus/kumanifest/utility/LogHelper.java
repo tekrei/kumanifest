@@ -1,7 +1,10 @@
 package net.kodveus.kumanifest.utility;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class LogHelper {
 	private static Logger loglayici = Logger.getLogger("KUMANIFEST LOG");
@@ -9,6 +12,15 @@ public class LogHelper {
 	private static LogHelper instance = null;
 
 	private LogHelper() {
+		try {
+			FileHandler fh = new FileHandler("kumanifest.log");
+			fh.setFormatter(new SimpleFormatter());
+			loglayici.addHandler(fh);
+			loglayici.addHandler(new ConsoleHandler());
+			loglayici.setUseParentHandlers(false);
+		} catch (Exception e) {
+			exception(e);
+		}
 	}
 
 	/**
@@ -16,8 +28,8 @@ public class LogHelper {
 	 * 
 	 * Tum mesajlar ekrana yazilir
 	 */
-	public void infoLevel() {
-		loglayici.setLevel(Level.INFO);
+	public void finestLevel() {
+		loglayici.setLevel(Level.FINEST);
 	}
 
 	/**
@@ -50,8 +62,10 @@ public class LogHelper {
 	 * @param msg
 	 *            Bilgi mesaji
 	 */
-	public void bilgi(String msg) {
-		loglayici.info(msg);
+	public void finest(String msg) {
+		if (loglayici.isLoggable(Level.FINEST)) {
+			loglayici.finest(msg);
+		}
 	}
 
 	/**
@@ -60,7 +74,7 @@ public class LogHelper {
 	 * @param e
 	 *            Olusan istisna
 	 */
-	public void istisna(Exception e) {
+	public void exception(Exception e) {
 		loglayici.log(Level.SEVERE, e.getMessage(), e);
 	}
 
@@ -73,7 +87,7 @@ public class LogHelper {
 	 * @param e
 	 *            Olusan istisna
 	 */
-	public void istisna(String msg, Exception e) {
+	public void exception(String msg, Exception e) {
 		loglayici.log(Level.SEVERE, msg, e);
 	}
 }

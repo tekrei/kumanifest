@@ -19,7 +19,7 @@ public class Cargo extends TemelVeriSinif {
 			aliasMap.addAlias("NetWeight", "netWeight");
 			aliasMap.addAlias("Pack Total", "packTotal");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

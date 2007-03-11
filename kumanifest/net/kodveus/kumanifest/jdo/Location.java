@@ -55,7 +55,7 @@ public class Location extends TemelVeriSinif {
 			aliasMap.addAlias("Port", "isport");
 			aliasMap.addAlias("Code", "code");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

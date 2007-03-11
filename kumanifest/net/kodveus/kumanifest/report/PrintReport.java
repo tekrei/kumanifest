@@ -33,7 +33,7 @@ public class PrintReport extends JApplet {
 	public void init() {
 		String strUrl = getParameter("url");// JasperPrinti gonderecek olan
 		// metodun adresi
-		LogHelper.getInstance().bilgi("DEBUG URL:" + strUrl);
+		LogHelper.getInstance().finest("DEBUG URL:" + strUrl);
 		if (strUrl != null) {
 			try {
 				url = getURL(strUrl);

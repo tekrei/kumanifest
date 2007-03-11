@@ -45,7 +45,7 @@ public class Pack extends TemelVeriSinif {
 			aliasMap.addAlias("Type", "type");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

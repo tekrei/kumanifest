@@ -32,7 +32,7 @@ public class LocationOperation implements OperationInterface {
 					+ "', '" + location.getCode() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -44,7 +44,7 @@ public class LocationOperation implements OperationInterface {
 					+ location.getLocationId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -58,7 +58,7 @@ public class LocationOperation implements OperationInterface {
 					+ "' WHERE locationId=" + location.getLocationId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -93,7 +93,7 @@ public class LocationOperation implements OperationInterface {
 				al.add(location);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -123,7 +123,7 @@ public class LocationOperation implements OperationInterface {
 			}
 			return location;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			location = null;
 		}
 		return location;
@@ -142,7 +142,7 @@ public class LocationOperation implements OperationInterface {
 				rsToLocation(rs, location);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			location = null;
 		}
 		return location;

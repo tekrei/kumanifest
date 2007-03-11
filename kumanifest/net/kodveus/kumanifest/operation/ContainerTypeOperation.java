@@ -36,7 +36,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -48,7 +48,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getContainerTypeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -63,7 +63,7 @@ public class ContainerTypeOperation implements OperationInterface {
 					+ containerType.getContainerTypeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -91,7 +91,7 @@ public class ContainerTypeOperation implements OperationInterface {
 				al.add(containerType);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -121,7 +121,7 @@ public class ContainerTypeOperation implements OperationInterface {
 			}
 			return containerType;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			containerType = null;
 		}
 		return containerType;
@@ -140,7 +140,7 @@ public class ContainerTypeOperation implements OperationInterface {
 				rsToContainerType(rs, containerType);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			containerType = null;
 		}
 		return containerType;

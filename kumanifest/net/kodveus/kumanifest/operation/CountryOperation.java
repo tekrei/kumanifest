@@ -35,7 +35,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCode() + "', '" + country.getName() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -47,7 +47,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCountryId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -60,7 +60,7 @@ public class CountryOperation implements OperationInterface {
 					+ country.getCountryId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -86,7 +86,7 @@ public class CountryOperation implements OperationInterface {
 				al.add(country);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -116,7 +116,7 @@ public class CountryOperation implements OperationInterface {
 			}
 			return country;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			country = null;
 		}
 		return country;
@@ -135,7 +135,7 @@ public class CountryOperation implements OperationInterface {
 				rsToCountry(rs, country);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			country = null;
 		}
 		return country;
