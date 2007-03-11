@@ -10,8 +10,8 @@
     <javaversion>1.5</javaversion>
 </info>
 
-<guiprefs height="600" resizable="yes" width="800">
-    <laf name="metouia">
+<guiprefs height="600" resizable="no" width="800">
+    <laf name="liquid">
         <os family="unix" />
     </laf>
     <laf name="looks">
@@ -34,13 +34,13 @@
     <langpack iso3="tur"/>
 </locale>
 
-<native type="izpack" name="ShellLink.dll" />
+<!--<native type="izpack" name="ShellLink.dll" os="windows"/>-->
 
 <resources>
     <res src="net/kodveus/kumanifest/doc/okubeni.html" id="HTMLInfoPanel.info"/>
     <res src="net/kodveus/kumanifest/doc/gpl.txt" id="LicencePanel.licence"/>
     <res src="net/kodveus/kumanifest/images/kvu.gif" id="installer.langsel.img"/>
-	 <res src="shortcutSpec.xml" id="shortcutSpec.xml" />
+	<res src="shortcutSpec.xml" id="shortcutSpec.xml" />
     <res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml" />
 </resources>
 
@@ -56,7 +56,7 @@
 </panels>
 
 <packs>
-    <pack name="Core" required="yes">
+    <pack name="Base" required="yes">
          <description>Kumanifest için gereksinim duyulan çekirdek dosyalar.</description>
          <fileset dir="" targetdir="$INSTALL_PATH">
            <include name="kumanifest.jar" />
