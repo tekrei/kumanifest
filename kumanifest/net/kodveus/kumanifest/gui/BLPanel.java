@@ -67,7 +67,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private NoTabTextArea txtNotify2 = null;
 
-	private long id;
+	private Long id;
 
 	private JSteppedComboBox cmbPlaceOfOrigin = null;
 
@@ -284,9 +284,15 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		cmbPlaceOfOrigin.setSelectedItem(bl.getPlaceOfOrigin());
 		cmbPortOfDischarge.setSelectedItem(bl.getPortOfDischarge());
 		cmbPortOfLoading.setSelectedItem(bl.getPortOfLoading());
+		cmbPlaceOfReceipt.setSelectedItem(bl.getPlaceOfReceipt());
 		txtShipper.setText(bl.getShipper());
 		cmbVoyage.setSelectedItem(bl.getVoyage());
+		System.out.println("bl.getBlId:"+bl.getBlId());
 		id = bl.getBlId();
+	}
+	
+	public void clear(){
+		loadToPanel(new BL());
 	}
 
 	// TODO Bu metodlar toolbara tiklaninca yapilacak islemleri panel bazli

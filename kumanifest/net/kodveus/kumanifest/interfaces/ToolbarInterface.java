@@ -16,4 +16,6 @@ public interface ToolbarInterface {
 
 	public abstract void last();
 
+	public abstract void clear();
+
 }
