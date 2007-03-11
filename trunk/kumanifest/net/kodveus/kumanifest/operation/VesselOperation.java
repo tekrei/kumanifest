@@ -43,7 +43,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getPort().getLocationId() + ")";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -55,7 +55,7 @@ public class VesselOperation implements OperationInterface {
 					+ vessel.getVesselId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -73,7 +73,7 @@ public class VesselOperation implements OperationInterface {
 					+ " vesselId = " + vessel.getVesselId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -131,7 +131,7 @@ public class VesselOperation implements OperationInterface {
 
 			select(al, sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -172,7 +172,7 @@ public class VesselOperation implements OperationInterface {
 					+ " AND officeId=" + officeId + ")";
 			select(al, sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}

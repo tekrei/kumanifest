@@ -192,7 +192,7 @@ public class DBManager {
 	}
 
 	private void mesaj(String str) {
-		LogHelper.getInstance().bilgi(str);
+		LogHelper.getInstance().finest(str);
 	}
 
 	public Connection getConnection() {

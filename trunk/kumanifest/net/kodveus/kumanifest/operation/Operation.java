@@ -25,7 +25,7 @@ public abstract class Operation {
 			}
 			return vs;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return null;
 		}
 	}
@@ -40,7 +40,7 @@ public abstract class Operation {
 			}
 			return vs;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return null;
 		}
 	}

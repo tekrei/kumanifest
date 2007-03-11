@@ -31,7 +31,7 @@ public class PackOperation implements OperationInterface {
 					+ pack.getType() + "', '" + pack.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -42,7 +42,7 @@ public class PackOperation implements OperationInterface {
 			String sql = "DELETE FROM pack WHERE packId=" + pack.getPackId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -55,7 +55,7 @@ public class PackOperation implements OperationInterface {
 					+ "' WHERE packId=" + pack.getPackId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -81,7 +81,7 @@ public class PackOperation implements OperationInterface {
 				al.add(pack);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -111,7 +111,7 @@ public class PackOperation implements OperationInterface {
 			}
 			return pack;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			pack = null;
 		}
 		return pack;
@@ -130,7 +130,7 @@ public class PackOperation implements OperationInterface {
 				rsToPack(rs, pack);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			pack = null;
 		}
 		return pack;

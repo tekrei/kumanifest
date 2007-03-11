@@ -85,7 +85,7 @@ public class TreeHelper implements TreeSelectionListener {
 		try {
 			updateLeafs();
 		} catch (Exception ex) {
-			LogHelper.getInstance().istisna(ex);
+			LogHelper.getInstance().exception(ex);
 		}
 		tree.validate();
 	}

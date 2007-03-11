@@ -53,7 +53,7 @@ public class Commodity extends TemelVeriSinif {
 			aliasMap.addAlias("Name", "name");
 			aliasMap.addAlias("Description", "description");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

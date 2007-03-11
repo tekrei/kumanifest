@@ -17,7 +17,7 @@ public class Container extends TemelVeriSinif {
 			aliasMap.addAlias("RelCom", "relCom");
 			aliasMap.addAlias("Tara Weight", "taraWeight");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

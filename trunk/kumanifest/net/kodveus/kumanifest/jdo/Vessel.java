@@ -17,7 +17,7 @@ public class Vessel extends TemelVeriSinif {
 			aliasMap.addAlias("Company", "company");
 			aliasMap.addAlias("Port", "port");
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

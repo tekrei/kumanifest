@@ -299,7 +299,7 @@ public class MenuHelper implements ActionListener {
 			try {
 				ReportGenerator.getInstance().generateLoadingList(map);
 			} catch (Exception ex) {
-				LogHelper.getInstance().istisna(ex);
+				LogHelper.getInstance().exception(ex);
 			}
 		} else if (e.getActionCommand().equals("BillOfLading")) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
@@ -307,7 +307,7 @@ public class MenuHelper implements ActionListener {
 			try {
 				ReportGenerator.getInstance().generateBillOfLading(map);
 			} catch (Exception ex) {
-				LogHelper.getInstance().istisna(ex);
+				LogHelper.getInstance().exception(ex);
 			}
 		} else if (e.getActionCommand().equals("Manifesto")) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
@@ -315,7 +315,7 @@ public class MenuHelper implements ActionListener {
 			try {
 				ReportGenerator.getInstance().generateManifest(map);
 			} catch (Exception ex) {
-				LogHelper.getInstance().istisna(ex);
+				LogHelper.getInstance().exception(ex);
 			}
 		}
 	}

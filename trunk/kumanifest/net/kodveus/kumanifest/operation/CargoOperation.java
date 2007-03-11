@@ -54,7 +54,7 @@ public class CargoOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 
@@ -72,7 +72,7 @@ public class CargoOperation implements OperationInterface {
 			return DBManager.getInstance().executeUpdate(sql);
 
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -91,7 +91,7 @@ public class CargoOperation implements OperationInterface {
 		try {
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -149,7 +149,7 @@ public class CargoOperation implements OperationInterface {
 				al.add(cargo);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -167,7 +167,7 @@ public class CargoOperation implements OperationInterface {
 				rsToCargo(rs, cargo);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			cargo = null;
 		}
 		return cargo;
@@ -186,7 +186,7 @@ public class CargoOperation implements OperationInterface {
 				rsToCargo(rs, cargo);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			cargo = null;
 		}
 		return cargo;

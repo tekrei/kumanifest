@@ -291,7 +291,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	}
 
 	public void clear() {
-		loadToPanel(new BL());		
+		loadToPanel(new BL());
 	}
 
 	public void add() {

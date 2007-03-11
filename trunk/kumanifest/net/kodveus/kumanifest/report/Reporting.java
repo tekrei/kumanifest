@@ -35,7 +35,7 @@ public class Reporting {
 			JasperViewer.viewReport(print);
 			return true;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -46,7 +46,7 @@ public class Reporting {
 					+ raporTasarimDosyasi);
 			return true;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return false;
 	}
@@ -62,7 +62,7 @@ public class Reporting {
 					raporVerisi);
 			return true;
 		} catch (JRException e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return false;
 	}
@@ -74,7 +74,7 @@ public class Reporting {
 					connection);
 			return true;
 		} catch (JRException e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return false;
 	}
@@ -84,7 +84,7 @@ public class Reporting {
 			report = (JasperReport) JRLoader.loadObject(filePath);
 			return report;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return null;
 	}
@@ -158,7 +158,7 @@ public class Reporting {
 			else
 				return hedefStream;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return null;
 		}
 	}
@@ -174,7 +174,7 @@ public class Reporting {
 			if (tip.equals(RAPORLAMA_CIKTI_TIPI.PDF))
 				return createPdfFile(hedefDosya);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return false;
 	}
@@ -194,7 +194,7 @@ public class Reporting {
 			JasperPrintManager.printReport(print, false);
 			return true;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return false;
 	}

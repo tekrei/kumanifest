@@ -201,10 +201,10 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		cmbContainerType.setSelectedItem(container.getContainerType());
 		txtOtherSealNo.setText(container.getOtherSealNo());
 		txtSealNo.setText(container.getSealNo());
-		if(container.getRelCom()!=null){
+		if (container.getRelCom() != null) {
 			txtRelCom.setText(Long.toString(container.getRelCom()));
 		}
-		if(container.getTaraWeight()!=null){
+		if (container.getTaraWeight() != null) {
 			txtTareWeight.setText(Double.toString(container.getTaraWeight()));
 		}
 		blId = container.getBlId();
@@ -336,14 +336,14 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	public void setBlId(Long selectedBlId) {
-		//Detay ekrani temizlensin
+		// Detay ekrani temizlensin
 		clear();
 		blId = selectedBlId;
 		Container container = new Container();
 		container.setBlId(selectedBlId);
 		lstContainer.listeGuncelle(ContainerOperation.getInstance().ara(
 				container));
-		//Container'in kargolari yuklensin
+		// Container'in kargolari yuklensin
 		loadCargos();
 		this.updateUI();
 	}

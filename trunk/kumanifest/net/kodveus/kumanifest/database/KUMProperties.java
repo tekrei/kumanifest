@@ -20,7 +20,7 @@ public class KUMProperties extends java.util.Properties {
 			load(new FileInputStream("vt.props"));
 			return true;
 		} catch (IOException e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}

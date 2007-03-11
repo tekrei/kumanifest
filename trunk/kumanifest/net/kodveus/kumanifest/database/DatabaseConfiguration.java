@@ -159,7 +159,7 @@ public class DatabaseConfiguration extends JDialog {
 			DBManager.check(props);
 			result = true;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return result;
 	}

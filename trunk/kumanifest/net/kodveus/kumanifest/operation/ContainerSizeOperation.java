@@ -36,7 +36,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getDescription() + "')";
 			return DBManager.getInstance().insert(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
@@ -48,7 +48,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getContainerSizeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -63,7 +63,7 @@ public class ContainerSizeOperation implements OperationInterface {
 					+ containerSize.getContainerSizeId();
 			return DBManager.getInstance().executeUpdate(sql);
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
@@ -91,7 +91,7 @@ public class ContainerSizeOperation implements OperationInterface {
 				al.add(containerSize);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 		}
 		return al;
 	}
@@ -121,7 +121,7 @@ public class ContainerSizeOperation implements OperationInterface {
 			}
 			return containerSize;
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			containerSize = null;
 		}
 		return containerSize;
@@ -140,7 +140,7 @@ public class ContainerSizeOperation implements OperationInterface {
 				rsToContainerSize(rs, containerSize);
 			}
 		} catch (Exception e) {
-			LogHelper.getInstance().istisna(e);
+			LogHelper.getInstance().exception(e);
 			containerSize = null;
 		}
 		return containerSize;
