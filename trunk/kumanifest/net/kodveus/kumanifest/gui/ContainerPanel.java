@@ -321,8 +321,9 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnNewCargo.setMnemonic('n');
 			btnNewCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(containerId!=null){
-						cargoPanel = GUIHelper.getInstance().showPanel("New Cargo",new CargoPanel(self, containerId));
+					if (containerId != null) {
+						cargoPanel = GUIHelper.getInstance().showPanel(
+								"New Cargo", new CargoPanel(self, containerId));
 					}
 				}
 			});
@@ -354,8 +355,9 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnUpdateCargo.setMnemonic('u');
 			btnUpdateCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(containerId!=null && cargoId!=null){
-						cargoPanel = GUIHelper.getInstance().showPanel("Update Cargo",
+					if (containerId != null && cargoId != null) {
+						cargoPanel = GUIHelper.getInstance().showPanel(
+								"Update Cargo",
 								new CargoPanel(self, containerId, cargoId));
 					}
 				}
@@ -382,10 +384,10 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	void loadCargos(Long _containerId) {
-		//Container secilmemisse herhangi bir cargo gostermemeli
-		if(_containerId==null){
+		// Container secilmemisse herhangi bir cargo gostermemeli
+		if (_containerId == null) {
 			lstCargo.listeGuncelle(null);
-		}else{
+		} else {
 			Cargo cargo = new Cargo();
 			cargo.setContainerId(_containerId);
 			lstCargo.listeGuncelle(CargoOperation.getInstance().ara(cargo));

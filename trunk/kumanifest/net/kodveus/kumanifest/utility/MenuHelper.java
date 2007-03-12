@@ -155,7 +155,7 @@ public class MenuHelper implements ActionListener {
 
 	private JMenu getReportsMenu() {
 		mnReports = new JMenu("Reports");
-		//Raporlar menusu bl'e tiklanmadan acilmiyor
+		// Raporlar menusu bl'e tiklanmadan acilmiyor
 		mnReports.setEnabled(false);
 
 		JMenuItem menuItem = new JMenuItem("Manifesto", KeyEvent.VK_M);
@@ -341,7 +341,7 @@ public class MenuHelper implements ActionListener {
 		}
 	}
 
-	public void setRaporlar(boolean enabled){
+	public void setRaporlar(boolean enabled) {
 		mnReports.setEnabled(enabled);
 	}
 }

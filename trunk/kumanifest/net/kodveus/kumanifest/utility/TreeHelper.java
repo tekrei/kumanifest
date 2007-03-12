@@ -245,17 +245,18 @@ public class TreeHelper implements TreeSelectionListener {
 
 	public void updateTree() {
 		TreeNode node;
-		if(selectedNode.getUserObject() instanceof BL){
+		if (selectedNode.getUserObject() instanceof BL) {
 			node = (TreeNode) selectedNode.getParent();
-		}else{
+		} else {
 			node = selectedNode;
 		}
 
-		((DefaultMutableTreeNode)node).removeAllChildren();
+		((DefaultMutableTreeNode) node).removeAllChildren();
 
-		((DefaultTreeModel)tree.getModel()).reload();
+		((DefaultTreeModel) tree.getModel()).reload();
 
-		TreePath path = new TreePath(((DefaultTreeModel)tree.getModel()).getPathToRoot(node));
+		TreePath path = new TreePath(((DefaultTreeModel) tree.getModel())
+				.getPathToRoot(node));
 		tree.setSelectionPath(path);
 	}
 }
