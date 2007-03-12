@@ -49,8 +49,8 @@ public class Reporting {
 
 	public boolean showReportDesign() {
 		try {
-			//FIX kapanmamasi icin ikinci parametre olarak false gonderiyoruz
-			JasperViewer.viewReport(print,false);
+			// FIX kapanmamasi icin ikinci parametre olarak false gonderiyoruz
+			JasperViewer.viewReport(print, false);
 			return true;
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);

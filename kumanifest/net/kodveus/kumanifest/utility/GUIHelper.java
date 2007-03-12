@@ -61,7 +61,8 @@ public class GUIHelper {
 	}
 
 	public JDialog showPanel(String title, JPanel panel) {
-		return showPanel(title, panel, panel.getWidth() + 20, panel.getHeight() + 30);
+		return showPanel(title, panel, panel.getWidth() + 20,
+				panel.getHeight() + 30);
 	}
 
 	public JDialog showPanel(String title, JPanel panel, int width, int height) {
