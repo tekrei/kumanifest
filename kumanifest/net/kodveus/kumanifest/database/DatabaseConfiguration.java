@@ -100,6 +100,7 @@ public class DatabaseConfiguration extends JDialog {
 		this
 				.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		this.addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
@@ -149,7 +150,7 @@ public class DatabaseConfiguration extends JDialog {
 		return btnTamam;
 	}
 
-	private void configureDatabase() {
+	void configureDatabase() {
 		KUMProperties props = new KUMProperties();
 		props.put("adres", txtAdres.getText());
 		props.put("kullanici", txtKullanici.getText());

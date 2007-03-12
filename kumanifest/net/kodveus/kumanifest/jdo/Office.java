@@ -57,10 +57,12 @@ public class Office extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return this.office;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Office) object).getOfficeId().equals(this.officeId);

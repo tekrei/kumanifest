@@ -77,6 +77,7 @@ public class BLOperation extends Operation implements OperationInterface {
 		}
 	}
 
+	@Override
 	protected void rsToVs(ResultSet rs, VeriSinif vs) throws SQLException {
 		BL bl = (BL) vs;
 		bl.setBlId(rs.getLong("blId"));

@@ -105,10 +105,12 @@ public class Container extends TemelVeriSinif {
 		this.sealNo = sealNo;
 	}
 
+	@Override
 	public Long getStatus() {
 		return status;
 	}
 
+	@Override
 	public void setStatus(Long status) {
 		this.status = status;
 	}
@@ -121,10 +123,12 @@ public class Container extends TemelVeriSinif {
 		this.taraWeight = taraWeight;
 	}
 
+	@Override
 	public String toString() {
 		return containerNo;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Container) object).getContainerId().equals(

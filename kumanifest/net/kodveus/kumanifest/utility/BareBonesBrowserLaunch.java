@@ -40,8 +40,7 @@ public class BareBonesBrowserLaunch {
 						browser = browsers[count];
 				if (browser == null)
 					throw new Exception("Could not find web browser");
-				else
-					Runtime.getRuntime().exec(new String[] { browser, url });
+				Runtime.getRuntime().exec(new String[] { browser, url });
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, errMsg + ":\n"

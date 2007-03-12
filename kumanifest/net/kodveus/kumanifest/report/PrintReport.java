@@ -17,19 +17,18 @@ import net.sf.jasperreports.engine.util.JRLoader;
  * 
  */
 public class PrintReport extends JApplet {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private URL url = null;
 
-	private JasperPrint jasperPrint = null;
+	JasperPrint jasperPrint = null;
 
 	public PrintReport() {
 		// initComponents();
 	}
 
+	@Override
 	public void init() {
 		String strUrl = getParameter("url");// JasperPrinti gonderecek olan
 		// metodun adresi
@@ -81,8 +80,8 @@ public class PrintReport extends JApplet {
 	}
 
 	private URL getURL(String path) throws Exception {
-		URL url = this.getCodeBase();
-		URL newUrl = new URL(url.getProtocol(), url.getHost(), url.getPort(),
+		URL _url = this.getCodeBase();
+		URL newUrl = new URL(_url.getProtocol(), _url.getHost(), _url.getPort(),
 				path);
 		return newUrl;
 	}

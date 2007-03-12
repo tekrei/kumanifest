@@ -113,10 +113,12 @@ public class Cargo extends TemelVeriSinif {
 		this.cargoId = cargoId;
 	}
 
+	@Override
 	public String toString() {
 		return this.cargoType + " " + this.netWeight;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Cargo) object).getCargoId().equals(this.getCargoId());

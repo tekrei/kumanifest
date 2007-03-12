@@ -17,7 +17,7 @@ public class RightPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private JTabbedPane tabPane = null;
+	JTabbedPane tabPane = null;
 
 	private BLPanel blPanel;
 

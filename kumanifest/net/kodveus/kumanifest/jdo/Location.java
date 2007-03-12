@@ -59,10 +59,12 @@ public class Location extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return this.code + " " + this.location;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Location) object).getLocationId().equals(

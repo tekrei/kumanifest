@@ -49,10 +49,12 @@ public class Pack extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return description;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Pack) object).getPackId().equals(this.getPackId());

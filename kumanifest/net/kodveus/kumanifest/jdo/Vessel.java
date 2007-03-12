@@ -9,6 +9,7 @@ public class Vessel extends TemelVeriSinif {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	public void prepareMap() {
 		try {
 			aliasMap.addAlias("Vessel Code", "vesselCode");
@@ -59,10 +60,12 @@ public class Vessel extends TemelVeriSinif {
 		this.port = port;
 	}
 
+	@Override
 	public Long getStatus() {
 		return status;
 	}
 
+	@Override
 	public void setStatus(Long status) {
 		this.status = status;
 	}
@@ -91,10 +94,12 @@ public class Vessel extends TemelVeriSinif {
 		this.vesselName = vesselName;
 	}
 
+	@Override
 	public String toString() {
 		return this.vesselCode + " " + this.vesselName;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Vessel) object).getVesselId().equals(this.vesselId);
