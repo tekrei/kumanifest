@@ -25,7 +25,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -244,6 +244,18 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	public void updateTree() {
+		TreeNode node;
+		if(selectedNode.getUserObject() instanceof BL){
+			node = (TreeNode) selectedNode.getParent();
+		}else{
+			node = selectedNode;
+		}
+
+		((DefaultMutableTreeNode)node).removeAllChildren();
+
 		((DefaultTreeModel)tree.getModel()).reload();
+
+		TreePath path = new TreePath(((DefaultTreeModel)tree.getModel()).getPathToRoot(node));
+		tree.setSelectionPath(path);
 	}
 }

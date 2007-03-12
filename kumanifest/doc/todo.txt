@@ -2,7 +2,9 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 
 Surum 0.95 gereksinimleri (Acil Isler)
 --------------------------
--BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
+-Programin ve raporlarin test edilmesi
+
+-(YAPILDI) BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
 -(OYLE) container paneli zaten bl secili degilse acilamiyor
 
