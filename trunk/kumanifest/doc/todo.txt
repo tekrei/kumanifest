@@ -13,7 +13,7 @@ Surum 0.95 gereksinimleri (Acil Isler)
 
 -(YAPILDI) kutuphaneler son surume guncellenmeli
 
--GPL lisans dosya basligi eksik olan dosyalara eklenmeli
+-(YAPILDI) GPL lisans dosya basligi eksik olan dosyalara eklenmeli
 
 Sonraki surum gereksinimleri
 ------------------------------
