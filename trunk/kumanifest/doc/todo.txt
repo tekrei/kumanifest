@@ -2,24 +2,27 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 
 Surum 0.95 gereksinimleri (Acil Isler)
 --------------------------
-
 -BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
--raporu kapatinca programda kapaniyor
+-container paneli zaten bl secili degilse acilamiyor bl paneli de belkide sadece vessel ve bl tiklaninca acilabilir.
 
--SQL dosyasina viewlerin yaratilmasi da eklenmeli
+-container uzerinde islem yapildigi zaman bl paneli aciliyor
 
--paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
+-(YAPILDI) paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
--Su sekilde yapacagim eger bl secili degilse raporlar disabled olacak, bl secildigi zaman enabled olacak 
- kontainer paneli zaten bl secili degilse acilamiyor bl paneli de belkide sadece voyage ve bl tiklaninca acilabilir.
- 
+-(YAPILDI) Su sekilde yapacagim eger bl secili degilse raporlar disabled olacak, bl secildigi zaman enabled olacak
+
+-(YAPILDI) SQL dosyasina viewlerin yaratilmasi da eklenmeli
+
 -(YAPILDI) kutuphaneler son surume guncellenmeli
 
 -(YAPILDI) GPL lisans dosya basligi eksik olan dosyalara eklenmeli
 
+-(DUZELTILDI) raporu kapatinca programda kapaniyor
+
 Sonraki surum gereksinimleri
 ------------------------------
+-Kalici katman kullanmak gerekli
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
 
@@ -53,7 +56,7 @@ Sonraki surum gereksinimleri
 
 -(YAPILDI)bl sekmesinden container sekmesine geciste o bl'e ait olan containerler yuklenmeli
 
--(YAPILDI)solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak 
+-(YAPILDI)solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak
 
 KURULUM icin yapilacaklar
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak

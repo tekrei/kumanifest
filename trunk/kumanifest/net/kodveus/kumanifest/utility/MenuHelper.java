@@ -45,6 +45,8 @@ public class MenuHelper implements ActionListener {
 
 	private JMenuBar menuBar = null;
 
+	private JMenu mnReports;
+
 	private MenuHelper() {
 	}
 
@@ -152,25 +154,27 @@ public class MenuHelper implements ActionListener {
 	}
 
 	private JMenu getReportsMenu() {
-		JMenu menu = new JMenu("Reports");
+		mnReports = new JMenu("Reports");
+		//Raporlar menusu bl'e tiklanmadan acilmiyor
+		mnReports.setEnabled(false);
 
 		JMenuItem menuItem = new JMenuItem("Manifesto", KeyEvent.VK_M);
 		menuItem.setActionCommand("Manifesto");
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Sticker", KeyEvent.VK_S);
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Loading List", KeyEvent.VK_L);
 		menuItem.setActionCommand("LoadingList");
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Discharging List", KeyEvent.VK_D);
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		/*
 		 * menuItem = new JMenuItem("Summary Declaration", KeyEvent.VK_S);
@@ -180,23 +184,23 @@ public class MenuHelper implements ActionListener {
 		menuItem = new JMenuItem("Bill of Lading", KeyEvent.VK_B);
 		menuItem.setActionCommand("BillOfLading");
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
-		menu.addSeparator();
+		mnReports.addSeparator();
 
 		menuItem = new JMenuItem("BL/Container List", KeyEvent.VK_C);
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Partial Containers", KeyEvent.VK_P);
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("CustomerContReport", KeyEvent.VK_U);
 		menuItem.addActionListener(this);
-		menu.add(menuItem);
+		mnReports.add(menuItem);
 
-		return menu;
+		return mnReports;
 	}
 
 	private JMenu getFileMenu() {
@@ -335,5 +339,9 @@ public class MenuHelper implements ActionListener {
 				LogHelper.getInstance().exception(ex);
 			}
 		}
+	}
+
+	public void setRaporlar(boolean enabled){
+		mnReports.setEnabled(enabled);
 	}
 }

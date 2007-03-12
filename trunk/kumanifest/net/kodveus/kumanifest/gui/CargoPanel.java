@@ -208,8 +208,7 @@ public class CargoPanel extends JPanel {
 			CargoOperation.getInstance().update(cargo);
 		}
 		containerPanel.loadCargos();
-		this.setVisible(false);
-		containerPanel.remove(this);
+		containerPanel.closeCargoDialog();
 	}
 
 	private JTextField getTxtUnno() {
