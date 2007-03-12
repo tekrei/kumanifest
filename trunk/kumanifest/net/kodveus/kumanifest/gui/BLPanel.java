@@ -33,6 +33,7 @@ import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+import net.kodveus.kumanifest.utility.TreeHelper;
 
 public class BLPanel extends JPanel implements ToolbarInterface {
 
@@ -317,6 +318,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		if (tempId > 0) {
 			id = tempId;
 			JOptionPane.showMessageDialog(this, "Record added succesfully!");
+			TreeHelper.getInstance().updateTree();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}
@@ -327,6 +329,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
 			// Silince ekrani temizleyelim
 			clear();
+			TreeHelper.getInstance().updateTree();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}
@@ -367,6 +370,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	public void update() {
 		if (BLOperation.getInstance().update(generateRecordFromGUI())) {
 			JOptionPane.showMessageDialog(this, "Record updated succesfully!");
+			TreeHelper.getInstance().updateTree();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}

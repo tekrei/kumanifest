@@ -25,6 +25,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -105,6 +106,7 @@ public class TreeHelper implements TreeSelectionListener {
 			LogHelper.getInstance().exception(ex);
 		}
 		tree.validate();
+		tree.repaint();
 	}
 
 	private void expandLeaf(DefaultMutableTreeNode root) {
@@ -129,28 +131,32 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
-		selectedNode = (DefaultMutableTreeNode) tree
-				.getLastSelectedPathComponent();
-		Object userObject = selectedNode.getUserObject();
-		_anaPencere.loadBL(null);
-		MenuHelper.getInstance().setRaporlar(false);
-		if (userObject instanceof Office) {
-			updateOfficeLeaf(selectedNode);
-		} else if (userObject instanceof Vessel) {
-			updateVesselLeaf(selectedNode);
-		} else if (userObject instanceof Voyage) {
-			voyageId = ((Voyage) userObject).getVoyageId();
-			updateVoyageLeaf(selectedNode);
-		} else if (userObject instanceof BL) {
-			blId = ((BL) userObject).getBlId();
-			_anaPencere.loadBL(blId);
-			MenuHelper.getInstance().setRaporlar(true);
-		} else {
-			if (userObject.toString().equals("EXPORT")) {
-				updateTypeLeaf(exportRoot);
-			} else if (userObject.toString().equals("IMPORT")) {
-				updateTypeLeaf(importRoot);
+		try {
+			selectedNode = (DefaultMutableTreeNode) tree
+					.getLastSelectedPathComponent();
+			Object userObject = selectedNode.getUserObject();
+			_anaPencere.loadBL(null);
+			MenuHelper.getInstance().setRaporlar(false);
+			if (userObject instanceof Office) {
+				updateOfficeLeaf(selectedNode);
+			} else if (userObject instanceof Vessel) {
+				updateVesselLeaf(selectedNode);
+			} else if (userObject instanceof Voyage) {
+				voyageId = ((Voyage) userObject).getVoyageId();
+				updateVoyageLeaf(selectedNode);
+			} else if (userObject instanceof BL) {
+				blId = ((BL) userObject).getBlId();
+				_anaPencere.loadBL(blId);
+				MenuHelper.getInstance().setRaporlar(true);
+			} else {
+				if (userObject.toString().equals("EXPORT")) {
+					updateTypeLeaf(exportRoot);
+				} else if (userObject.toString().equals("IMPORT")) {
+					updateTypeLeaf(importRoot);
+				}
 			}
+		} catch (NullPointerException e) {
+			LogHelper.getInstance().finest("NPE");
 		}
 	}
 
@@ -238,7 +244,6 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	public void updateTree() {
-		// TODO Agactaki tum acik bl dallari guncellemek lazim
-		updateLeafs();
+		((DefaultTreeModel)tree.getModel()).reload();
 	}
 }

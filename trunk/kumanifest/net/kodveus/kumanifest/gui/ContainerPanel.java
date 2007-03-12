@@ -244,6 +244,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		if (tempId > 0) {
 			containerId = tempId;
 			JOptionPane.showMessageDialog(this, "Record added succesfully!");
+			updateContainers();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}
@@ -252,6 +253,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	public void delete() {
 		if (ContainerOperation.getInstance().delete(generateRecordFromGUI())) {
 			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
+			updateContainers();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}
@@ -296,6 +298,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	public void update() {
 		if (ContainerOperation.getInstance().update(generateRecordFromGUI())) {
 			JOptionPane.showMessageDialog(this, "Record updated succesfully!");
+			updateContainers();
 		} else {
 			JOptionPane.showMessageDialog(this, "An error occured!");
 		}
@@ -318,7 +321,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnNewCargo.setMnemonic('n');
 			btnNewCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(containerId!=null && cargoId!=null){
+					if(containerId!=null){
 						cargoPanel = GUIHelper.getInstance().showPanel("New Cargo",new CargoPanel(self, containerId));
 					}
 				}
@@ -365,8 +368,12 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		// Detay ekrani temizlensin
 		clear();
 		blId = selectedBlId;
+		updateContainers();
+	}
+
+	private void updateContainers() {
 		Container container = new Container();
-		container.setBlId(selectedBlId);
+		container.setBlId(blId);
 		lstContainer.listeGuncelle(ContainerOperation.getInstance().ara(
 				container));
 		// Container'in kargolari yuklensin

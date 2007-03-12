@@ -4,9 +4,11 @@ Surum 0.95 gereksinimleri (Acil Isler)
 --------------------------
 -BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
--container paneli zaten bl secili degilse acilamiyor bl paneli de belkide sadece vessel ve bl tiklaninca acilabilir.
+-(OYLE) container paneli zaten bl secili degilse acilamiyor
 
--container uzerinde islem yapildigi zaman bl paneli aciliyor
+-(BUNA GEREK YOK - VESSEL SECIMINI BL PANELI ICINDEN YAPIYORUZ) bl paneli de belkide sadece vessel ve bl tiklaninca acilabilir.
+
+-(DUZELTILDI) container uzerinde islem yapildigi zaman bl paneli aciliyor
 
 -(YAPILDI) paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
