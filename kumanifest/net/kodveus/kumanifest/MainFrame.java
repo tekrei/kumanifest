@@ -1,4 +1,4 @@
-/* Gemi taşımacılığı yükleme, boşaltma, manifesto takip programı.
+/* Gemi tasimaciligi yukleme, bosaltma, manifesto takip programi.
  * Copyright (C) 2006  Kod ve Us
  *
  * This program is free software; you can redistribute it and/or
