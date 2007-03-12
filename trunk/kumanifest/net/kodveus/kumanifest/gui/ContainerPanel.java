@@ -49,13 +49,13 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JButton btnUpdateCargo = null;
 	private JButton btnDeleteCargo = null;
 
-	private Long containerId;
+	Long containerId;
 
 	private Long blId;
 
-	private Long cargoId;
+	Long cargoId;
 
-	private ContainerPanel self;
+	ContainerPanel self;
 
 	public ContainerPanel() {
 		super();
@@ -195,7 +195,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		return container;
 	}
 
-	private void loadToPanel(Container container) {
+	void loadToPanel(Container container) {
 		txtContainerNo.setText(container.getContainerNo());
 		cmbContainerSize.setSelectedItem(container.getContainerSize());
 		cmbContainerType.setSelectedItem(container.getContainerType());
@@ -348,9 +348,9 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		this.updateUI();
 	}
 
-	private void loadCargos(Long containerId) {
+	void loadCargos(Long _containerId) {
 		Cargo cargo = new Cargo();
-		cargo.setContainerId(containerId);
+		cargo.setContainerId(_containerId);
 		lstCargo.listeGuncelle(CargoOperation.getInstance().ara(cargo));
 	}
 

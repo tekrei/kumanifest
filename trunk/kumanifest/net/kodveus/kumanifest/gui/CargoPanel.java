@@ -183,7 +183,7 @@ public class CargoPanel extends JPanel {
 		return btnOk;
 	}
 
-	private void performOperation() {
+	void performOperation() {
 		Cargo cargo = generateRecordFromGUI();
 		if (cargo.getCargoId() == null) {
 			CargoOperation.getInstance().create(cargo);

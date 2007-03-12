@@ -155,8 +155,7 @@ public class Reporting {
 				return getCsvStream(hedefStream);
 			if (tip.equals(RAPORLAMA_CIKTI_TIPI.PDF))
 				return getPdfStream(hedefStream);
-			else
-				return hedefStream;
+			return hedefStream;
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return null;
@@ -225,6 +224,6 @@ public class Reporting {
 
 	public enum RAPORLAMA_CIKTI_TIPI {
 		PDF, XLS, HTML, CSV
-	};
+	}
 
 }

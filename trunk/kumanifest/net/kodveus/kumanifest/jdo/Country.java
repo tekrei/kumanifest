@@ -50,10 +50,12 @@ public class Country extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return this.code + " " + this.name;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Country) object).getCountryId().equals(this.countryId);

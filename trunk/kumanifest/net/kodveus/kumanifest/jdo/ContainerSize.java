@@ -53,10 +53,12 @@ public class ContainerSize extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return this.size;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((ContainerSize) object).getContainerSizeId().equals(

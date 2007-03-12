@@ -51,6 +51,7 @@ public class StartPanel extends JDialog {
 		this.setLocationRelativeTo(null);
 		this.setContentPane(getJContentPane());
 		this.addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}

@@ -67,6 +67,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 		}
 	}
 
+	@Override
 	protected void rsToVs(ResultSet rs, VeriSinif vs) throws Exception {
 		Commodity commodity = (Commodity) vs;
 		commodity.setCommodityId(rs.getLong("commodityId"));

@@ -53,10 +53,12 @@ public class ContainerType extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return this.type;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((ContainerType) object).getContainerTypeId().equals(

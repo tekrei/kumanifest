@@ -11,7 +11,7 @@ Surum 0.95 gereksinimleri (Acil Isler)
 
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
--kutuphaneler son surume guncellenmeli
+-(YAPILDI) kutuphaneler son surume guncellenmeli
 
 -GPL lisans dosya basligi eksik olan dosyalara eklenmeli
 

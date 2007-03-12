@@ -57,10 +57,12 @@ public class Commodity extends TemelVeriSinif {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return code + " " + name;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Commodity) object).getCommodityId().equals(

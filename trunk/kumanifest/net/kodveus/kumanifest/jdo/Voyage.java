@@ -101,10 +101,12 @@ public class Voyage extends TemelVeriSinif {
 		this.office = office;
 	}
 
+	@Override
 	public Long getStatus() {
 		return status;
 	}
 
+	@Override
 	public void setStatus(Long status) {
 		this.status = status;
 	}
@@ -133,10 +135,12 @@ public class Voyage extends TemelVeriSinif {
 		this.voyageId = voyageId;
 	}
 
+	@Override
 	public String toString() {
 		return voyage;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((Voyage) object).getVoyageId().equals(this.voyageId);

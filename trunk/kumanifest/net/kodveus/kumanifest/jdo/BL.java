@@ -175,10 +175,12 @@ public class BL extends TemelVeriSinif {
 		this.shipper = shipper;
 	}
 
+	@Override
 	public Long getStatus() {
 		return status;
 	}
 
+	@Override
 	public void setStatus(Long status) {
 		this.status = status;
 	}
@@ -191,10 +193,12 @@ public class BL extends TemelVeriSinif {
 		this.voyage = voyage;
 	}
 
+	@Override
 	public String toString() {
 		return blNo;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		try {
 			return ((BL) object).getBlId().equals(this.blId);
