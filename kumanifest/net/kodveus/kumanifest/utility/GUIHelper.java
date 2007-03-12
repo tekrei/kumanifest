@@ -60,16 +60,17 @@ public class GUIHelper {
 		return scroll;
 	}
 
-	public void showPanel(String title, JPanel panel) {
-		showPanel(title, panel, panel.getWidth() + 20, panel.getHeight() + 30);
+	public JDialog showPanel(String title, JPanel panel) {
+		return showPanel(title, panel, panel.getWidth() + 20, panel.getHeight() + 30);
 	}
 
-	public void showPanel(String title, JPanel panel, int width, int height) {
+	public JDialog showPanel(String title, JPanel panel, int width, int height) {
 		JDialog dialog = new JDialog();
 		dialog.setTitle(title);
 		dialog.setContentPane(panel);
 		dialog.setSize(width, height);
 		dialog.setVisible(true);
+		return dialog;
 	}
 
 	public JLabel createTextLabel(String label, java.awt.Rectangle bounds) {

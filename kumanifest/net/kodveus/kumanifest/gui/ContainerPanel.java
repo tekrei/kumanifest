@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -76,6 +77,8 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	Long cargoId;
 
 	ContainerPanel self;
+
+	private JDialog cargoPanel;
 
 	public ContainerPanel() {
 		super();
@@ -315,8 +318,9 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnNewCargo.setMnemonic('n');
 			btnNewCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GUIHelper.getInstance().showPanel("New Cargo",
-							new CargoPanel(self, containerId));
+					if(containerId!=null && cargoId!=null){
+						cargoPanel = GUIHelper.getInstance().showPanel("New Cargo",new CargoPanel(self, containerId));
+					}
 				}
 			});
 		}
@@ -347,8 +351,10 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			btnUpdateCargo.setMnemonic('u');
 			btnUpdateCargo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GUIHelper.getInstance().showPanel("Update Cargo",
-							new CargoPanel(self, containerId, cargoId));
+					if(containerId!=null && cargoId!=null){
+						cargoPanel = GUIHelper.getInstance().showPanel("Update Cargo",
+								new CargoPanel(self, containerId, cargoId));
+					}
 				}
 			});
 		}
@@ -369,12 +375,22 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	void loadCargos(Long _containerId) {
-		Cargo cargo = new Cargo();
-		cargo.setContainerId(_containerId);
-		lstCargo.listeGuncelle(CargoOperation.getInstance().ara(cargo));
+		//Container secilmemisse herhangi bir cargo gostermemeli
+		if(_containerId==null){
+			lstCargo.listeGuncelle(null);
+		}else{
+			Cargo cargo = new Cargo();
+			cargo.setContainerId(_containerId);
+			lstCargo.listeGuncelle(CargoOperation.getInstance().ara(cargo));
+		}
 	}
 
 	protected void loadCargos() {
 		loadCargos(containerId);
+	}
+
+	public void closeCargoDialog() {
+		cargoPanel.dispose();
+		cargoPanel = null;
 	}
 }

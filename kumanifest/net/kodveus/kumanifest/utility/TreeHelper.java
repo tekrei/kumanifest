@@ -133,6 +133,7 @@ public class TreeHelper implements TreeSelectionListener {
 				.getLastSelectedPathComponent();
 		Object userObject = selectedNode.getUserObject();
 		_anaPencere.loadBL(null);
+		MenuHelper.getInstance().setRaporlar(false);
 		if (userObject instanceof Office) {
 			updateOfficeLeaf(selectedNode);
 		} else if (userObject instanceof Vessel) {
@@ -143,6 +144,7 @@ public class TreeHelper implements TreeSelectionListener {
 		} else if (userObject instanceof BL) {
 			blId = ((BL) userObject).getBlId();
 			_anaPencere.loadBL(blId);
+			MenuHelper.getInstance().setRaporlar(true);
 		} else {
 			if (userObject.toString().equals("EXPORT")) {
 				updateTypeLeaf(exportRoot);
