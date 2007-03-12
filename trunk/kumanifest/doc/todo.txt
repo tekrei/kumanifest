@@ -11,6 +11,9 @@ Surum 0.95 gereksinimleri (Acil Isler)
 
 -paneller arasi ve bl ler arasi gecislerde cargo ve kont detaylari sifirlanacak
 
+-Su sekilde yapacagim eger bl secili degilse raporlar disabled olacak, bl secildigi zaman enabled olacak 
+ kontainer paneli zaten bl secili degilse acilamiyor bl paneli de belkide sadece voyage ve bl tiklaninca acilabilir.
+ 
 -(YAPILDI) kutuphaneler son surume guncellenmeli
 
 -(YAPILDI) GPL lisans dosya basligi eksik olan dosyalara eklenmeli
