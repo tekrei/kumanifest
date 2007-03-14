@@ -24,13 +24,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import com.mysql.jdbc.log.Log;
-
 import net.kodveus.kumanifest.MainFrame;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.operation.BLOperation;
-import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
 public class RightPanel extends JPanel {
@@ -53,7 +50,7 @@ public class RightPanel extends JPanel {
 
 	/**
 	 * This method initializes this
-	 *
+	 * 
 	 * @return void
 	 */
 	private void initialize() {
@@ -99,7 +96,7 @@ public class RightPanel extends JPanel {
 			checkContainerTab();
 			return;
 		}
-		//BL panele yuklenecek
+		// BL panele yuklenecek
 		blPanel.loadToPanel((BL) BLOperation.getInstance().get(blId));
 		// Container panel bosaltilmali
 		checkContainerTab();

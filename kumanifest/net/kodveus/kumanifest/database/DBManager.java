@@ -116,7 +116,7 @@ public class DBManager {
 			conn = bh.baglantiAl();
 
 			PreparedStatement ps = conn.prepareStatement(sql);
-			mesaj("executeUpdate:" + sql);
+			LogHelper.getLogger().info(sql);
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -149,7 +149,7 @@ public class DBManager {
 			rs.next();
 			long key = rs.getLong(1);
 
-			mesaj("insert:" + sql);
+			LogHelper.getLogger().info(sql);
 			return key;
 
 		} catch (SQLException e) {
@@ -169,7 +169,7 @@ public class DBManager {
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			mesaj("executeQuery:" + sql);
+			LogHelper.getLogger().info(sql);
 			return ps.executeQuery();
 		} catch (SQLException e) {
 			throw e;
@@ -178,10 +178,6 @@ public class DBManager {
 				bh.baglantiBirak(conn);
 			}
 		}
-	}
-
-	private void mesaj(String str) {
-		LogHelper.getInstance().bilgi(str);
 	}
 
 	public Connection getConnection() {

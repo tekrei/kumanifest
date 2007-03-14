@@ -19,21 +19,37 @@ package net.kodveus.kumanifest.utility;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
+import java.util.logging.Formatter;
 import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.XMLFormatter;
 
 public class LogHelper {
-	private static Logger loglayici = Logger.getLogger("KUMANIFEST LOG");
-
 	private static LogHelper instance = null;
+
+	private Logger loglayici = Logger.getLogger("KumanifestLog");
+
+	class ShortFormatter extends Formatter {
+		// inefficient implementation
+		public String format(LogRecord record) {
+			StringBuffer buffer = new StringBuffer(record.getLevel() + " [");
+			buffer.append(record.getSourceMethodName() + "] ");
+			buffer.append(record.getMessage() + "\n");
+			return buffer.toString();
+		}
+	}
 
 	private LogHelper() {
 		try {
-			FileHandler fh = new FileHandler("kumanifest.log");
-			fh.setFormatter(new SimpleFormatter());
+			// 5 log files, switching when they reach approximately 1MB
+			FileHandler fh = new FileHandler("kumanifest%g.log", 1000000, 5,
+					true);
+			fh.setFormatter(new XMLFormatter());
 			loglayici.addHandler(fh);
-			loglayici.addHandler(new ConsoleHandler());
+			ConsoleHandler ch = new ConsoleHandler();
+			ch.setFormatter(new ShortFormatter());
+			loglayici.addHandler(ch);
 			loglayici.setUseParentHandlers(false);
 		} catch (Exception e) {
 			exception(e);
@@ -47,9 +63,13 @@ public class LogHelper {
 		return instance;
 	}
 
+	public static Logger getLogger() {
+		return getInstance().loglayici;
+	}
+
 	/**
 	 * Calisma zamaninda log seviyesini degistirmek icin kullanilmalidir
-	 *
+	 * 
 	 * Tum mesajlar ekrana yazilir
 	 */
 	public void all() {
@@ -64,28 +84,8 @@ public class LogHelper {
 	}
 
 	/**
-	 * Elle hata bildirimi icin kullanilmali
-	 *
-	 * @param msg
-	 *            Hata mesaji
-	 */
-	public void hata(String msg) {
-		loglayici.severe(msg);
-	}
-
-	/**
-	 * Herhangi bir bilgi mesaji vermek icin kullanilmali
-	 *
-	 * @param msg
-	 *            Bilgi mesaji
-	 */
-	public void bilgi(String msg) {
-		loglayici.info(msg);
-	}
-
-	/**
 	 * Istisna olustugunda cagrilmali
-	 *
+	 * 
 	 * @param e
 	 *            Olusan istisna
 	 */
@@ -96,7 +96,7 @@ public class LogHelper {
 	/**
 	 * Istisna olustugunda, istisnanin mesajindan farkli daha anlasilir bir
 	 * mesaj kullanilacagi zaman cagrilmali
-	 *
+	 * 
 	 * @param msg
 	 *            Hata mesaji
 	 * @param e

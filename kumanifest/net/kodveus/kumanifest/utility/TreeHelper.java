@@ -106,7 +106,7 @@ public class TreeHelper implements TreeSelectionListener {
 			LogHelper.getInstance().exception(ex);
 		}
 		tree.validate();
-//		tree.repaint();
+		// tree.repaint();
 	}
 
 	private void expandLeaf(DefaultMutableTreeNode root) {
@@ -119,15 +119,14 @@ public class TreeHelper implements TreeSelectionListener {
 		}
 	}
 
-	/*private void collapseLeaf(DefaultMutableTreeNode root) {
-		Enumeration<?> enumeration = root.depthFirstEnumeration();
-
-		for (; enumeration.hasMoreElements();) {
-			TreePath t = new TreePath(((DefaultMutableTreeNode) enumeration
-					.nextElement()).getPath());
-			tree.collapsePath(t);
-		}
-	}*/
+	/*
+	 * private void collapseLeaf(DefaultMutableTreeNode root) { Enumeration<?>
+	 * enumeration = root.depthFirstEnumeration();
+	 * 
+	 * for (; enumeration.hasMoreElements();) { TreePath t = new
+	 * TreePath(((DefaultMutableTreeNode) enumeration
+	 * .nextElement()).getPath()); tree.collapsePath(t); } }
+	 */
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
@@ -154,10 +153,10 @@ public class TreeHelper implements TreeSelectionListener {
 					updateTypeLeaf(importRoot);
 				}
 			}
-			//FIX iki kere cagirmak problem yaratiyor
+			// FIX iki kere cagirmak problem yaratiyor
 			_anaPencere.loadBL(blId);
 		} catch (NullPointerException e) {
-			LogHelper.getInstance().bilgi("NPE");
+			LogHelper.getLogger().info("NPE");
 		}
 	}
 
