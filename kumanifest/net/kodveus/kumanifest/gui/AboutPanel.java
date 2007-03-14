@@ -164,7 +164,7 @@ public class AboutPanel extends JDialog implements HyperlinkListener {
 	public void hyperlinkUpdate(HyperlinkEvent event) {
 		if (event.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
 			// Baglantiyi default tarayicida acalim
-			LogHelper.getInstance().finest(event.getURL() + " acilacak!");
+			LogHelper.getInstance().bilgi(event.getURL() + " acilacak!");
 			BareBonesBrowserLaunch.openURL(event.getURL().toString());
 		}
 	}

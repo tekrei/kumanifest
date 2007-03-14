@@ -1,10 +1,12 @@
 Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir mi?
 
-Surum 0.95 gereksinimleri (Acil Isler)
---------------------------
+SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
+---------------------------------------
+---------------------------------------
+
 -Programin ve raporlarin test edilmesi
 
--konteyner paneli acikken agacta gezdigimde yine bl panele geciyor. konteynerde kalmasi daha iyi olur.
+-(DUZELTILDI) konteyner paneli acikken agacta gezdigimde yine bl panele geciyor. konteynerde kalmasi daha iyi olur.
 
 -(YAPILDI) BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 
@@ -25,22 +27,6 @@ Surum 0.95 gereksinimleri (Acil Isler)
 -(YAPILDI) GPL lisans dosya basligi eksik olan dosyalara eklenmeli
 
 -(DUZELTILDI) raporu kapatinca programda kapaniyor
-
-Sonraki surum gereksinimleri
-------------------------------
--Kalici katman kullanmak gerekli
-
--Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
-
--customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
-
--gemi kilitlemede status sahasi mi kullanilacak
-
--Issued/Not Issued BLs
-
--Restore Item eklenecek
-
--silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)
 
 -(DUZELTILDI)kumanifest.sql dosyasinda
 	1. check oiption lar kalkacak
@@ -64,10 +50,31 @@ Sonraki surum gereksinimleri
 
 -(YAPILDI)solda BL secilince konteyner paneli aciksa, kont bilgileri aktif olacak
 
-KURULUM icin yapilacaklar
+KURULUM ICIN YAPILACAKLAR
+--------------------------
+--------------------------
+
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
 -windows icin turkce karakter destegi olmuyor
 -(YAPILDI)mysql ve java baglantilari direk kurulum sayfalarina yapilacak, ek olarak yardim sayfalarina
 baglanti verilecek yada kodveus ta anlatimi yapilacak
 -lisans ve aciklama uste alinip kurulum asamalari linux ve windows icin ayri ayri yapilmali
 -masaustu kisayollari olusturulacak
+
+SONRAKI SURUM HEDEFLERI
+-----------------------------
+-----------------------------
+
+-Kalici katman kullanmak gerekli
+
+-Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
+
+-customer adli bir tablo yaratip musteri bilgilerini kod, isim, adres, tel olarak burada tutmak ve BL tablosunda bu tabloyu gosteren anahtarlar kullanmak
+
+-gemi kilitlemede status sahasi mi kullanilacak
+
+-Issued/Not Issued BLs
+
+-Restore Item eklenecek
+
+-silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)

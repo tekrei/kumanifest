@@ -40,22 +40,6 @@ public class LogHelper {
 		}
 	}
 
-	/**
-	 * Calisma zamaninda log seviyesini degistirmek icin kullanilmalidir
-	 * 
-	 * Tum mesajlar ekrana yazilir
-	 */
-	public void finestLevel() {
-		loglayici.setLevel(Level.FINEST);
-	}
-
-	/**
-	 * Sadece hata mesajlari ekrana yazilir
-	 */
-	public void severeLevel() {
-		loglayici.setLevel(Level.SEVERE);
-	}
-
 	public static LogHelper getInstance() {
 		if (instance == null) {
 			instance = new LogHelper();
@@ -64,8 +48,24 @@ public class LogHelper {
 	}
 
 	/**
+	 * Calisma zamaninda log seviyesini degistirmek icin kullanilmalidir
+	 *
+	 * Tum mesajlar ekrana yazilir
+	 */
+	public void all() {
+		loglayici.setLevel(Level.ALL);
+	}
+
+	/**
+	 * Sadece hata mesajlari ekrana yazilir
+	 */
+	public void severe() {
+		loglayici.setLevel(Level.SEVERE);
+	}
+
+	/**
 	 * Elle hata bildirimi icin kullanilmali
-	 * 
+	 *
 	 * @param msg
 	 *            Hata mesaji
 	 */
@@ -75,19 +75,17 @@ public class LogHelper {
 
 	/**
 	 * Herhangi bir bilgi mesaji vermek icin kullanilmali
-	 * 
+	 *
 	 * @param msg
 	 *            Bilgi mesaji
 	 */
-	public void finest(String msg) {
-		if (loglayici.isLoggable(Level.FINEST)) {
-			loglayici.finest(msg);
-		}
+	public void bilgi(String msg) {
+		loglayici.info(msg);
 	}
 
 	/**
 	 * Istisna olustugunda cagrilmali
-	 * 
+	 *
 	 * @param e
 	 *            Olusan istisna
 	 */
@@ -98,7 +96,7 @@ public class LogHelper {
 	/**
 	 * Istisna olustugunda, istisnanin mesajindan farkli daha anlasilir bir
 	 * mesaj kullanilacagi zaman cagrilmali
-	 * 
+	 *
 	 * @param msg
 	 *            Hata mesaji
 	 * @param e
