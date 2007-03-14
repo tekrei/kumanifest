@@ -47,9 +47,9 @@ public class MainFrame extends JFrame {
 	public MainFrame(String logLevel) {
 		super();
 		if (logLevel.equalsIgnoreCase("debug")) {
-			LogHelper.getInstance().finestLevel();
+			LogHelper.getInstance().all();
 		} else {
-			LogHelper.getInstance().severeLevel();
+			LogHelper.getInstance().severe();
 		}
 		if ((new StartPanel()).start()) {
 			initialize();
@@ -106,29 +106,6 @@ public class MainFrame extends JFrame {
 
 	public static void setUIType() throws Exception {
 		UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
-		/*
-		 * //veya http://personales.ya.com/nimrod/faq-en.html NimRODTheme nt =
-		 * new NimRODTheme(); nt.setPrimary1( new Color(10,10,10));
-		 * nt.setPrimary2( new Color(20,20,20)); nt.setPrimary3( new
-		 * Color(30,30,30));
-		 * 
-		 * NimRODLookAndFeel NimRODLF = new NimRODLookAndFeel();
-		 * NimRODLF.setCurrentTheme( nt); UIManager.setLookAndFeel( NimRODLF);
-		 */
-
-		// UIManager.setLookAndFeel(XPLookAndFeel.class.getName());
-		// UIManager.setLookAndFeel
-		// ("com.sun.java.swing.plaf.motif.MotifLookAndFeel" ) ;
-		/*
-		 * LookAndFeel laf; laf = new NapkinLookAndFeel();
-		 * UIManager.setLookAndFeel(laf);
-		 */
-		// first tell SkinLF which theme to use
-		/*
-		 * Skin theSkinToUse = SkinLookAndFeel.loadThemePack("themepack.zip");
-		 * SkinLookAndFeel.setSkin(theSkinToUse); // finally set the Skin Look
-		 * And Feel UIManager.setLookAndFeel(new SkinLookAndFeel());
-		 */
 	}
 
 	public void loadBL(Long id) {

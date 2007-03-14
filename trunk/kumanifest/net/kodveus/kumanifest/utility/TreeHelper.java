@@ -106,7 +106,7 @@ public class TreeHelper implements TreeSelectionListener {
 			LogHelper.getInstance().exception(ex);
 		}
 		tree.validate();
-		tree.repaint();
+//		tree.repaint();
 	}
 
 	private void expandLeaf(DefaultMutableTreeNode root) {
@@ -119,7 +119,7 @@ public class TreeHelper implements TreeSelectionListener {
 		}
 	}
 
-	private void collapseLeaf(DefaultMutableTreeNode root) {
+	/*private void collapseLeaf(DefaultMutableTreeNode root) {
 		Enumeration<?> enumeration = root.depthFirstEnumeration();
 
 		for (; enumeration.hasMoreElements();) {
@@ -127,7 +127,7 @@ public class TreeHelper implements TreeSelectionListener {
 					.nextElement()).getPath());
 			tree.collapsePath(t);
 		}
-	}
+	}*/
 
 	private void updateLeafs() {
 		// Bu metodun icerisinde tiklanan dalin alt dallarini yuklemeliyiz
@@ -135,7 +135,7 @@ public class TreeHelper implements TreeSelectionListener {
 			selectedNode = (DefaultMutableTreeNode) tree
 					.getLastSelectedPathComponent();
 			Object userObject = selectedNode.getUserObject();
-			_anaPencere.loadBL(null);
+			blId = null;
 			MenuHelper.getInstance().setRaporlar(false);
 			if (userObject instanceof Office) {
 				updateOfficeLeaf(selectedNode);
@@ -146,7 +146,6 @@ public class TreeHelper implements TreeSelectionListener {
 				updateVoyageLeaf(selectedNode);
 			} else if (userObject instanceof BL) {
 				blId = ((BL) userObject).getBlId();
-				_anaPencere.loadBL(blId);
 				MenuHelper.getInstance().setRaporlar(true);
 			} else {
 				if (userObject.toString().equals("EXPORT")) {
@@ -155,8 +154,10 @@ public class TreeHelper implements TreeSelectionListener {
 					updateTypeLeaf(importRoot);
 				}
 			}
+			//FIX iki kere cagirmak problem yaratiyor
+			_anaPencere.loadBL(blId);
 		} catch (NullPointerException e) {
-			LogHelper.getInstance().finest("NPE");
+			LogHelper.getInstance().bilgi("NPE");
 		}
 	}
 
