@@ -3,7 +3,6 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 ---------------------------------------
-
 -Programin ve raporlarin test edilmesi
 
 -(DUZELTILDI) konteyner paneli acikken agacta gezdigimde yine bl panele geciyor. konteynerde kalmasi daha iyi olur.
@@ -53,7 +52,6 @@ SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 KURULUM ICIN YAPILACAKLAR
 --------------------------
 --------------------------
-
 -(YAPILDI)windows icin bat dosyasindaki ayrac ; yapilacak
 -windows icin turkce karakter destegi olmuyor
 -(YAPILDI)mysql ve java baglantilari direk kurulum sayfalarina yapilacak, ek olarak yardim sayfalarina
@@ -64,7 +62,6 @@ baglanti verilecek yada kodveus ta anlatimi yapilacak
 SONRAKI SURUM HEDEFLERI
 -----------------------------
 -----------------------------
-
 -Kalici katman kullanmak gerekli
 
 -Gerekli olan comboboxlar yerine combolistler yerlestirilmeli
@@ -78,3 +75,14 @@ SONRAKI SURUM HEDEFLERI
 -Restore Item eklenecek
 
 -silme islemi yerine status sahasi guncellenecek (Status kodlarini belirlememiz lazim)
+
+FIKIRLER-YAPILABILECEKLER
+--------------------------
+--------------------------
+-Kullanilan kutuphanelerin surum cikarma zamanlamalarina gore kendi surum cikarmamizi ayarlayabiliriz.(Ubuntu nasil gnome'a bagimliysa)
+-Program icerisine bir hata olustugu zaman mail yardimiyla hatanin ve loglarin gonderilmesi eklenebilir
+-Yardim menusu eklenmeli (rehberleri iceren)
+-Hata olustugunda istisnalar yerine kullanici uygun mesajlari gormeli
+-0.95 surumunu cikardiktan sonra subversion'daki kodu 0.95 olarak tagleyecegiz.
+-Surum cikardikca tagleme islemini yapmaliyiz
+-Branchlemeyi ogrenip kritik degisiklikleri o sekilde yapabiliriz.
