@@ -7,7 +7,7 @@ SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 
 -(DUZELTILDI) konteyner paneli acikken agacta gezdigimde yine bl panele geciyor. konteynerde kalmasi daha iyi olur.
 
--BL ve konteyner ekleme/duzeltme ileri/geri tuslari da etkisiz olarak gelmeli, BL secilince aktif olmali
+-(DUZELTILDI) BL ve konteyner ekleme/duzeltme ileri/geri tuslari da etkisiz olarak gelmeli, BL secilince aktif olmali
 
 -(YAPILDI) BL ekleme yapildiginda agac gorunumunun de tazelenip yeni Bl igostermesi gerek.
 

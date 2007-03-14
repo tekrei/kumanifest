@@ -122,7 +122,7 @@ public class TreeHelper implements TreeSelectionListener {
 	/*
 	 * private void collapseLeaf(DefaultMutableTreeNode root) { Enumeration<?>
 	 * enumeration = root.depthFirstEnumeration();
-	 * 
+	 *
 	 * for (; enumeration.hasMoreElements();) { TreePath t = new
 	 * TreePath(((DefaultMutableTreeNode) enumeration
 	 * .nextElement()).getPath()); tree.collapsePath(t); } }
@@ -135,7 +135,8 @@ public class TreeHelper implements TreeSelectionListener {
 					.getLastSelectedPathComponent();
 			Object userObject = selectedNode.getUserObject();
 			blId = null;
-			MenuHelper.getInstance().setRaporlar(false);
+			MenuHelper.getInstance().setBLOpen(false);
+			ToolbarHelper.getInstance().setBLOpen(false);
 			if (userObject instanceof Office) {
 				updateOfficeLeaf(selectedNode);
 			} else if (userObject instanceof Vessel) {
@@ -145,7 +146,8 @@ public class TreeHelper implements TreeSelectionListener {
 				updateVoyageLeaf(selectedNode);
 			} else if (userObject instanceof BL) {
 				blId = ((BL) userObject).getBlId();
-				MenuHelper.getInstance().setRaporlar(true);
+				MenuHelper.getInstance().setBLOpen(true);
+				ToolbarHelper.getInstance().setBLOpen(true);
 			} else {
 				if (userObject.toString().equals("EXPORT")) {
 					updateTypeLeaf(exportRoot);
@@ -204,13 +206,7 @@ public class TreeHelper implements TreeSelectionListener {
 	private void updateVoyageLeaf(DefaultMutableTreeNode root) {
 		// Secilen Voyage'in BL'lerini dolduracagiz
 		BL bl = new BL();
-		/*
-		 * Long officeId =
-		 * ((Office)((DefaultMutableTreeNode)root.getParent().getParent()).getUserObject()).getOfficeId();
-		 * Long vesselId =
-		 * ((Vessel)((DefaultMutableTreeNode)root.getParent()).getUserObject()).getVesselId();
-		 * Long voyageId = ((Voyage)root.getUserObject()).getVoyageId();
-		 */
+
 		bl.setVoyage((Voyage) root.getUserObject());
 		ArrayList<BL> al = BLOperation.getInstance().ara(bl);
 		// Bu arrayi dolasip agaca dal olarak ekleyecegiz

@@ -341,7 +341,7 @@ public class MenuHelper implements ActionListener {
 		}
 	}
 
-	public void setRaporlar(boolean enabled) {
+	public void setBLOpen(boolean enabled) {
 		mnReports.setEnabled(enabled);
 	}
 }

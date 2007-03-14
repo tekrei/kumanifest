@@ -79,6 +79,7 @@ public class ToolbarHelper implements ActionListener {
 							"Bring last record"));
 			travel.add(addToolbarButton(true, null, "first",
 					"Bring first record"));
+			setBLOpen(false);
 		}
 		return travel;
 	}
@@ -131,5 +132,12 @@ public class ToolbarHelper implements ActionListener {
 		} else if (event.getActionCommand().equals("last")) {
 			toolbarInterface.last();
 		}
+	}
+
+	public void setBLOpen(boolean enabled){
+		for(int i=0;i<travel.getComponentCount();i++){
+			travel.getComponent(i).setEnabled(enabled);
+		}
+		//travel.setVisible(enabled);
 	}
 }
