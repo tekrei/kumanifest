@@ -3,12 +3,6 @@
 
 = Kullanıcı Kılavuzu =
 
-Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir. 
-
-Bu veri girişleri, üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde  yapmanız sorun yaşamanızı engelleyecektir.
-
-Değişmez verileri tanımladıktan sonra konşimento(BL) girişlerinizi yapmaya başlayabilirsiniz. Ana ekranın sol tarafındaki ağaç görünümünde, ilgili yukleme bilgilerine fare ile çift tıklayarak tanımladığınız bir sefere ulaşabilirsiniz.
-
 Kumanifest konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır.  
 
 Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. 
@@ -16,6 +10,13 @@ Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek iste
 Bir sonraki sürümde yapılması planlanan özellikler arasında:
  # Gümrük tescil işlemlerinizi kolaylaştırmak  için EDI, yani elektronik veri transferi özelliğinin eklenmesi
  # Open Office ve Excel gibi uygulamalardan veri okuyabilme ve aktarma özelliğinin eklenmesi.
+
+Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir. 
+
+Bu veri girişleri, üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde  yapmanız sorun yaşamanızı engelleyecektir.
+
+Değişmez verileri tanımladıktan sonra konşimento(BL) girişlerinizi yapmaya başlayabilirsiniz. Ana ekranın sol tarafındaki ağaç görünümünde, ilgili yukleme bilgilerine fare ile çift tıklayarak tanımladığınız bir sefere ulaşabilirsiniz.
+
 
 
 
