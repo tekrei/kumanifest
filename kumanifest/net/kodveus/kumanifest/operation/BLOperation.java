@@ -126,8 +126,8 @@ public class BLOperation extends Operation implements OperationInterface {
 	public boolean update(VeriSinif vs) {
 		BL bl = (BL) vs;
 		String sql = "UPDATE bl SET";
-		sql += " voyageId = " + bl.getVoyage().getVoyageId() + ",blNo = "
-				+ bl.getBlNo() + ",companyName = '" + bl.getCompanyName()
+		sql += " voyageId = " + bl.getVoyage().getVoyageId() + ",blNo = '"
+				+ bl.getBlNo() + "',companyName = '" + bl.getCompanyName()
 				+ "'," + "status = " + bl.getStatus() + ", reportType = "
 				+ bl.getReportType() + ",placeOfOrigin = "
 				+ bl.getPlaceOfOrigin().getLocationId() + ",placeOfReceipt = "
