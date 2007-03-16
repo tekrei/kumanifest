@@ -17,20 +17,19 @@
  */
 package net.kodveus.kumanifest.gui;
 
-import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Rectangle;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 
 import net.kodveus.kumanifest.MainFrame;
 import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.utility.TreeHelper;
-import javax.swing.BorderFactory;
-import javax.swing.border.TitledBorder;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JTextField;
-import java.awt.Rectangle;
-import javax.swing.JLabel;
 
 public class LeftPanel extends JPanel {
 
@@ -78,10 +77,13 @@ public class LeftPanel extends JPanel {
 			lblVesselCode = new JLabel();
 			lblVesselCode.setBounds(new Rectangle(68, 23, 108, 18));
 			lblVesselCode.setText("");
-			
+
 			vesselDetailPanel = new VesselDetailPanel();
 			vesselDetailPanel.setLocation(new java.awt.Point(0, 520));
-			vesselDetailPanel.setBorder(BorderFactory.createTitledBorder(null, "Vessel Details", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.BOLD, 12), new Color(51, 51, 51)));
+			vesselDetailPanel.setBorder(BorderFactory.createTitledBorder(null,
+					"Vessel Details", TitledBorder.DEFAULT_JUSTIFICATION,
+					TitledBorder.DEFAULT_POSITION, new Font("Dialog",
+							Font.BOLD, 12), new Color(51, 51, 51)));
 			vesselDetailPanel.setSize(new java.awt.Dimension(200, 101));
 			vesselDetailPanel.add(lblVesselCode, null);
 			vesselDetailPanel.add(lblVesselName, null);
@@ -90,6 +92,7 @@ public class LeftPanel extends JPanel {
 		}
 		return vesselDetailPanel;
 	}
+
 	public void loadVesselDetails(Vessel vessel) {
 		lblVesselCode.setText(vessel.getVesselCode());
 		lblVesselName.setText(vessel.getVesselName());

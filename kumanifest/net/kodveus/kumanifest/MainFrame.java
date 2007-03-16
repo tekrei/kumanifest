@@ -65,10 +65,10 @@ public class MainFrame extends JFrame {
 		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
 				"net/kodveus/kumanifest/images/rudder.png"));
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.addWindowListener(new WindowAdapter(){
+		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				MenuHelper.getInstance().exit();
-		    }
+			}
 		});
 		this.setContentPane(getJContentPane());
 		ToolbarHelper.getInstance().getRecordToolbar().add(
@@ -119,6 +119,7 @@ public class MainFrame extends JFrame {
 	public void loadBL(Long id) {
 		pnlSag.loadBL(id);
 	}
+
 	public void loadVesselDetails(Vessel vessel) {
 		pnlSol.loadVesselDetails(vessel);
 	}
