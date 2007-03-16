@@ -55,7 +55,7 @@ public class RightPanel extends JPanel {
 	 */
 	private void initialize() {
 		this.setLayout(new BorderLayout());
-		this.setSize(800, 768);
+		this.setSize(800, 700);
 		this.add(getTabPane(), java.awt.BorderLayout.CENTER);
 	}
 

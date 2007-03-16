@@ -77,10 +77,10 @@ public class VesselDetailPanel extends JPanel {
 		jLabel2.setText("Flag     :");
 		jLabel1 = new JLabel();
 		jLabel1.setBounds(new java.awt.Rectangle(10, 40, 51, 21));
-		jLabel1.setText("Voyage:");
+		jLabel1.setText("V.Name");
 		jLabel = new JLabel();
 		jLabel.setBounds(new java.awt.Rectangle(10, 20, 51, 21));
-		jLabel.setText("Vessel :");
+		jLabel.setText("V.Code :");
 		this.setLayout(null);
 		this.setSize(200, 110);
 		this.setBorder(javax.swing.BorderFactory.createTitledBorder(null,

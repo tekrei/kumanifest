@@ -22,17 +22,31 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.kodveus.kumanifest.MainFrame;
+import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.utility.TreeHelper;
+import javax.swing.BorderFactory;
+import javax.swing.border.TitledBorder;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import java.awt.Rectangle;
+import javax.swing.JLabel;
 
 public class LeftPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private JButton btnEditVessel = null;
-
 	private VesselDetailPanel vesselDetailPanel = null;
 
 	private MainFrame _anaPencere;
+
+	private JLabel lblVesselCode = null;
+
+	private JLabel lblVesselName = null;
+
+	private JLabel lblFlag = null;
+
+	private JLabel lblPort = null;
 
 	public LeftPanel(MainFrame anaPencere) {
 		super();
@@ -42,33 +56,44 @@ public class LeftPanel extends JPanel {
 
 	private void initialize() {
 		this.setLayout(null);
-		this.setSize(200, 768);
+		this.setSize(200, 700);
 		JScrollPane treePane = new JScrollPane(TreeHelper.getInstance()
 				.getTree(_anaPencere));
-		treePane.setBounds(new java.awt.Rectangle(10, 10, 181, 561));
+		treePane.setBounds(new java.awt.Rectangle(10, 10, 181, 500));
 		this.add(treePane, null);
-		this.add(getBtnEditVessel(), null);
 		this.add(getVesselDetailPanel(), null);
-	}
-
-	private JButton getBtnEditVessel() {
-		if (btnEditVessel == null) {
-			btnEditVessel = new JButton();
-			btnEditVessel.setText("Edit Vessel");
-			btnEditVessel.setLocation(new java.awt.Point(80, 690));
-			btnEditVessel.setSize(new java.awt.Dimension(111, 21));
-			btnEditVessel.setActionCommand("Edit Vessel");
-			btnEditVessel.setMnemonic(java.awt.event.KeyEvent.VK_E);
-		}
-		return btnEditVessel;
 	}
 
 	private VesselDetailPanel getVesselDetailPanel() {
 		if (vesselDetailPanel == null) {
+			lblPort = new JLabel();
+			lblPort.setBounds(new Rectangle(68, 80, 108, 18));
+			lblPort.setText("");
+			lblFlag = new JLabel();
+			lblFlag.setBounds(new Rectangle(68, 61, 108, 18));
+			lblFlag.setText("");
+			lblVesselName = new JLabel();
+			lblVesselName.setBounds(new Rectangle(68, 42, 108, 18));
+			lblVesselName.setText("");
+			lblVesselCode = new JLabel();
+			lblVesselCode.setBounds(new Rectangle(68, 23, 108, 18));
+			lblVesselCode.setText("");
+			
 			vesselDetailPanel = new VesselDetailPanel();
-			vesselDetailPanel.setLocation(new java.awt.Point(0, 580));
+			vesselDetailPanel.setLocation(new java.awt.Point(0, 520));
+			vesselDetailPanel.setBorder(BorderFactory.createTitledBorder(null, "Vessel Details", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.BOLD, 12), new Color(51, 51, 51)));
 			vesselDetailPanel.setSize(new java.awt.Dimension(200, 101));
+			vesselDetailPanel.add(lblVesselCode, null);
+			vesselDetailPanel.add(lblVesselName, null);
+			vesselDetailPanel.add(lblFlag, null);
+			vesselDetailPanel.add(lblPort, null);
 		}
 		return vesselDetailPanel;
+	}
+	public void loadVesselDetails(Vessel vessel) {
+		lblVesselCode.setText(vessel.getVesselCode());
+		lblVesselName.setText(vessel.getVesselName());
+		lblFlag.setText(vessel.getFlag().getName());
+		lblPort.setText(vessel.getPort().getLocation());
 	}
 }
