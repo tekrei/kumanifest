@@ -134,10 +134,10 @@ public class ToolbarHelper implements ActionListener {
 		}
 	}
 
-	public void setBLOpen(boolean enabled){
-		for(int i=0;i<travel.getComponentCount();i++){
+	public void setBLOpen(boolean enabled) {
+		for (int i = 0; i < travel.getComponentCount(); i++) {
 			travel.getComponent(i).setEnabled(enabled);
 		}
-		//travel.setVisible(enabled);
+		// travel.setVisible(enabled);
 	}
 }

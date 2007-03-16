@@ -122,7 +122,7 @@ public class TreeHelper implements TreeSelectionListener {
 	/*
 	 * private void collapseLeaf(DefaultMutableTreeNode root) { Enumeration<?>
 	 * enumeration = root.depthFirstEnumeration();
-	 *
+	 * 
 	 * for (; enumeration.hasMoreElements();) { TreePath t = new
 	 * TreePath(((DefaultMutableTreeNode) enumeration
 	 * .nextElement()).getPath()); tree.collapsePath(t); } }
@@ -189,9 +189,9 @@ public class TreeHelper implements TreeSelectionListener {
 	}
 
 	private void updateVesselLeaf(DefaultMutableTreeNode root) {
-		//Gemi detay panelini dolduracagiz
+		// Gemi detay panelini dolduracagiz
 		_anaPencere.loadVesselDetails((Vessel) root.getUserObject());
-		
+
 		// Secilen Vessel'in Voyage'larini dolduracagiz
 		Long officeId = ((Office) ((DefaultMutableTreeNode) root.getParent())
 				.getUserObject()).getOfficeId();
@@ -203,7 +203,7 @@ public class TreeHelper implements TreeSelectionListener {
 		for (Voyage v : al) {
 			root.add(new DefaultMutableTreeNode(v));
 		}
-		expandLeaf(root);		
+		expandLeaf(root);
 	}
 
 	private void updateVoyageLeaf(DefaultMutableTreeNode root) {
