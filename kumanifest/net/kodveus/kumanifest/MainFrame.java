@@ -19,6 +19,8 @@ package net.kodveus.kumanifest;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -63,6 +65,11 @@ public class MainFrame extends JFrame {
 		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
 				"net/kodveus/kumanifest/images/rudder.png"));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e) {
+				MenuHelper.getInstance().exit();
+		    }
+		});
 		this.setContentPane(getJContentPane());
 		ToolbarHelper.getInstance().getRecordToolbar().add(
 				ToolbarHelper.getInstance().getTravelToolbar());
