@@ -72,15 +72,23 @@ public class MenuHelper implements ActionListener {
 
 	private JMenu getManagerialMenu() {
 		JMenu menu = new JMenu("Managerial");
+		ilerikiSurum(menu);
 		return menu;
 	}
 
 	private JMenu getHelpMenu() {
 		JMenu menu = new JMenu("Help");
+
 		JMenuItem menuItem = new JMenuItem("About", KeyEvent.VK_A);
 		menuItem.setActionCommand("about");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
+
+		menuItem = new JMenuItem("User Guide", KeyEvent.VK_A);
+		ilerikiSurum(menuItem);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
 		return menu;
 	}
 
@@ -88,23 +96,24 @@ public class MenuHelper implements ActionListener {
 		JMenu menu = new JMenu("Tools");
 
 		JMenuItem menuItem = new JMenuItem("Search", KeyEvent.VK_S);
+		ilerikiSurum(menuItem);
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("Send Mail", KeyEvent.VK_M);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("Send Mail", KeyEvent.VK_M);
+		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
+		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("Merge Voyages", KeyEvent.VK_E);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("Merge Voyages", KeyEvent.VK_E);
+		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
+		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("Calculator", KeyEvent.VK_A);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("Calculator", KeyEvent.VK_A);
+		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
+		menu.add(menuItem);
 
 		menu.add(getParametersMenu());
 
@@ -112,6 +121,7 @@ public class MenuHelper implements ActionListener {
 
 		menuItem = new JMenuItem("Settings", KeyEvent.VK_G);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		menu.add(menuItem);
 
 		return menu;
@@ -119,36 +129,32 @@ public class MenuHelper implements ActionListener {
 
 	private JMenu getAdditionalMenu() {
 		JMenu menu = new JMenu("Additional");
+		ilerikiSurum(menu);
 
 		JMenuItem menuItem;
-		/*
-		 * menuItem = new JMenuItem("ConCompare", KeyEvent.VK_C);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("ConCompare", KeyEvent.VK_C);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("TRM to SPS", KeyEvent.VK_T);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("TRM to SPS", KeyEvent.VK_T);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("3rdParty Reports", KeyEvent.VK_3);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("3rdParty Reports", KeyEvent.VK_3);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		menuItem = new JMenuItem("OpsReport", KeyEvent.VK_O);
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("Partners", KeyEvent.VK_A);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("Partners", KeyEvent.VK_A);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("FRC Screen", KeyEvent.VK_F);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("FRC Screen", KeyEvent.VK_F);
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		return menu;
 	}
@@ -176,10 +182,10 @@ public class MenuHelper implements ActionListener {
 		menuItem.addActionListener(this);
 		mnReports.add(menuItem);
 
-		/*
-		 * menuItem = new JMenuItem("Summary Declaration", KeyEvent.VK_S);
-		 * menuItem.addActionListener(this); menu.add(menuItem);
-		 */
+		menuItem = new JMenuItem("Summary Declaration", KeyEvent.VK_S);
+		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
+		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Bill of Lading", KeyEvent.VK_B);
 		menuItem.setActionCommand("BillOfLading");
@@ -208,18 +214,22 @@ public class MenuHelper implements ActionListener {
 
 		JMenuItem menuItem = new JMenuItem("Open", KeyEvent.VK_O);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Import", KeyEvent.VK_I);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Export", KeyEvent.VK_E);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Print Setup", KeyEvent.VK_P);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		menu.add(menuItem);
 
 		menu.addSeparator();
@@ -285,9 +295,7 @@ public class MenuHelper implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("exit")) {
-			if (JOptionPane.showConfirmDialog(null, "Are you sure?") == JOptionPane.OK_OPTION) {
-				System.exit(0);
-			}
+			exit();
 		} else if (e.getActionCommand().equals("pack")) {
 			PackPanel pack = new PackPanel();
 			GUIHelper.getInstance().showPanel("Pack", pack);
@@ -339,6 +347,17 @@ public class MenuHelper implements ActionListener {
 				LogHelper.getInstance().exception(ex);
 			}
 		}
+	}
+
+	public void exit() {
+		if (JOptionPane.showConfirmDialog(null, "Are you sure?") == JOptionPane.OK_OPTION) {
+			System.exit(0);
+		}
+	}
+
+	private void ilerikiSurum(JMenuItem menu) {
+		// TODO Ileriki surumler
+		menu.setEnabled(false);
 	}
 
 	public void setBLOpen(boolean enabled) {
