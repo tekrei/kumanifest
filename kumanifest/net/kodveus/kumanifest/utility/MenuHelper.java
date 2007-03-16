@@ -171,6 +171,7 @@ public class MenuHelper implements ActionListener {
 
 		menuItem = new JMenuItem("Sticker", KeyEvent.VK_S);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Loading List", KeyEvent.VK_L);
@@ -180,6 +181,7 @@ public class MenuHelper implements ActionListener {
 
 		menuItem = new JMenuItem("Discharging List", KeyEvent.VK_D);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Summary Declaration", KeyEvent.VK_S);
@@ -196,14 +198,17 @@ public class MenuHelper implements ActionListener {
 
 		menuItem = new JMenuItem("BL/Container List", KeyEvent.VK_C);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("Partial Containers", KeyEvent.VK_P);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		mnReports.add(menuItem);
 
 		menuItem = new JMenuItem("CustomerContReport", KeyEvent.VK_U);
 		menuItem.addActionListener(this);
+		ilerikiSurum(menuItem);
 		mnReports.add(menuItem);
 
 		return mnReports;
@@ -350,7 +355,7 @@ public class MenuHelper implements ActionListener {
 	}
 
 	public void exit() {
-		if (JOptionPane.showConfirmDialog(null, "Are you sure?") == JOptionPane.OK_OPTION) {
+		if (JOptionPane.showConfirmDialog(null, "Are you sure?") == JOptionPane.YES_OPTION) {
 			System.exit(0);
 		}
 	}
