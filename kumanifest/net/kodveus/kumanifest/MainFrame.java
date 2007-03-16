@@ -28,6 +28,7 @@ import javax.swing.UIManager;
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
 import net.kodveus.kumanifest.gui.StartPanel;
+import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
@@ -110,5 +111,8 @@ public class MainFrame extends JFrame {
 
 	public void loadBL(Long id) {
 		pnlSag.loadBL(id);
+	}
+	public void loadVesselDetails(Vessel vessel) {
+		pnlSol.loadVesselDetails(vessel);
 	}
 }
