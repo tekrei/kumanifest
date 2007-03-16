@@ -1,5 +1,5 @@
---Dogru calismasi icin bunun icerigi kucuk harf olmali
---Eclipse icin AnyEdit eklentisi is goruyor :D
+--dogru calismasi icin bunun icerigi kucuk harf olmali
+--eclipse icin anyedit eklentisi is goruyor :d
 create table containersize (
        containersizeid bigint(20) not null auto_increment
      , size varchar(20) not null
@@ -268,14 +268,18 @@ create view vwcontainerlist as
 			containersize.size as size,container.sealno as sealno
 	from ((container left join containertype on((container.containertype = containertype.containertypeid)))
 			left join containersize on((container.containersize = containersize.containersizeid)));
+
 --vwcargodetails
-create view	vwcargodetails as select container.blid as blid,sum(cargo.packtotal) as packtotal,
-			count(container.containerno) as containercount,containersize.size as size,
-			pack.type as type
-	from (containersize left join (container left join (cargo left join pack on((cargo.packid = pack.packid)))
-					on((container.containerid = cargo.containerid)))
-					on((container.containersize = containersize.containersizeid)))
-		group by container.containersize;
+create view `vwcargodetails` as
+	select `container`.`blid` as `blid`,sum(`cargo`.`packtotal`) as `packtotal`,
+	count(`container`.`containerno`) as `containercount`,
+	`containersize`.`size` as `size`,`pack`.`type` as `type`
+	from (`containersize` left join (`container` left join (`cargo`
+			left join `pack` on((`cargo`.`packid` = `pack`.`packid`)))
+			on((`container`.`containerid` = `cargo`.`containerid`)))
+			on((`container`.`containersize` = `containersize`.`containersizeid`)))
+	group by `container`.`blid`,`container`.`containersize`
+
 --vwboflading
 create view vwboflading as
 	select	bl.blid as blid,bl.blno as blno,bl.shipper as shipper,bl.consignee as consignee,
