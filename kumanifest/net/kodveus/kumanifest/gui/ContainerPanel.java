@@ -224,9 +224,11 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		cmbContainerType.setSelectedItem(container.getContainerType());
 		txtOtherSealNo.setText(container.getOtherSealNo());
 		txtSealNo.setText(container.getSealNo());
+		txtRelCom.setText("");
 		if (container.getRelCom() != null) {
 			txtRelCom.setText(Long.toString(container.getRelCom()));
 		}
+		txtTareWeight.setText("");
 		if (container.getTaraWeight() != null) {
 			txtTareWeight.setText(Double.toString(container.getTaraWeight()));
 		}
