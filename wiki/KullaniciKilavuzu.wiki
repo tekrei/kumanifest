@@ -8,10 +8,14 @@ Kumanifest konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kol
 Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. 
 
 Bir sonraki sürümde yapılması planlanan özellikler şunlardır:
- # Gümrük tescil işlemlerinizi kolaylaştırmak  için EDI, yani elektronik veri transferi özelliğinin eklenmesi,
- # Girilen kayıtlar arasında BL veya konteyner arama özelliği,
- # Open Office ve Excel gibi uygulamalardan veri okuyabilme ve aktarma özelliğinin eklenmesi.
+ # Gümrük tescil işlemlerinizi kolaylaştırmak için EDI dosyalama, yani elektronik veri transferi dosyasının hazırlanması özelliğinin eklenmesi. Bu özellik sayesinde gümrük tescil işlemlerinizi internet üzerinden yapabilen programlara, tescil bilgilerini doğrudan aktarabilecek; bu sayede elle yapılan birçok işlemi hızlandırıp hatasız hale getirebileceksiniz ve tekrar tekrar aynı verilerin bilgisayar ortamına girilmesine gerek duymayacaksınız. 
 
+ # Girilen kayıtlar arasında BL veya konteyner arama özelliği. Yaptığınız veri girişleri arasında aradığınız bir kaydı kumanifest sizin için bulup getirecek, hızlı bir şekilde erişmenizi sağlayacaktır.
+
+ # Open Office ve Excel gibi uygulamalardan veri okuyabilme ve aktarma özelliğinin eklenmesi. Excele belli bir düzende girdiğiniz gemi,BL veya konteyner bilgilerini otomatik olarak programın içine aktarabileceksiniz. Aynı şekilde program içerisinde bulunan verilerin de farklı düzen ve dosya tipleri ile dışa aktarımı mümkün olacaktır.
+
+Program Arayüzü
+-----------------
 Ekran görüntülerinden de anlaşılacağı gibi programın sol tarafında, gemi/sefer ve BL leri listeleyen bir ağaç görünüm bulunmaktadır. Buradan seçilen BL bilgileri sağdaki panele yüklenecek ve seçme işlemi ile bu bilgiler üzerinde değiştirme/silme gibi işlemler yapılabilecektir. 
 
 Seçilen BL'in konteyner detaylarını görebilmek için üst tarafta bulunan "Container" sekmesi seçilmelidir. Burada her bir konteyner içerisinde bulunan mal detayları da görülebilir ve değiştirilebilir.
@@ -24,6 +28,7 @@ Değişmez verileri tanımladıktan sonra konşimento(BL) girişlerinizi yapmaya
 
 Sefer seçildikten sonra BL kaydı girebilmek için; Bl bilgilerini sağ taraftaki panelde doldurduktan sonra ekranın sağ üst köşesinde bulunan +(artı) işareti şeklindeki ekle tuşunu kullanarak kaydın saklanmasını sağlayabilirsiniz.
 
-Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır.
-
+Raporlar
+---------
+Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır. Her bir gemi/sefer için manifesto ve yükleme listesi hazırlayabilecek, konşimentolarınızın detaylarını gösteren "Bill Of Lading" raporu hazırlayabileceksiniz.
 
