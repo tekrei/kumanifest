@@ -29,3 +29,4 @@ Sefer seçildikten sonra BL kaydı girebilmek için; Bl bilgilerini sağ tarafta
 ==Raporlar==
 
 Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır. Her bir gemi/sefer için manifesto ve yükleme listesi hazırlayabilecek, konşimentolarınızın detaylarını gösteren "Bill Of Lading" raporu hazırlayabileceksiniz.
+Seçtiğiniz rapor görüntülendiğinde pencerenin sol üst bölümünde bulunan tuşlar ile yazıcı çıktısı alabilir yada raporu .pdf, .xls, .rtf, .html gibi dosya formatlarında saklayabilirsiniz.
