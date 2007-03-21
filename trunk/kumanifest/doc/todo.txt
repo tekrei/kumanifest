@@ -3,6 +3,12 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 ---------------------------------------
+-Raporlarda alici, yukleyici sahalarý kucuk, veri tam gorunmuyor
+
+-veri giris sahalari yana dogru uzuyor, metni asagi dogru kaydirmiyor
+
+-yeni girilen sefer bilgisi, Bl girisi yaparken actigimiz sefer ekleme panelinde gorunmuyor.
+
 -Programin ve raporlarin test edilmesi
 
 -(DUZELTILDI) konteyner paneli acikken agacta gezdigimde yine bl panele geciyor. konteynerde kalmasi daha iyi olur.
