@@ -1,6 +1,9 @@
 #summary kumanifest kurulum kılavuzu
 #labels Phase-Support
 
+   Kumanifest programı java programlama dili ile geliştirilmiş olup, veritabanı olarak da mySQL kullanmaktadır. Bu nedenle, Kumanifest'in çalışabilmesi için kullandığınız bilgisayarda, java uygulamalarını çalıştırmak için gerekli olan Java çalışma ortamının ve mySQL veritabanının kurulu olması gerekmektedir. 
+   Bu gereksinimlerin nasıl kurulacağı aşağıda anlatılmaktadır. 
+
 ==Kurulum Aşamaları==
  # [http://dev.mysql.com/downloads/mysql/5.0.html#downloads Mysql] (>4.0) kurmanız gerekmektedir ([http://dev.mysql.com/doc/refman/5.0/en/installing-cs.html Yardım]).
  # [http://www.java.com/en/download/manual.jsp Java] (>1.5) kurmanız gerekmektedir.
