@@ -7,7 +7,9 @@ SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 
 -Programin ve raporlarin test edilmesi
 
--(DUZELTILDI)Raporlarda alici, yukleyici sahalarý kucuk, veri tam gorunmuyor
+-(EKLENDI) Hesap makinesi eklendi
+
+-(DUZELTILDI)Raporlarda alici, yukleyici sahalarï¿½ kucuk, veri tam gorunmuyor
 
 -(DUZELTILDI)veri giris sahalari yana dogru uzuyor, metni asagi dogru kaydirmiyor
 
