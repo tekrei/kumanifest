@@ -38,6 +38,7 @@ import net.kodveus.kumanifest.gui.PackPanel;
 import net.kodveus.kumanifest.gui.VesselPanel;
 import net.kodveus.kumanifest.gui.VoyagePanel;
 import net.kodveus.kumanifest.report.ReportGenerator;
+import net.kodveus.kumanifest.utility.calc.Calculator;
 
 public class MenuHelper implements ActionListener {
 
@@ -112,7 +113,7 @@ public class MenuHelper implements ActionListener {
 
 		menuItem = new JMenuItem("Calculator", KeyEvent.VK_A);
 		menuItem.addActionListener(this);
-		ilerikiSurum(menuItem);
+		menuItem.setActionCommand("calculator");
 		menu.add(menuItem);
 
 		menu.add(getParametersMenu());
@@ -301,6 +302,8 @@ public class MenuHelper implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("exit")) {
 			exit();
+		} else if (e.getActionCommand().equals("calculator")) {
+			new Calculator();
 		} else if (e.getActionCommand().equals("pack")) {
 			PackPanel pack = new PackPanel();
 			GUIHelper.getInstance().showPanel("Pack", pack);
