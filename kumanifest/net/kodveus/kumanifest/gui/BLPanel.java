@@ -219,6 +219,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		if (txtShipper == null) {
 			txtShipper = new NoTabTextArea();
 			txtShipper.setBounds(new java.awt.Rectangle(450, 20, 261, 141));
+			txtShipper.setWrapStyleWord(true);
 		}
 		return txtShipper;
 	}
@@ -227,6 +228,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		if (txtConsignee == null) {
 			txtConsignee = new NoTabTextArea();
 			txtConsignee.setBounds(new java.awt.Rectangle(450, 170, 261, 111));
+			txtConsignee.setWrapStyleWord(true);
 		}
 		return txtConsignee;
 	}
