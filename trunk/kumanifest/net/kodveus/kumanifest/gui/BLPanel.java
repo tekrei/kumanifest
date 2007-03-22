@@ -220,6 +220,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 			txtShipper = new NoTabTextArea();
 			txtShipper.setBounds(new java.awt.Rectangle(450, 20, 261, 141));
 			txtShipper.setWrapStyleWord(true);
+			txtShipper.setLineWrap(true);		
 		}
 		return txtShipper;
 	}
@@ -227,8 +228,9 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	private NoTabTextArea getTxtConsignee() {
 		if (txtConsignee == null) {
 			txtConsignee = new NoTabTextArea();
-			txtConsignee.setBounds(new java.awt.Rectangle(450, 170, 261, 111));
+			txtConsignee.setBounds(new java.awt.Rectangle(450, 170, 261, 111));		
 			txtConsignee.setWrapStyleWord(true);
+			txtConsignee.setLineWrap(true);
 		}
 		return txtConsignee;
 	}
@@ -237,6 +239,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		if (txtNotify == null) {
 			txtNotify = new NoTabTextArea();
 			txtNotify.setBounds(new java.awt.Rectangle(450, 290, 261, 101));
+			txtNotify.setWrapStyleWord(true);
+			txtNotify.setLineWrap(true);
 		}
 		return txtNotify;
 	}
@@ -246,6 +250,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 			txtDescription = new NoTabTextArea();
 			txtDescription
 					.setBounds(new java.awt.Rectangle(140, 290, 221, 101));
+			txtDescription.setWrapStyleWord(true);
+			txtDescription.setLineWrap(true);
 		}
 		return txtDescription;
 	}
@@ -255,6 +261,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 			txtDescription2 = new NoTabTextArea();
 			txtDescription2
 					.setBounds(new java.awt.Rectangle(140, 400, 221, 101));
+			txtDescription2.setWrapStyleWord(true);
+			txtDescription2.setLineWrap(true);
 		}
 		return txtDescription2;
 	}
@@ -263,6 +271,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		if (txtNotify2 == null) {
 			txtNotify2 = new NoTabTextArea();
 			txtNotify2.setBounds(new java.awt.Rectangle(450, 400, 261, 101));
+			txtNotify2.setWrapStyleWord(true);
+			txtNotify2.setLineWrap(true);
 		}
 		return txtNotify2;
 	}
