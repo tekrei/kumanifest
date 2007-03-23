@@ -22,19 +22,24 @@ Kodveus un bilgi paylaşım günlüğüne ulaşmak için http://kodveus.blogspot
 
 ==Program Arayüzü==
 
-Ekran görüntülerinden de anlaşılacağı gibi programın sol tarafında, gemi/sefer ve BL leri listeleyen bir ağaç görünüm bulunmaktadır. Buradan seçilen BL bilgileri sağdaki panele yüklenecek ve seçme işlemi ile bu bilgiler üzerinde değiştirme/silme gibi işlemler yapılabilecektir. 
+Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir.
 
-Seçilen BL'in konteyner detaylarını görebilmek için üst tarafta bulunan "Container" sekmesi seçilmelidir. Burada her bir konteyner içerisinde bulunan mal detayları da görülebilir ve değiştirilebilir.
-
-Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir. 
-
-Bu veri girişleri, üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde  yapmanız sorun yaşamanızı engelleyecektir.
+Bu veri girişleri, ana ekranda bulunan üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde  yapmanız sorun yaşamanızı engelleyecektir.
 
 Değişmez verileri tanımladıktan sonra konşimento(BL) girişlerinizi yapmaya başlayabilirsiniz. Ana ekranın sol tarafındaki ağaç görünümünde, ilgili yukleme bilgilerine fare ile çift tıklayarak tanımladığınız bir sefere ulaşabilirsiniz.
 
-Sefer seçildikten sonra BL kaydı girebilmek için; Bl bilgilerini sağ taraftaki panelde doldurduktan sonra ekranın sağ üst köşesinde bulunan +(artı) işareti şeklindeki ekle tuşunu kullanarak kaydın saklanmasını sağlayabilirsiniz.
+Ekran görüntülerinden de anlaşılacağı gibi programın sol tarafında, gemi/sefer ve BL leri listeleyen bir ağaç görünümü bulunmaktadır. Burada ilgili sefer seçildikten sonra BL kaydı girebilmek için; BL bilgilerini sağ taraftaki panelde doldurduktan sonra ekranın sağ üst köşesinde bulunan +(artı) işareti şeklindeki ekle tuşunu kullanarak kaydın saklanmasını sağlayabilirsiniz.
+
+Buradan seçilen BL bilgileri sağdaki panele yüklenecek ve seçme işlemi ile bu bilgiler üzerinde değiştirme/silme gibi işlemler yapılabilecektir. 
+
+Seçilen BL'in konteyner detaylarını görebilmek için üst tarafta bulunan "Container" sekmesi seçilmelidir. Burada her bir konteyner içerisinde bulunan mal detayları da görülebilir ve değiştirilebilir.
+
+Ana ekran görüntüsünün üst bölümünde bulunan menüdeki seçeneklerin bir kısmı program ilk açıldığında etkin olmayacaktır. Bu seçeneklerin bir kısmı seferlere bir kısmı da konşimentolara ait özellikler olduğundan, ancak ilgili sefer veya konşimento seçildiğinde etkin hale gelecektir. Rapolar menüsü seçenekleri bunlara örnek olarak verilebilir.
+
 
 ==Raporlar==
 
-Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır. Her bir gemi/sefer için manifesto ve yükleme listesi hazırlayabilecek, konşimentolarınızın detaylarını gösteren "Bill Of Lading" raporu hazırlayabileceksiniz.
+Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır. 
+
+Her bir gemi/sefer için manifesto ve yükleme listesi hazırlayabilecek, konşimentolarınızın detaylarını gösteren "Bill Of Lading" raporu hazırlayabileceksiniz.
 Seçtiğiniz rapor görüntülendiğinde pencerenin sol üst bölümünde bulunan tuşlar ile yazıcı çıktısı alabilir yada raporu .pdf, .xls, .rtf, .html gibi dosya formatlarında saklayabilirsiniz.
