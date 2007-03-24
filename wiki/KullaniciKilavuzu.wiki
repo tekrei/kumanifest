@@ -12,7 +12,9 @@ Bir sonraki sürümde yapılması planlanan özellikler şunlardır:
  # Girilen kayıtlar arasında BL veya konteyner arama özelliği. Yaptığınız veri girişleri arasında aradığınız bir kaydı kumanifest sizin için bulup getirecek, hızlı bir şekilde erişmenizi sağlayacaktır.
  # Open Office ve Excel gibi uygulamalardan veri okuyabilme ve aktarma özelliğinin eklenmesi. Excele belli bir düzende girdiğiniz gemi,BL veya konteyner bilgilerini otomatik olarak programın içine aktarabileceksiniz. Aynı şekilde program içerisinde bulunan verilerin de farklı düzen ve dosya tipleri ile dışa aktarımı mümkün olacaktır.
 
-Kumanifest'in ilk sürümüne http://www.kodveus.com/kumanifest adresinden ulaşabilirsiniz. Programı indirebilir, kurulum yönergelerini uygulayarak kurabilir ve ücretsiz olarak kullanabilirsiniz. Kumanifest, Genel Kamu Lisansı(GPL) na sahiptir; bu kapsamda ücretsiz olarak kullanabilir, paylaşabilir hatta değiştirebilirsiniz. Lisansın Türkçesi, İngilizcesi ve programın kurulum yönergeleri indireceğiniz kurulum paketi içerisinde ve projenin sayfasında bulunmaktadır: http://kodveus.blogcu.com  
+Kumanifest'in ilk sürümüne http://www.kodveus.com/kumanifest adresinden ulaşabilirsiniz. Programı indirebilir, kurulum yönergelerini uygulayarak kurabilir ve ücretsiz olarak kullanabilirsiniz. Kullanıcı kılavuzunu http://code.google.com/p/kumanifest/wiki/KullaniciKilavuzu adresinde bulabilirsiniz. 
+
+Kumanifest, Genel Kamu Lisansı(GPL) na sahiptir; bu kapsamda ücretsiz olarak kullanabilir, paylaşabilir hatta değiştirebilirsiniz. Lisansın Türkçesi, İngilizcesi ve programın kurulum yönergeleri indireceğiniz kurulum paketi içerisinde ve projenin sayfasında bulunmaktadır: http://kodveus.blogcu.com  
 
 Kumanifest programı maddi bir beklenti ile geliştirilmedi. Tamamen özgür yazılım felsefesi gözetilerek ve faydalı bir yazılım olması amaçlanarak geliştirildi. Tasarım ve geliştirme aşamasında yine kendisi gibi özgür yazılımlar kullanıldı.
 
