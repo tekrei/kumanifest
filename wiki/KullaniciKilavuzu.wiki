@@ -22,6 +22,16 @@ Kodveus un bilgi paylaşım günlüğüne ulaşmak için http://kodveus.blogspot
 
 ==Program Arayüzü==
 
+Kumanifest programı temel olarak 3 bölümden oluşmaktadır: 
+
+1) Ekranın sol tarafında bulunan ağaç görünümünden gemi ve seferlere ulaşılabilir. 
+2) Sağ tarafta bulunan BL panelinde BL detayları görülebilir.
+3) Yine sağ tarafta BL paneli ile yanyana bulunan konteyner panelinde konteyner detayları görülebilecektir. 
+
+Ana ekranın sağ tarafında bulunan bu paneller, Bl, konteyner ve kargo kayıtlarının girişi ve düzenlenmesinde kullanılacak olan bölümlerdir. Kayıt girişleri ve düzenlenmesi yine ekranın sağ üst bölümünde bulunan tuşlar yardımı ile yapılır. Yapılan girişlerin çıktıları rapor olarak alınabilir. 
+
+Kumanifest açıldığında üst bölümde File, Reports, Additional v.b. seçenekleri olan ana menüyü göreceksiniz. Programda kullanılacak olan liman/ofis, gemi gibi değişmez bilgilerin girileceği yer ve çıktı olarak alınacak raporların görülebileceği yerlere ana menüdeki seçeneklerden ulaşılacaktır. 
+
 Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir.
 
 Bu veri girişleri, ana ekranda bulunan üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde yapmanız sorun yaşamanızı engelleyecektir.
