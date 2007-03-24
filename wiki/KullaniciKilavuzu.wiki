@@ -3,7 +3,7 @@
 
 = Kullanıcı Kılavuzu =
 
-Kumanifest konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır. Yalnızca bir defa veri girişi yaparak, aynı bilgiyi farklı şekillerde çıktılara dönüştürebilecek, farklı amaçlar için kullanabilecek ve arşivleyebileceksiniz.
+Kumanifest konşimento, konteyner, mal tanımları bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır. Yalnızca bir defa veri girişi yaparak, aynı bilgiyi farklı şekillerde çıktılara dönüştürebilecek, farklı amaçlar için kullanabilecek ve arşivleyebileceksiniz.
 
 Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. Şu an elinize gelecek olan sürüm sadece temel ihtiyaçlara karşılık verebilir.
 
