@@ -5,6 +5,8 @@ SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 -yeni girilen sefer bilgisi, Bl girisi yaparken actigimiz sefer ekleme panelinde gorunmuyor.
 
+-agacta klavye ile hareket edilirken alt seviyeye inmek yerine aynı seviyedeki diğer dala geçilirse, bir daha alt seviyelere geçilemiyor. Fare de bu sorun yok
+
 -Programin ve raporlarin test edilmesi
 
 -(EKLENDI) Hesap makinesi eklendi
