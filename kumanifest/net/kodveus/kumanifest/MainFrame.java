@@ -63,7 +63,7 @@ public class MainFrame extends JFrame {
 		this.setSize(1024, 768);
 		this.setTitle("KUManifest");
 		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
-				"net/kodveus/kumanifest/images/rudder.png"));
+				"net/kodveus/kumanifest/images/pusula.png"));
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
