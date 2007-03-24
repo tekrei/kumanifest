@@ -3,9 +3,9 @@
 
 = Kullanıcı Kılavuzu =
 
-Kumanifest konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır.  
+Kumanifest konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır. Yalnızca bir defa veri girişi yaparak, aynı bilgiyi farklı şekillerde çıktılara dönüştürebilecek, farklı amaçlar için kullanabilecek ve arşivleyebileceksiniz.
 
-Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. 
+Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. Şu an elinize gelecek olan sürüm sadece temel ihtiyaçlara karşılık verebilir.
 
 Bir sonraki sürümde yapılması planlanan özellikler şunlardır:
  # Gümrük tescil işlemlerinizi kolaylaştırmak için EDI dosyalama, yani elektronik veri transferi dosyasının hazırlanması özelliğinin eklenmesi. Bu özellik sayesinde gümrük tescil işlemlerinizi internet üzerinden yapabilen programlara, tescil bilgilerini doğrudan aktarabilecek; bu sayede elle yapılan birçok işlemi hızlandırıp hatasız hale getirebileceksiniz ve tekrar tekrar aynı verilerin bilgisayar ortamına girilmesine gerek duymayacaksınız. 
@@ -56,10 +56,12 @@ Konteynerler içerisinde bulunan yük/kargo bilgileri de yine konteyner panelind
 
 Girilen kargo detayları, konteyner paneli içerisindeki, konteynerlerin listelendiği tabloda ilgili konteynerin seçilmesi ile altta bulunan kargo detay tablosunda listelenecektir. Bu liste üzerinde ilgili kargo seçilerek tablonun altında bulunan "New Cargo", "Delete Cargo" ve "Update Cargo" tuşları ile gerekli düzenlemeler yapılabilir.
 
+Yeni bir kargo detayı girebilmek için izlenecek yol şu şekildedir:
  # Sol taraftaki ağaç görünümünden ilgili BL seçilir
  # Sağ tarafta bulunan panellerden "Container" sekmesi seçilerek konteyner paneli açılır            
- # Bu panelin üst bölümünde bulunan "Container details" veri grubu içerisindeki alanlara gerekli bilgiler girilir
- # Sağ üst köşede bulunan +(artı) işareti şeklindeki ekle tuşu kullanılarak kayıt saklanır.
+ # Bu panelin orta bölümünde bulunan ve konteynerleri listeleyen tabloda ilgili konteyner seçilir. 
+ # Alt bölümde bulunan "New Cargo" tuşu kullanılarak yeni kargo tanımlama ekranı açılır. 
+ # "New Cargo" başlığına sahip bu pencerede gerekli alanlar doldurulur ve "OK" tuşuna basılarak yeni kayıt kaydedilmiş olunur.
 
 
 ==Raporlar==
