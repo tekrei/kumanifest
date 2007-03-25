@@ -26,13 +26,15 @@
 	<parameter name="prmBLId" isForPrompting="false" class="java.lang.Long">
 		<defaultValueExpression ><![CDATA[new Long("1")]]></defaultValueExpression>
 	</parameter>
-	<queryString><![CDATA[SELECT container.blid AS blid, container.taraweight AS tareweight, SUM(cargo.netweight) AS netweight FROM container 
+	<queryString><![CDATA[SELECT distinct container.containerNo AS containerNo, SUM(container.taraweight) AS tareweight, 
+SUM(cargo.netweight) AS netweight,SUM(cargo.packtotal) AS packtotal FROM container 
 LEFT OUTER JOIN cargo ON cargo.containerid = container.containerid 
 WHERE container.blid = $P{prmBLId} GROUP BY container.blid]]></queryString>
 
-	<field name="blid" class="java.lang.Long"/>
+	<field name="containerNo" class="java.lang.String"/>
 	<field name="tareweight" class="java.lang.Double"/>
 	<field name="netweight" class="java.lang.Double"/>
+	<field name="packtotal" class="java.lang.Double"/>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >
@@ -51,7 +53,7 @@ WHERE container.blid = $P{prmBLId} GROUP BY container.blid]]></queryString>
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="19"  isSplitAllowed="true" >
+			<band height="33"  isSplitAllowed="true" >
 				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="3"
@@ -79,6 +81,19 @@ WHERE container.blid = $P{prmBLId} GROUP BY container.blid]]></queryString>
 						<font/>
 					</textElement>
 				<textFieldExpression   class="java.lang.Double"><![CDATA[$F{tareweight}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="18"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Double"><![CDATA[$F{packtotal}]]></textFieldExpression>
 				</textField>
 			</band>
 		</detail>

@@ -3,6 +3,8 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 ---------------------------------------
+-ekranin alt bolumune bir durum cubugu koyalim. kayit ekleme/guncelleme sonrasi verilen onay, mesaj kutulari yerine bu durum cubugunda ciksin.
+
 -yeni girilen sefer bilgisi, Bl girisi yaparken actigimiz sefer ekleme panelinde gorunmuyor.
 
 -agacta klavye ile hareket edilirken alt seviyeye inmek yerine aynı seviyedeki diğer dala geçilirse, bir daha alt seviyelere geçilemiyor. Fare de bu sorun yok

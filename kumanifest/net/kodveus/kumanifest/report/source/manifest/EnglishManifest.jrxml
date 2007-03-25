@@ -194,12 +194,12 @@
 			</band>
 		</pageHeader>
 		<columnHeader>
-			<band height="18"  isSplitAllowed="true" >
+			<band height="23"  isSplitAllowed="true" >
 				<staticText>
 					<reportElement
 						mode="Transparent"
 						x="0"
-						y="0"
+						y="5"
 						width="30"
 						height="17"
 						key="staticText-8"/>
@@ -213,7 +213,7 @@
 					<reportElement
 						mode="Transparent"
 						x="719"
-						y="0"
+						y="5"
 						width="63"
 						height="17"
 						key="staticText-14"/>
@@ -229,19 +229,20 @@
 						x="657"
 						y="0"
 						width="60"
-						height="17"
+						height="22"
 						key="staticText-13"/>
 					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isBold="true"/>
+						<font size="9" isBold="true"/>
 					</textElement>
-				<text><![CDATA[Net Weight]]></text>
+				<text><![CDATA[Net Weight
+PackTotal]]></text>
 				</staticText>
 				<staticText>
 					<reportElement
 						mode="Transparent"
 						x="478"
-						y="0"
+						y="5"
 						width="179"
 						height="17"
 						key="staticText-12"/>
@@ -255,7 +256,7 @@
 					<reportElement
 						mode="Transparent"
 						x="363"
-						y="0"
+						y="5"
 						width="115"
 						height="17"
 						key="staticText-11"/>
@@ -269,7 +270,7 @@
 					<reportElement
 						mode="Transparent"
 						x="1"
-						y="17"
+						y="21"
 						width="780"
 						height="0"
 						key="line-6"/>
@@ -279,7 +280,7 @@
 					<reportElement
 						mode="Transparent"
 						x="114"
-						y="0"
+						y="5"
 						width="249"
 						height="17"
 						key="staticText-10"/>
@@ -293,7 +294,7 @@
 					<reportElement
 						mode="Transparent"
 						x="30"
-						y="0"
+						y="5"
 						width="83"
 						height="17"
 						key="staticText-9"/>
@@ -317,7 +318,7 @@
 					<reportElement
 						mode="Transparent"
 						x="113"
-						y="0"
+						y="5"
 						width="0"
 						height="17"
 						key="line-9"/>
@@ -327,7 +328,7 @@
 					<reportElement
 						mode="Transparent"
 						x="360"
-						y="0"
+						y="5"
 						width="0"
 						height="17"
 						key="line-11"/>
@@ -337,7 +338,7 @@
 					<reportElement
 						mode="Transparent"
 						x="477"
-						y="0"
+						y="5"
 						width="0"
 						height="17"
 						key="line-14"/>
@@ -347,7 +348,7 @@
 					<reportElement
 						mode="Transparent"
 						x="657"
-						y="0"
+						y="5"
 						width="0"
 						height="17"
 						key="line-16"/>
@@ -356,8 +357,8 @@
 				<line direction="TopDown">
 					<reportElement
 						mode="Transparent"
-						x="717"
-						y="0"
+						x="718"
+						y="5"
 						width="0"
 						height="17"
 						key="line-18"/>
