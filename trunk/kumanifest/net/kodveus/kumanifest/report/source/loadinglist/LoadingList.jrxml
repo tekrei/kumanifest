@@ -29,14 +29,13 @@
 	<parameter name="REPORT_DIR" isForPrompting="false" class="java.lang.String">
 		<defaultValueExpression ><![CDATA["/home/mehmetkis/workspace/kumanifest/net/kodveus/kumanifest/report/source/loadinglist/"]]></defaultValueExpression>
 	</parameter>
-	<queryString><![CDATA[select * from container,containertype,containersize,cargo,bl,voyage
+	<queryString><![CDATA[select *, (cargo.netweight + container.taraweight) AS totalweight from container,containertype,containersize,cargo,bl,voyage
 where container.containertype=containertype.containertypeid 
 and container.containersize=containersize.containersizeid 
 and cargo.containerid=container.containerid and container.blid=bl.blid 
 and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryString>
 
 	<field name="containerid" class="java.lang.Long"/>
-	<field name="relcom" class="java.lang.Long"/>
 	<field name="containerno" class="java.lang.String"/>
 	<field name="blid" class="java.lang.Long"/>
 	<field name="containertype" class="java.lang.Long"/>
@@ -44,9 +43,8 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 	<field name="othersealno" class="java.lang.String"/>
 	<field name="containersize" class="java.lang.Long"/>
 	<field name="taraweight" class="java.lang.Double"/>
-	<field name="netweight" class="java.lang.Double"/>
 	<field name="status" class="java.lang.Long"/>
-	<field name="packtotal" class="java.lang.Double"/>
+	<field name="relcom" class="java.lang.Long"/>
 	<field name="containertypeid" class="java.lang.Long"/>
 	<field name="type" class="java.lang.String"/>
 	<field name="description" class="java.lang.String"/>
@@ -58,6 +56,8 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 	<field name="packid" class="java.lang.Long"/>
 	<field name="imco" class="java.lang.String"/>
 	<field name="unno" class="java.lang.String"/>
+	<field name="netweight" class="java.lang.Double"/>
+	<field name="packtotal" class="java.lang.Double"/>
 	<field name="voyageid" class="java.lang.Long"/>
 	<field name="blno" class="java.lang.String"/>
 	<field name="companyname" class="java.lang.String"/>
@@ -84,6 +84,7 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 	<field name="arrivaldate" class="java.sql.Date"/>
 	<field name="departuredate" class="java.sql.Date"/>
 	<field name="nameofcaptain" class="java.lang.String"/>
+	<field name="totalweight" class="java.lang.Double"/>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >
@@ -304,6 +305,15 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 					</textElement>
 				<text><![CDATA[Tipi]]></text>
 				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="7"
+						y="7"
+						width="499"
+						height="0"
+						key="line-16"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
 			</band>
 		</pageHeader>
 		<columnHeader>
@@ -311,7 +321,7 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 			</band>
 		</columnHeader>
 		<detail>
-			<band height="19"  isSplitAllowed="true" >
+			<band height="16"  isSplitAllowed="true" >
 				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						mode="Transparent"
@@ -569,16 +579,16 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 				</staticText>
 				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
-						x="177"
-						y="1"
-						width="58"
+						x="175"
+						y="0"
+						width="54"
 						height="13"
 						key="textField"/>
 					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
 					<textElement>
 						<font/>
 					</textElement>
-				<textFieldExpression   class="java.lang.Double"><![CDATA[$F{netweight}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.Double"><![CDATA[$F{totalweight}]]></textFieldExpression>
 				</textField>
 			</band>
 		</detail>

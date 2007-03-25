@@ -26,7 +26,7 @@
 	<parameter name="prmBLId" isForPrompting="false" class="java.lang.Long">
 		<defaultValueExpression ><![CDATA[new Long("1")]]></defaultValueExpression>
 	</parameter>
-	<queryString><![CDATA[SELECT * FROM `vwcontainerlist` WHERE blid = $P{prmBLId}]]></queryString>
+	<queryString><![CDATA[SELECT DISTINCT * FROM `vwcontainerlist` WHERE blid = $P{prmBLId}]]></queryString>
 
 	<field name="blid" class="java.lang.Long"/>
 	<field name="containerno" class="java.lang.String"/>
