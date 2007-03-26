@@ -3,6 +3,12 @@ Onemli Not: Bu dosyayi kullanmak yerine google altindaki issues kullanilabilir m
 SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 ---------------------------------------
+-sahalara girilen verilerin dogruluk ve bos olma kontrolu
+
+-paneldeki konteyner tablosunda klavye ile yapilan hareketler, kargo tablosunu etkilemiyor, bilgiyi guncellemiyor
+
+-konteyner ve kargo paneli tablolarinda yeni bir sutun ekleyip, ilk sutuna kayit numarasini yazmak yararli olabilir(1,2,3,4..)
+
 -ekranin alt bolumune bir durum cubugu koyalim. kayit ekleme/guncelleme sonrasi verilen onay, mesaj kutulari yerine bu durum cubugunda ciksin.
 
 -yeni girilen sefer bilgisi, Bl girisi yaparken actigimiz sefer ekleme panelinde gorunmuyor.
