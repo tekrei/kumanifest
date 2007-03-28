@@ -49,6 +49,21 @@
 	<field name="finaldischargeplace" class="java.lang.String"/>
 	<field name="issueplace" class="java.lang.String"/>
 
+	<variable name="BLNo_COUNT" class="java.lang.Integer" resetType="Report" incrementType="Group" incrementGroup="BLNoGroup" calculation="Count">
+		<variableExpression><![CDATA[(($V{BLNoGroup_COUNT}.intValue() == 1) ? "" : null)]]></variableExpression>
+	</variable>
+
+		<group  name="BLNoGroup" >
+			<groupExpression><![CDATA[$F{blno}]]></groupExpression>
+			<groupHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
 		<background>
 			<band height="0"  isSplitAllowed="true" >
 			</band>
@@ -483,7 +498,7 @@ PackTotal]]></text>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="30"
-						y="0"
+						y="5"
 						width="83"
 						height="17"
 						key="textField-5"/>
@@ -565,19 +580,6 @@ PackTotal]]></text>
 						isPrintWhenDetailOverflows="true"/>
 					<graphicElement stretchType="RelativeToBandHeight"/>
 				</line>
-				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
-					<reportElement
-						x="3"
-						y="3"
-						width="25"
-						height="14"
-						key="textField"/>
-					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
-					<textElement>
-						<font/>
-					</textElement>
-				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
-				</textField>
 				<subreport  isUsingCache="true">
 					<reportElement
 						x="364"
@@ -617,6 +619,19 @@ PackTotal]]></text>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<subreportExpression  class="java.lang.String"><![CDATA[$P{REPORT_DIR} + "EnglishManifest_srNetWeight.jasper"]]></subreportExpression>
 				</subreport>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="5"
+						width="28"
+						height="18"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{BLNo_COUNT}]]></textFieldExpression>
+				</textField>
 			</band>
 		</detail>
 		<columnFooter>
