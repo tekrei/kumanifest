@@ -1,0 +1,84 @@
+<installation version="1.0">
+
+<info>
+    <appname>kumanifest</appname>
+    <appversion>0.95</appversion>
+    <authors>
+        <author name="Kod ve Us" email="kodveus@gmail.com" />
+    </authors>
+    <url>http://www.kodveus.com</url>
+    <javaversion>1.5</javaversion>
+</info>
+
+<guiprefs height="600" resizable="yes" width="800">
+	<modifier key="layoutAnchor" value="CENTER"/>
+	<modifier key="headingPanelCounter" value="progressbar"/>
+	<modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
+	<modifier key="allYGap" value="3"/>
+	<modifier key="paragraphYGap" value="10"/>
+	<modifier key="filler1YGap" value="5"/>
+	<modifier key="filler3XGap" value="10"/>
+</guiprefs>
+
+<variables>
+  <variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/kumanifest-install.log"/>
+  	<!-- This means that the log name will be My-install and that it will be stored at the root of the installation. -->
+  	<!-- Any path is fine. If value is set to "Default" then "$INSTALL_PATH/uninstall/install.log" is used. -->
+  	<!-- And if variable isn't defined then no log is written. -->
+  <variable name="desktopshortcutcheckboxenabled" value="true"/>
+  	<!-- This automatically checks the "Create Desktop Shortcuts" button. Default value is "False". -->
+</variables>
+
+<locale>
+    <langpack iso3="eng"/>
+    <langpack iso3="tur"/>
+</locale>
+
+<resources>
+    <res src="doc/okubeni.html" id="HTMLInfoPanel.info"/>
+    <res src="legal/gpl.txt" id="LicencePanel.licence"/>
+    <res src="net/kodveus/kumanifest/images/kvu.gif" id="installer.langsel.img"/>
+	<res src="shortcutSpec.xml" id="shortcutSpec.xml" />
+    <res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml" />
+</resources>
+
+<panels>
+    <panel classname="CheckedHelloPanel" />
+    <panel classname="HTMLInfoPanel"/>
+    <panel classname="LicencePanel"/>
+    <panel classname="TargetPanel"/>
+    <panel classname="PacksPanel"/>
+    <panel classname="InstallPanel"/>
+	<panel classname="ShortcutPanel"/>
+    <panel classname="SimpleFinishPanel"/>
+</panels>
+
+<packs>
+    <pack name="Base" required="yes">
+         <description>Kumanifest için gereksinim duyulan çekirdek dosyalar.</description>
+         <fileset dir="" targetdir="$INSTALL_PATH">
+           <include name="kumanifest.jar" />
+           <include name="lib/*.jar" />
+           <include name="net/kodveus/kumanifest/report/source/**/*.jrxml" />
+           <include name="net/kodveus/kumanifest/report/source/**/*.jasper" />
+           <include name="net/kodveus/kumanifest/images/*.*" />
+         	<include name="legal/*.*"/>
+         	<include name="doc/*.*"/>
+         </fileset>
+         <file src="net/kodveus/kumanifest/script/calistir.sh" os="unix" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/dbkurulum.sh" os="unix" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/calistir.bat" os="windows" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/script/dbkurulum.bat" os="windows" targetdir="$INSTALL_PATH/"/>
+         <file src="net/kodveus/kumanifest/database/kumanifest.sql" targetdir="$INSTALL_PATH/"/>
+         <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
+         <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
+    </pack>
+</packs>
+
+<!-- The native libraries to add -->
+<!--<native type="izpack" name="ShellLink.dll"/>
+<native type="3rdparty" name="COIOSHelper.dll" stage="both">
+    <os family="windows"/>
+</native>-->
+
+</installation>
