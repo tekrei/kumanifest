@@ -15,17 +15,17 @@
 	<modifier key="headingPanelCounter" value="progressbar"/>
 	<modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
 	<modifier key="allYGap" value="3"/>
-	<modifier key="paragraphYGap" value="10"/>	
+	<modifier key="paragraphYGap" value="10"/>
 	<modifier key="filler1YGap" value="5"/>
-	<modifier key="filler3XGap" value="10"/>    
+	<modifier key="filler3XGap" value="10"/>
 </guiprefs>
 
 <variables>
-  <variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/kumanifest-install.log"/> 
+  <variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/kumanifest-install.log"/>
   	<!-- This means that the log name will be My-install and that it will be stored at the root of the installation. -->
   	<!-- Any path is fine. If value is set to "Default" then "$INSTALL_PATH/uninstall/install.log" is used. -->
   	<!-- And if variable isn't defined then no log is written. -->
-  <variable name="desktopshortcutcheckboxenabled" value="true"/> 
+  <variable name="desktopshortcutcheckboxenabled" value="true"/>
   	<!-- This automatically checks the "Create Desktop Shortcuts" button. Default value is "False". -->
 </variables>
 
@@ -60,6 +60,7 @@
            <include name="kumanifest.jar" />
            <include name="lib/*.jar" />
            <include name="net/kodveus/kumanifest/report/source/**/*.jrxml" />
+           <include name="net/kodveus/kumanifest/report/source/**/*.jasper" />
            <include name="net/kodveus/kumanifest/images/*.*" />
          	<include name="legal/*.*"/>
          	<include name="doc/*.*"/>
