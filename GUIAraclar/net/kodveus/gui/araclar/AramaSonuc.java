@@ -21,11 +21,11 @@ public class AramaSonuc extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JTable jtable;
-	GenericTableModel model;
-	TableSorter sorter;
-	ArrayList liste;
-	AliasMap map;
+	private JTable jtable;
+	private GenericTableModel model;
+	private TableSorter sorter;
+	private ArrayList liste;
+	private AliasMap map;
 	boolean siralanabilirKolon;
 	boolean adetKolonu;
 	private AramaSonucInterface _arayuz;
@@ -64,6 +64,8 @@ public class AramaSonuc extends JPanel {
 		jtable.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
 					public void valueChanged(ListSelectionEvent e) {
+						//Gereksiz mesajlari yok say
+						if (e.getValueIsAdjusting()) return;
 						// If cell selection is enabled, both row and column
 						// change events are fired
 						if (e.getSource() == jtable.getSelectionModel()
@@ -102,10 +104,10 @@ public class AramaSonuc extends JPanel {
 
 		if (siralanabilirKolon) {
 			sorter = new TableSorter(model);
-			JTableMetodlar.prepareTable(jtable, sorter);
+			JTableMetodlar.prepareTable(jtable, sorter, adetKolonu);
 			sorter.setTableHeader(jtable.getTableHeader());
 		} else {
-			JTableMetodlar.prepareTable(jtable, model);
+			JTableMetodlar.prepareTable(jtable, model, adetKolonu);
 		}
 
 		jtable.updateUI();
