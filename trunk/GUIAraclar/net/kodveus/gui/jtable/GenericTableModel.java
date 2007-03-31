@@ -38,7 +38,7 @@ public class GenericTableModel extends AbstractTableModel {
 
 		//
 		if (rowCountColumnVisible) {
-			this.columns.add("");
+			this.columns.add("#");
 		}
 
 		for (int i = 0; i < map.getAliasCount(); i++) {
