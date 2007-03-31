@@ -7,4 +7,3 @@ Kumanifest programı, Kodveus' un  geliştirmekte olduğu;  özellikle konteyner
 Kumanifest; konşimento, konteyner, mal tanimlari bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır.
 
 Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır.
-
