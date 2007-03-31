@@ -20,30 +20,37 @@ import net.kodveus.gui.jtable.TableSorter;
 public class AramaSonuc extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	public static int SIRALAMALI = 0;
-	public static int NORMAL = 1;
+
 	JTable jtable;
 	GenericTableModel model;
 	TableSorter sorter;
-	ArrayList<Object> liste;
+	ArrayList liste;
 	AliasMap map;
-	int tabloTipi;
+	boolean siralanabilirKolon;
+	boolean adetKolonu;
 	private AramaSonucInterface _arayuz;
 
 	public AramaSonuc() {
 	}
 
 	public AramaSonuc(AliasMap _map) {
-		this(_map, new ArrayList<Object>(), NORMAL);
+		this(_map, new ArrayList(), false, false);
 	}
 
-	public AramaSonuc(AliasMap _map, int _tabloTipi) {
-		this(_map, new ArrayList<Object>(), _tabloTipi);
+	public AramaSonuc(AliasMap _map, boolean _siralamaDestegi) {
+		this(_map, new ArrayList(), _siralamaDestegi, false);
 	}
 
-	public AramaSonuc(AliasMap _map, ArrayList<Object> _liste, int _tabloTipi) {
+	public AramaSonuc(AliasMap _map, boolean _siralamaDestegi,
+			boolean _adetSatirDestegi) {
+		this(_map, new ArrayList(), _siralamaDestegi, _adetSatirDestegi);
+	}
+
+	public AramaSonuc(AliasMap _map, ArrayList _liste,
+			boolean _siralamaDestegi, boolean _adetSatirDestegi) {
 		map = _map;
-		tabloTipi = _tabloTipi;
+		siralanabilirKolon = _siralamaDestegi;
+		adetKolonu = _adetSatirDestegi;
 		liste = _liste;
 		jtable = new JFocusTable();
 		prepareGUI();
@@ -78,8 +85,9 @@ public class AramaSonuc extends JPanel {
 
 	public void setAliasMap(AliasMap _map) {
 		map = _map;
-		tabloTipi = NORMAL;
-		liste = new ArrayList<Object>();
+		siralanabilirKolon = false;
+		adetKolonu = false;
+		liste = new ArrayList();
 		jtable = new JFocusTable();
 		prepareGUI();
 	}
@@ -90,9 +98,9 @@ public class AramaSonuc extends JPanel {
 
 	private void prepareTable() {
 		// jtable = new JFocusTable();
-		model = new GenericTableModel(map, liste, false);
+		model = new GenericTableModel(map, liste, false,adetKolonu);
 
-		if (tabloTipi == SIRALAMALI) {
+		if (siralanabilirKolon) {
 			sorter = new TableSorter(model);
 			JTableMetodlar.prepareTable(jtable, sorter);
 			sorter.setTableHeader(jtable.getTableHeader());
@@ -104,15 +112,15 @@ public class AramaSonuc extends JPanel {
 	}
 
 	public Object getSeciliNesne() {
-		if (tabloTipi == SIRALAMALI) {
+		if (siralanabilirKolon) {
 			return sorter.getObjectAt(jtable.getSelectedRow());
 		}
 
 		return liste.get(jtable.getSelectedRow());
 	}
 
-	public ArrayList<Object> getSecili() {
-		ArrayList<Object> _liste = new ArrayList<Object>();
+	public ArrayList getSecili() {
+		ArrayList _liste = new ArrayList();
 		int[] secili = jtable.getSelectedRows();
 
 		for (int i = 0; i < secili.length; i++) {
@@ -122,7 +130,7 @@ public class AramaSonuc extends JPanel {
 		return _liste;
 	}
 
-	public void listeGuncelle(ArrayList<Object> yeniListe) {
+	public void listeGuncelle(ArrayList yeniListe) {
 		this.liste = yeniListe;
 		prepareTable();
 		jtable.updateUI();

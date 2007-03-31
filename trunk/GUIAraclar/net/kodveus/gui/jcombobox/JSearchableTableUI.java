@@ -44,7 +44,7 @@ public class JSearchableTableUI extends JPanel {
     JDialog self;
     private DefaultItemListener dil;
     private AliasMap aliasMap;
-    
+
     /*private JSearchableTableUI(STInterface _listener, ArrayList<VeriSinif> _liste,
         VeriSinif _selected, JDialog _self) {
         listener = _listener;
@@ -186,7 +186,7 @@ public class JSearchableTableUI extends JPanel {
 
     public void requestFilter(String filterName, String filter) {
         sorter.setTableModel(new GenericTableModel(getAliasMap(),
-                getFilteredList(filterName, filter),false));
+                getFilteredList(filterName, filter),false,false));
         jtable.getSelectionModel().setSelectionInterval(0, 0);
 
         //prepareColumnWidth();
@@ -266,7 +266,7 @@ public class JSearchableTableUI extends JPanel {
             STInterface listener, DefaultItemListener dil, Object _requestSource) {
     	showPopup(liste,selected,listener,dil,_requestSource,null);
     }
-    
+
     public static void showPopup(ArrayList<VeriSinif> liste, VeriSinif selected,
         STInterface listener, DefaultItemListener dil, Object _requestSource,AliasMap aliasMap) {
         requestSource = _requestSource;
@@ -299,7 +299,7 @@ public class JSearchableTableUI extends JPanel {
         AliasMap aliasMap = getAliasMap();
 
         if (aliasMap != null) {
-            model = new GenericTableModel(aliasMap, items,false);
+            model = new GenericTableModel(aliasMap, items,false,false);
             sorter = new TableSorter(model);
             jtable = new JTable(sorter);
 

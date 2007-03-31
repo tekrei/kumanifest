@@ -16,154 +16,158 @@ import net.kodveus.gui.araclar.ClassParser;
 import net.kodveus.gui.araclar.TipCevirici;
 import net.kodveus.gui.araclar.VeriSinif;
 
-
 public class GenericTableModel extends AbstractTableModel {
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-    private AliasMap map;
-    private List dvoList;
-    private ArrayList<String> columns;
-    private boolean isEditable;
+	private static final long serialVersionUID = 1L;
+	private AliasMap map;
+	private List<?> dvoList;
+	private ArrayList<String> columns;
+	private boolean isEditable;
+	private boolean rowCountColumnVisible;
 
-    public GenericTableModel(AliasMap _map, List _dvoList, boolean _isEditable) {
-        this.map = _map;
-        this.dvoList = _dvoList;
-        this.isEditable = _isEditable;
-        baslikHazirla();
-    }
+	public GenericTableModel(AliasMap _map, List<?> _dvoList,
+			boolean _isEditable, boolean _rowCountColumn) {
+		this.map = _map;
+		this.dvoList = _dvoList;
+		this.isEditable = _isEditable;
+		this.rowCountColumnVisible = _rowCountColumn;
+		baslikHazirla();
+	}
 
-    private void baslikHazirla() {
-        columns = new ArrayList<String>();
+	private void baslikHazirla() {
+		columns = new ArrayList<String>();
 
-        for (int i = 0; i < map.getAliasCount(); i++) {
-            this.columns.add(map.getAlias(i));
-        }
-    }
+		//
+		if (rowCountColumnVisible) {
+			this.columns.add("");
+		}
 
-    /**
-    * @param map
-    */
-    public int getColumnCount() {
-        //return map.getAliasCount();
-        return columns.size();
-    }
+		for (int i = 0; i < map.getAliasCount(); i++) {
+			this.columns.add(map.getAlias(i));
+		}
+	}
 
-    public int getRowCount() {
-        if (dvoList != null) {
-            return dvoList.size();
-        }
+	public int getColumnCount() {
+		return columns.size();
+	}
 
-        return 0;
-    }
+	public int getRowCount() {
+		if (dvoList != null) {
+			return dvoList.size();
+		}
 
-    public String getColumnName(int col) {
-        return (String) this.columns.get(col);
-    }
+		return 0;
+	}
 
-    public Object getValueAt(int row, int col) {
-        String colName = this.getColumnName(col);
-        Object obj = dvoList.get(row);
+	public String getColumnName(int col) {
+		return (String) this.columns.get(col);
+	}
 
-        try {
-            Object value = map.getValueOfAttribute(obj, colName);
+	public Object getValueAt(int row, int col) {
 
-            if ((value == null) && (value instanceof String)) {
-                return "";
-            }
+		if (rowCountColumnVisible && col == 0) {
+			return row+1;//1'den baslamali
+		}
+		String colName = this.getColumnName(col);
+		Object obj = dvoList.get(row);
 
-            try {
-                if ((value != null) &&
-                        (value.getClass().equals(Date.class) ||
-                        value.getClass().equals(Timestamp.class))) {
-                    value = TipCevirici.cevirDate((Date) value);
-                }
+		try {
+			Object value = map.getValueOfAttribute(obj, colName);
 
-                if ((value != null) &&
-                        (value.getClass().equals(BigDecimal.class))) {
-                    value = TipCevirici.cevirBigDecimal((BigDecimal) value);
-                }
-            } catch (Exception ex) {
-            }
+			if ((value == null) && (value instanceof String)) {
+				return "";
+			}
 
-            return value;
-        } catch (Exception ex) {
-            ex.printStackTrace();
+			try {
+				if ((value != null)
+						&& (value.getClass().equals(Date.class) || value
+								.getClass().equals(Timestamp.class))) {
+					value = TipCevirici.cevirDate((Date) value);
+				}
 
-            return "r:" + row + ",col:" + col;
-        }
-    }
+				if ((value != null)
+						&& (value.getClass().equals(BigDecimal.class))) {
+					value = TipCevirici.cevirBigDecimal((BigDecimal) value);
+				}
+			} catch (Exception ex) {
+			}
 
-    public Object getObjectAtRow(int at) {
-        return dvoList.get(at);
-    }
+			return value;
+		} catch (Exception ex) {
+			ex.printStackTrace();
 
-    /*
-         * JTable uses this method to determine the default renderer/
-         * editor for each cell.  If we didn't implement this method,
-         * then the last column would contain text ("true"/"false"),
-         * rather than a check box.
-         */
-    @SuppressWarnings("unchecked")
+			return "r:" + row + ",col:" + col;
+		}
+	}
+
+	public Object getObjectAtRow(int at) {
+		return dvoList.get(at);
+	}
+
+	/*
+	 * JTable uses this method to determine the default renderer/ editor for
+	 * each cell. If we didn't implement this method, then the last column would
+	 * contain text ("true"/"false"), rather than a check box.
+	 */
+	@SuppressWarnings("unchecked")
 	public Class getColumnClass(int c) {
-        if (getValueAt(0, c) == null) {
-            return String.class;
-        }
+		if (getValueAt(0, c) == null) {
+			return String.class;
+		}
 
-        if (getValueAt(0, c).getClass().equals(Date.class)) {
-            return String.class;
-        }
+		if (getValueAt(0, c).getClass().equals(Date.class)) {
+			return String.class;
+		}
 
-        return getValueAt(0, c).getClass();
-    }
+		return getValueAt(0, c).getClass();
+	}
 
-    /*
-         * Don't need to implement this method unless your table's
-         * editable.
-         */
-    public boolean isCellEditable(int row, int col) {
-        //Note that the data/cell address is constant,
-        //no matter where the cell appears onscreen.
-        return isEditable;
-    }
+	/*
+	 * Don't need to implement this method unless your table's editable.
+	 */
+	public boolean isCellEditable(int row, int col) {
+		// Note that the data/cell address is constant,
+		// no matter where the cell appears onscreen.
+		return isEditable;
+	}
 
-    /*
-         * Don't need to implement this method unless your table's
-         * data can change.
-         */
-    public void setValueAt(Object value, int row, int col) {
-        try {
-            VeriSinif dvo = (VeriSinif) dvoList.get(row);
-            String propertyName = map.getAttributeName(map.getAlias(col));
-            ClassParser parser = new ClassParser();
-            Class propertyClass = parser.getPropertyType(dvo, propertyName);
-            ClassParser.setProperty(dvo,
-                map.getAttributeName(map.getAlias(col)),
-                generateValue(propertyClass.getName(), value));
-            fireTableCellUpdated(row, col);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
+	/*
+	 * Don't need to implement this method unless your table's data can change.
+	 */
+	public void setValueAt(Object value, int row, int col) {
+		try {
+			if (rowCountColumnVisible && col == 0) {
+				return;
+			}
+			VeriSinif dvo = (VeriSinif) dvoList.get(row);
+			String propertyName = map.getAttributeName(map.getAlias(col));
+			ClassParser parser = new ClassParser();
+			Class propertyClass = parser.getPropertyType(dvo, propertyName);
+			ClassParser.setProperty(dvo, map
+					.getAttributeName(map.getAlias(col)), generateValue(
+					propertyClass.getName(), value));
+			fireTableCellUpdated(row, col);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+	}
 
-    private Object generateValue(String className, Object value) {
-        if (className.indexOf("BigDecimal") > 0) {
-            if (value instanceof BigDecimal) {
-                return value;
-            }
+	private Object generateValue(String className, Object value) {
+		if (className.indexOf("BigDecimal") > 0) {
+			if (value instanceof BigDecimal) {
+				return value;
+			}
 
-            return TipCevirici.cevirBigDecimal(value.toString());
-        }
+			return TipCevirici.cevirBigDecimal(value.toString());
+		}
 
-        if (className.indexOf("Date") > 0) {
-            if (value instanceof Date) {
-                return value;
-            }
+		if (className.indexOf("Date") > 0) {
+			if (value instanceof Date) {
+				return value;
+			}
 
-            return TipCevirici.cevirDate(value.toString());
-        }
+			return TipCevirici.cevirDate(value.toString());
+		}
 
-        return value;
-    }
+		return value;
+	}
 }
