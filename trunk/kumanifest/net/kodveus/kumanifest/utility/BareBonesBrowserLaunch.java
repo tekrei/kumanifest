@@ -25,8 +25,6 @@ package net.kodveus.kumanifest.utility;
  */
 import java.lang.reflect.Method;
 
-import javax.swing.JOptionPane;
-
 public class BareBonesBrowserLaunch {
 
 	private static final String errMsg = "Error attempting to launch web browser";
@@ -56,8 +54,9 @@ public class BareBonesBrowserLaunch {
 				Runtime.getRuntime().exec(new String[] { browser, url });
 			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, errMsg + ":\n"
+			StatusHelper.getInstance().mesajGoster(errMsg + ":\n"
 					+ e.getLocalizedMessage());
+			LogHelper.getInstance().exception(e);
 		}
 	}
 

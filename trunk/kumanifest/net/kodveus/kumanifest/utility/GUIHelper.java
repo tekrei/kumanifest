@@ -17,6 +17,7 @@
  */
 package net.kodveus.kumanifest.utility;
 
+import java.awt.Rectangle;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -25,6 +26,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.text.JTextComponent;
+
+import net.kodveus.gui.araclar.AliasMap;
+import net.kodveus.gui.araclar.AramaSonuc;
+import net.kodveus.gui.araclar.AramaSonucInterface;
 
 public class GUIHelper {
 
@@ -78,5 +83,15 @@ public class GUIHelper {
 		JLabel jlabel = new JLabel(label);
 		jlabel.setBounds(bounds);
 		return jlabel;
+	}
+
+	public AramaSonuc createAramaSonuc(AliasMap _aliasMap, Rectangle _bounds,
+			AramaSonucInterface _interface) {
+		AramaSonuc aramaSonuc = new AramaSonuc(_aliasMap, false, true);
+		if (_bounds != null)
+			aramaSonuc.setBounds(_bounds);
+		if (_interface != null)
+			aramaSonuc.setArayuz(_interface);
+		return aramaSonuc;
 	}
 }

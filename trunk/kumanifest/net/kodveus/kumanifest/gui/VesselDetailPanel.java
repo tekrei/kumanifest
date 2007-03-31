@@ -22,9 +22,6 @@ import javax.swing.JPanel;
 
 public class VesselDetailPanel extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JLabel jLabel = null;
@@ -43,19 +40,11 @@ public class VesselDetailPanel extends JPanel {
 
 	private JLabel lblPort = null;
 
-	/**
-	 * This is the default constructor
-	 */
 	public VesselDetailPanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 * @return void
-	 */
 	private void initialize() {
 		lblPort = new JLabel();
 		lblPort.setBounds(new java.awt.Rectangle(60, 80, 131, 21));

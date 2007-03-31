@@ -26,10 +26,10 @@ import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Country;
 import net.kodveus.kumanifest.operation.CountryOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class CountryPanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
-
 	private static final long serialVersionUID = 1L;
 
 	private JLabel jLabel = null;
@@ -92,17 +92,11 @@ public class CountryPanel extends JPanel implements AramaSonucInterface,
 		return txtName;
 	}
 
-	/**
-	 * This method initializes aramaSonuc1
-	 * 
-	 * @return net.tekrei.gui.araclar.AramaSonuc
-	 */
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(20, 80, 371, 181));
-			aramaSonuc.setAliasMap((new Country()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Country()).getAliasMap(),
+					new java.awt.Rectangle(20, 80, 371, 181), this);
 		}
 		return aramaSonuc;
 	}

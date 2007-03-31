@@ -26,6 +26,7 @@ import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Office;
 import net.kodveus.kumanifest.operation.OfficeOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class OfficePanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
@@ -49,19 +50,11 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 
 	private DugmePanel dugmePanel = null;
 
-	/**
-	 * This method initializes
-	 * 
-	 */
 	public OfficePanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 */
 	private void initialize() {
 		jLabel2 = new JLabel();
 		jLabel2.setBounds(new java.awt.Rectangle(20, 20, 81, 21));
@@ -92,11 +85,6 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 				.ara(new Office()));
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtOffice() {
 		if (txtOffice == null) {
 			txtOffice = new JTextField();
@@ -105,11 +93,6 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 		return txtOffice;
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtDescription() {
 		if (txtDescription == null) {
 			txtDescription = new JTextField();
@@ -126,17 +109,11 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 		return txtCode;
 	}
 
-	/**
-	 * This method initializes aramaSonuc1
-	 * 
-	 * @return net.tekrei.gui.araclar.AramaSonuc
-	 */
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(20, 110, 371, 181));
-			aramaSonuc.setAliasMap((new Office()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Office()).getAliasMap(),
+					new java.awt.Rectangle(20, 110, 371, 181), this);
 		}
 		return aramaSonuc;
 	}
@@ -178,11 +155,6 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 		updateRecords();
 	}
 
-	/**
-	 * This method initializes dugmePanel
-	 * 
-	 * @return net.kodveus.kumanifest.gui.DugmePanel
-	 */
 	private DugmePanel getDugmePanel() {
 		if (dugmePanel == null) {
 			dugmePanel = new DugmePanel();

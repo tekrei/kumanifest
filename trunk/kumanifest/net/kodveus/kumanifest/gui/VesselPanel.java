@@ -31,13 +31,11 @@ import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.operation.CountryOperation;
 import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.VesselOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class VesselPanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JLabel jLabel = null;
@@ -66,19 +64,11 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 
 	private JSteppedComboBox cmbFlag = null;
 
-	/**
-	 * This method initializes
-	 * 
-	 */
 	public VesselPanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 */
 	private void initialize() {
 		jLabel4 = new JLabel();
 		jLabel4.setBounds(new java.awt.Rectangle(10, 140, 91, 21));
@@ -118,11 +108,6 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 				.ara(new Vessel()));
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtVesselCode() {
 		if (txtVesselCode == null) {
 			txtVesselCode = new JTextField();
@@ -131,11 +116,6 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 		return txtVesselCode;
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtDescription() {
 		if (txtVesselName == null) {
 			txtVesselName = new JTextField();
@@ -144,17 +124,11 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 		return txtVesselName;
 	}
 
-	/**
-	 * This method initializes aramaSonuc1
-	 * 
-	 * @return net.tekrei.gui.araclar.AramaSonuc
-	 */
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(10, 170, 381, 191));
-			aramaSonuc.setAliasMap((new Vessel()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Vessel()).getAliasMap(),
+					new java.awt.Rectangle(10, 170, 381, 191), this);
 		}
 		return aramaSonuc;
 	}
@@ -227,11 +201,6 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 		return cmbPort;
 	}
 
-	/**
-	 * This method initializes jComboBox
-	 * 
-	 * @return javax.swing.JSteppedComboBox
-	 */
 	private JSteppedComboBox getCmbFlag() {
 		if (cmbFlag == null) {
 			cmbFlag = new JSteppedComboBox(CountryOperation.getInstance().ara(

@@ -34,13 +34,11 @@ import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.OfficeOperation;
 import net.kodveus.kumanifest.operation.VesselOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JLabel jLabel = null;
@@ -85,19 +83,11 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private JDatePicker jdpDepartureDate = null;
 
-	/**
-	 * This method initializes
-	 * 
-	 */
 	public VoyagePanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 */
 	private void initialize() {
 		jLabel8 = new JLabel();
 		jLabel8.setBounds(new java.awt.Rectangle(10, 170, 111, 21));
@@ -167,10 +157,9 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(10, 190, 381, 221));
-			aramaSonuc.setAliasMap((new Voyage()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Voyage()).getAliasMap(),
+					new java.awt.Rectangle(10, 190, 381, 221), this);
 		}
 		return aramaSonuc;
 	}
@@ -246,11 +235,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return cmbVessel;
 	}
 
-	/**
-	 * This method initializes jComboBox
-	 * 
-	 * @return javax.swing.JSteppedComboBox
-	 */
 	private JSteppedComboBox getCmbOffice() {
 		if (cmbOffice == null) {
 			cmbOffice = new JSteppedComboBox(OfficeOperation.getInstance().ara(
@@ -260,11 +244,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return cmbOffice;
 	}
 
-	/**
-	 * This method initializes jComboBox
-	 * 
-	 * @return javax.swing.JSteppedComboBox
-	 */
 	private JSteppedComboBox getCmbExport() {
 		if (cmbExport == null) {
 			cmbExport = new JSteppedComboBox(new Object[] { 0, 1 });
@@ -273,11 +252,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return cmbExport;
 	}
 
-	/**
-	 * This method initializes jComboBox
-	 * 
-	 * @return javax.swing.JSteppedComboBox
-	 */
 	private JSteppedComboBox getCmbFirstLeavedPort() {
 		if (cmbFirstLeavedPort == null) {
 			cmbFirstLeavedPort = new JSteppedComboBox(LocationOperation
@@ -288,11 +262,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return cmbFirstLeavedPort;
 	}
 
-	/**
-	 * This method initializes jComboBox
-	 * 
-	 * @return javax.swing.JSteppedComboBox
-	 */
 	private JSteppedComboBox getCmbLastLeavedPort() {
 		if (cmbLastLeavedPort == null) {
 			cmbLastLeavedPort = new JSteppedComboBox(LocationOperation
@@ -303,11 +272,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return cmbLastLeavedPort;
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtNameOfCaptain() {
 		if (txtNameOfCaptain == null) {
 			txtNameOfCaptain = new JTextField();
@@ -317,11 +281,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return txtNameOfCaptain;
 	}
 
-	/**
-	 * This method initializes jDatePicker
-	 * 
-	 * @return net.tekrei.gui.bilesen.jdatepicker.JDatePicker
-	 */
 	private JDatePicker getJdpArrivalDate() {
 		if (jdpArrivalDate == null) {
 			jdpArrivalDate = new JDatePicker();
@@ -330,11 +289,6 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return jdpArrivalDate;
 	}
 
-	/**
-	 * This method initializes jDatePicker
-	 * 
-	 * @return net.tekrei.gui.bilesen.jdatepicker.JDatePicker
-	 */
 	private JDatePicker getJdpDepartureDate() {
 		if (jdpDepartureDate == null) {
 			jdpDepartureDate = new JDatePicker();

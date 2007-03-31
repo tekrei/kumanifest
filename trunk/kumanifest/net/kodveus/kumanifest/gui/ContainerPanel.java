@@ -24,7 +24,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -41,6 +40,7 @@ import net.kodveus.kumanifest.operation.ContainerOperation;
 import net.kodveus.kumanifest.operation.ContainerSizeOperation;
 import net.kodveus.kumanifest.operation.ContainerTypeOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+import net.kodveus.kumanifest.utility.StatusHelper;
 
 public class ContainerPanel extends JPanel implements ToolbarInterface {
 
@@ -173,15 +173,16 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 
 	private AramaSonuc getLstContainer() {
 		if (lstContainer == null) {
-			lstContainer = new AramaSonuc((new Container()).getAliasMap());
-			lstContainer.setArayuz(new AramaSonucInterface() {
-				public void setSecili(Object obj) {
-					Container container = (Container) obj;
-					containerId = container.getContainerId();
-					loadToPanel(container);
-					loadCargos(containerId);
-				}
-			});
+			lstContainer = GUIHelper.getInstance().createAramaSonuc(
+					(new Container()).getAliasMap(), null,
+					new AramaSonucInterface() {
+						public void setSecili(Object obj) {
+							Container container = (Container) obj;
+							containerId = container.getContainerId();
+							loadToPanel(container);
+							loadCargos(containerId);
+						}
+					});
 			lstContainer.setBounds(new Rectangle(10, 140, 720, 140));
 		}
 		return lstContainer;
@@ -189,13 +190,14 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 
 	private AramaSonuc getLstCargo() {
 		if (lstCargo == null) {
-			lstCargo = new AramaSonuc((new Cargo()).getAliasMap());
-			lstCargo.setArayuz(new AramaSonucInterface() {
-				public void setSecili(Object obj) {
-					Cargo cargo = (Cargo) obj;
-					cargoId = cargo.getCargoId();
-				}
-			});
+			lstCargo = GUIHelper.getInstance().createAramaSonuc(
+					(new Cargo()).getAliasMap(), null,
+					new AramaSonucInterface() {
+						public void setSecili(Object obj) {
+							Cargo cargo = (Cargo) obj;
+							cargoId = cargo.getCargoId();
+						}
+					});
 			lstCargo.setBorder(BorderFactory.createTitledBorder("Cargo"));
 			lstCargo.setBounds(new Rectangle(10, 280, 720, 140));
 		}
@@ -245,19 +247,19 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		long tempId = ContainerOperation.getInstance().create(container);
 		if (tempId > 0) {
 			containerId = tempId;
-			JOptionPane.showMessageDialog(this, "Record added succesfully!");
+			StatusHelper.getInstance().kayitEklendi();
 			updateContainers();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 
 	public void delete() {
 		if (ContainerOperation.getInstance().delete(generateRecordFromGUI())) {
-			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
+			StatusHelper.getInstance().kayitSilindi();
 			updateContainers();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 
@@ -299,10 +301,10 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 
 	public void update() {
 		if (ContainerOperation.getInstance().update(generateRecordFromGUI())) {
-			JOptionPane.showMessageDialog(this, "Record updated succesfully!");
+			StatusHelper.getInstance().kayitGuncellendi();
 			updateContainers();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 

@@ -27,6 +27,7 @@ import net.kodveus.gui.jcombobox.JSteppedComboBox;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Location;
 import net.kodveus.kumanifest.operation.LocationOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class LocationPanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
@@ -50,19 +51,11 @@ public class LocationPanel extends JPanel implements AramaSonucInterface,
 
 	private DugmePanel dugmePanel = null;
 
-	/**
-	 * This method initializes
-	 * 
-	 */
 	public LocationPanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 */
 	private void initialize() {
 		jLabel1 = new JLabel();
 		jLabel1.setBounds(new java.awt.Rectangle(20, 80, 81, 21));
@@ -93,11 +86,6 @@ public class LocationPanel extends JPanel implements AramaSonucInterface,
 				new Location()));
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtLocation() {
 		if (txtLocation == null) {
 			txtLocation = new JTextField();
@@ -114,17 +102,11 @@ public class LocationPanel extends JPanel implements AramaSonucInterface,
 		return txtCode;
 	}
 
-	/**
-	 * This method initializes aramaSonuc1
-	 * 
-	 * @return net.tekrei.gui.araclar.AramaSonuc
-	 */
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(20, 110, 371, 181));
-			aramaSonuc.setAliasMap((new Location()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Location()).getAliasMap(),
+					new java.awt.Rectangle(20, 110, 371, 181), this);
 		}
 		return aramaSonuc;
 	}
@@ -174,11 +156,6 @@ public class LocationPanel extends JPanel implements AramaSonucInterface,
 		updateRecords();
 	}
 
-	/**
-	 * This method initializes dugmePanel
-	 * 
-	 * @return net.kodveus.kumanifest.gui.DugmePanel
-	 */
 	private DugmePanel getDugmePanel() {
 		if (dugmePanel == null) {
 			dugmePanel = new DugmePanel();
