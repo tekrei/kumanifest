@@ -18,7 +18,6 @@
 package net.kodveus.kumanifest.gui;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -33,6 +32,7 @@ import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+import net.kodveus.kumanifest.utility.StatusHelper;
 import net.kodveus.kumanifest.utility.TreeHelper;
 
 public class BLPanel extends JPanel implements ToolbarInterface {
@@ -220,7 +220,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 			txtShipper = new NoTabTextArea();
 			txtShipper.setBounds(new java.awt.Rectangle(450, 20, 261, 141));
 			txtShipper.setWrapStyleWord(true);
-			txtShipper.setLineWrap(true);		
+			txtShipper.setLineWrap(true);
 		}
 		return txtShipper;
 	}
@@ -228,7 +228,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	private NoTabTextArea getTxtConsignee() {
 		if (txtConsignee == null) {
 			txtConsignee = new NoTabTextArea();
-			txtConsignee.setBounds(new java.awt.Rectangle(450, 170, 261, 111));		
+			txtConsignee.setBounds(new java.awt.Rectangle(450, 170, 261, 111));
 			txtConsignee.setWrapStyleWord(true);
 			txtConsignee.setLineWrap(true);
 		}
@@ -329,21 +329,21 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		long tempId = BLOperation.getInstance().create(bl);
 		if (tempId > 0) {
 			id = tempId;
-			JOptionPane.showMessageDialog(this, "Record added succesfully!");
+			StatusHelper.getInstance().kayitEklendi();
 			TreeHelper.getInstance().updateTree();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 
 	public void delete() {
 		if (BLOperation.getInstance().delete(generateRecordFromGUI())) {
-			JOptionPane.showMessageDialog(this, "Record deleted succesfully!");
+			StatusHelper.getInstance().kayitSilindi();
 			// Silince ekrani temizleyelim
 			clear();
 			TreeHelper.getInstance().updateTree();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 
@@ -381,10 +381,10 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	public void update() {
 		if (BLOperation.getInstance().update(generateRecordFromGUI())) {
-			JOptionPane.showMessageDialog(this, "Record updated succesfully!");
+			StatusHelper.getInstance().kayitGuncellendi();
 			TreeHelper.getInstance().updateTree();
 		} else {
-			JOptionPane.showMessageDialog(this, "An error occured!");
+			StatusHelper.getInstance().hataOlustu();
 		}
 	}
 

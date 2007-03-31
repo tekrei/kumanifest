@@ -26,13 +26,10 @@ import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.ContainerSize;
 import net.kodveus.kumanifest.operation.ContainerSizeOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JLabel jLabel = null;
@@ -49,19 +46,11 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 
 	private DugmePanel dugmePanel = null;
 
-	/**
-	 * This method initializes
-	 * 
-	 */
 	public ContainerSizePanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 */
 	private void initialize() {
 		jLabel1 = new JLabel();
 		jLabel1.setBounds(new java.awt.Rectangle(20, 50, 81, 21));
@@ -87,11 +76,6 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 				new ContainerSize()));
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtSize() {
 		if (txtSize == null) {
 			txtSize = new JTextField();
@@ -100,11 +84,6 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 		return txtSize;
 	}
 
-	/**
-	 * This method initializes jTextField
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtDescription() {
 		if (txtDescription == null) {
 			txtDescription = new JTextField();
@@ -113,17 +92,11 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 		return txtDescription;
 	}
 
-	/**
-	 * This method initializes aramaSonuc1
-	 * 
-	 * @return net.tekrei.gui.araclar.AramaSonuc
-	 */
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(20, 80, 371, 191));
-			aramaSonuc.setAliasMap((new ContainerSize()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new ContainerSize()).getAliasMap(),
+					new java.awt.Rectangle(20, 80, 371, 191), this);
 		}
 		return aramaSonuc;
 	}
@@ -162,11 +135,6 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 		updateRecords();
 	}
 
-	/**
-	 * This method initializes dugmePanel
-	 * 
-	 * @return net.kodveus.kumanifest.gui.DugmePanel
-	 */
 	private DugmePanel getDugmePanel() {
 		if (dugmePanel == null) {
 			dugmePanel = new DugmePanel();

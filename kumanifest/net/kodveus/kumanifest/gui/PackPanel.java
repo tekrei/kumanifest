@@ -26,6 +26,7 @@ import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Pack;
 import net.kodveus.kumanifest.operation.PackOperation;
+import net.kodveus.kumanifest.utility.GUIHelper;
 
 public class PackPanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
@@ -93,10 +94,9 @@ public class PackPanel extends JPanel implements AramaSonucInterface,
 
 	private AramaSonuc getAramaSonuc() {
 		if (aramaSonuc == null) {
-			aramaSonuc = new AramaSonuc();
-			aramaSonuc.setBounds(new java.awt.Rectangle(20, 80, 371, 191));
-			aramaSonuc.setAliasMap((new Pack()).getAliasMap());
-			aramaSonuc.setArayuz(this);
+			aramaSonuc = GUIHelper.getInstance().createAramaSonuc(
+					(new Pack()).getAliasMap(),
+					new java.awt.Rectangle(20, 80, 371, 191), this);
 		}
 		return aramaSonuc;
 	}

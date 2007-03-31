@@ -23,9 +23,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
@@ -33,6 +35,7 @@ import net.kodveus.kumanifest.gui.StartPanel;
 import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.MenuHelper;
+import net.kodveus.kumanifest.utility.StatusHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
 
 public class MainFrame extends JFrame {
@@ -46,6 +49,8 @@ public class MainFrame extends JFrame {
 	private LeftPanel pnlSol = null;
 
 	private RightPanel pnlSag = null;
+
+	private JLabel lblStatus = null;
 
 	public MainFrame(String logLevel) {
 		super();
@@ -84,9 +89,17 @@ public class MainFrame extends JFrame {
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new BorderLayout());
-			jContentPane.add(getSplPane(), java.awt.BorderLayout.CENTER);
+			jContentPane.add(getSplPane(), BorderLayout.CENTER);
+			jContentPane.add(getStatusBar(), BorderLayout.SOUTH);
 		}
 		return jContentPane;
+	}
+
+	private JLabel getStatusBar() {
+		StatusHelper.getInstance().ilkle(this);
+		lblStatus = new JLabel();
+		lblStatus.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		return lblStatus;
 	}
 
 	private JSplitPane getSplPane() {
@@ -122,5 +135,9 @@ public class MainFrame extends JFrame {
 
 	public void loadVesselDetails(Vessel vessel) {
 		pnlSol.loadVesselDetails(vessel);
+	}
+
+	public void setStatus(String durum) {
+		lblStatus.setText(durum);
 	}
 }
