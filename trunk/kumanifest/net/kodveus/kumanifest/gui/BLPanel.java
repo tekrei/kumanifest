@@ -440,8 +440,8 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private TableSelectUI getCmbVoyage() {
 		if (cmbVoyage == null) {
-			cmbVoyage = new TableSelectUI(VoyageOperation.getInstance().ara(
-					new Voyage()));
+			Voyage temp = new Voyage();
+			cmbVoyage = new TableSelectUI(VoyageOperation.getInstance().ara(temp),null,temp.getAliasMap());
 			cmbVoyage.setBounds(new java.awt.Rectangle(140, 260, 221, 21));
 		}
 		return cmbVoyage;

@@ -21,10 +21,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AramaSonuc;
-import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
-import net.kodveus.gui.jtextfield.jdatepicker.JDatePicker;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Location;
 import net.kodveus.kumanifest.jdo.Office;
@@ -35,6 +34,8 @@ import net.kodveus.kumanifest.operation.OfficeOperation;
 import net.kodveus.kumanifest.operation.VesselOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+
+import org.jdesktop.swingx.JXDatePicker;
 
 public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		DugmeInterface {
@@ -79,9 +80,9 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private JTextField txtNameOfCaptain = null;
 
-	private JDatePicker jdpArrivalDate = null;
+	private JXDatePicker jdpArrivalDate = null;
 
-	private JDatePicker jdpDepartureDate = null;
+	private JXDatePicker jdpDepartureDate = null;
 
 	public VoyagePanel() {
 		super();
@@ -167,8 +168,8 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 	public void setSecili(Object secili) {
 		Voyage voyage = (Voyage) secili;
 		id = voyage.getVoyageId();
-		jdpArrivalDate.setSelectedItem(voyage.getArrivalDate());
-		jdpDepartureDate.setSelectedItem(voyage.getDepartureDate());
+		jdpArrivalDate.setDate(voyage.getArrivalDate());
+		jdpDepartureDate.setDate(voyage.getDepartureDate());
 		cmbExport.setSelectedIndex(voyage.getExport().intValue());
 		cmbFirstLeavedPort.setSelectedItem(voyage.getFirstLeavedPort());
 		cmbLastLeavedPort.setSelectedItem(voyage.getLastLeavedPort());
@@ -202,8 +203,8 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private Voyage getVoyageFromPanel() {
 		Voyage voyage = new Voyage();
-		voyage.setArrivalDate(jdpArrivalDate.getSelectedDate());
-		voyage.setDepartureDate(jdpDepartureDate.getSelectedDate());
+		voyage.setArrivalDate(jdpArrivalDate.getDate());
+		voyage.setDepartureDate(jdpDepartureDate.getDate());
 		voyage.setExport((long) cmbExport.getSelectedIndex());
 		voyage.setFirstLeavedPort((Location) cmbFirstLeavedPort
 				.getSelectedItem());
@@ -281,17 +282,17 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 		return txtNameOfCaptain;
 	}
 
-	private JDatePicker getJdpArrivalDate() {
+	private JXDatePicker getJdpArrivalDate() {
 		if (jdpArrivalDate == null) {
-			jdpArrivalDate = new JDatePicker();
+			jdpArrivalDate = new JXDatePicker();
 			jdpArrivalDate.setBounds(new java.awt.Rectangle(120, 130, 271, 21));
 		}
 		return jdpArrivalDate;
 	}
 
-	private JDatePicker getJdpDepartureDate() {
+	private JXDatePicker getJdpDepartureDate() {
 		if (jdpDepartureDate == null) {
-			jdpDepartureDate = new JDatePicker();
+			jdpDepartureDate = new JXDatePicker();
 			jdpDepartureDate
 					.setBounds(new java.awt.Rectangle(120, 150, 271, 21));
 		}
