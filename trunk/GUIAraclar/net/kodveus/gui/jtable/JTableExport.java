@@ -18,6 +18,7 @@ import javax.swing.filechooser.FileFilter;
 
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.gui.araclar.TipCevirici;
+import net.kodveus.gui.araclar.VeriSinif;
 
 
 /**
@@ -29,7 +30,7 @@ public class JTableExport {
     JTable tablo;
     JPanel pnlTablo;
     AliasMap aliasMap;
-    ArrayList list;
+    ArrayList<VeriSinif> list;
     final JFileChooser fc = new JFileChooser();
 
     public JTableExport(JPanel _tabloPanel, JTable _tableView) {

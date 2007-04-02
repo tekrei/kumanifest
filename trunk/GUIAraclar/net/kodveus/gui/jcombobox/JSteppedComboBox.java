@@ -5,21 +5,23 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 
-import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicComboPopup;
 
-public class JSteppedComboBox extends JComboBox {
+import org.jdesktop.swingx.JXComboBox;
+import org.jdesktop.swingx.autocomplete.Configurator;
+
+public class JSteppedComboBox extends JXComboBox {
 	private static final long serialVersionUID = 1L;
 
 	public JSteppedComboBox() {
 		super();
-		AutoCompletion.enable(this);
+		Configurator.enableAutoCompletion(this);
 	}
 
 	public JSteppedComboBox(Object[] objArray) {
 		super(objArray);
-		AutoCompletion.enable(this);
+		Configurator.enableAutoCompletion(this);
 	}
 
 	public void updateUI() {
