@@ -27,8 +27,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AramaSonuc;
-import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.Cargo;

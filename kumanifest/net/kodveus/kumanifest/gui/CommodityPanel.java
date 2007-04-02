@@ -21,8 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AramaSonuc;
-import net.kodveus.gui.araclar.AramaSonucInterface;
 import net.kodveus.kumanifest.interfaces.DugmeInterface;
 import net.kodveus.kumanifest.jdo.Commodity;
 import net.kodveus.kumanifest.operation.CommodityOperation;
