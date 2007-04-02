@@ -27,9 +27,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.text.JTextComponent;
 
+import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.gui.araclar.AramaSonuc;
-import net.kodveus.gui.araclar.AramaSonucInterface;
 
 public class GUIHelper {
 
@@ -87,7 +87,7 @@ public class GUIHelper {
 
 	public AramaSonuc createAramaSonuc(AliasMap _aliasMap, Rectangle _bounds,
 			AramaSonucInterface _interface) {
-		AramaSonuc aramaSonuc = new AramaSonuc(_aliasMap, false, true);
+		AramaSonuc aramaSonuc = new AramaSonuc(_aliasMap, true);
 		if (_bounds != null)
 			aramaSonuc.setBounds(_bounds);
 		if (_interface != null)
