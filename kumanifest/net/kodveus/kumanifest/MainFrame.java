@@ -23,11 +23,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
-import javax.swing.border.BevelBorder;
 
 import net.kodveus.kumanifest.gui.LeftPanel;
 import net.kodveus.kumanifest.gui.RightPanel;
@@ -37,6 +35,8 @@ import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.MenuHelper;
 import net.kodveus.kumanifest.utility.StatusHelper;
 import net.kodveus.kumanifest.utility.ToolbarHelper;
+
+import org.jdesktop.swingx.JXStatusBar;
 
 public class MainFrame extends JFrame {
 
@@ -50,7 +50,7 @@ public class MainFrame extends JFrame {
 
 	private RightPanel pnlSag = null;
 
-	private JLabel lblStatus = null;
+	private JXStatusBar barStatus = null;
 
 	public MainFrame(String logLevel) {
 		super();
@@ -95,11 +95,10 @@ public class MainFrame extends JFrame {
 		return jContentPane;
 	}
 
-	private JLabel getStatusBar() {
+	private JXStatusBar getStatusBar() {
 		StatusHelper.getInstance().ilkle(this);
-		lblStatus = new JLabel();
-		lblStatus.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		return lblStatus;
+		barStatus = new JXStatusBar();
+		return barStatus;
 	}
 
 	private JSplitPane getSplPane() {
@@ -138,6 +137,6 @@ public class MainFrame extends JFrame {
 	}
 
 	public void setStatus(String durum) {
-		lblStatus.setText(durum);
+		barStatus.setText(durum);
 	}
 }
