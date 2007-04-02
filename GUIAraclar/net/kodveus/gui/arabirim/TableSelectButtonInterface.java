@@ -1,4 +1,4 @@
-package net.kodveus.gui.jcombobox;
+package net.kodveus.gui.arabirim;
 
 public interface TableSelectButtonInterface {
     public void showPopup();

@@ -14,8 +14,11 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import net.kodveus.gui.arabirim.STInterface;
+import net.kodveus.gui.arabirim.TableSelectButtonInterface;
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.gui.araclar.VeriSinif;
+import net.kodveus.gui.jcombobox.JSearchableTableUI.DefaultItemListener;
 
 public class TableSelectUI extends JPanel implements STInterface,TableSelectButtonInterface {
 
@@ -28,33 +31,33 @@ public class TableSelectUI extends JPanel implements STInterface,TableSelectButt
     DefaultItemListener dil;
     Color defaultColor;
     private AliasMap aliasMap;
-   
+
     public TableSelectUI(ArrayList _liste, VeriSinif _selected, AliasMap _aliasMap) {
         this.aliasMap = _aliasMap;
     	liste = _liste;
         selected = _selected;
         me = this;
-        init();        
+        init();
     }
 
-    public TableSelectUI(ArrayList _liste, VeriSinif _selected) {    	
+    /*public TableSelectUI(ArrayList _liste, VeriSinif _selected) {
         liste = _liste;
         selected = _selected;
         me = this;
         init();
     }
-    
+
     public TableSelectUI(ArrayList _liste){
     	liste = _liste;
     	me = this;
     	init();
-    }
+    }*/
 
     public void setSelected(VeriSinif _dvo, Object _requestSource) {
         selected = _dvo;
         showComponent.setText(selected.toString());
     }
-    
+
     public void odakDinleyici(FocusListener _listener){
         buttonPanel.odakDinleyici(_listener);
     }

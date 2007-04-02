@@ -4,29 +4,34 @@
 package net.kodveus.gui.araclar;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.jtable.GenericTableModel;
-import net.kodveus.gui.jtable.JFocusTable;
-import net.kodveus.gui.jtable.JTableMetodlar;
-import net.kodveus.gui.jtable.TableSorter;
+import net.kodveus.gui.jtable.JTablePrint;
+
+import org.jdesktop.swingx.JXTable;
+import org.jdesktop.swingx.decorator.AlternateRowHighlighter;
+import org.jdesktop.swingx.decorator.Highlighter;
+import org.jdesktop.swingx.decorator.HighlighterPipeline;
 
 public class AramaSonuc extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private JTable jtable;
+	private JXTable jtable;
 	private GenericTableModel model;
-	private TableSorter sorter;
 	private ArrayList liste;
 	private AliasMap map;
-	boolean siralanabilirKolon;
 	boolean adetKolonu;
 	private AramaSonucInterface _arayuz;
 
@@ -34,25 +39,19 @@ public class AramaSonuc extends JPanel {
 	}
 
 	public AramaSonuc(AliasMap _map) {
-		this(_map, new ArrayList(), false, false);
+		this(_map, new ArrayList(), false);
 	}
 
-	public AramaSonuc(AliasMap _map, boolean _siralamaDestegi) {
-		this(_map, new ArrayList(), _siralamaDestegi, false);
-	}
-
-	public AramaSonuc(AliasMap _map, boolean _siralamaDestegi,
-			boolean _adetSatirDestegi) {
-		this(_map, new ArrayList(), _siralamaDestegi, _adetSatirDestegi);
+	public AramaSonuc(AliasMap _map, boolean _adetSatirDestegi) {
+		this(_map, new ArrayList(), _adetSatirDestegi);
 	}
 
 	public AramaSonuc(AliasMap _map, ArrayList _liste,
-			boolean _siralamaDestegi, boolean _adetSatirDestegi) {
+			boolean _adetSatirDestegi) {
 		map = _map;
-		siralanabilirKolon = _siralamaDestegi;
 		adetKolonu = _adetSatirDestegi;
 		liste = _liste;
-		jtable = new JFocusTable();
+		jtable = new JXTable();
 		prepareGUI();
 	}
 
@@ -64,8 +63,9 @@ public class AramaSonuc extends JPanel {
 		jtable.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
 					public void valueChanged(ListSelectionEvent e) {
-						//Gereksiz mesajlari yok say
-						if (e.getValueIsAdjusting()) return;
+						// Gereksiz mesajlari yok say
+						if (e.getValueIsAdjusting())
+							return;
 						// If cell selection is enabled, both row and column
 						// change events are fired
 						if (e.getSource() == jtable.getSelectionModel()
@@ -87,10 +87,9 @@ public class AramaSonuc extends JPanel {
 
 	public void setAliasMap(AliasMap _map) {
 		map = _map;
-		siralanabilirKolon = false;
 		adetKolonu = false;
 		liste = new ArrayList();
-		jtable = new JFocusTable();
+		jtable = new JXTable();
 		prepareGUI();
 	}
 
@@ -100,24 +99,34 @@ public class AramaSonuc extends JPanel {
 
 	private void prepareTable() {
 		// jtable = new JFocusTable();
-		model = new GenericTableModel(map, liste, false,adetKolonu);
+		model = new GenericTableModel(map, liste, false, adetKolonu);
 
-		if (siralanabilirKolon) {
-			sorter = new TableSorter(model);
-			JTableMetodlar.prepareTable(jtable, sorter, adetKolonu);
-			sorter.setTableHeader(jtable.getTableHeader());
-		} else {
-			JTableMetodlar.prepareTable(jtable, model, adetKolonu);
+		jtable.setModel(model);
+		jtable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		if (adetKolonu) {
+			jtable.getColumnModel().getColumn(0).setPreferredWidth(35);
+			jtable.getColumnModel().getColumn(0).setMaxWidth(70);
 		}
-
-		jtable.updateUI();
+		jtable.setPreferredScrollableViewportSize(jtable.getPreferredSize());
+		jtable.getSelectionModel().setSelectionMode(
+				ListSelectionModel.SINGLE_SELECTION);
+		jtable.setColumnControlVisible(true);
+		jtable.setShowHorizontalLines(false);
+		jtable.setShowVerticalLines(false);
+		jtable
+				.setHighlighters(new HighlighterPipeline(
+						new Highlighter[] { AlternateRowHighlighter.classicLinePrinter }));
+		jtable.addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent e) {
+				if (e.isControlDown() && e.getKeyChar() == KeyEvent.VK_P) {
+					JTablePrint.yazdir(jtable);
+				}
+			}
+		});
+		jtable.packAll();
 	}
 
 	public Object getSeciliNesne() {
-		if (siralanabilirKolon) {
-			return sorter.getObjectAt(jtable.getSelectedRow());
-		}
-
 		return liste.get(jtable.getSelectedRow());
 	}
 

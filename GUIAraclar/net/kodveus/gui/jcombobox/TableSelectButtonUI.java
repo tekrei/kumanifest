@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
+import net.kodveus.gui.arabirim.TableSelectButtonInterface;
 import net.kodveus.kaynaklar.ImageLoader;
 
 

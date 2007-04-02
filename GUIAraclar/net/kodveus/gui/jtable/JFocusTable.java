@@ -8,12 +8,13 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.LayoutFocusTraversalPolicy;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
+
+import org.jdesktop.swingx.JXTable;
 
 
 /** JTable that uses transferFocus instead of requestFocus to handle
@@ -36,10 +37,7 @@ import javax.swing.table.TableModel;
  *
  *
  */
-public class JFocusTable extends JTable {
-    /**
-     * 
-     */
+public class JFocusTable extends JXTable {
     private static final long serialVersionUID = 1L;
     private boolean reallySurrendersFocus;
 
@@ -169,7 +167,7 @@ public class JFocusTable extends JTable {
     //---------------------------ToggleEditAction
     private class ToggleEditAction extends AbstractAction {
         /**
-         * 
+         *
          */
         private static final long serialVersionUID = 1L;
 
