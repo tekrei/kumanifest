@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -30,7 +31,7 @@ public class AramaSonuc extends JPanel {
 
 	private JXTable jtable;
 	private GenericTableModel model;
-	private ArrayList liste;
+	private List<VeriSinif> liste;
 	private AliasMap map;
 	boolean adetKolonu;
 	private AramaSonucInterface _arayuz;
@@ -39,14 +40,14 @@ public class AramaSonuc extends JPanel {
 	}
 
 	public AramaSonuc(AliasMap _map) {
-		this(_map, new ArrayList(), false);
+		this(_map, new ArrayList<VeriSinif>(), false);
 	}
 
 	public AramaSonuc(AliasMap _map, boolean _adetSatirDestegi) {
-		this(_map, new ArrayList(), _adetSatirDestegi);
+		this(_map, new ArrayList<VeriSinif>(), _adetSatirDestegi);
 	}
 
-	public AramaSonuc(AliasMap _map, ArrayList _liste,
+	public AramaSonuc(AliasMap _map, List<VeriSinif> _liste,
 			boolean _adetSatirDestegi) {
 		map = _map;
 		adetKolonu = _adetSatirDestegi;
@@ -88,7 +89,7 @@ public class AramaSonuc extends JPanel {
 	public void setAliasMap(AliasMap _map) {
 		map = _map;
 		adetKolonu = false;
-		liste = new ArrayList();
+		liste = new ArrayList<VeriSinif>();
 		jtable = new JXTable();
 		prepareGUI();
 	}
@@ -130,8 +131,8 @@ public class AramaSonuc extends JPanel {
 		return liste.get(jtable.getSelectedRow());
 	}
 
-	public ArrayList getSecili() {
-		ArrayList _liste = new ArrayList();
+	public List<VeriSinif> getSecili() {
+		List<VeriSinif> _liste = new ArrayList<VeriSinif>();
 		int[] secili = jtable.getSelectedRows();
 
 		for (int i = 0; i < secili.length; i++) {
@@ -141,7 +142,7 @@ public class AramaSonuc extends JPanel {
 		return _liste;
 	}
 
-	public void listeGuncelle(ArrayList yeniListe) {
+	public void listeGuncelle(List<VeriSinif> yeniListe) {
 		this.liste = yeniListe;
 		prepareTable();
 		jtable.updateUI();
