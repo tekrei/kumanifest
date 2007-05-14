@@ -19,10 +19,13 @@ package net.kodveus.kumanifest.jdo;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -39,14 +42,18 @@ public class Voyage extends TemelVeriSinif {
 
 	private Long export;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Vessel vessel;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Office office;
 
 	private Long status;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location firstLeavedPort;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location lastLeavedPort;
 
     @Temporal(TemporalType.DATE)
