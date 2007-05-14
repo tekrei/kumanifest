@@ -17,13 +17,21 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.kumanifest.utility.LogHelper;
 
+@Entity
 public class Location extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long locationId;
 
 	private String code;

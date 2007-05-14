@@ -1,4 +1,4 @@
-package net.kodveus.kumanifest.operation;
+package net.kodveus.kumanifest.persistence;
 
 import java.util.Locale;
 
@@ -7,24 +7,24 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
 
-public class PersistenceOperation {
-	private static PersistenceOperation instance;
+public class PersistenceManager {
+	private static PersistenceManager instance;
 
 	protected EntityManagerFactory entityManagerFactory;
 
 	@PersistenceUnit
 	protected EntityManager entityManager;
 
-	private PersistenceOperation() {
+	private PersistenceManager() {
 		Locale.setDefault(Locale.US);
 		entityManagerFactory = Persistence
 				.createEntityManagerFactory("PersistentUnit");
 		entityManager = entityManagerFactory.createEntityManager();
 	}
 
-	public static PersistenceOperation getInstance() {
+	public static PersistenceManager getInstance() {
 		if (instance == null) {
-			instance = new PersistenceOperation();
+			instance = new PersistenceManager();
 		}
 		return instance;
 	}

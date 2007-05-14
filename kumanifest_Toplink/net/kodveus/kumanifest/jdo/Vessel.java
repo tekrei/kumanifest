@@ -17,40 +17,35 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import net.kodveus.kumanifest.utility.LogHelper;
 
+@Entity
 public class Vessel extends TemelVeriSinif {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void prepareMap() {
-		try {
-			aliasMap.addAlias("Vessel Code", "vesselCode");
-			aliasMap.addAlias("Vessel Name", "vesselName");
-			aliasMap.addAlias("Flag", "flag");
-			aliasMap.addAlias("Company", "company");
-			aliasMap.addAlias("Port", "port");
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-		}
-	}
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long vesselId;
 
 	private String vesselCode;
 
 	private String vesselName;
 
+	@OneToOne
 	private Country flag;
 
 	private Long status;
 
 	private String company;
 
+	@OneToOne
 	private Location port;
 
 	public String getCompany() {
@@ -109,6 +104,19 @@ public class Vessel extends TemelVeriSinif {
 
 	public void setVesselName(String vesselName) {
 		this.vesselName = vesselName;
+	}
+
+	@Override
+	public void prepareMap() {
+		try {
+			aliasMap.addAlias("Vessel Code", "vesselCode");
+			aliasMap.addAlias("Vessel Name", "vesselName");
+			aliasMap.addAlias("Flag", "flag");
+			aliasMap.addAlias("Company", "company");
+			aliasMap.addAlias("Port", "port");
+		} catch (Exception e) {
+			LogHelper.getInstance().exception(e);
+		}
 	}
 
 	@Override

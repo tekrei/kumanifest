@@ -17,9 +17,15 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.kumanifest.utility.LogHelper;
 
+@Entity
 public class Cargo extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -40,6 +46,8 @@ public class Cargo extends TemelVeriSinif {
 		}
 	}
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long cargoId;
 
 	private Long containerId;
