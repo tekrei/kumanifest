@@ -17,21 +17,15 @@
  */
 package net.kodveus.kumanifest.jdo;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class BL extends TemelVeriSinif implements Serializable {
+public class BL extends TemelVeriSinif{
 
 	private static final long serialVersionUID = 1L;
-
-	@Override
-	public void prepareMap() {
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -42,8 +36,6 @@ public class BL extends TemelVeriSinif implements Serializable {
 	private String blNo;
 
 	private String companyName;
-
-	private Long status;
 
 	private Long reportType;
 
@@ -197,16 +189,6 @@ public class BL extends TemelVeriSinif implements Serializable {
 
 	public void setShipper(String shipper) {
 		this.shipper = shipper;
-	}
-
-	@Override
-	public Long getStatus() {
-		return status;
-	}
-
-	@Override
-	public void setStatus(Long status) {
-		this.status = status;
 	}
 
 	public Voyage getVoyage() {

@@ -17,27 +17,26 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 import net.kodveus.kumanifest.utility.LogHelper;
 
+@Entity
+@NamedQueries({
+	@NamedQuery(name = "findAll", query = "SELECT Obj FROM Container AS Obj")
+})
 public class Container extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void prepareMap() {
-		try {
-			aliasMap.addAlias("Container No", "containerNo");
-			aliasMap.addAlias("Seal No", "sealNo");
-			aliasMap.addAlias("Other Seal No", "otherSealNo");
-			aliasMap.addAlias("Container Type", "containerType");
-			aliasMap.addAlias("Container Size", "containerSize");
-			aliasMap.addAlias("RelCom", "relCom");
-			aliasMap.addAlias("Tara Weight", "taraWeight");
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-		}
-	}
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long containerId;
 
 	private Long relCom;
@@ -46,17 +45,17 @@ public class Container extends TemelVeriSinif {
 
 	private Long blId;
 
+	@ManyToOne
 	private ContainerType containerType;
 
 	private String sealNo;
 
 	private String otherSealNo;
 
+	@ManyToOne
 	private ContainerSize containerSize;
 
 	private Double taraWeight;
-
-	private Long status;
 
 	public Long getBlId() {
 		return blId;
@@ -122,22 +121,27 @@ public class Container extends TemelVeriSinif {
 		this.sealNo = sealNo;
 	}
 
-	@Override
-	public Long getStatus() {
-		return status;
-	}
-
-	@Override
-	public void setStatus(Long status) {
-		this.status = status;
-	}
-
 	public Double getTaraWeight() {
 		return taraWeight;
 	}
 
 	public void setTaraWeight(Double taraWeight) {
 		this.taraWeight = taraWeight;
+	}
+
+	@Override
+	public void prepareMap() {
+		try {
+			aliasMap.addAlias("Container No", "containerNo");
+			aliasMap.addAlias("Seal No", "sealNo");
+			aliasMap.addAlias("Other Seal No", "otherSealNo");
+			aliasMap.addAlias("Container Type", "containerType");
+			aliasMap.addAlias("Container Size", "containerSize");
+			aliasMap.addAlias("RelCom", "relCom");
+			aliasMap.addAlias("Tara Weight", "taraWeight");
+		} catch (Exception e) {
+			LogHelper.getInstance().exception(e);
+		}
 	}
 
 	@Override

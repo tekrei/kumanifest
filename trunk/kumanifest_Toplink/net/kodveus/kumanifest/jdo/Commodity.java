@@ -28,7 +28,7 @@ import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Commodity.findAll", query = "SELECT Com FROM Commodity AS Com")
+	@NamedQuery(name = "findAll", query = "SELECT Com FROM Commodity AS Com")
 })
 public class Commodity extends TemelVeriSinif {
 

@@ -19,10 +19,20 @@ package net.kodveus.kumanifest.jdo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Voyage extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long voyageId;
 
 	private String voyage;
@@ -39,8 +49,10 @@ public class Voyage extends TemelVeriSinif {
 
 	private Location lastLeavedPort;
 
+    @Temporal(TemporalType.DATE)
 	private Date arrivalDate;
 
+    @Temporal(TemporalType.DATE)
 	private Date departureDate;
 
 	private String nameOfCaptain;
