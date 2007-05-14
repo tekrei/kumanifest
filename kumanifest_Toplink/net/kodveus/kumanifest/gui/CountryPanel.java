@@ -72,8 +72,7 @@ public class CountryPanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new Country());
-		aramaSonuc.listeGuncelle(CountryOperation.getInstance().ara(
-				new Country()));
+		aramaSonuc.listeGuncelle(CountryOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtCode() {

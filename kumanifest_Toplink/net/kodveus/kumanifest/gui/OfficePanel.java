@@ -82,7 +82,7 @@ public class OfficePanel extends JPanel implements AramaSonucInterface,
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new Office());
 		aramaSonuc.listeGuncelle(OfficeOperation.getInstance()
-				.ara(new Office()));
+				.findAll());
 	}
 
 	private JTextField getTxtOffice() {

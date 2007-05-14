@@ -17,7 +17,7 @@
  */
 package net.kodveus.kumanifest.interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import net.kodveus.gui.araclar.VeriSinif;
 
@@ -27,12 +27,9 @@ public interface OperationInterface {
 
 	public abstract boolean delete(VeriSinif vs);
 
-	// TODO public abstract boolean delete(Long id);
-
 	public abstract boolean update(VeriSinif vs);
 
-	@SuppressWarnings("unchecked")
-	public abstract ArrayList ara(VeriSinif vs);
+	public abstract List findAll();
 
 	public abstract VeriSinif get(Long id);
 

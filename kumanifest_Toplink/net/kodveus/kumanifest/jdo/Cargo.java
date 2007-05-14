@@ -17,10 +17,13 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import net.kodveus.gui.araclar.AliasMap;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -50,12 +53,15 @@ public class Cargo extends TemelVeriSinif {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long cargoId;
 
-	private Long containerId;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private Container container;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Commodity commodity;
 
 	private String cargoType;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Pack pack;
 
 	private String imco;
@@ -98,12 +104,12 @@ public class Cargo extends TemelVeriSinif {
 		this.commodity = commodity;
 	}
 
-	public Long getContainerId() {
-		return containerId;
+	public Container getContainer() {
+		return container;
 	}
 
-	public void setContainerId(Long containerId) {
-		this.containerId = containerId;
+	public void setContainer(Container _container) {
+		this.container = _container;
 	}
 
 	public String getImco() {

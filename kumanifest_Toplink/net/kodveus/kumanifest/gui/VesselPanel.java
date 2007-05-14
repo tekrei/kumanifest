@@ -105,7 +105,7 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		aramaSonuc.listeGuncelle(VesselOperation.getInstance()
-				.ara(new Vessel()));
+				.findAll());
 	}
 
 	private JTextField getTxtVesselCode() {
@@ -194,8 +194,8 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 
 	private JSteppedComboBox getCmbPort() {
 		if (cmbPort == null) {
-			cmbPort = new JSteppedComboBox(LocationOperation.getInstance().ara(
-					new Location()).toArray());
+			cmbPort = new JSteppedComboBox(LocationOperation.getInstance()
+					.findAll().toArray());
 			cmbPort.setBounds(new java.awt.Rectangle(100, 80, 291, 21));
 		}
 		return cmbPort;
@@ -203,8 +203,8 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 
 	private JSteppedComboBox getCmbFlag() {
 		if (cmbFlag == null) {
-			cmbFlag = new JSteppedComboBox(CountryOperation.getInstance().ara(
-					new Country()).toArray());
+			cmbFlag = new JSteppedComboBox(CountryOperation.getInstance()
+					.findAll().toArray());
 			cmbFlag.setBounds(new java.awt.Rectangle(100, 110, 291, 21));
 		}
 		return cmbFlag;

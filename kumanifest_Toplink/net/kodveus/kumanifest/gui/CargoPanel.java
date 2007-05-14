@@ -30,9 +30,11 @@ import javax.swing.JTextField;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
 import net.kodveus.kumanifest.jdo.Cargo;
 import net.kodveus.kumanifest.jdo.Commodity;
+import net.kodveus.kumanifest.jdo.Container;
 import net.kodveus.kumanifest.jdo.Pack;
 import net.kodveus.kumanifest.operation.CargoOperation;
 import net.kodveus.kumanifest.operation.CommodityOperation;
+import net.kodveus.kumanifest.operation.ContainerOperation;
 import net.kodveus.kumanifest.operation.PackOperation;
 
 public class CargoPanel extends JPanel {
@@ -147,7 +149,7 @@ public class CargoPanel extends JPanel {
 	private JSteppedComboBox getCmbCommodity() {
 		if (cmbCommodity == null) {
 			cmbCommodity = new JSteppedComboBox(CommodityOperation
-					.getInstance().ara(new Commodity()).toArray());
+					.getInstance().findAll().toArray());
 			cmbCommodity.setBounds(new Rectangle(100, 40, 291, 21));
 		}
 		return cmbCommodity;
@@ -166,7 +168,7 @@ public class CargoPanel extends JPanel {
 		cargo.setCargoId(cargoId);
 		cargo.setCargoType(txtCargoType.getText());
 		cargo.setCommodity((Commodity) cmbCommodity.getSelectedItem());
-		cargo.setContainerId(containerId);
+		cargo.setContainer((Container)ContainerOperation.getInstance().get(containerId));
 		cargo.setImco(txtImco.getText());
 		cargo.setNetWeight(Double.parseDouble(txtNetWeight.getText()));
 		cargo.setPackTotal(Double.parseDouble(txtPackTotal.getText()));
@@ -221,8 +223,7 @@ public class CargoPanel extends JPanel {
 
 	private JSteppedComboBox getCmbPack() {
 		if (cmbPack == null) {
-			cmbPack = new JSteppedComboBox(PackOperation.getInstance().ara(
-					new Pack()).toArray());
+			cmbPack = new JSteppedComboBox(PackOperation.getInstance().findAll().toArray());
 			cmbPack.setBounds(new Rectangle(100, 130, 291, 21));
 		}
 		return cmbPack;

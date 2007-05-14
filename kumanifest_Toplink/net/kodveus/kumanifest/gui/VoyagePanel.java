@@ -144,8 +144,7 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
-		aramaSonuc.listeGuncelle(VoyageOperation.getInstance()
-				.ara(new Voyage()));
+		aramaSonuc.listeGuncelle(VoyageOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtVoyage() {
@@ -229,8 +228,7 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private JSteppedComboBox getCmbVessel() {
 		if (cmbVessel == null) {
-			cmbVessel = new JSteppedComboBox(VesselOperation.getInstance().ara(
-					new Vessel()).toArray());
+			cmbVessel = new JSteppedComboBox(VesselOperation.getInstance().findAll().toArray());
 			cmbVessel.setBounds(new java.awt.Rectangle(120, 50, 271, 21));
 		}
 		return cmbVessel;
@@ -238,8 +236,7 @@ public class VoyagePanel extends JPanel implements AramaSonucInterface,
 
 	private JSteppedComboBox getCmbOffice() {
 		if (cmbOffice == null) {
-			cmbOffice = new JSteppedComboBox(OfficeOperation.getInstance().ara(
-					new Office()).toArray());
+			cmbOffice = new JSteppedComboBox(OfficeOperation.getInstance().findAll().toArray());
 			cmbOffice.setBounds(new java.awt.Rectangle(120, 70, 271, 21));
 		}
 		return cmbOffice;

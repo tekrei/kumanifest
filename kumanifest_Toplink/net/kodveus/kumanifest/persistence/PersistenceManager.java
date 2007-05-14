@@ -1,11 +1,13 @@
 package net.kodveus.kumanifest.persistence;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
 
 public class PersistenceManager {
 	private static PersistenceManager instance;
@@ -52,33 +54,47 @@ public class PersistenceManager {
 		}
 	}
 
-	public void delete(Object sinif) {
+	public boolean delete(Object sinif) {
 		try {
 			beginTransaction();
 			entityManager.remove(sinif);
+			return true;
 		} catch (Exception e) {
 			failTransaction();
+			return false;
 		} finally {
 			commitTransaction();
 		}
 	}
 
-	public void update(Object sinif) {
+	public boolean update(Object sinif) {
 		try {
 			beginTransaction();
 			entityManager.refresh(sinif);
+			return true;
 		} catch (Exception e) {
 			failTransaction();
+			return false;
 		} finally {
 			commitTransaction();
 		}
 	}
 
-	public Object find(Class sinif,Object primKey){
-		return entityManager.find(sinif,primKey);
+	public Object find(Class sinif, Object primKey) {
+		return entityManager.find(sinif, primKey);
 	}
 
-	public java.util.List executeNamedQuery(String queryName){
-		return entityManager.createNamedQuery(queryName).getResultList();
+	public ArrayList executeQuery(String nativeQuery) {
+		Query query = entityManager.createNativeQuery(nativeQuery);
+		return new ArrayList(query.getResultList());
+	}
+
+	public ArrayList findAll(String pre) {
+		return executeNamedQuery(pre + ".findAll");
+	}
+
+	public ArrayList executeNamedQuery(String queryName) {
+		return new ArrayList(entityManager.createNamedQuery(queryName)
+				.getResultList());
 	}
 }

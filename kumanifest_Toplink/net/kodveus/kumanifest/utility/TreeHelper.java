@@ -122,7 +122,7 @@ public class TreeHelper implements TreeSelectionListener {
 	/*
 	 * private void collapseLeaf(DefaultMutableTreeNode root) { Enumeration<?>
 	 * enumeration = root.depthFirstEnumeration();
-	 * 
+	 *
 	 * for (; enumeration.hasMoreElements();) { TreePath t = new
 	 * TreePath(((DefaultMutableTreeNode) enumeration
 	 * .nextElement()).getPath()); tree.collapsePath(t); } }
@@ -164,7 +164,7 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateTypeLeaf(DefaultMutableTreeNode root) {
 		// tipi type olan vesseller yuklenecek
-		ArrayList<Office> al = OfficeOperation.getInstance().ara(new Office());
+		ArrayList<Office> al = OfficeOperation.getInstance().findAll();
 		// Bu arrayi dolasip agaca dal olarak ekleyecegiz
 		root.removeAllChildren();
 		for (Office office : al) {
@@ -208,10 +208,8 @@ public class TreeHelper implements TreeSelectionListener {
 
 	private void updateVoyageLeaf(DefaultMutableTreeNode root) {
 		// Secilen Voyage'in BL'lerini dolduracagiz
-		BL bl = new BL();
-
-		bl.setVoyage((Voyage) root.getUserObject());
-		ArrayList<BL> al = BLOperation.getInstance().ara(bl);
+		Voyage voyage = (Voyage) root.getUserObject();
+		java.util.List<BL> al = BLOperation.getInstance().blOfVoyages(voyage.getVoyageId());
 		// Bu arrayi dolasip agaca dal olarak ekleyecegiz
 		root.removeAllChildren();
 		for (BL b : al) {

@@ -21,10 +21,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Country.findAll", query = "SELECT Obj FROM Country AS Obj")
+})
 public class Country extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;

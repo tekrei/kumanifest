@@ -73,7 +73,7 @@ public class PackPanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new Pack());
-		aramaSonuc.listeGuncelle(PackOperation.getInstance().ara(new Pack()));
+		aramaSonuc.listeGuncelle(PackOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtType() {

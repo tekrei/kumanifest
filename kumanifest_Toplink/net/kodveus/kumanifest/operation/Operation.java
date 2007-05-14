@@ -21,16 +21,19 @@ import java.sql.ResultSet;
 
 import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.database.DBManager;
+import net.kodveus.kumanifest.persistence.PersistenceManager;
 import net.kodveus.kumanifest.utility.LogHelper;
 
 public abstract class Operation {
 
+	PersistenceManager manager;
+
 	public Operation() {
 		super();
+		manager = PersistenceManager.getInstance();
 	}
 
-	protected abstract void rsToVs(ResultSet rs, VeriSinif veriSinif)
-			throws Exception;
+	protected void rsToVs(ResultSet rs, VeriSinif veriSinif){};
 
 	public VeriSinif previous(VeriSinif vs, String table, String field, Long id) {
 		String sql = "SELECT * FROM " + table + " WHERE " + field + "<" + id
