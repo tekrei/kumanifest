@@ -17,6 +17,7 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,14 +39,14 @@ public class Vessel extends TemelVeriSinif {
 
 	private String vesselName;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Country flag;
 
 	private Long status;
 
 	private String company;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Location port;
 
 	public String getCompany() {
