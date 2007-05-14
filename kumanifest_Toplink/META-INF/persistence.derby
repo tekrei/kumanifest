@@ -15,9 +15,9 @@
 	<class>net.kodveus.kumanifest.jdo.Vessel</class>
 	<class>net.kodveus.kumanifest.jdo.Voyage</class>
 	<properties>
-		<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/kumanifest_yeni"/>
-		<property name="toplink.jdbc.user" value="root"/>
-		<property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		<property name="toplink.jdbc.url" value="jdbc:derby:kumanifest"/>
+		<property name="toplink.jdbc.user" value="kodveus"/>
+		<property name="toplink.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
 		<property name="toplink.jdbc.password" value="kodveus"/>
 		<property name="toplink.ddl-generation" value="create-tables"/>
 	</properties>
