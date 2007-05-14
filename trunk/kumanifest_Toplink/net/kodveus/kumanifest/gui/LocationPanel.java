@@ -82,8 +82,7 @@ public class LocationPanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new Location());
-		aramaSonuc.listeGuncelle(LocationOperation.getInstance().ara(
-				new Location()));
+		aramaSonuc.listeGuncelle(LocationOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtLocation() {

@@ -82,8 +82,7 @@ public class CommodityPanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new Commodity());
-		aramaSonuc.listeGuncelle(CommodityOperation.getInstance().ara(
-				new Commodity()));
+		aramaSonuc.listeGuncelle(CommodityOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtCode() {

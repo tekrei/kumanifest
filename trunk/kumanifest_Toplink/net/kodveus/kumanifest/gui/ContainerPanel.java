@@ -164,7 +164,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JSteppedComboBox getCmbContainerType() {
 		if (cmbContainerType == null) {
 			cmbContainerType = new JSteppedComboBox(ContainerTypeOperation
-					.getInstance().ara(new ContainerType()).toArray());
+					.getInstance().findAll().toArray());
 			cmbContainerType
 					.setBounds(new java.awt.Rectangle(160, 80, 241, 21));
 		}
@@ -311,7 +311,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private JSteppedComboBox getCmbContainerSize() {
 		if (cmbContainerSize == null) {
 			cmbContainerSize = new JSteppedComboBox(ContainerSizeOperation
-					.getInstance().ara(new ContainerSize()).toArray());
+					.getInstance().findAll().toArray());
 			cmbContainerSize
 					.setBounds(new java.awt.Rectangle(161, 110, 93, 21));
 		}
@@ -380,8 +380,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	private void updateContainers() {
 		Container container = new Container();
 		container.setBlId(blId);
-		lstContainer.listeGuncelle(ContainerOperation.getInstance().ara(
-				container));
+		lstContainer.listeGuncelle(ContainerOperation.getInstance().containerOfBl(blId));
 		// Container'in kargolari yuklensin
 		loadCargos();
 		this.updateUI();
@@ -392,9 +391,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		if (_containerId == null) {
 			lstCargo.listeGuncelle(null);
 		} else {
-			Cargo cargo = new Cargo();
-			cargo.setContainerId(_containerId);
-			lstCargo.listeGuncelle(CargoOperation.getInstance().ara(cargo));
+			lstCargo.listeGuncelle(CargoOperation.getInstance().cargoOfContainer(_containerId));
 		}
 	}
 

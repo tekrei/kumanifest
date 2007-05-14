@@ -19,14 +19,20 @@ package net.kodveus.kumanifest.jdo;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Vessel.findAll", query = "SELECT Ves FROM Vessel AS Ves")
+})
 public class Vessel extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -39,14 +45,14 @@ public class Vessel extends TemelVeriSinif {
 
 	private String vesselName;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Country flag;
 
 	private Long status;
 
 	private String company;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location port;
 
 	public String getCompany() {

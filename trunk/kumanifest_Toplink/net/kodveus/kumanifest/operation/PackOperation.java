@@ -17,16 +17,14 @@
  */
 package net.kodveus.kumanifest.operation;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import net.kodveus.gui.araclar.VeriSinif;
-import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Pack;
 import net.kodveus.kumanifest.utility.LogHelper;
 
-public class PackOperation implements OperationInterface {
+public class PackOperation extends Operation implements OperationInterface {
 
 	private static PackOperation instance;
 
@@ -44,9 +42,8 @@ public class PackOperation implements OperationInterface {
 	public long create(VeriSinif vs) {
 		try {
 			Pack pack = (Pack) vs;
-			String sql = "INSERT INTO pack(type, description)VALUES('"
-					+ pack.getType() + "', '" + pack.getDescription() + "')";
-			return DBManager.getInstance().insert(sql);
+			manager.save(pack);
+			return pack.getPackId();
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return 0;
@@ -56,8 +53,7 @@ public class PackOperation implements OperationInterface {
 	public boolean delete(VeriSinif vs) {
 		try {
 			Pack pack = (Pack) vs;
-			String sql = "DELETE FROM pack WHERE packId=" + pack.getPackId();
-			return DBManager.getInstance().executeUpdate(sql);
+			return manager.delete(pack);
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return false;
@@ -67,95 +63,26 @@ public class PackOperation implements OperationInterface {
 	public boolean update(VeriSinif vs) {
 		try {
 			Pack pack = (Pack) vs;
-			String sql = "UPDATE pack SET type = '" + pack.getType()
-					+ "',description = '" + pack.getDescription()
-					+ "' WHERE packId=" + pack.getPackId();
-			return DBManager.getInstance().executeUpdate(sql);
+			return manager.update(pack);
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
 
-	public ArrayList<Pack> ara(VeriSinif vs) {
-		ArrayList<Pack> al = new ArrayList<Pack>();
-		try {
-			Pack pack = (Pack) vs;
-			String sql = "SELECT * FROM pack WHERE 1=1";
-			if (pack.getType() != null) {
-				sql += " AND type='" + pack.getType() + "' ";
-			}
-			if (pack.getDescription() != null) {
-				sql += " AND description='" + pack.getDescription() + "' ";
-			}
-			if (pack.getPackId() != null) {
-				sql += " AND packId=" + pack.getPackId() + " ";
-			}
-			ResultSet rs = DBManager.getInstance().executeQuery(sql);
-			while (rs.next()) {
-				pack = new Pack();
-				rsToPack(rs, pack);
-				al.add(pack);
-			}
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-		}
-		return al;
+	public ArrayList<Pack> findAll() {
+		return manager.findAll("Pack");
 	}
 
 	public VeriSinif get(Long id) {
-		Pack pack = new Pack();
-		pack.setPackId(id);
-		ArrayList<Pack> list = ara(pack);
-		if (list.size() > 0) {
-			return list.get(0);
-		}
-		return null;
-
+		return (Pack) manager.find(Pack.class, id);
 	}
 
 	public VeriSinif next(Long id) {
-		Pack pack = null;
-		try {
-			String sql = "SELECT * FROM pack WHERE packId>" + id
-					+ " ORDER BY packId";
-			ResultSet rs = DBManager.getInstance().executeQuery(sql);
-
-			if (rs.next()) {
-				// Tek bir kayit dondurecegiz
-				pack = new Pack();
-				rsToPack(rs, pack);
-			}
-			return pack;
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-			pack = null;
-		}
-		return pack;
+		return super.next(new Pack(),"Pack","packId", id);
 	}
 
 	public VeriSinif previous(Long id) {
-		Pack pack = null;
-		String sql = "SELECT * FROM pack WHERE packId<" + id
-				+ " ORDER BY packId DESC";
-		try {
-			ResultSet rs = DBManager.getInstance().executeQuery(sql);
-
-			if (rs.next()) {
-				// Tek bir kayit dondurecegiz
-				pack = new Pack();
-				rsToPack(rs, pack);
-			}
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-			pack = null;
-		}
-		return pack;
-	}
-
-	private void rsToPack(ResultSet rs, Pack pack) throws Exception {
-		pack.setPackId(rs.getLong("packId"));
-		pack.setType(rs.getString("type"));
-		pack.setDescription(rs.getString("description"));
+		return super.previous(new Pack(),"Pack","packId", id);
 	}
 }

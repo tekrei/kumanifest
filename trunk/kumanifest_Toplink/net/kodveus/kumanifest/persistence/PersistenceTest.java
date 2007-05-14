@@ -9,35 +9,31 @@ import net.kodveus.kumanifest.jdo.Vessel;
 public class PersistenceTest {
 
 	public void createAll() {
-		PersistenceManager.getInstance().save(createVessel());
+		Vessel vessel = createVessel();
+
+		PersistenceManager.getInstance().save(vessel);
 	}
 
-	public List<Vessel> findAll() {
-		return PersistenceManager.getInstance().executeNamedQuery("findAll");
+	public List<Vessel> findAll(String which) {
+		return PersistenceManager.getInstance().findAll(which);
 	}
 
-	public void display(List<Vessel> Vessels) {
-		for (Vessel Vessel : Vessels) {
-			display(Vessel);
+	public void displayAll() {
+		display(findAll("Vessel"));
+		display(findAll("Country"));
+		display(findAll("Location"));
+	}
+
+	private void display(List list){
+		for (int i = 0; i < list.size(); i++) {
+			Object obj = list.get(i);
+			System.out.println(obj);
 		}
-	}
-
-	private void display(Vessel vessel) {
-		StringBuilder results = new StringBuilder();
-		results.append(vessel.getAciklama() + ",");
-		results.append(vessel.getCompany() + ",");
-		results.append(vessel.getFlag() + ",");
-		results.append(vessel.getPort() + ",");
-		results.append(vessel.getStatus() + ",");
-		results.append(vessel.getVesselCode() + ",");
-		results.append(vessel.getVesselId() + ",");
-		results.append(vessel.getVesselName());
-		System.out.println(results.toString());
 	}
 
 	private Vessel createVessel() {
 		Vessel vessel = new Vessel();
-		vessel.setAciklama("Aciklama");
+		vessel.setAciklama("Aciklama 2");
 		vessel.setCompany("Company");
 
 		Country ulke = new Country();
@@ -63,8 +59,6 @@ public class PersistenceTest {
 	public static void main(String[] args) {
 		PersistenceTest t = new PersistenceTest();
 		t.createAll();
-		t.display(t.findAll());
-		t.display((Vessel) PersistenceManager.getInstance().find(Vessel.class,
-				1L));
+		t.displayAll();
 	}
 }

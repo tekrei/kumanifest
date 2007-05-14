@@ -72,8 +72,7 @@ public class ContainerSizePanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new ContainerSize());
-		aramaSonuc.listeGuncelle(ContainerSizeOperation.getInstance().ara(
-				new ContainerSize()));
+		aramaSonuc.listeGuncelle(ContainerSizeOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtSize() {

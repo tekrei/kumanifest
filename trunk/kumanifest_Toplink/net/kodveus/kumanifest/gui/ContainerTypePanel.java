@@ -72,8 +72,7 @@ public class ContainerTypePanel extends JPanel implements AramaSonucInterface,
 	private void updateRecords() {
 		// Veritabanindan kayit cekip tabloya yukleyelim
 		setSecili(new ContainerType());
-		aramaSonuc.listeGuncelle(ContainerTypeOperation.getInstance().ara(
-				new ContainerType()));
+		aramaSonuc.listeGuncelle(ContainerTypeOperation.getInstance().findAll());
 	}
 
 	private JTextField getTxtType() {
