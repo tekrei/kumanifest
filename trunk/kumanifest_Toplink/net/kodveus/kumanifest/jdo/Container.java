@@ -17,13 +17,15 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
@@ -43,26 +45,27 @@ public class Container extends TemelVeriSinif {
 
 	private String containerNo;
 
-	private Long blId;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private BL bl;
 
-	@ManyToOne
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private ContainerType containerType;
 
 	private String sealNo;
 
 	private String otherSealNo;
 
-	@ManyToOne
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private ContainerSize containerSize;
 
 	private Double taraWeight;
 
-	public Long getBlId() {
-		return blId;
+	public BL getBl() {
+		return bl;
 	}
 
-	public void setBlId(Long blId) {
-		this.blId = blId;
+	public void setBl(BL _bl) {
+		this.bl = _bl;
 	}
 
 	public Long getContainerId() {

@@ -31,10 +31,12 @@ import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AramaSonuc;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
+import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.jdo.Cargo;
 import net.kodveus.kumanifest.jdo.Container;
 import net.kodveus.kumanifest.jdo.ContainerSize;
 import net.kodveus.kumanifest.jdo.ContainerType;
+import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.operation.CargoOperation;
 import net.kodveus.kumanifest.operation.ContainerOperation;
 import net.kodveus.kumanifest.operation.ContainerSizeOperation;
@@ -215,7 +217,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		container.setOtherSealNo(txtOtherSealNo.getText());
 		container.setRelCom(Long.parseLong(txtRelCom.getText()));
 		container.setTaraWeight(Double.parseDouble(txtTareWeight.getText()));
-		container.setBlId(blId);
+		container.setBl((BL)BLOperation.getInstance().get(blId));
 		container.setContainerId(containerId);
 		return container;
 	}
@@ -234,7 +236,7 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		if (container.getTaraWeight() != null) {
 			txtTareWeight.setText(Double.toString(container.getTaraWeight()));
 		}
-		blId = container.getBlId();
+		blId = container.getBl().getBlId();
 		containerId = container.getContainerId();
 	}
 
@@ -378,8 +380,6 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	private void updateContainers() {
-		Container container = new Container();
-		container.setBlId(blId);
 		lstContainer.listeGuncelle(ContainerOperation.getInstance().containerOfBl(blId));
 		// Container'in kargolari yuklensin
 		loadCargos();

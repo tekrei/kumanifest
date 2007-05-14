@@ -17,12 +17,15 @@
  */
 package net.kodveus.kumanifest.jdo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
@@ -36,6 +39,7 @@ public class BL extends TemelVeriSinif{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long blId;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Voyage voyage;
 
 	private String blNo;
@@ -44,16 +48,22 @@ public class BL extends TemelVeriSinif{
 
 	private Long reportType;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location placeOfOrigin;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location placeOfReceipt;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location portOfLoading;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location portOfDischarge;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location finalDischargePlace;
 
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Location finalDestination;
 
 	private String description;
