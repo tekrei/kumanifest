@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Vessel;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class VesselOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Vessel vessel = (Vessel) vs;
 			manager.save(vessel);
@@ -50,7 +49,7 @@ public class VesselOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			Vessel vessel = (Vessel) vs;
 			return manager.delete(vessel);
@@ -60,7 +59,7 @@ public class VesselOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Vessel vessel = (Vessel) vs;
 			return manager.update(vessel);
@@ -70,7 +69,7 @@ public class VesselOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (Vessel) manager.find(Vessel.class, id);
 	}
 
@@ -78,30 +77,18 @@ public class VesselOperation extends Operation implements OperationInterface {
 		return manager.findAll("Vessel");
 	}
 
-	public VeriSinif next(Long id) {
-		// TODO id'den bir sonraki kaydi dondurelim
-		return null;
+	public Object next(Long id) {
+		return super.next("Vessel", "vesselId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		// TODO id'den bir onceki kaydi dondurelim
-		return null;
+	public Object previous(Long id) {
+		return super.previous("Vessel", "vesselId", id);
 	}
 
-	/**
-	 *
-	 * @param officeId
-	 * @param isExport
-	 *            0 veya 1
-	 * @return
-	 */
 	public ArrayList<Vessel> getAgacVerisi(Long officeId, int isExport) {
 		try {
-			//TODO sorgu duzeltilecek
-			String nativeQuery = "SELECT vessel FROM Vessel vessel WHERE vesselId IN "
-					+ "(SELECT vesselId FROM voyage WHERE export=" + isExport
-					+ " AND officeId=" + officeId + ")";
-			return manager.executeQuery(nativeQuery);
+			return manager.executeNamedQuery("Vessel.treeData", new Object[] {
+					isExport, officeId });
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return new ArrayList<Vessel>();

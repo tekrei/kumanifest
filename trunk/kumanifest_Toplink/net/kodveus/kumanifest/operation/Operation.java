@@ -17,10 +17,6 @@
  */
 package net.kodveus.kumanifest.operation;
 
-import java.sql.ResultSet;
-
-import net.kodveus.gui.araclar.VeriSinif;
-import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.persistence.PersistenceManager;
 import net.kodveus.kumanifest.utility.LogHelper;
 
@@ -33,32 +29,24 @@ public abstract class Operation {
 		manager = PersistenceManager.getInstance();
 	}
 
-	protected void rsToVs(ResultSet rs, VeriSinif veriSinif){};
-
-	public VeriSinif previous(VeriSinif vs, String table, String field, Long id) {
-		String sql = "SELECT * FROM " + table + " WHERE " + field + "<" + id
-				+ " ORDER BY " + field + " DESC";
+	public Object previous(String sinifIsmi, String sahaIsmi, Long sahaDegeri) {
 		try {
-			ResultSet rs = DBManager.getInstance().executeQuery(sql);
-			if (rs.next()) {
-				rsToVs(rs, vs);
-			}
-			return vs;
+			String sql = "SELECT Obj FROM " + sinifIsmi + " WHERE " + sinifIsmi
+					+ "." + sahaIsmi + "<" + sahaDegeri + " ORDER BY "
+					+ sahaIsmi + " DESC";
+			return manager.executeQuery(sql).get(0);
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return null;
 		}
 	}
 
-	public VeriSinif next(VeriSinif vs, String table, String field, Long id) {
+	public Object next(String sinifIsmi, String sahaIsmi, Long sahaDegeri) {
 		try {
-			String sql = "SELECT * FROM " + table + " WHERE " + field + ">"
-					+ id + " ORDER BY " + field;
-			ResultSet rs = DBManager.getInstance().executeQuery(sql);
-			if (rs.next()) {
-				rsToVs(rs, vs);
-			}
-			return vs;
+			String sql = "SELECT Obj FROM " + sinifIsmi + " WHERE " + sinifIsmi
+					+ "." + sahaIsmi + ">" + sahaDegeri + " ORDER BY "
+					+ sahaIsmi;
+			return manager.executeQuery(sql).get(0);
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return null;

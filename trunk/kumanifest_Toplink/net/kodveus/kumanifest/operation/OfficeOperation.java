@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Office;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class OfficeOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Office office = (Office) vs;
 			manager.save(office);
@@ -50,7 +49,7 @@ public class OfficeOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			Office office = (Office) vs;
 			return manager.delete(office);
@@ -60,7 +59,7 @@ public class OfficeOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Office office = (Office) vs;
 			return manager.update(office);
@@ -74,15 +73,15 @@ public class OfficeOperation extends Operation implements OperationInterface {
 		return manager.findAll("Office");
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (Office)manager.find(Office.class,id);
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new Office(),"Office","officeId", id);
+	public Object next(Long id) {
+		return super.next("Office","officeId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new Office(),"Office","officeId", id);
+	public Object previous(Long id) {
+		return super.previous("Office","officeId", id);
 	}
 }

@@ -30,9 +30,12 @@ import javax.persistence.OneToOne;
 import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
-@NamedQueries({
-	@NamedQuery(name = "Vessel.findAll", query = "SELECT Ves FROM Vessel AS Ves")
+@NamedQueries( {
+		@NamedQuery(name = "Vessel.findAll", query = "SELECT Ves FROM Vessel AS Ves"),
+		@NamedQuery(name = "Vessel.treeData", query = "SELECT vessel FROM Vessel vessel WHERE vesselId IN "
+				+ "(SELECT vesselId FROM voyage WHERE export=:0 AND officeId=:1)")
 })
+
 public class Vessel extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
@@ -45,14 +48,14 @@ public class Vessel extends TemelVeriSinif {
 
 	private String vesselName;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Country flag;
 
 	private Long status;
 
 	private String company;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Location port;
 
 	public String getCompany() {

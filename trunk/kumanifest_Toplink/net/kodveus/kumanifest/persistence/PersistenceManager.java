@@ -98,4 +98,12 @@ public class PersistenceManager {
 				.getResultList();
 		return new ArrayList(list);
 	}
+
+	public ArrayList executeNamedQuery(String string, Object[] parameters) {
+		Query query = entityManager.createNamedQuery(string);
+		for (int i = 0; i < parameters.length; i++) {
+			query.setParameter(i, parameters[i]);
+		}
+		return new ArrayList(query.getResultList());
+	}
 }
