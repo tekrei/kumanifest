@@ -195,7 +195,7 @@ public class VesselPanel extends JPanel implements AramaSonucInterface,
 	private JSteppedComboBox getCmbPort() {
 		if (cmbPort == null) {
 			cmbPort = new JSteppedComboBox(LocationOperation.getInstance()
-					.findAll().toArray());
+					.getPorts().toArray());
 			cmbPort.setBounds(new java.awt.Rectangle(100, 80, 291, 21));
 		}
 		return cmbPort;
