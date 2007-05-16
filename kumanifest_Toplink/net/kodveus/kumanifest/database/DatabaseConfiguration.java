@@ -43,8 +43,6 @@ public class DatabaseConfiguration extends JDialog {
 
 	private JLabel jLabel12 = null;
 
-	// private JCheckBox chkTabloGoruntu = null;
-
 	private JButton btnTamam = null;
 
 	private JTextField txtAdres = null;
@@ -55,19 +53,11 @@ public class DatabaseConfiguration extends JDialog {
 
 	private JPasswordField txtSifre = null;
 
-	/**
-	 * This is the default constructor
-	 */
 	public DatabaseConfiguration() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 * @return void
-	 */
 	private void initialize() {
 		jLabel12 = new JLabel();
 		jLabel12.setBounds(new Rectangle(10, 110, 101, 21));
@@ -118,23 +108,6 @@ public class DatabaseConfiguration extends JDialog {
 		}
 	}
 
-	/**
-	 * This method initializes chkTabloGoruntu
-	 * 
-	 * @return javax.swing.JCheckBox
-	 */
-	/*
-	 * private JCheckBox getChkTabloGoruntu() { if (chkTabloGoruntu == null) {
-	 * chkTabloGoruntu = new JCheckBox(); chkTabloGoruntu.setBounds(new
-	 * Rectangle(10, 140, 281, 21)); chkTabloGoruntu.setText("Create database
-	 * structure"); } return chkTabloGoruntu; }
-	 */
-
-	/**
-	 * This method initializes btnTamam
-	 * 
-	 * @return javax.swing.JButton
-	 */
 	private JButton getBtnTamam() {
 		if (btnTamam == null) {
 			btnTamam = new JButton();
@@ -161,10 +134,6 @@ public class DatabaseConfiguration extends JDialog {
 		// First check db configuration
 		if (checkConf(props)) {
 			if (props.save()) {
-				/*
-				 * if (chkTabloGoruntu.isSelected()) {
-				 * createDatabaseStructure(props); }
-				 */
 				this.dispose();
 			}
 		}
@@ -182,11 +151,6 @@ public class DatabaseConfiguration extends JDialog {
 		return result;
 	}
 
-	/**
-	 * This method initializes txtAdres
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtAdres() {
 		if (txtAdres == null) {
 			txtAdres = new JTextField();
@@ -195,11 +159,6 @@ public class DatabaseConfiguration extends JDialog {
 		return txtAdres;
 	}
 
-	/**
-	 * This method initializes txtVeritabani
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtVeritabani() {
 		if (txtVeritabani == null) {
 			txtVeritabani = new JTextField();
@@ -208,11 +167,6 @@ public class DatabaseConfiguration extends JDialog {
 		return txtVeritabani;
 	}
 
-	/**
-	 * This method initializes txtKullanici
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtKullanici() {
 		if (txtKullanici == null) {
 			txtKullanici = new JTextField();
@@ -221,11 +175,6 @@ public class DatabaseConfiguration extends JDialog {
 		return txtKullanici;
 	}
 
-	/**
-	 * This method initializes txtSifre
-	 * 
-	 * @return javax.swing.JTextField
-	 */
 	private JTextField getTxtSifre() {
 		if (txtSifre == null) {
 			txtSifre = new JPasswordField();

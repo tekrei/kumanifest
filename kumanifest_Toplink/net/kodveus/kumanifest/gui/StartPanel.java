@@ -24,17 +24,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
-import net.kodveus.kumanifest.database.DBManager;
 import net.kodveus.kumanifest.database.DatabaseConfiguration;
+import net.kodveus.kumanifest.persistence.PersistenceManager;
 import net.kodveus.kumanifest.utility.GUIHelper;
 
-/**
- * @@author Emre
- */
 public class StartPanel extends JDialog {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private javax.swing.JPanel jContentPane = null;
@@ -45,19 +39,11 @@ public class StartPanel extends JDialog {
 
 	private JLabel jlbBekleme = null;
 
-	/**
-	 * This is the default constructor
-	 */
 	public StartPanel() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 * 
-	 * @@return void
-	 */
 	private void initialize() {
 		this.setResizable(false);
 		this.setTitle("Kod Ve Us");
@@ -75,11 +61,6 @@ public class StartPanel extends JDialog {
 		});
 	}
 
-	/**
-	 * This method initializes jContentPane
-	 * 
-	 * @@return javax.swing.JPanel
-	 */
 	private javax.swing.JPanel getJContentPane() {
 		if (jContentPane == null) {
 			jlbBekleme = new JLabel();
@@ -104,7 +85,7 @@ public class StartPanel extends JDialog {
 	public boolean start() {
 		try {
 			this.setVisible(true);
-			DBManager.getInstance();
+			PersistenceManager.getInstance();
 		} catch (Exception e) {
 			new DatabaseConfiguration();
 		}
@@ -112,11 +93,6 @@ public class StartPanel extends JDialog {
 		return true;
 	}
 
-	/**
-	 * This method initializes jProgressBar
-	 * 
-	 * @@return javax.swing.JProgressBar
-	 */
 	private JProgressBar getJpbDurum() {
 		if (jpbDurum == null) {
 			jpbDurum = new JProgressBar();
