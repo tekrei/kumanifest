@@ -25,11 +25,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Voyage.findAll", query = "SELECT Obj FROM Voyage AS Obj")
+})
 public class Voyage extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;

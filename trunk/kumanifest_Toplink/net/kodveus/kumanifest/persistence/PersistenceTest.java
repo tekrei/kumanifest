@@ -31,6 +31,12 @@ public class PersistenceTest {
 		}
 	}
 
+	private void update() {
+		Vessel v = (Vessel)PersistenceManager.getInstance().find(Vessel.class, 1L);
+		v.setAciklama("A");
+		PersistenceManager.getInstance().update(v);
+	}
+
 	private Vessel createVessel() {
 		Vessel vessel = new Vessel();
 		vessel.setAciklama("Aciklama 2");
@@ -60,5 +66,6 @@ public class PersistenceTest {
 		PersistenceTest t = new PersistenceTest();
 		t.createAll();
 		t.displayAll();
+		t.update();
 	}
 }

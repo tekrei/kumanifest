@@ -30,7 +30,7 @@ import net.kodveus.kumanifest.utility.LogHelper;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "Location.findAll", query = "SELECT Obj FROM Location AS Obj"),
-	@NamedQuery(name="Location.Ports",query="SELECT Obj FROM Location AS Obj WHERE Obj.IsPort='Y'")
+	@NamedQuery(name = "Location.Ports", query = "SELECT Obj FROM Location AS Obj WHERE Obj.isPort='Y'")
 })
 public class Location extends TemelVeriSinif {
 

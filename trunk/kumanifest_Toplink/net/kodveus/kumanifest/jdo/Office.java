@@ -21,10 +21,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Office.findAll", query = "SELECT Obj FROM Office AS Obj")
+})
 public class Office extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;

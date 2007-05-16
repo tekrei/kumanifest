@@ -70,7 +70,7 @@ public class PersistenceManager {
 	public boolean update(Object sinif) {
 		try {
 			beginTransaction();
-			entityManager.refresh(sinif);
+			entityManager.merge(sinif);
 			return true;
 		} catch (Exception e) {
 			failTransaction();
@@ -94,7 +94,8 @@ public class PersistenceManager {
 	}
 
 	public ArrayList executeNamedQuery(String queryName) {
-		return new ArrayList(entityManager.createNamedQuery(queryName)
-				.getResultList());
+		java.util.List list = entityManager.createNamedQuery(queryName)
+				.getResultList();
+		return new ArrayList(list);
 	}
 }
