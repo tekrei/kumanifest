@@ -21,15 +21,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
-@NamedQueries({
-	@NamedQuery(name = "Pack.findAll", query = "SELECT Obj FROM Pack AS Obj")
-})
+@NamedQuery(name = "Pack.findAll", query = "SELECT Obj FROM Pack AS Obj")
 public class Pack extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;

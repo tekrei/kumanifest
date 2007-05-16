@@ -94,9 +94,8 @@ public class PersistenceManager {
 	}
 
 	public ArrayList executeNamedQuery(String queryName) {
-		java.util.List list = entityManager.createNamedQuery(queryName)
-				.getResultList();
-		return new ArrayList(list);
+		return new ArrayList(entityManager.createNamedQuery(queryName)
+				.getResultList());
 	}
 
 	public ArrayList executeNamedQuery(String string, Object[] parameters) {
