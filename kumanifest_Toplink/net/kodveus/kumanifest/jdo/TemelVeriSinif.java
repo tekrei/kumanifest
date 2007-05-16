@@ -28,7 +28,8 @@ import net.kodveus.gui.araclar.VeriSinif;
  *
  */
 public abstract class TemelVeriSinif extends VeriSinif {
-	//TODO tum siniflardaki iliskiler ayarlanacak
+	//TODO tum siniflardaki iliskiler gozden gecirilip ayarlanacak
+	//TODO iliskilerin dogru durust olmasi ve sahalarin uygun yerlerde olmasi onemli
 	private static final long serialVersionUID = 1L;
 
 	private Long status;

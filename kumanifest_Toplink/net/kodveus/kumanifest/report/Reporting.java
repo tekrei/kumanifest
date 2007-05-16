@@ -85,6 +85,16 @@ public class Reporting {
 		return false;
 	}
 
+	public boolean fillReport(Map<String, Object> parametreler) {
+		try {
+			print = JasperFillManager.fillReport(report, parametreler);
+			return true;
+		} catch (JRException e) {
+			LogHelper.getInstance().exception(e);
+		}
+		return false;
+	}
+
 	public boolean fillReport(Map<String, Object> parametreler,
 			Connection connection) {
 		try {

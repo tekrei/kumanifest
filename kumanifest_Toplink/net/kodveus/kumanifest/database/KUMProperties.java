@@ -24,7 +24,7 @@ import java.io.IOException;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
-public class KUMProperties extends java.util.Properties {
+class KUMProperties extends java.util.Properties {
 
 	private static final long serialVersionUID = 1L;
 
