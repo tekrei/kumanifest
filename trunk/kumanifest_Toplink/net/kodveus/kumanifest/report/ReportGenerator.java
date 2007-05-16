@@ -20,14 +20,11 @@ package net.kodveus.kumanifest.report;
 import java.util.HashMap;
 
 import net.kodveus.kumanifest.persistence.PersistenceManager;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 
 public class ReportGenerator {
 
 	private static ReportGenerator instance = null;
-
-	// private JFileChooser fileChooser;
 
 	private Reporting raporlama;
 
