@@ -118,4 +118,8 @@ public class PersistenceManager {
 			return null;
 		}
 	}
+
+	public EntityManager getEM() {
+		return entityManager;
+	}
 }

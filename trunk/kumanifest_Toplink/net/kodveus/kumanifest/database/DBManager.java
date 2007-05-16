@@ -24,7 +24,7 @@ import java.sql.SQLException;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
-public class DBManager {
+class DBManager {
 	public static final int MYSQL = 0;
 
 	public static final int ORACLE = 1;

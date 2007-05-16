@@ -20,7 +20,6 @@ package net.kodveus.kumanifest.utility;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -331,26 +330,23 @@ public class MenuHelper implements ActionListener {
 		} else if (e.getActionCommand().equals("about")) {
 			new AboutPanel();
 		} else if (e.getActionCommand().equals("LoadingList")) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("prmVoyageId", TreeHelper.getInstance().getVoyageId());
 			try {
-				ReportGenerator.getInstance().generateLoadingList(map);
+				ReportGenerator.getInstance().generateLoadingList(
+						TreeHelper.getInstance().getVoyageId());
 			} catch (Exception ex) {
 				LogHelper.getInstance().exception(ex);
 			}
 		} else if (e.getActionCommand().equals("BillOfLading")) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("prmBLId", TreeHelper.getInstance().getBLId());
 			try {
-				ReportGenerator.getInstance().generateBillOfLading(map);
+				ReportGenerator.getInstance().generateBillOfLading(
+						TreeHelper.getInstance().getBLId());
 			} catch (Exception ex) {
 				LogHelper.getInstance().exception(ex);
 			}
 		} else if (e.getActionCommand().equals("Manifesto")) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("prmVoyageId", TreeHelper.getInstance().getVoyageId());
 			try {
-				ReportGenerator.getInstance().generateManifest(map);
+				ReportGenerator.getInstance().generateManifest(
+						TreeHelper.getInstance().getVoyageId());
 			} catch (Exception ex) {
 				LogHelper.getInstance().exception(ex);
 			}

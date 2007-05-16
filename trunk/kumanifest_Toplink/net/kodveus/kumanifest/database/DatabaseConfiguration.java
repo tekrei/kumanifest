@@ -31,7 +31,7 @@ import javax.swing.JTextField;
 
 import net.kodveus.kumanifest.utility.LogHelper;
 
-public class DatabaseConfiguration extends JDialog {
+class DatabaseConfiguration extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 

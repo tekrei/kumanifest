@@ -19,7 +19,9 @@ package net.kodveus.kumanifest.report;
 
 import java.util.HashMap;
 
-import net.kodveus.kumanifest.database.DBManager;
+import net.kodveus.kumanifest.persistence.PersistenceManager;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 
 public class ReportGenerator {
 
@@ -40,42 +42,36 @@ public class ReportGenerator {
 		return instance;
 	}
 
-	public void generateManifest(HashMap<String, Object> map) throws Exception {
+	public void generateManifest(Long voyageId) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("prmVoyageId", voyageId);
 		raporlama.createEmptyReport("manifest/EnglishManifest.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "manifest/");
 		exportReport(map);
 	}
 
-	public void generateBillOfLading(HashMap<String, Object> map)
-			throws Exception {
+	public void generateBillOfLading(Long blId) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("prmBLId", blId);
 		raporlama.createEmptyReport("billoflading/BillOfLading.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "billoflading/");
 		exportReport(map);
 	}
 
-	public void generateLoadingList(HashMap<String, Object> map)
-			throws Exception {
+	public void generateLoadingList(Long voyageId) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("prmVoyageId", voyageId);
 		raporlama.createEmptyReport("loadinglist/LoadingList.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "loadinglist/");
 		exportReport(map);
 	}
 
 	private void exportReport(HashMap<String, Object> map) throws Exception {
-		raporlama.fillReport(map, DBManager.getInstance().getConnection());
-		// raporlama.exportAsFile(Raporlama.RAPORLAMA_CIKTI_TIPI.PDF,
-		// getFileNameToSave());
+		//TODO raporlarin sorgulari duzeltilecek
+		//http://marceloverdijk.blogspot.com/search/label/JasperReports
+		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
+				PersistenceManager.getInstance().getEM());
+		raporlama.fillReport(map);
 		raporlama.showReportDesign();
 	}
-
-	/*
-	 * private String getFileNameToSave() { String fileName = "cikti.pdf";
-	 * JFileChooser tempFileChooser = getFileChooser();
-	 * 
-	 * if (tempFileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-	 * fileName = tempFileChooser.getSelectedFile().getPath(); } return
-	 * fileName; }
-	 * 
-	 * private JFileChooser getFileChooser() { if (fileChooser == null) {
-	 * fileChooser = new JFileChooser(); } return fileChooser; }
-	 */
 }

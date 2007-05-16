@@ -21,7 +21,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 
-public class ConnectionPool {
+class ConnectionPool {
 
 	private String _url;
 
