@@ -34,7 +34,8 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries( {
 		@NamedQuery(name = "Voyage.findAll", query = "SELECT Obj FROM Voyage AS Obj"),
-		@NamedQuery(name = "Voyage.treeData", query = "SELECT voyage FROM Voyage voyage WHERE voyage.export=:0 AND voyage.vesselId=:1 AND voyage.officeId=:2")
+		@NamedQuery(name = "Voyage.treeData",
+				query = "SELECT voyage FROM Voyage voyage WHERE voyage.export=:param0 AND voyage.vessel.vesselId=:param1 AND voyage.office.officeId=:param2")
 })
 public class Voyage extends TemelVeriSinif {
 

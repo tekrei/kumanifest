@@ -9,6 +9,8 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
+import net.kodveus.kumanifest.utility.LogHelper;
+
 public class PersistenceManager {
 	private static PersistenceManager instance;
 
@@ -47,23 +49,23 @@ public class PersistenceManager {
 		try {
 			beginTransaction();
 			entityManager.persist(sinif);
-		} catch (Exception e) {
-			failTransaction();
-		} finally {
 			commitTransaction();
+		} catch (Exception e) {
+			printStackTrace(e);
+			failTransaction();
 		}
 	}
 
 	public boolean delete(Object sinif) {
 		try {
 			beginTransaction();
-			entityManager.remove(sinif);
+			entityManager.remove(entityManager.merge(sinif));
+			commitTransaction();
 			return true;
 		} catch (Exception e) {
+			printStackTrace(e);
 			failTransaction();
 			return false;
-		} finally {
-			commitTransaction();
 		}
 	}
 
@@ -71,13 +73,18 @@ public class PersistenceManager {
 		try {
 			beginTransaction();
 			entityManager.merge(sinif);
+			commitTransaction();
 			return true;
 		} catch (Exception e) {
+			printStackTrace(e);
 			failTransaction();
 			return false;
-		} finally {
-			commitTransaction();
 		}
+	}
+
+	private void printStackTrace(Exception e) {
+		e.printStackTrace();
+		LogHelper.getInstance().exception(e);
 	}
 
 	public Object find(Class sinif, Object primKey) {
@@ -94,15 +101,21 @@ public class PersistenceManager {
 	}
 
 	public ArrayList executeNamedQuery(String queryName) {
-		return new ArrayList(entityManager.createNamedQuery(queryName)
-				.getResultList());
+		return executeNamedQuery(queryName, null);
 	}
 
-	public ArrayList executeNamedQuery(String string, Object[] parameters) {
-		Query query = entityManager.createNamedQuery(string);
-		for (int i = 0; i < parameters.length; i++) {
-			query.setParameter(i, parameters[i]);
+	public ArrayList executeNamedQuery(String queryName, Object[] parameters) {
+		try {
+			Query query = entityManager.createNamedQuery(queryName);
+			if (parameters != null) {
+				for (int i = 0; i < parameters.length; i++) {
+					query.setParameter("param" + i, parameters[i]);
+				}
+			}
+			return new ArrayList(query.getResultList());
+		} catch (Exception e) {
+			printStackTrace(e);
+			return null;
 		}
-		return new ArrayList(query.getResultList());
 	}
 }

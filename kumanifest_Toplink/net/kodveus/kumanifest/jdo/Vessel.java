@@ -32,8 +32,8 @@ import net.kodveus.kumanifest.utility.LogHelper;
 @Entity
 @NamedQueries( {
 		@NamedQuery(name = "Vessel.findAll", query = "SELECT Ves FROM Vessel AS Ves"),
-		@NamedQuery(name = "Vessel.treeData", query = "SELECT vessel FROM Vessel vessel WHERE vesselId IN "
-				+ "(SELECT vesselId FROM voyage WHERE export=:0 AND officeId=:1)")
+		@NamedQuery(name = "Vessel.treeData", query = "SELECT vessel FROM Vessel vessel WHERE vessel.vesselId IN "
+				+ "(SELECT voyage.vessel.vesselId FROM Voyage voyage WHERE voyage.export=:param0 AND voyage.office.officeId=:param1)")
 })
 
 public class Vessel extends TemelVeriSinif {

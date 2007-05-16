@@ -24,7 +24,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
-import net.kodveus.kumanifest.database.DatabaseConfiguration;
 import net.kodveus.kumanifest.persistence.PersistenceManager;
 import net.kodveus.kumanifest.utility.GUIHelper;
 
@@ -87,7 +86,8 @@ public class StartPanel extends JDialog {
 			this.setVisible(true);
 			PersistenceManager.getInstance();
 		} catch (Exception e) {
-			new DatabaseConfiguration();
+			e.printStackTrace();
+			//new DatabaseConfiguration();
 		}
 		this.dispose();
 		return true;
