@@ -32,39 +32,40 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@NamedQueries({
-	@NamedQuery(name = "Voyage.findAll", query = "SELECT Obj FROM Voyage AS Obj")
+@NamedQueries( {
+		@NamedQuery(name = "Voyage.findAll", query = "SELECT Obj FROM Voyage AS Obj"),
+		@NamedQuery(name = "Voyage.treeData", query = "SELECT voyage FROM Voyage voyage WHERE voyage.export=:0 AND voyage.vesselId=:1 AND voyage.officeId=:2")
 })
 public class Voyage extends TemelVeriSinif {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long voyageId;
 
 	private String voyage;
 
 	private Long export;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Vessel vessel;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Office office;
 
 	private Long status;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Location firstLeavedPort;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Location lastLeavedPort;
 
-    @Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date arrivalDate;
 
-    @Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date departureDate;
 
 	private String nameOfCaptain;

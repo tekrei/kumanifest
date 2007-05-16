@@ -17,7 +17,8 @@
  */
 package net.kodveus.kumanifest.operation;
 
-import net.kodveus.gui.araclar.VeriSinif;
+import java.util.ArrayList;
+
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -37,7 +38,7 @@ public class BLOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			BL bl = (BL) vs;
 			manager.save(bl);
@@ -49,11 +50,11 @@ public class BLOperation extends Operation implements OperationInterface {
 
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		return manager.delete(vs);
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			return manager.update(vs);
 		} catch (Exception e) {
@@ -62,25 +63,24 @@ public class BLOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (BL) manager.find(BL.class, id);
 	}
 
-	public java.util.List<BL> findAll() {
+	public ArrayList<BL> findAll() {
 		return manager.findAll("BL");
 	}
 
-	public java.util.List<BL> blOfVoyages(Long voyageId) {
-		String nativeQuery = "SELECT bl FROM BL bl JOIN bl.Voyage v WHERE v.voyageId="
-				+ voyageId;
-		return manager.executeQuery(nativeQuery);
+	public ArrayList<BL> blOfVoyages(Long voyageId) {
+		return manager.executeNamedQuery("BL.voyages",
+				new Object[] { voyageId });
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new BL(), "bl", "blId", id);
+	public Object next(Long id) {
+		return super.next("BL", "blId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new BL(), "bl", "blId", id);
+	public Object previous(Long id) {
+		return super.previous("BL", "blId", id);
 	}
 }

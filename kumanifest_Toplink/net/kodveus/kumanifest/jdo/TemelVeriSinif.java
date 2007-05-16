@@ -28,7 +28,6 @@ import net.kodveus.gui.araclar.VeriSinif;
  *
  */
 public abstract class TemelVeriSinif extends VeriSinif {
-	//TODO findAll metodu tum jdo siniflara yazilmali
 	//TODO tum siniflardaki iliskiler ayarlanacak
 	private static final long serialVersionUID = 1L;
 

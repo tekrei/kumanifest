@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Country;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class CountryOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Country country = (Country) vs;
 			manager.save(country);
@@ -50,7 +49,7 @@ public class CountryOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			Country country = (Country) vs;
 			return manager.delete(country);
@@ -60,7 +59,7 @@ public class CountryOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Country country = (Country) vs;
 			return manager.update(country);
@@ -74,15 +73,15 @@ public class CountryOperation extends Operation implements OperationInterface {
 		return manager.findAll("Country");
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (Country) manager.find(Country.class, id);
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new Country(), "Country", "countryId", id);
+	public Object next(Long id) {
+		return super.next("Country", "countryId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new Country(), "Country", "countryId", id);
+	public Object previous(Long id) {
+		return super.previous("Country", "countryId", id);
 	}
 }

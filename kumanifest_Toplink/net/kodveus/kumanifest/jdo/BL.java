@@ -29,7 +29,8 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "BL.findAll", query = "SELECT Bl FROM BL AS Bl")
+	@NamedQuery(name = "BL.findAll", query = "SELECT Bl FROM BL AS Bl"),
+	@NamedQuery(name = "BL.voyages", query = "SELECT bl FROM BL bl JOIN bl.Voyage v WHERE v.voyageId=:0")
 })
 public class BL extends TemelVeriSinif{
 

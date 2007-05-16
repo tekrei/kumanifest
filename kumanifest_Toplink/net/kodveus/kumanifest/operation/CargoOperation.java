@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Cargo;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class CargoOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Cargo cargo = (Cargo) vs;
 			manager.save(cargo);
@@ -56,7 +55,7 @@ public class CargoOperation extends Operation implements OperationInterface {
 		return delete(cargo);
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			return manager.delete((Cargo) vs);
 		} catch (Exception e) {
@@ -65,7 +64,7 @@ public class CargoOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			return manager.update((Cargo) vs);
 		} catch (Exception e) {
@@ -74,7 +73,7 @@ public class CargoOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		Cargo cargo = new Cargo();
 		cargo.setCargoId(id);
 		return (Cargo) manager.find(Cargo.class, id);
@@ -90,11 +89,11 @@ public class CargoOperation extends Operation implements OperationInterface {
 		return manager.executeQuery(nativeQuery);
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new Cargo(), "cargo", "cargoıId", id);
+	public Object next(Long id) {
+		return super.next("Cargo", "cargoıId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new Cargo(), "argo", "cargoId", id);
+	public Object previous(Long id) {
+		return super.previous("Cargo", "cargoId", id);
 	}
 }

@@ -19,21 +19,19 @@ package net.kodveus.kumanifest.interfaces;
 
 import java.util.List;
 
-import net.kodveus.gui.araclar.VeriSinif;
-
 public interface OperationInterface {
 
-	public abstract long create(VeriSinif vs);
+	public abstract long create(Object vs);
 
-	public abstract boolean delete(VeriSinif vs);
+	public abstract boolean delete(Object vs);
 
-	public abstract boolean update(VeriSinif vs);
+	public abstract boolean update(Object vs);
 
 	public abstract List findAll();
 
-	public abstract VeriSinif get(Long id);
+	public abstract Object get(Long id);
 
-	public abstract VeriSinif next(Long id);
+	public abstract Object next(Long id);
 
-	public abstract VeriSinif previous(Long id);
+	public abstract Object previous(Long id);
 }

@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.ContainerType;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -40,7 +39,7 @@ public class ContainerTypeOperation extends Operation implements
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			ContainerType containerType = (ContainerType) vs;
 			manager.save(containerType);
@@ -51,7 +50,7 @@ public class ContainerTypeOperation extends Operation implements
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			ContainerType containerType = (ContainerType) vs;
 			return manager.delete(containerType);
@@ -61,7 +60,7 @@ public class ContainerTypeOperation extends Operation implements
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			ContainerType containerType = (ContainerType) vs;
 			return manager.delete(containerType);
@@ -71,7 +70,7 @@ public class ContainerTypeOperation extends Operation implements
 		}
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (ContainerType) manager.find(ContainerType.class, id);
 	}
 
@@ -79,13 +78,13 @@ public class ContainerTypeOperation extends Operation implements
 		return manager.findAll("ContainerType");
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new ContainerType(), "ContainerType",
+	public Object next(Long id) {
+		return super.next("ContainerType",
 				"containerTypeId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new ContainerType(), "ContainerType",
+	public Object previous(Long id) {
+		return super.previous("ContainerType",
 				"containerTypeId", id);
 	}
 }

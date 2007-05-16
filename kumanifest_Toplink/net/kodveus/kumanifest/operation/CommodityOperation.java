@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Commodity;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Commodity commodity = (Commodity) vs;
 			manager.save(commodity);
@@ -50,11 +49,11 @@ public class CommodityOperation extends Operation implements OperationInterface 
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		return manager.delete((Commodity) vs);
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Commodity commodity = (Commodity) vs;
 			return manager.update(commodity);
@@ -64,7 +63,7 @@ public class CommodityOperation extends Operation implements OperationInterface 
 		}
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (Commodity)manager.find(Commodity.class, id);
 	}
 
@@ -72,14 +71,12 @@ public class CommodityOperation extends Operation implements OperationInterface 
 		return manager.findAll("Commodity");
 	}
 
-	public VeriSinif next(Long id) {
-		Commodity commodity = new Commodity();
-		return super.next(commodity, "commodity", "commodityId", id);
+	public Object next(Long id) {
+		return super.next("Commodity", "commodityId", id);
 
 	}
 
-	public VeriSinif previous(Long id) {
-		Commodity commodity = new Commodity();
-		return super.previous(commodity, "commodity", "commodityId", id);
+	public Object previous(Long id) {
+		return super.previous("Commodity", "commodityId", id);
 	}
 }

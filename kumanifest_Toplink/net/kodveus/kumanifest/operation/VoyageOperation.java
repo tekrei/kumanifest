@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Voyage;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class VoyageOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Voyage voyage = (Voyage) vs;
 			manager.save(voyage);
@@ -50,7 +49,7 @@ public class VoyageOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			Voyage voyage = (Voyage) vs;
 			return manager.delete(voyage);
@@ -60,7 +59,7 @@ public class VoyageOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Voyage voyage = (Voyage) vs;
 			return manager.update(voyage);
@@ -70,43 +69,31 @@ public class VoyageOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public VeriSinif get(Long id) {
-		return (Voyage)manager.find(Voyage.class,id);
+	public Object get(Long id) {
+		return (Voyage) manager.find(Voyage.class, id);
 	}
 
-	public ArrayList<Voyage> findAll(){
+	public ArrayList<Voyage> findAll() {
 		return manager.findAll("Voyage");
 	}
 
-	/**
-	 *
-	 * @param officeId
-	 * @param vesselId
-	 * @param isExport
-	 *            0 veya 1
-	 * @return
-	 */
 	public ArrayList<Voyage> getAgacVerisi(Long officeId, Long vesselId,
 			int isExport) {
-		//TODO sorgu duzeltilecek
 		try {
-			String sql = "SELECT * FROM voyage WHERE export=" + isExport
-					+ " AND vesselId=" + vesselId + " AND officeId=" + officeId;
-			return manager.executeQuery(sql);
+			return manager.executeNamedQuery("Voyage.treeData", new Object[] {
+					isExport, vesselId, officeId });
 		} catch (Exception e) {
 			LogHelper.getInstance().exception(e);
 			return new ArrayList<Voyage>();
 		}
 	}
 
-	public VeriSinif next(Long id) {
-		// TODO id'den bir sonraki kaydi dondurelim
-		return null;
+	public Object next(Long id) {
+		return super.next("Voyage", "voyageId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		// TODO id'den bir onceki kaydi dondurelim
-		return null;
+	public Object previous(Long id) {
+		return super.previous("Voyage", "voyageId", id);
 	}
 
 }

@@ -19,7 +19,6 @@ package net.kodveus.kumanifest.operation;
 
 import java.util.ArrayList;
 
-import net.kodveus.gui.araclar.VeriSinif;
 import net.kodveus.kumanifest.interfaces.OperationInterface;
 import net.kodveus.kumanifest.jdo.Pack;
 import net.kodveus.kumanifest.utility.LogHelper;
@@ -39,7 +38,7 @@ public class PackOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(VeriSinif vs) {
+	public long create(Object vs) {
 		try {
 			Pack pack = (Pack) vs;
 			manager.save(pack);
@@ -50,7 +49,7 @@ public class PackOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean delete(VeriSinif vs) {
+	public boolean delete(Object vs) {
 		try {
 			Pack pack = (Pack) vs;
 			return manager.delete(pack);
@@ -60,7 +59,7 @@ public class PackOperation extends Operation implements OperationInterface {
 		}
 	}
 
-	public boolean update(VeriSinif vs) {
+	public boolean update(Object vs) {
 		try {
 			Pack pack = (Pack) vs;
 			return manager.update(pack);
@@ -74,15 +73,15 @@ public class PackOperation extends Operation implements OperationInterface {
 		return manager.findAll("Pack");
 	}
 
-	public VeriSinif get(Long id) {
+	public Object get(Long id) {
 		return (Pack) manager.find(Pack.class, id);
 	}
 
-	public VeriSinif next(Long id) {
-		return super.next(new Pack(),"Pack","packId", id);
+	public Object next(Long id) {
+		return super.next("Pack","packId", id);
 	}
 
-	public VeriSinif previous(Long id) {
-		return super.previous(new Pack(),"Pack","packId", id);
+	public Object previous(Long id) {
+		return super.previous("Pack","packId", id);
 	}
 }
