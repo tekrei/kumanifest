@@ -40,18 +40,9 @@ public class TableSelectUI extends JPanel implements STInterface,TableSelectButt
         init();
     }
 
-    /*public TableSelectUI(ArrayList _liste, VeriSinif _selected) {
-        liste = _liste;
-        selected = _selected;
-        me = this;
-        init();
+    public void updateItems(ArrayList _list){
+    	liste = _list;
     }
-
-    public TableSelectUI(ArrayList _liste){
-    	liste = _liste;
-    	me = this;
-    	init();
-    }*/
 
     public void setSelected(VeriSinif _dvo, Object _requestSource) {
         selected = _dvo;

@@ -31,7 +31,7 @@ public class AramaSonuc extends JPanel {
 
 	private JXTable jtable;
 	private GenericTableModel model;
-	private List<VeriSinif> liste;
+	private List liste;
 	private AliasMap map;
 	boolean adetKolonu;
 	private AramaSonucInterface _arayuz;
@@ -40,14 +40,14 @@ public class AramaSonuc extends JPanel {
 	}
 
 	public AramaSonuc(AliasMap _map) {
-		this(_map, new ArrayList<VeriSinif>(), false);
+		this(_map, new ArrayList(), false);
 	}
 
 	public AramaSonuc(AliasMap _map, boolean _adetSatirDestegi) {
-		this(_map, new ArrayList<VeriSinif>(), _adetSatirDestegi);
+		this(_map, new ArrayList(), _adetSatirDestegi);
 	}
 
-	public AramaSonuc(AliasMap _map, List<VeriSinif> _liste,
+	public AramaSonuc(AliasMap _map, List _liste,
 			boolean _adetSatirDestegi) {
 		map = _map;
 		adetKolonu = _adetSatirDestegi;
@@ -89,7 +89,7 @@ public class AramaSonuc extends JPanel {
 	public void setAliasMap(AliasMap _map) {
 		map = _map;
 		adetKolonu = false;
-		liste = new ArrayList<VeriSinif>();
+		liste = new ArrayList();
 		jtable = new JXTable();
 		prepareGUI();
 	}
@@ -131,8 +131,8 @@ public class AramaSonuc extends JPanel {
 		return liste.get(jtable.getSelectedRow());
 	}
 
-	public List<VeriSinif> getSecili() {
-		List<VeriSinif> _liste = new ArrayList<VeriSinif>();
+	public List getSecili() {
+		List _liste = new ArrayList();
 		int[] secili = jtable.getSelectedRows();
 
 		for (int i = 0; i < secili.length; i++) {
@@ -142,7 +142,7 @@ public class AramaSonuc extends JPanel {
 		return _liste;
 	}
 
-	public void listeGuncelle(List<VeriSinif> yeniListe) {
+	public void listeGuncelle(List yeniListe) {
 		this.liste = yeniListe;
 		prepareTable();
 		jtable.updateUI();
