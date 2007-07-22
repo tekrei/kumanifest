@@ -85,12 +85,14 @@ public class CargoOperation extends Operation implements OperationInterface {
 
 
 	public ArrayList cargoOfContainer(Long containerId) {
-		String nativeQuery = "SELECT cargo FROM Cargo cargo JOIN cargo.Container c WHERE c.containerId="+containerId;
-		return manager.executeQuery(nativeQuery);
+		/*String nativeQuery = "SELECT cargo FROM Cargo cargo JOIN cargo.Container c WHERE c.containerId="+containerId;
+		return manager.executeQuery(nativeQuery);*/
+		return manager.executeNamedQuery("Cargo.ofContainer",
+				new Object[] { containerId });
 	}
 
 	public Object next(Long id) {
-		return super.next("Cargo", "cargoıId", id);
+		return super.next("Cargo", "cargoId", id);
 	}
 
 	public Object previous(Long id) {

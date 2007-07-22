@@ -87,8 +87,11 @@ public class ContainerOperation extends Operation implements OperationInterface 
 	}
 
 	public ArrayList<Container> containerOfBl(Long blId) {
-		String nativeQuery = "SELECT container FROM Container container JOIN container.BL b WHERE b.blId="
+		/*String nativeQuery = "SELECT container FROM Container container JOIN container.BL b WHERE b.bl_Id="
 				+ blId;
 		return manager.executeQuery(nativeQuery);
+		*/
+		return manager.executeNamedQuery("Container.ofBL",
+				new Object[] { blId });
 	}
 }

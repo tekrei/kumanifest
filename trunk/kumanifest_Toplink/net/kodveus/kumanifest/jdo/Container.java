@@ -32,7 +32,9 @@ import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Container.findAll", query = "SELECT Obj FROM Container AS Obj")
+	@NamedQuery(name = "Container.findAll", query = "SELECT Obj FROM Container AS Obj"),
+	@NamedQuery(name = "Container.ofBL",
+			query = "SELECT container FROM Container container WHERE container.bl.blId=:param0")
 })
 public class Container extends TemelVeriSinif {
 
