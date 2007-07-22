@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
 import net.kodveus.gui.jcombobox.TableSelectUI;
 import net.kodveus.gui.jtextfield.NoTabTextArea;
+import net.kodveus.kumanifest.interfaces.Refreshable;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.jdo.Location;
@@ -32,10 +33,12 @@ import net.kodveus.kumanifest.operation.BLOperation;
 import net.kodveus.kumanifest.operation.LocationOperation;
 import net.kodveus.kumanifest.operation.VoyageOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+import net.kodveus.kumanifest.utility.LogHelper;
+import net.kodveus.kumanifest.utility.RefreshUtility;
 import net.kodveus.kumanifest.utility.StatusHelper;
 import net.kodveus.kumanifest.utility.TreeHelper;
 
-public class BLPanel extends JPanel implements ToolbarInterface {
+public class BLPanel extends JPanel implements ToolbarInterface,Refreshable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -104,6 +107,26 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	public BLPanel() {
 		super();
 		initialize();
+		RefreshUtility.getInstance().addRefreshable(this);
+	}
+
+	public void refresh(){
+		LogHelper.getLogger().info("BLPanel yenileniyor!");
+		Object[] limanlar = LocationOperation
+		.getInstance().getPorts().toArray();
+		cmbPlaceOfOrigin.updateItems(limanlar);
+
+		cmbPortOfLoading.updateItems(limanlar);
+
+		cmbPortOfDischarge.updateItems(limanlar);
+
+		cmbFinalDischargePlace.updateItems(limanlar);
+
+		cmbFinalDestination.updateItems(limanlar);
+
+		cmbPlaceOfReceipt.updateItems(limanlar);
+
+		cmbVoyage.updateItems(VoyageOperation.getInstance().findAll());
 	}
 
 	private void initialize() {
@@ -195,6 +218,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 		this.add(getCmbPlaceOfReceipt(), null);
 		this.add(GUIHelper.getInstance().addScrollToTextArea(getTxtNotify2()),
 				null);
+		refresh();
 	}
 
 	private JTextField getTxtBlNo() {
@@ -390,8 +414,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbPlaceOfOrigin() {
 		if (cmbPlaceOfOrigin == null) {
-			cmbPlaceOfOrigin = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbPlaceOfOrigin = new JSteppedComboBox();
 			cmbPlaceOfOrigin
 					.setBounds(new java.awt.Rectangle(140, 79, 221, 22));
 		}
@@ -400,8 +423,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbPortOfLoading() {
 		if (cmbPortOfLoading == null) {
-			cmbPortOfLoading = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbPortOfLoading = new JSteppedComboBox();
 			cmbPortOfLoading
 					.setBounds(new java.awt.Rectangle(140, 110, 221, 21));
 		}
@@ -410,8 +432,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbPortOfDischarge() {
 		if (cmbPortOfDischarge == null) {
-			cmbPortOfDischarge = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbPortOfDischarge = new JSteppedComboBox();
 			cmbPortOfDischarge.setBounds(new java.awt.Rectangle(140, 140, 221,
 					21));
 		}
@@ -420,8 +441,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbFinalDischargePlace() {
 		if (cmbFinalDischargePlace == null) {
-			cmbFinalDischargePlace = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbFinalDischargePlace = new JSteppedComboBox();
 			cmbFinalDischargePlace.setBounds(new java.awt.Rectangle(140, 170,
 					221, 21));
 		}
@@ -430,8 +450,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbFinalDestination() {
 		if (cmbFinalDestination == null) {
-			cmbFinalDestination = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbFinalDestination = new JSteppedComboBox();
 			cmbFinalDestination.setBounds(new java.awt.Rectangle(140, 200, 221,
 					21));
 		}
@@ -441,7 +460,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 	private TableSelectUI getCmbVoyage() {
 		if (cmbVoyage == null) {
 			Voyage temp = new Voyage();
-			cmbVoyage = new TableSelectUI(VoyageOperation.getInstance().findAll(),null,temp.getAliasMap());
+			cmbVoyage = new TableSelectUI(null,null,temp.getAliasMap());
 			cmbVoyage.setBounds(new java.awt.Rectangle(140, 260, 221, 21));
 		}
 		return cmbVoyage;
@@ -449,8 +468,7 @@ public class BLPanel extends JPanel implements ToolbarInterface {
 
 	private JSteppedComboBox getCmbPlaceOfReceipt() {
 		if (cmbPlaceOfReceipt == null) {
-			cmbPlaceOfReceipt = new JSteppedComboBox(LocationOperation
-					.getInstance().getPorts().toArray());
+			cmbPlaceOfReceipt = new JSteppedComboBox();
 			cmbPlaceOfReceipt.setBounds(new java.awt.Rectangle(140, 230, 221,
 					21));
 		}

@@ -10,6 +10,7 @@ import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
 import net.kodveus.kumanifest.utility.LogHelper;
+import net.kodveus.kumanifest.utility.RefreshUtility;
 
 public class PersistenceManager {
 	private static PersistenceManager instance;
@@ -39,6 +40,7 @@ public class PersistenceManager {
 
 	private void commitTransaction() {
 		entityManager.getTransaction().commit();
+		RefreshUtility.getInstance().refresh();
 	}
 
 	private void failTransaction() {
