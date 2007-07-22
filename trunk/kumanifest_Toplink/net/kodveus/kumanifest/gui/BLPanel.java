@@ -112,8 +112,7 @@ public class BLPanel extends JPanel implements ToolbarInterface,Refreshable {
 
 	public void refresh(){
 		LogHelper.getLogger().info("BLPanel yenileniyor!");
-		Object[] limanlar = LocationOperation
-		.getInstance().getPorts().toArray();
+		Object[] limanlar = LocationOperation.getInstance().getPorts().toArray();
 		cmbPlaceOfOrigin.updateItems(limanlar);
 
 		cmbPortOfLoading.updateItems(limanlar);
