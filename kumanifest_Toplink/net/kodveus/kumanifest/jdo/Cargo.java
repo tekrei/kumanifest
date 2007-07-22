@@ -32,7 +32,9 @@ import net.kodveus.kumanifest.utility.LogHelper;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Cargo.findAll", query = "SELECT Obj FROM Cargo AS Obj")
+	@NamedQuery(name = "Cargo.findAll", query = "SELECT Obj FROM Cargo AS Obj"),
+	@NamedQuery(name = "Cargo.ofContainer",
+			query = "SELECT cargo FROM Cargo cargo WHERE cargo.container.containerId=:param0")
 })
 public class Cargo extends TemelVeriSinif {
 

@@ -94,8 +94,13 @@ public class PersistenceManager {
 	}
 
 	public ArrayList executeQuery(String nativeQuery) {
-		Query query = entityManager.createNativeQuery(nativeQuery);
-		return new ArrayList(query.getResultList());
+		try {
+			Query query = entityManager.createNativeQuery(nativeQuery);
+			return new ArrayList(query.getResultList());
+		} catch (Exception e) {
+			printStackTrace(e);
+			return null;
+		}
 	}
 
 	public ArrayList findAll(String pre) {

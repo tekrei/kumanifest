@@ -223,21 +223,24 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 	}
 
 	void loadToPanel(Container container) {
-		txtContainerNo.setText(container.getContainerNo());
-		cmbContainerSize.setSelectedItem(container.getContainerSize());
-		cmbContainerType.setSelectedItem(container.getContainerType());
-		txtOtherSealNo.setText(container.getOtherSealNo());
-		txtSealNo.setText(container.getSealNo());
-		txtRelCom.setText("");
-		if (container.getRelCom() != null) {
-			txtRelCom.setText(Long.toString(container.getRelCom()));
+		if(container.getContainerNo()!=null)
+		{
+			txtContainerNo.setText(container.getContainerNo());
+			cmbContainerSize.setSelectedItem(container.getContainerSize());
+			cmbContainerType.setSelectedItem(container.getContainerType());
+			txtOtherSealNo.setText(container.getOtherSealNo());
+			txtSealNo.setText(container.getSealNo());
+			txtRelCom.setText("");
+			if (container.getRelCom() != null) {
+				txtRelCom.setText(Long.toString(container.getRelCom()));
+			}
+			txtTareWeight.setText("");
+			if (container.getTaraWeight() != null) {
+				txtTareWeight.setText(Double.toString(container.getTaraWeight()));
+			}
+			blId = container.getBl().getBlId();
+			containerId = container.getContainerId();
 		}
-		txtTareWeight.setText("");
-		if (container.getTaraWeight() != null) {
-			txtTareWeight.setText(Double.toString(container.getTaraWeight()));
-		}
-		blId = container.getBl().getBlId();
-		containerId = container.getContainerId();
 	}
 
 	public void clear() {
@@ -379,11 +382,11 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		updateContainers();
 	}
 
-	private void updateContainers() {
-		lstContainer.listeGuncelle(ContainerOperation.getInstance().containerOfBl(blId));
-		// Container'in kargolari yuklensin
-		loadCargos();
-		this.updateUI();
+	private void updateContainers() {		
+			lstContainer.listeGuncelle(ContainerOperation.getInstance().containerOfBl(blId));
+			// Container'in kargolari yuklensin
+			loadCargos();
+			this.updateUI();		
 	}
 
 	void loadCargos(Long _containerId) {
