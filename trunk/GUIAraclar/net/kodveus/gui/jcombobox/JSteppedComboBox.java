@@ -24,6 +24,13 @@ public class JSteppedComboBox extends JXComboBox {
 		Configurator.enableAutoCompletion(this);
 	}
 
+	public void updateItems(Object[] items){
+		super.removeAllItems();
+		for (int i = 0; i < items.length; i++) {
+			super.addItem(items[i]);
+		}
+	}
+
 	public void updateUI() {
 		super.updateUI();
 		resizeComboPopup();
