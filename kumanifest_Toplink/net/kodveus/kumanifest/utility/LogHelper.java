@@ -26,35 +26,19 @@ import java.util.logging.Logger;
 import java.util.logging.XMLFormatter;
 
 public class LogHelper {
-	private static LogHelper instance = null;
-
-	private Logger loglayici = Logger.getLogger("KumanifestLog");
-
 	class ShortFormatter extends Formatter {
 		// inefficient implementation
-		public String format(LogRecord record) {
-			StringBuffer buffer = new StringBuffer(record.getLevel() + " [");
+		@Override
+		public String format(final LogRecord record) {
+			final StringBuffer buffer = new StringBuffer(record.getLevel()
+					+ " [");
 			buffer.append(record.getSourceMethodName() + "] ");
 			buffer.append(record.getMessage() + "\n");
 			return buffer.toString();
 		}
 	}
 
-	private LogHelper() {
-		try {
-			// 5 log files, switching when they reach approximately 1MB
-			FileHandler fh = new FileHandler("kumanifest%g.log", 1000000, 5,
-					true);
-			fh.setFormatter(new XMLFormatter());
-			loglayici.addHandler(fh);
-			ConsoleHandler ch = new ConsoleHandler();
-			ch.setFormatter(new ShortFormatter());
-			loglayici.addHandler(ch);
-			loglayici.setUseParentHandlers(false);
-		} catch (Exception e) {
-			exception(e);
-		}
-	}
+	private static LogHelper instance = null;
 
 	public static LogHelper getInstance() {
 		if (instance == null) {
@@ -67,6 +51,24 @@ public class LogHelper {
 		return getInstance().loglayici;
 	}
 
+	private final Logger loglayici = Logger.getLogger("KumanifestLog");
+
+	private LogHelper() {
+		try {
+			// 5 log files, switching when they reach approximately 1MB
+			final FileHandler fh = new FileHandler("kumanifest%g.log", 1000000,
+					5, true);
+			fh.setFormatter(new XMLFormatter());
+			loglayici.addHandler(fh);
+			final ConsoleHandler ch = new ConsoleHandler();
+			ch.setFormatter(new ShortFormatter());
+			loglayici.addHandler(ch);
+			loglayici.setUseParentHandlers(false);
+		} catch (final Exception e) {
+			exception(e);
+		}
+	}
+
 	/**
 	 * Calisma zamaninda log seviyesini degistirmek icin kullanilmalidir
 	 * 
@@ -77,19 +79,13 @@ public class LogHelper {
 	}
 
 	/**
-	 * Sadece hata mesajlari ekrana yazilir
-	 */
-	public void severe() {
-		loglayici.setLevel(Level.SEVERE);
-	}
-
-	/**
 	 * Istisna olustugunda cagrilmali
 	 * 
 	 * @param e
 	 *            Olusan istisna
 	 */
-	public void exception(Exception e) {
+	public void exception(final Exception e) {
+		e.printStackTrace();
 		loglayici.log(Level.SEVERE, e.getMessage(), e);
 	}
 
@@ -102,7 +98,14 @@ public class LogHelper {
 	 * @param e
 	 *            Olusan istisna
 	 */
-	public void exception(String msg, Exception e) {
+	public void exception(final String msg, final Exception e) {
 		loglayici.log(Level.SEVERE, msg, e);
+	}
+
+	/**
+	 * Sadece hata mesajlari ekrana yazilir
+	 */
+	public void severe() {
+		loglayici.setLevel(Level.SEVERE);
 	}
 }
