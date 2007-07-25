@@ -26,12 +26,6 @@ public class ReportGenerator {
 
 	private static ReportGenerator instance = null;
 
-	private Reporting raporlama;
-
-	private ReportGenerator() {
-		raporlama = new Reporting();
-	}
-
 	public static ReportGenerator getInstance() {
 		if (instance == null) {
 			instance = new ReportGenerator();
@@ -39,36 +33,46 @@ public class ReportGenerator {
 		return instance;
 	}
 
-	public void generateManifest(Long voyageId) throws Exception {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("prmVoyageId", voyageId);
-		raporlama.createEmptyReport("manifest/EnglishManifest.jrxml");
-		map.put("REPORT_DIR", Reporting.rootPath + "manifest/");
-		exportReport(map);
+	private final Reporting raporlama;
+
+	private ReportGenerator() {
+		raporlama = new Reporting();
 	}
 
-	public void generateBillOfLading(Long blId) throws Exception {
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	private void exportReport(final HashMap<String, Object> map)
+			throws Exception {
+		// TODO raporlarin sorgulari duzeltilecek
+		// Kaynak 1:
+		// http://marceloverdijk.blogspot.com/search/label/JasperReports
+		// Kaynak 2:
+		// http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JRJpaQueryExecuter.html
+		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
+				PersistenceManager.getInstance().getEM());
+		raporlama.fillReport(map);
+		raporlama.showReportDesign();
+	}
+
+	public void generateBillOfLading(final Long blId) throws Exception {
+		final HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("prmBLId", blId);
 		raporlama.createEmptyReport("billoflading/BillOfLading.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "billoflading/");
 		exportReport(map);
 	}
 
-	public void generateLoadingList(Long voyageId) throws Exception {
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	public void generateLoadingList(final Long voyageId) throws Exception {
+		final HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("prmVoyageId", voyageId);
 		raporlama.createEmptyReport("loadinglist/LoadingList.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "loadinglist/");
 		exportReport(map);
 	}
 
-	private void exportReport(HashMap<String, Object> map) throws Exception {
-		//TODO raporlarin sorgulari duzeltilecek
-		//http://marceloverdijk.blogspot.com/search/label/JasperReports
-		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
-				PersistenceManager.getInstance().getEM());
-		raporlama.fillReport(map);
-		raporlama.showReportDesign();
+	public void generateManifest(final Long voyageId) throws Exception {
+		final HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("prmVoyageId", voyageId);
+		raporlama.createEmptyReport("manifest/EnglishManifest.jrxml");
+		map.put("REPORT_DIR", Reporting.rootPath + "manifest/");
+		exportReport(map);
 	}
 }

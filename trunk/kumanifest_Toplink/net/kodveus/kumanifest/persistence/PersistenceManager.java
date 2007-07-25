@@ -15,23 +15,23 @@ import net.kodveus.kumanifest.utility.RefreshUtility;
 public class PersistenceManager {
 	private static PersistenceManager instance;
 
-	protected EntityManagerFactory entityManagerFactory;
+	public static PersistenceManager getInstance() {
+		if (instance == null) {
+			instance = new PersistenceManager();
+		}
+		return instance;
+	}
 
 	@PersistenceUnit
 	protected EntityManager entityManager;
+
+	protected EntityManagerFactory entityManagerFactory;
 
 	private PersistenceManager() {
 		Locale.setDefault(Locale.US);
 		entityManagerFactory = Persistence
 				.createEntityManagerFactory("PersistentUnit");
 		entityManager = entityManagerFactory.createEntityManager();
-	}
-
-	public static PersistenceManager getInstance() {
-		if (instance == null) {
-			instance = new PersistenceManager();
-		}
-		return instance;
 	}
 
 	private void beginTransaction() {
@@ -43,90 +43,91 @@ public class PersistenceManager {
 		RefreshUtility.getInstance().refresh();
 	}
 
-	private void failTransaction() {
-		entityManager.getTransaction().rollback();
-	}
-
-	public void save(Object sinif) {
-		try {
-			beginTransaction();
-			entityManager.persist(sinif);
-			commitTransaction();
-		} catch (Exception e) {
-			printStackTrace(e);
-			failTransaction();
-		}
-	}
-
-	public boolean delete(Object sinif) {
+	public boolean delete(final Object sinif) {
 		try {
 			beginTransaction();
 			entityManager.remove(entityManager.merge(sinif));
 			commitTransaction();
 			return true;
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			printStackTrace(e);
 			failTransaction();
 			return false;
 		}
 	}
 
-	public boolean update(Object sinif) {
-		try {
-			beginTransaction();
-			entityManager.merge(sinif);
-			commitTransaction();
-			return true;
-		} catch (Exception e) {
-			printStackTrace(e);
-			failTransaction();
-			return false;
-		}
-	}
-
-	private void printStackTrace(Exception e) {
-		e.printStackTrace();
-		LogHelper.getInstance().exception(e);
-	}
-
-	public Object find(Class sinif, Object primKey) {
-		return entityManager.find(sinif, primKey);
-	}
-
-	public ArrayList executeQuery(String nativeQuery) {
-		try {
-			Query query = entityManager.createNativeQuery(nativeQuery);
-			return new ArrayList(query.getResultList());
-		} catch (Exception e) {
-			printStackTrace(e);
-			return null;
-		}
-	}
-
-	public ArrayList findAll(String pre) {
-		return executeNamedQuery(pre + ".findAll");
-	}
-
-	public ArrayList executeNamedQuery(String queryName) {
+	public ArrayList executeNamedQuery(final String queryName) {
 		return executeNamedQuery(queryName, null);
 	}
 
-	public ArrayList executeNamedQuery(String queryName, Object[] parameters) {
+	public ArrayList executeNamedQuery(final String queryName,
+			final Object[] parameters) {
 		try {
-			Query query = entityManager.createNamedQuery(queryName);
+			final Query query = entityManager.createNamedQuery(queryName);
 			if (parameters != null) {
 				for (int i = 0; i < parameters.length; i++) {
 					query.setParameter("param" + i, parameters[i]);
 				}
 			}
 			return new ArrayList(query.getResultList());
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			printStackTrace(e);
 			return null;
 		}
 	}
 
+	public ArrayList executeQuery(final String nativeQuery) {
+		try {
+			final Query query = entityManager.createNativeQuery(nativeQuery);
+			return new ArrayList(query.getResultList());
+		} catch (final Exception e) {
+			printStackTrace(e);
+			return null;
+		}
+	}
+
+	private void failTransaction() {
+		entityManager.getTransaction().rollback();
+	}
+
+	public Object find(final Class sinif, final Object primKey) {
+		return entityManager.find(sinif, primKey);
+	}
+
+	public ArrayList findAll(final String pre) {
+		return executeNamedQuery(pre + ".findAll");
+	}
+
 	public EntityManager getEM() {
 		return entityManager;
+	}
+
+	private void printStackTrace(final Exception e) {
+		e.printStackTrace();
+		LogHelper.getInstance().exception(e);
+	}
+
+	public void save(final Object sinif) {
+		try {
+			beginTransaction();
+			entityManager.persist(sinif);
+			commitTransaction();
+		} catch (final Exception e) {
+			printStackTrace(e);
+			failTransaction();
+		}
+	}
+
+	public boolean update(final Object sinif) {
+		try {
+			beginTransaction();
+			entityManager.merge(sinif);
+			commitTransaction();
+			return true;
+		} catch (final Exception e) {
+			printStackTrace(e);
+			failTransaction();
+			return false;
+		}
 	}
 }
