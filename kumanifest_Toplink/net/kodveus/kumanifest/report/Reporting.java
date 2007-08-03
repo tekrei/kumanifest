@@ -17,10 +17,6 @@
  */
 package net.kodveus.kumanifest.report;
 
-import java.io.OutputStream;
-import java.sql.Connection;
-import java.util.Map;
-
 import net.kodveus.kumanifest.utility.LogHelper;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -38,6 +34,10 @@ import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.util.Map;
 
 public class Reporting {
 	public enum RAPORLAMA_CIKTI_TIPI {
