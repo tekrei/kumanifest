@@ -25,13 +25,13 @@ public interface OperationInterface {
 
 	public abstract boolean delete(Object vs);
 
-	public abstract boolean update(Object vs);
-
-	public abstract List findAll();
+	public abstract List<?> findAll();
 
 	public abstract Object get(Long id);
 
 	public abstract Object next(Long id);
 
 	public abstract Object previous(Long id);
+
+	public abstract boolean update(Object vs);
 }

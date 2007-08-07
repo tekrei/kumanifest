@@ -17,6 +17,10 @@
  */
 package net.kodveus.kumanifest.report;
 
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.util.Map;
+
 import net.kodveus.kumanifest.utility.LogHelper;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -27,7 +31,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
 import net.sf.jasperreports.engine.export.JRHtmlExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
@@ -35,10 +38,6 @@ import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.io.OutputStream;
-import java.sql.Connection;
-import java.util.Map;
 
 public class Reporting {
 	public enum RAPORLAMA_CIKTI_TIPI {
@@ -137,7 +136,8 @@ public class Reporting {
 
 	public boolean fillReport(final Map<String, Object> parametreler) {
 		try {
-			print = JasperFillManager.fillReport(report, parametreler,(Connection)null);
+			print = JasperFillManager.fillReport(report, parametreler,
+					(Connection) null);
 			return true;
 		} catch (final JRException ex) {
 			LogHelper.getInstance().exception(ex);

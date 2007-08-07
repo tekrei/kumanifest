@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import net.kodveus.kumanifest.utility.LogHelper;
 import net.kodveus.kumanifest.utility.RefreshUtility;
 
+@SuppressWarnings("unchecked")
 public class PersistenceManager {
 	private static PersistenceManager instance;
 

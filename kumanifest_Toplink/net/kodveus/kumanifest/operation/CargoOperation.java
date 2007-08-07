@@ -27,10 +27,6 @@ public class CargoOperation extends Operation implements OperationInterface {
 
 	private static CargoOperation instance;
 
-	private CargoOperation() {
-
-	}
-
 	public static CargoOperation getInstance() {
 		if (instance == null) {
 			instance = new CargoOperation();
@@ -38,64 +34,70 @@ public class CargoOperation extends Operation implements OperationInterface {
 		return instance;
 	}
 
-	public long create(Object vs) {
+	private CargoOperation() {
+
+	}
+
+	public ArrayList<?> cargoOfContainer(final Long containerId) {
+		/*
+		 * String nativeQuery = "SELECT cargo FROM Cargo cargo JOIN
+		 * cargo.Container c WHERE c.containerId="+containerId; return
+		 * manager.executeQuery(nativeQuery);
+		 */
+		return manager.executeNamedQuery("Cargo.ofContainer",
+				new Object[] { containerId });
+	}
+
+	public long create(final Object vs) {
 		try {
-			Cargo cargo = (Cargo) vs;
+			final Cargo cargo = (Cargo) vs;
 			manager.save(cargo);
 			return cargo.getCargoId();
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			LogHelper.getInstance().exception(e);
 			return 0;
 		}
 	}
 
-	public boolean delete(Long cargoId) {
-		Cargo cargo = new Cargo();
+	public boolean delete(final Long cargoId) {
+		final Cargo cargo = new Cargo();
 		cargo.setCargoId(cargoId);
 		return delete(cargo);
 	}
 
-	public boolean delete(Object vs) {
+	public boolean delete(final Object vs) {
 		try {
-			return manager.delete((Cargo) vs);
-		} catch (Exception e) {
+			return manager.delete(vs);
+		} catch (final Exception e) {
 			LogHelper.getInstance().exception(e);
 			return false;
 		}
 	}
 
-	public boolean update(Object vs) {
-		try {
-			return manager.update((Cargo) vs);
-		} catch (Exception e) {
-			LogHelper.getInstance().exception(e);
-			return false;
-		}
-	}
-
-	public Object get(Long id) {
-		Cargo cargo = new Cargo();
-		cargo.setCargoId(id);
-		return (Cargo) manager.find(Cargo.class, id);
-	}
-
-	public ArrayList findAll() {
+	public ArrayList<?> findAll() {
 		return manager.findAll("Cargo");
 	}
 
-
-	public ArrayList cargoOfContainer(Long containerId) {
-		/*String nativeQuery = "SELECT cargo FROM Cargo cargo JOIN cargo.Container c WHERE c.containerId="+containerId;
-		return manager.executeQuery(nativeQuery);*/
-		return manager.executeNamedQuery("Cargo.ofContainer",
-				new Object[] { containerId });
+	public Object get(final Long id) {
+		final Cargo cargo = new Cargo();
+		cargo.setCargoId(id);
+		return manager.find(Cargo.class, id);
 	}
 
-	public Object next(Long id) {
+	public Object next(final Long id) {
 		return super.next("Cargo", "cargoId", id);
 	}
 
-	public Object previous(Long id) {
+	public Object previous(final Long id) {
 		return super.previous("Cargo", "cargoId", id);
+	}
+
+	public boolean update(final Object vs) {
+		try {
+			return manager.update(vs);
+		} catch (final Exception e) {
+			LogHelper.getInstance().exception(e);
+			return false;
+		}
 	}
 }
