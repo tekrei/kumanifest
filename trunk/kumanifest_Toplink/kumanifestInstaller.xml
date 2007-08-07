@@ -65,6 +65,7 @@
          	<include name="legal/*.*"/>
          	<include name="doc/*.*"/>
          </fileset>
+         <file src="META-INF/persistence.xml" os="unix" targetdir="$INSTALL_PATH/META-INF/"/>
          <file src="net/kodveus/kumanifest/script/calistir.sh" os="unix" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/script/calistir.bat" os="windows" targetdir="$INSTALL_PATH/"/>
          <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
