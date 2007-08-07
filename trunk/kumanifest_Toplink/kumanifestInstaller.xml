@@ -2,7 +2,7 @@
 
 <info>
     <appname>kumanifest</appname>
-    <appversion>0.95</appversion>
+    <appversion>0.99</appversion>
     <authors>
         <author name="Kod ve Us" email="kodveus@gmail.com" />
     </authors>
@@ -66,12 +66,12 @@
          	<include name="doc/*.*"/>
          </fileset>
          <file src="net/kodveus/kumanifest/script/calistir.sh" os="unix" targetdir="$INSTALL_PATH/"/>
-         <file src="net/kodveus/kumanifest/script/dbkurulum.sh" os="unix" targetdir="$INSTALL_PATH/"/>
          <file src="net/kodveus/kumanifest/script/calistir.bat" os="windows" targetdir="$INSTALL_PATH/"/>
-         <file src="net/kodveus/kumanifest/script/dbkurulum.bat" os="windows" targetdir="$INSTALL_PATH/"/>
-         <file src="net/kodveus/kumanifest/database/kumanifest.sql" targetdir="$INSTALL_PATH/"/>
          <executable targetfile="$INSTALL_PATH/calistir.sh" stage="never" />
+         <!--<file src="net/kodveus/kumanifest/script/dbkurulum.sh" os="unix" targetdir="$INSTALL_PATH/"/> 
+         <file src="net/kodveus/kumanifest/script/dbkurulum.bat" os="windows" targetdir="$INSTALL_PATH/"/> 
          <executable targetfile="$INSTALL_PATH/dbkurulum.sh" stage="never" />
+         <file src="net/kodveus/kumanifest/database/kumanifest.sql" targetdir="$INSTALL_PATH/"/>-->
     </pack>
 </packs>
 
