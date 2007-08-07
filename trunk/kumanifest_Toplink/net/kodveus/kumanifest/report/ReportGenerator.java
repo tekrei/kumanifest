@@ -20,6 +20,7 @@ package net.kodveus.kumanifest.report;
 import java.util.HashMap;
 
 import net.kodveus.kumanifest.persistence.PersistenceManager;
+import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 
 public class ReportGenerator {
@@ -49,6 +50,11 @@ public class ReportGenerator {
 		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
 				PersistenceManager.getInstance().getEM());
 		raporlama.fillReport(map);
+		raporlama.showReportDesign();
+	}
+
+	private void exportReport(final HashMap<String, Object> map,JRDataSource dataSource){
+		raporlama.fillReport(map,dataSource);
 		raporlama.showReportDesign();
 	}
 

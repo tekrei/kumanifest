@@ -27,6 +27,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
 import net.sf.jasperreports.engine.export.JRHtmlExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
@@ -57,11 +58,6 @@ public class Reporting {
 	}
 
 	private JRExporter exporter;
-
-	/*
-	 * public JRResultSetDataSource getReportData(ResultSet raporSorguSonucu) {
-	 * return new JRResultSetDataSource(raporSorguSonucu); }
-	 */
 
 	private JasperPrint print;
 
@@ -141,7 +137,7 @@ public class Reporting {
 
 	public boolean fillReport(final Map<String, Object> parametreler) {
 		try {
-			print = JasperFillManager.fillReport(report, parametreler);
+			print = JasperFillManager.fillReport(report, parametreler,(Connection)null);
 			return true;
 		} catch (final JRException ex) {
 			LogHelper.getInstance().exception(ex);
