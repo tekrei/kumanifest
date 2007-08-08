@@ -25,12 +25,12 @@
 
 	<parameter name="prmVoyageId" isForPrompting="false" class="java.lang.Long"/>
 	<queryString language="ejbql"><![CDATA[
-SELECT DISTINCT COUNT(countainer.containerNo),containersize.size
-FROM Container as container,ContainerSize as containersize,BL as bl 
-WHERE container.containersize = containersize 
-	AND container.bl=bl 
-	AND bl.voyageid=$P{prmVoyageId}
-GROUP BY container.containersize]]></queryString>
+SELECT DISTINCT COUNT(container.containerNo),containersize.size
+FROM Container as container,ContainerSize as containersize,BL as bl
+WHERE container.containerSize = containersize
+	AND container.bl=bl
+	AND bl.voyage.voyageId=$P{prmVoyageId}
+GROUP BY containersize.size]]></queryString>
 
 	<field name="COUNT(containerNo)" class="java.lang.Long"/>
 	<field name="size" class="java.lang.String"/>
