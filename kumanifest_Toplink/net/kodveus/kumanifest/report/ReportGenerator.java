@@ -33,6 +33,19 @@ public class ReportGenerator {
 		return instance;
 	}
 
+	/**
+	 * Deneme amacli raporu denemek icin yazilmis ana metod
+	 * 
+	 * @param args
+	 */
+	public static void main(final String[] args) {
+		try {
+			ReportGenerator.getInstance().generateLoadingList(1L);
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	private final Reporting raporlama;
 
 	private ReportGenerator() {
@@ -42,10 +55,6 @@ public class ReportGenerator {
 	private void exportReport(final HashMap<String, Object> map)
 			throws Exception {
 		// TODO raporlarin sorgulari duzeltilecek
-		// Kaynak 1:
-		// http://marceloverdijk.blogspot.com/search/label/JasperReports
-		// Kaynak 2:
-		// http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JRJpaQueryExecuter.html
 		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
 				PersistenceManager.getInstance().getEM());
 		raporlama.fillReport(map);
@@ -57,6 +66,19 @@ public class ReportGenerator {
 		map.put("prmBLId", blId);
 		raporlama.createEmptyReport("billoflading/BillOfLading.jrxml");
 		map.put("REPORT_DIR", Reporting.rootPath + "billoflading/");
+		exportReport(map);
+	}
+
+	/**
+	 * Bu rapor deneme amacli bir rapordur
+	 * 
+	 * @throws Exception
+	 */
+	public void generateBLList() throws Exception {
+		final HashMap<String, Object> map = new HashMap<String, Object>();
+
+		raporlama.createEmptyReport("BLList.jrxml");
+		map.put("REPORT_DIR", Reporting.rootPath + "loadinglist/");
 		exportReport(map);
 	}
 
