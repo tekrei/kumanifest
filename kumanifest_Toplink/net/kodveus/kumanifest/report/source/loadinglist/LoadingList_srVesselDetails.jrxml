@@ -24,17 +24,27 @@
 	<import value="net.sf.jasperreports.engine.data.*" />
 
 	<parameter name="prmVoyageId" isForPrompting="false" class="java.lang.Object"/>
-	<queryString language="ejbql"><![CDATA[SELECT vessel.vesselCode, vessel.vesselName, voyage.voyageId, voyage.voyage, country.name 
-FROM Vessel as vessel, Country as country, Voyage as voyage 
-WHERE voyage.vessel=vessel 
-	AND vessel.flag=country 
+	<queryString language="ejbql"><![CDATA[SELECT vessel.vesselCode, vessel.vesselName, voyage.voyageId, voyage.voyage, country.name
+FROM Vessel vessel, Country country, Voyage voyage
+WHERE voyage.vessel.vesselId=vessel.vesselId
+	AND vessel.flag.countryId=country.countryId
 	AND voyage.voyageId=$P{prmVoyageId}]]></queryString>
 
-	<field name="vesselCode" class="java.lang.String"/>
-	<field name="vesselName" class="java.lang.String"/>
-	<field name="voyageId" class="java.lang.Long"/>
-	<field name="voyage" class="java.lang.String"/>
-	<field name="name" class="java.lang.String"/>
+	<field name="vesselCode" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_1]]></fieldDescription>
+	</field>
+	<field name="vesselName" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_2]]></fieldDescription>
+	</field>
+	<field name="voyageId" class="java.lang.Long">
+		<fieldDescription><![CDATA[COLUMN_3]]></fieldDescription>
+	</field>
+	<field name="voyage" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_4]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_5]]></fieldDescription>
+	</field>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >

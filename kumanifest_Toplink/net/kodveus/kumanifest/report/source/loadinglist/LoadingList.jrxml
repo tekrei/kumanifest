@@ -28,9 +28,9 @@
 	</parameter>
 	<queryString language="ejbql"><![CDATA[select container,containertype,containersize,cargo,bl,voyage
 from Container as container,ContainerType as containertype,ContainerSize as containersize,Cargo as cargo,BL as bl,Voyage as voyage
-	where container.containerType=containertype 
-		and container.containerSize=containersize 
-		and cargo.container=container and container.bl=bl 
+	where container.containerType=containertype
+		and container.containerSize=containersize
+		and cargo.container=container and container.bl=bl
 		and bl.voyage=voyage and voyage.voyageId=$P{prmVoyageId}]]></queryString>
 
 	<field name="containerid" class="java.lang.Long"/>
@@ -146,7 +146,7 @@ from Container as container,ContainerType as containertype,ContainerSize as cont
 					</textElement>
 				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
-				<!-- <subreport  isUsingCache="true">
+				<subreport  isUsingCache="true">
 					<reportElement
 						x="5"
 						y="26"
@@ -160,7 +160,7 @@ from Container as container,ContainerType as containertype,ContainerSize as cont
 						<subreportParameterExpression><![CDATA[$P{prmVoyageId}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportExpression  class="java.lang.String"><![CDATA["net/kodveus/kumanifest/report/source/loadinglist/LoadingList_srVesselDetails.jasper"]]></subreportExpression>
-				</subreport>-->
+				</subreport>
 			</band>
 		</title>
 		<pageHeader>
@@ -606,7 +606,7 @@ from Container as container,ContainerType as containertype,ContainerSize as cont
 		</lastPageFooter>
 		<summary>
 			<band height="101"  isSplitAllowed="true" >
-				<!-- <subreport  isUsingCache="true">
+				<subreport  isUsingCache="true">
 					<reportElement
 						x="7"
 						y="49"
@@ -620,7 +620,7 @@ from Container as container,ContainerType as containertype,ContainerSize as cont
 						<subreportParameterExpression><![CDATA[$F{voyageid}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportExpression  class="java.lang.String"><![CDATA["net/kodveus/kumanifest/report/source/loadinglist/LoadingList_srContCounts.jasper"]]></subreportExpression>
-				</subreport>-->
+				</subreport>
 				<line direction="TopDown">
 					<reportElement
 						x="3"
