@@ -26,14 +26,12 @@
 	<parameter name="prmVoyageId" isForPrompting="false" class="java.lang.Long">
 		<defaultValueExpression ><![CDATA[new Long("1")]]></defaultValueExpression>
 	</parameter>
-	<parameter name="REPORT_DIR" isForPrompting="false" class="java.lang.String">
-		<defaultValueExpression ><![CDATA["/home/mehmetkis/workspace/kumanifest/net/kodveus/kumanifest/report/source/loadinglist/"]]></defaultValueExpression>
-	</parameter>
-	<queryString><![CDATA[select *, (cargo.netweight + container.taraweight) AS totalweight from container,containertype,containersize,cargo,bl,voyage
-where container.containertype=containertype.containertypeid 
-and container.containersize=containersize.containersizeid 
-and cargo.containerid=container.containerid and container.blid=bl.blid 
-and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryString>
+	<queryString language="ejbql"><![CDATA[select container,containertype,containersize,cargo,bl,voyage
+from Container as container,ContainerType as containertype,ContainerSize as containersize,Cargo as cargo,BL as bl,Voyage as voyage
+	where container.containerType=containertype 
+		and container.containerSize=containersize 
+		and cargo.container=container and container.bl=bl 
+		and bl.voyage=voyage and voyage.voyageId=$P{prmVoyageId}]]></queryString>
 
 	<field name="containerid" class="java.lang.Long"/>
 	<field name="containerno" class="java.lang.String"/>
@@ -148,19 +146,21 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 					</textElement>
 				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
-				<subreport  isUsingCache="true">
+				<!-- <subreport  isUsingCache="true">
 					<reportElement
 						x="5"
 						y="26"
 						width="526"
 						height="25"
 						key="subreport-1"/>
+					<subreportParameter  name="JPA_ENTITY_MANAGER">
+						<subreportParameterExpression><![CDATA[$P{JPA_ENTITY_MANAGER}]]></subreportParameterExpression>
+					</subreportParameter>
 					<subreportParameter  name="prmVoyageId">
 						<subreportParameterExpression><![CDATA[$P{prmVoyageId}]]></subreportParameterExpression>
 					</subreportParameter>
-					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression  class="java.lang.String"><![CDATA[$P{REPORT_DIR} +"LoadingList_srVesselDetails.jasper"]]></subreportExpression>
-				</subreport>
+					<subreportExpression  class="java.lang.String"><![CDATA["net/kodveus/kumanifest/report/source/loadinglist/LoadingList_srVesselDetails.jasper"]]></subreportExpression>
+				</subreport>-->
 			</band>
 		</title>
 		<pageHeader>
@@ -606,19 +606,21 @@ and bl.voyageid=voyage.voyageid and $P{prmVoyageId}=voyage.voyageid]]></queryStr
 		</lastPageFooter>
 		<summary>
 			<band height="101"  isSplitAllowed="true" >
-				<subreport  isUsingCache="true">
+				<!-- <subreport  isUsingCache="true">
 					<reportElement
 						x="7"
 						y="49"
 						width="198"
 						height="48"
 						key="subreport-3"/>
+					<subreportParameter  name="JPA_ENTITY_MANAGER">
+						<subreportParameterExpression><![CDATA[$P{JPA_ENTITY_MANAGER}]]></subreportParameterExpression>
+					</subreportParameter>
 					<subreportParameter  name="prmVoyageId">
 						<subreportParameterExpression><![CDATA[$F{voyageid}]]></subreportParameterExpression>
 					</subreportParameter>
-					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression  class="java.lang.String"><![CDATA[$P{REPORT_DIR} +"LoadingList_srContCounts.jasper"]]></subreportExpression>
-				</subreport>
+					<subreportExpression  class="java.lang.String"><![CDATA["net/kodveus/kumanifest/report/source/loadinglist/LoadingList_srContCounts.jasper"]]></subreportExpression>
+				</subreport>-->
 				<line direction="TopDown">
 					<reportElement
 						x="3"
