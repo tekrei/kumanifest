@@ -24,16 +24,19 @@
 	<import value="net.sf.jasperreports.engine.data.*" />
 
 	<parameter name="prmVoyageId" isForPrompting="false" class="java.lang.Long"/>
-	<queryString language="ejbql"><![CDATA[
-SELECT DISTINCT COUNT(container.containerNo),containersize.size
+	<queryString language="ejbql"><![CDATA[SELECT DISTINCT COUNT(container.containerNo),containersize.size
 FROM Container as container,ContainerSize as containersize,BL as bl
 WHERE container.containerSize = containersize
 	AND container.bl=bl
 	AND bl.voyage.voyageId=$P{prmVoyageId}
 GROUP BY containersize.size]]></queryString>
 
-	<field name="COUNT(containerNo)" class="java.lang.Long"/>
-	<field name="size" class="java.lang.String"/>
+	<field name="count" class="java.lang.Long">
+		<fieldDescription><![CDATA[COLUMN_1]]></fieldDescription>
+	</field>
+	<field name="size" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_2]]></fieldDescription>
+	</field>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >
@@ -66,7 +69,7 @@ GROUP BY containersize.size]]></queryString>
 					<textElement>
 						<font size="10"/>
 					</textElement>
-				<textFieldExpression   class="java.lang.Long"><![CDATA[$F{COUNT(containerNo)}]]></textFieldExpression>
+				<textFieldExpression   class="java.lang.Long"><![CDATA[$F{count}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement

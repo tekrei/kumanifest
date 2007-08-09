@@ -35,16 +35,16 @@ public class ReportGenerator {
 
 	/**
 	 * Deneme amacli raporu denemek icin yazilmis ana metod
-	 * 
+	 *
 	 * @param args
 	 */
-	public static void main(final String[] args) {
+	/*public static void main(final String[] args) {
 		try {
 			ReportGenerator.getInstance().generateLoadingList(1L);
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	private final Reporting raporlama;
 
@@ -71,7 +71,7 @@ public class ReportGenerator {
 
 	/**
 	 * Bu rapor deneme amacli bir rapordur
-	 * 
+	 *
 	 * @throws Exception
 	 */
 	public void generateBLList() throws Exception {

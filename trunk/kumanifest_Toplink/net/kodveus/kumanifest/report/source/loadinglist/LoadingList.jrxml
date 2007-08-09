@@ -26,63 +26,38 @@
 	<parameter name="prmVoyageId" isForPrompting="false" class="java.lang.Long">
 		<defaultValueExpression ><![CDATA[new Long("1")]]></defaultValueExpression>
 	</parameter>
-	<queryString language="ejbql"><![CDATA[select container,containertype,containersize,cargo,bl,voyage
-from Container as container,ContainerType as containertype,ContainerSize as containersize,Cargo as cargo,BL as bl,Voyage as voyage
+	<queryString language="ejbql"><![CDATA[select container.containerNo,container.sealNo,containertype.type,containersize.size,
+	cargo.cargoType,cargo.imco,cargo.netWeight,cargo.packTotal
+from Container as container,Cargo as cargo,ContainerType as containertype,ContainerSize as containersize
 	where container.containerType=containertype
 		and container.containerSize=containersize
-		and cargo.container=container and container.bl=bl
-		and bl.voyage=voyage and voyage.voyageId=$P{prmVoyageId}]]></queryString>
+		and cargo.container=container
+		and container.bl.voyage.voyageId=$P{prmVoyageId}]]></queryString>
 
-	<field name="containerid" class="java.lang.Long"/>
-	<field name="containerno" class="java.lang.String"/>
-	<field name="blid" class="java.lang.Long"/>
-	<field name="containertype" class="java.lang.Long"/>
-	<field name="sealno" class="java.lang.String"/>
-	<field name="othersealno" class="java.lang.String"/>
-	<field name="containersize" class="java.lang.Long"/>
-	<field name="taraweight" class="java.lang.Double"/>
-	<field name="status" class="java.lang.Long"/>
-	<field name="relcom" class="java.lang.Long"/>
-	<field name="containertypeid" class="java.lang.Long"/>
-	<field name="type" class="java.lang.String"/>
-	<field name="description" class="java.lang.String"/>
-	<field name="containersizeid" class="java.lang.Long"/>
-	<field name="size" class="java.lang.String"/>
-	<field name="cargoid" class="java.lang.Long"/>
-	<field name="commodityid" class="java.lang.Long"/>
-	<field name="cargotype" class="java.lang.String"/>
-	<field name="packid" class="java.lang.Long"/>
-	<field name="imco" class="java.lang.String"/>
-	<field name="unno" class="java.lang.String"/>
-	<field name="netweight" class="java.lang.Double"/>
-	<field name="packtotal" class="java.lang.Double"/>
-	<field name="voyageid" class="java.lang.Long"/>
-	<field name="blno" class="java.lang.String"/>
-	<field name="companyname" class="java.lang.String"/>
-	<field name="reporttype" class="java.lang.Long"/>
-	<field name="placeoforigin" class="java.lang.Long"/>
-	<field name="placeofreceipt" class="java.lang.Long"/>
-	<field name="portofloading" class="java.lang.Long"/>
-	<field name="portofdischarge" class="java.lang.Long"/>
-	<field name="finaldischargeplace" class="java.lang.Long"/>
-	<field name="finaldestination" class="java.lang.Long"/>
-	<field name="description2" class="java.lang.String"/>
-	<field name="shipper" class="java.lang.String"/>
-	<field name="consignee" class="java.lang.String"/>
-	<field name="notify" class="java.lang.String"/>
-	<field name="notify2" class="java.lang.String"/>
-	<field name="issueplace" class="java.lang.Long"/>
-	<field name="issuedate" class="java.sql.Date"/>
-	<field name="voyage" class="java.lang.String"/>
-	<field name="export" class="java.lang.Long"/>
-	<field name="vesselid" class="java.lang.Long"/>
-	<field name="officeid" class="java.lang.Long"/>
-	<field name="firstleavedport" class="java.lang.Long"/>
-	<field name="lastleavedport" class="java.lang.Long"/>
-	<field name="arrivaldate" class="java.sql.Date"/>
-	<field name="departuredate" class="java.sql.Date"/>
-	<field name="nameofcaptain" class="java.lang.String"/>
-	<field name="totalweight" class="java.lang.Double"/>
+	<field name="containerno" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_1]]></fieldDescription>
+	</field>
+	<field name="sealno" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_2]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_3]]></fieldDescription>
+	</field>
+	<field name="size" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_4]]></fieldDescription>
+	</field>
+	<field name="cargotype" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_5]]></fieldDescription>
+	</field>
+	<field name="imco" class="java.lang.String">
+		<fieldDescription><![CDATA[COLUMN_6]]></fieldDescription>
+	</field>
+	<field name="netweight" class="java.lang.Double">
+		<fieldDescription><![CDATA[COLUMN_7]]></fieldDescription>
+	</field>
+	<field name="totalweight" class="java.lang.Double">
+		<fieldDescription><![CDATA[COLUMN_8]]></fieldDescription>
+	</field>
 
 		<background>
 			<band height="0"  isSplitAllowed="true" >
@@ -617,7 +592,7 @@ from Container as container,ContainerType as containertype,ContainerSize as cont
 						<subreportParameterExpression><![CDATA[$P{JPA_ENTITY_MANAGER}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter  name="prmVoyageId">
-						<subreportParameterExpression><![CDATA[$F{voyageid}]]></subreportParameterExpression>
+						<subreportParameterExpression><![CDATA[$P{prmVoyageId}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportExpression  class="java.lang.String"><![CDATA["net/kodveus/kumanifest/report/source/loadinglist/LoadingList_srContCounts.jasper"]]></subreportExpression>
 				</subreport>
