@@ -1,8 +1,8 @@
-#summary Using YourKit Java Profiler
+#summary YourKit Java Profiler
 
 = YourKit Java Profiler =
 
-Kumanifest projesinin çalışma zamanındaki başarımını ölçmek, hafıza kullanımını incelemek için başarılı bir araç olan "YourKit Java Profiler"'ı kullandık. Bu kullanım sonucunda uygulamamızdaki hafıza taşmalarını, yoğun ce gereksiz işlemci kullanımlarını tespit ederek gerekli düzenlemeleri gerçekleştirerek daha başarılı bir uygulama haline getirebildik. Uygulamalarını bu açılardan değerlendirmek isteyen herkese bu aracı öneriyoruz.
+Kumanifest projesinin çalışma zamanındaki başarımını ölçmek, hafıza kullanımını incelemek için başarılı bir araç olan "YourKit Java Profiler"'ı kullandık. Bu kullanım sonucunda uygulamamızdaki hafıza taşmalarını, yoğun ve gereksiz işlemci kullanımlarını tespit ederek gerekli düzenlemeleri gerçekleştirerek daha başarılı bir uygulama haline getirebildik. Uygulamalarını bu açılardan değerlendirmek isteyen herkese bu aracı öneriyoruz.
 
 YourKit is kindly supporting open source projects with its full-featured Java Profiler.
 YourKit, LLC is creator of innovative and intelligent tools for profiling
