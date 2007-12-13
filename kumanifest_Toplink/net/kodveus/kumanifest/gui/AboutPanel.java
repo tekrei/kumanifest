@@ -147,6 +147,7 @@ public class AboutPanel extends JDialog implements HyperlinkListener {
 			+ "Embedded Database: <a href=\"http://developers.sun.com/javadb/\">Java DB (Derby)</a><br>"
 			+ "Installer: <a href=\"http://www.izforge.com/izpack/\">IzPack</a><br>"
 			+ "UI: <a href=\"http://personales.ya.com/nimrod/index-en.html\">Nimrod</a><br>"
+			+ "Profiler: <a href=http://www.yourkit.com/java/profiler/index.jsp>YourKit Java Profiler</a><br>"
 			+ "</font><br>"
 			+ "(Please check legal folder for license files)"
 			+ "<pre>This program is free software; you can redistribute it and/or modify\n"
