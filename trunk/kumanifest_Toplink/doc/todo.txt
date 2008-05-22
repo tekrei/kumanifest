@@ -6,6 +6,13 @@ SURUM 0.96 GEREKSINIMLER
 -Derby'e gecis tamamlanmali, tablolari olusturma sorgusunu eger veritabani yoksa calistirmaliyiz
 -SQL sorgulari duzeltilmeli, String birlestirme islemi yerine daha uygun yapilar kullanilmali
 
+-BL sekmesindeki company alaný hazýr dolu gelebilmeli. Bunun için firma tanýmlarý yapýlabilecek bir tablo ve ekran tasarlanabilir.
+-Konteyner tipi ve büyüklüðü tanýmlanýr tanýmlanmaz gelmiyor (oysa liman bilgileri geliyor)
+-Konteyner bazýnda da açýklama girilebilmeli
+-Konteyner panelinde clear screen çalýþmýyor
+-Bir konteyner seçiliyken baþka bir konteyner eklenemiyor.
+-
+
 SURUM 0.95 GEREKSINIMLERI (ACIL ISLER)
 ---------------------------------------
 ---------------------------------------
