@@ -1,8 +1,0 @@
-Notes for developers
---------------------
-
-1. Kumanifst has been developed with jdk 6. So you have to change the "Compiler compliance level" to 6.0. From Project->Properties->Java Compiler-> chech the Enable project specific settings.
-
-2. Replace "Persistence.create.xml" for the first time running of the kumanifest. This will create the kumanifest database. 
-
-3.After the creation of database, just replace the persistence files back to previous case.
