@@ -22,7 +22,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
-import net.kodveus.gui.jcombobox.TableSelectUI;
 import net.kodveus.gui.jtextfield.NoTabTextArea;
 import net.kodveus.kumanifest.interfaces.Refreshable;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
@@ -100,7 +99,8 @@ public class BLPanel extends JPanel implements ToolbarInterface,Refreshable {
 
 	private JSteppedComboBox cmbFinalDestination = null;
 
-	private TableSelectUI cmbVoyage = null;
+	//TODO Normalde TableSelectUI olmasi gerekiyor, ama bir hata nedeniyle calismiyor
+	private JSteppedComboBox cmbVoyage = null;
 
 	private JSteppedComboBox cmbPlaceOfReceipt = null;
 
@@ -125,7 +125,7 @@ public class BLPanel extends JPanel implements ToolbarInterface,Refreshable {
 
 		cmbPlaceOfReceipt.updateItems(limanlar);
 
-		cmbVoyage.updateItems(VoyageOperation.getInstance().findAll());
+		cmbVoyage.updateItems(VoyageOperation.getInstance().findAll().toArray());
 	}
 
 	private void initialize() {
@@ -456,10 +456,9 @@ public class BLPanel extends JPanel implements ToolbarInterface,Refreshable {
 		return cmbFinalDestination;
 	}
 
-	private TableSelectUI getCmbVoyage() {
+	private JSteppedComboBox getCmbVoyage() {
 		if (cmbVoyage == null) {
-			Voyage temp = new Voyage();
-			cmbVoyage = new TableSelectUI(null,null,temp.getAliasMap());
+			cmbVoyage = new JSteppedComboBox();
 			cmbVoyage.setBounds(new java.awt.Rectangle(140, 260, 221, 21));
 		}
 		return cmbVoyage;
