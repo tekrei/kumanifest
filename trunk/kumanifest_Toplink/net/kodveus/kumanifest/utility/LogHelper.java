@@ -88,6 +88,18 @@ public class LogHelper {
 		e.printStackTrace();
 		loglayici.log(Level.SEVERE, e.getMessage(), e);
 	}
+	
+	/**
+	 * Istisna olustugunda cagrilmali
+	 * 
+	 * @param e
+	 *            Olusan istisna
+	 */
+	public void exception(final Throwable e) {
+		e.printStackTrace();
+		loglayici.log(Level.SEVERE, e.getMessage(), e);
+	}
+
 
 	/**
 	 * Istisna olustugunda, istisnanin mesajindan farkli daha anlasilir bir

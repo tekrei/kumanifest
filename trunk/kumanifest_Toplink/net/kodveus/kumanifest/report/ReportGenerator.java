@@ -62,7 +62,7 @@ public class ReportGenerator {
 
 	private void exportReport(final HashMap<String, Object> map)
 			throws Exception {
-		raporlama.fillReport(map, DBConnectionManager.getConnection());
+		raporlama.fillReport(map, DBConnectionManager.getInstance().getConnection());
 		raporlama.showReportDesign();
 	}
 

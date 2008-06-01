@@ -5,8 +5,9 @@ public class DBParameters{
 	String dbUser;
 	String dbPassword;
 	String dbDriver;
+	int maxConnection = 5;
 	
 	public String toString(){
-		return dbURL+" "+dbUser+" "+dbPassword+" "+dbDriver;
+		return dbURL+" "+dbUser+" "+dbPassword+" "+dbDriver+" "+maxConnection;
 	}
 }
