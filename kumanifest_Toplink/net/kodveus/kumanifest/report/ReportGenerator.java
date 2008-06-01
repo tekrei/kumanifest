@@ -19,6 +19,7 @@ package net.kodveus.kumanifest.report;
 
 import java.util.HashMap;
 
+import net.kodveus.kumanifest.db.DBConnectionManager;
 import net.kodveus.kumanifest.persistence.PersistenceManager;
 import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 
@@ -35,16 +36,14 @@ public class ReportGenerator {
 
 	/**
 	 * Deneme amacli raporu denemek icin yazilmis ana metod
-	 *
+	 * 
 	 * @param args
 	 */
-	/*public static void main(final String[] args) {
-		try {
-			ReportGenerator.getInstance().generateLoadingList(1L);
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
-	}*/
+	/*
+	 * public static void main(final String[] args) { try {
+	 * ReportGenerator.getInstance().generateLoadingList(1L); } catch (final
+	 * Exception e) { e.printStackTrace(); } }
+	 */
 
 	private final Reporting raporlama;
 
@@ -52,12 +51,18 @@ public class ReportGenerator {
 		raporlama = new Reporting();
 	}
 
-	private void exportReport(final HashMap<String, Object> map)
+	protected void exportReportUsingJPA(final HashMap<String, Object> map)
 			throws Exception {
-		// TODO raporlarin sorgulari duzeltilecek
+		// TODO raporlarin sorgulari duzeltilmeli ve hepsi EJBQL haline getirilmeli
 		map.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER,
 				PersistenceManager.getInstance().getEM());
 		raporlama.fillReport(map);
+		raporlama.showReportDesign();
+	}
+
+	private void exportReport(final HashMap<String, Object> map)
+			throws Exception {
+		raporlama.fillReport(map, DBConnectionManager.getConnection());
 		raporlama.showReportDesign();
 	}
 
@@ -71,7 +76,7 @@ public class ReportGenerator {
 
 	/**
 	 * Bu rapor deneme amacli bir rapordur
-	 *
+	 * 
 	 * @throws Exception
 	 */
 	public void generateBLList() throws Exception {
