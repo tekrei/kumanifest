@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 import net.kodveus.gui.arabirim.AramaSonucInterface;
 import net.kodveus.gui.araclar.AramaSonuc;
 import net.kodveus.gui.jcombobox.JSteppedComboBox;
+import net.kodveus.kumanifest.interfaces.Refreshable;
 import net.kodveus.kumanifest.interfaces.ToolbarInterface;
 import net.kodveus.kumanifest.jdo.BL;
 import net.kodveus.kumanifest.jdo.Cargo;
@@ -42,50 +43,254 @@ import net.kodveus.kumanifest.operation.ContainerOperation;
 import net.kodveus.kumanifest.operation.ContainerSizeOperation;
 import net.kodveus.kumanifest.operation.ContainerTypeOperation;
 import net.kodveus.kumanifest.utility.GUIHelper;
+import net.kodveus.kumanifest.utility.LogHelper;
+import net.kodveus.kumanifest.utility.RefreshUtility;
 import net.kodveus.kumanifest.utility.StatusHelper;
 
-public class ContainerPanel extends JPanel implements ToolbarInterface {
+public class ContainerPanel extends JPanel implements ToolbarInterface,
+		Refreshable {
 
 	private static final long serialVersionUID = 1L;
 
-	private JTextField txtContainerNo = null;
+	private Long blId;
 
-	private JTextField txtSealNo = null;
-
-	private JTextField txtRelCom = null;
-
-	private JTextField txtOtherSealNo = null;
-
-	private JTextField txtTareWeight = null;
-
-	private JSteppedComboBox cmbContainerType = null;
-
-	private JSteppedComboBox cmbContainerSize = null;
-
-	private AramaSonuc lstContainer = null;
-
-	private AramaSonuc lstCargo = null;
+	private JButton btnDeleteCargo = null;
 
 	private JButton btnNewCargo = null;
 
 	private JButton btnUpdateCargo = null;
 
-	private JButton btnDeleteCargo = null;
+	Long cargoId;
+
+	private JDialog cargoPanel;
+
+	private JSteppedComboBox cmbContainerSize = null;
+
+	private JSteppedComboBox cmbContainerType = null;
 
 	Long containerId;
 
-	private Long blId;
+	private AramaSonuc lstCargo = null;
 
-	Long cargoId;
+	private AramaSonuc lstContainer = null;
 
 	ContainerPanel self;
 
-	private JDialog cargoPanel;
+	private JTextField txtContainerNo = null;
+
+	private JTextField txtOtherSealNo = null;
+
+	private JTextField txtRelCom = null;
+
+	private JTextField txtSealNo = null;
+
+	private JTextField txtTareWeight = null;
 
 	public ContainerPanel() {
 		super();
 		self = this;
 		initialize();
+		RefreshUtility.getInstance().addRefreshable(this);
+	}
+
+	public void add() {
+		final Container container = generateRecordFromGUI();
+		final long tempId = ContainerOperation.getInstance().create(container);
+		if (tempId > 0) {
+			containerId = tempId;
+			StatusHelper.getInstance().kayitEklendi();
+			updateContainers();
+		} else {
+			StatusHelper.getInstance().hataOlustu();
+		}
+	}
+
+	public void clear() {
+		loadToPanel(new Container());
+	}
+
+	public void closeCargoDialog() {
+		cargoPanel.dispose();
+		cargoPanel = null;
+	}
+
+	public void delete() {
+		if (ContainerOperation.getInstance().delete(generateRecordFromGUI())) {
+			StatusHelper.getInstance().kayitSilindi();
+			updateContainers();
+		} else {
+			StatusHelper.getInstance().hataOlustu();
+		}
+	}
+
+	public void first() {
+		// Ilk container'i getirmemiz gerekiyor
+		final Container container = (Container) ContainerOperation
+				.getInstance().next(new Long(0));
+		if (container != null) {
+			loadToPanel(container);
+		}
+	}
+
+	private Container generateRecordFromGUI() {
+		final Container container = new Container();
+		container.setContainerNo(txtContainerNo.getText());
+		container.setContainerSize((ContainerSize) cmbContainerSize
+				.getSelectedItem());
+		container.setContainerType((ContainerType) cmbContainerType
+				.getSelectedItem());
+		container.setSealNo(txtSealNo.getText());
+		container.setOtherSealNo(txtOtherSealNo.getText());
+		container.setRelCom(Long.parseLong(txtRelCom.getText()));
+		container.setTaraWeight(Double.parseDouble(txtTareWeight.getText()));
+		container.setBl((BL) BLOperation.getInstance().get(blId));
+		container.setContainerId(containerId);
+		return container;
+	}
+
+	private JButton getBtnAddCargo() {
+		if (btnNewCargo == null) {
+			btnNewCargo = new JButton("New Cargo");
+			btnNewCargo.setBounds(new Rectangle(135, 420, 120, 30));
+			btnNewCargo.setMnemonic('n');
+			btnNewCargo.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					if (containerId != null) {
+						cargoPanel = GUIHelper.getInstance().showPanel(
+								"New Cargo", new CargoPanel(self, containerId));
+					}
+				}
+			});
+		}
+		return btnNewCargo;
+	}
+
+	private JButton getBtnDeleteCargo() {
+		if (btnDeleteCargo == null) {
+			btnDeleteCargo = new JButton("Delete Cargo");
+			btnDeleteCargo.setBounds(new Rectangle(295, 420, 120, 30));
+			btnDeleteCargo.setMnemonic('d');
+			btnDeleteCargo.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					if (cargoId != null) {
+						CargoOperation.getInstance().delete(cargoId);
+						loadCargos();
+					}
+				}
+			});
+		}
+		return btnDeleteCargo;
+	}
+
+	private JButton getBtnUpdateCargo() {
+		if (btnUpdateCargo == null) {
+			btnUpdateCargo = new JButton("Update Cargo");
+			btnUpdateCargo.setBounds(new Rectangle(455, 420, 120, 30));
+			btnUpdateCargo.setMnemonic('u');
+			btnUpdateCargo.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					if (containerId != null && cargoId != null) {
+						cargoPanel = GUIHelper.getInstance().showPanel(
+								"Update Cargo",
+								new CargoPanel(self, containerId, cargoId));
+					}
+				}
+			});
+		}
+		return btnUpdateCargo;
+	}
+
+	private JSteppedComboBox getCmbContainerSize() {
+		if (cmbContainerSize == null) {
+			cmbContainerSize = new JSteppedComboBox(ContainerSizeOperation
+					.getInstance().findAll().toArray());
+			cmbContainerSize
+					.setBounds(new java.awt.Rectangle(161, 110, 93, 21));
+		}
+		return cmbContainerSize;
+	}
+
+	private JSteppedComboBox getCmbContainerType() {
+		if (cmbContainerType == null) {
+			cmbContainerType = new JSteppedComboBox(ContainerTypeOperation
+					.getInstance().findAll().toArray());
+			cmbContainerType
+					.setBounds(new java.awt.Rectangle(160, 80, 241, 21));
+		}
+		return cmbContainerType;
+	}
+
+	private AramaSonuc getLstCargo() {
+		if (lstCargo == null) {
+			lstCargo = GUIHelper.getInstance().createAramaSonuc(
+					(new Cargo()).getAliasMap(), null,
+					new AramaSonucInterface() {
+						public void setSecili(final Object obj) {
+							final Cargo cargo = (Cargo) obj;
+							cargoId = cargo.getCargoId();
+						}
+					});
+			lstCargo.setBorder(BorderFactory.createTitledBorder("Cargo"));
+			lstCargo.setBounds(new Rectangle(10, 280, 720, 140));
+		}
+		return lstCargo;
+	}
+
+	private AramaSonuc getLstContainer() {
+		if (lstContainer == null) {
+			lstContainer = GUIHelper.getInstance().createAramaSonuc(
+					(new Container()).getAliasMap(), null,
+					new AramaSonucInterface() {
+						public void setSecili(final Object obj) {
+							final Container container = (Container) obj;
+							containerId = container.getContainerId();
+							loadToPanel(container);
+							loadCargos(containerId);
+						}
+					});
+			lstContainer.setBounds(new Rectangle(10, 140, 720, 140));
+		}
+		return lstContainer;
+	}
+
+	private JTextField getTxtContainerNo() {
+		if (txtContainerNo == null) {
+			txtContainerNo = new JTextField();
+			txtContainerNo.setBounds(new java.awt.Rectangle(160, 20, 241, 21));
+		}
+		return txtContainerNo;
+	}
+
+	private JTextField getTxtOtherSealNo() {
+		if (txtOtherSealNo == null) {
+			txtOtherSealNo = new JTextField();
+			txtOtherSealNo.setBounds(new java.awt.Rectangle(500, 50, 231, 21));
+		}
+		return txtOtherSealNo;
+	}
+
+	private JTextField getTxtRelCom() {
+		if (txtRelCom == null) {
+			txtRelCom = new JTextField();
+			txtRelCom.setBounds(new java.awt.Rectangle(330, 110, 71, 21));
+		}
+		return txtRelCom;
+	}
+
+	private JTextField getTxtSealNo() {
+		if (txtSealNo == null) {
+			txtSealNo = new JTextField();
+			txtSealNo.setBounds(new java.awt.Rectangle(500, 20, 231, 21));
+		}
+		return txtSealNo;
+	}
+
+	private JTextField getTxtTareWeight() {
+		if (txtTareWeight == null) {
+			txtTareWeight = new JTextField();
+			txtTareWeight.setBounds(new java.awt.Rectangle(160, 50, 241, 21));
+		}
+		return txtTareWeight;
 	}
 
 	private void initialize() {
@@ -121,110 +326,34 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		this.add(getBtnUpdateCargo(), null);
 		this.add(getBtnDeleteCargo(), null);
 		this.add(getCmbContainerSize(), null);
+		refresh();
 	}
 
-	private JTextField getTxtContainerNo() {
-		if (txtContainerNo == null) {
-			txtContainerNo = new JTextField();
-			txtContainerNo.setBounds(new java.awt.Rectangle(160, 20, 241, 21));
+	public void last() {
+		// Son container'i getirmemiz gerekiyor
+		final Container container = (Container) ContainerOperation
+				.getInstance().previous(Long.MAX_VALUE);
+		if (container != null) {
+			loadToPanel(container);
 		}
-		return txtContainerNo;
 	}
 
-	private JTextField getTxtSealNo() {
-		if (txtSealNo == null) {
-			txtSealNo = new JTextField();
-			txtSealNo.setBounds(new java.awt.Rectangle(500, 20, 231, 21));
+	protected void loadCargos() {
+		loadCargos(containerId);
+	}
+
+	void loadCargos(final Long _containerId) {
+		// Container secilmemisse herhangi bir cargo gostermemeli
+		if (_containerId == null) {
+			lstCargo.listeGuncelle(null);
+		} else {
+			lstCargo.listeGuncelle(CargoOperation.getInstance()
+					.cargoOfContainer(_containerId));
 		}
-		return txtSealNo;
 	}
 
-	private JTextField getTxtRelCom() {
-		if (txtRelCom == null) {
-			txtRelCom = new JTextField();
-			txtRelCom.setBounds(new java.awt.Rectangle(330, 110, 71, 21));
-		}
-		return txtRelCom;
-	}
-
-	private JTextField getTxtTareWeight() {
-		if (txtTareWeight == null) {
-			txtTareWeight = new JTextField();
-			txtTareWeight.setBounds(new java.awt.Rectangle(160, 50, 241, 21));
-		}
-		return txtTareWeight;
-	}
-
-	private JTextField getTxtOtherSealNo() {
-		if (txtOtherSealNo == null) {
-			txtOtherSealNo = new JTextField();
-			txtOtherSealNo.setBounds(new java.awt.Rectangle(500, 50, 231, 21));
-		}
-		return txtOtherSealNo;
-	}
-
-	private JSteppedComboBox getCmbContainerType() {
-		if (cmbContainerType == null) {
-			cmbContainerType = new JSteppedComboBox(ContainerTypeOperation
-					.getInstance().findAll().toArray());
-			cmbContainerType
-					.setBounds(new java.awt.Rectangle(160, 80, 241, 21));
-		}
-		return cmbContainerType;
-	}
-
-	private AramaSonuc getLstContainer() {
-		if (lstContainer == null) {
-			lstContainer = GUIHelper.getInstance().createAramaSonuc(
-					(new Container()).getAliasMap(), null,
-					new AramaSonucInterface() {
-						public void setSecili(Object obj) {
-							Container container = (Container) obj;
-							containerId = container.getContainerId();
-							loadToPanel(container);
-							loadCargos(containerId);
-						}
-					});
-			lstContainer.setBounds(new Rectangle(10, 140, 720, 140));
-		}
-		return lstContainer;
-	}
-
-	private AramaSonuc getLstCargo() {
-		if (lstCargo == null) {
-			lstCargo = GUIHelper.getInstance().createAramaSonuc(
-					(new Cargo()).getAliasMap(), null,
-					new AramaSonucInterface() {
-						public void setSecili(Object obj) {
-							Cargo cargo = (Cargo) obj;
-							cargoId = cargo.getCargoId();
-						}
-					});
-			lstCargo.setBorder(BorderFactory.createTitledBorder("Cargo"));
-			lstCargo.setBounds(new Rectangle(10, 280, 720, 140));
-		}
-		return lstCargo;
-	}
-
-	private Container generateRecordFromGUI() {
-		Container container = new Container();
-		container.setContainerNo(txtContainerNo.getText());
-		container.setContainerSize((ContainerSize) cmbContainerSize
-				.getSelectedItem());
-		container.setContainerType((ContainerType) cmbContainerType
-				.getSelectedItem());
-		container.setSealNo(txtSealNo.getText());
-		container.setOtherSealNo(txtOtherSealNo.getText());
-		container.setRelCom(Long.parseLong(txtRelCom.getText()));
-		container.setTaraWeight(Double.parseDouble(txtTareWeight.getText()));
-		container.setBl((BL)BLOperation.getInstance().get(blId));
-		container.setContainerId(containerId);
-		return container;
-	}
-
-	void loadToPanel(Container container) {
-		if(container.getContainerNo()!=null)
-		{
+	void loadToPanel(final Container container) {
+		if (container.getContainerNo() != null) {
 			txtContainerNo.setText(container.getContainerNo());
 			cmbContainerSize.setSelectedItem(container.getContainerSize());
 			cmbContainerType.setSelectedItem(container.getContainerType());
@@ -236,60 +365,18 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 			}
 			txtTareWeight.setText("");
 			if (container.getTaraWeight() != null) {
-				txtTareWeight.setText(Double.toString(container.getTaraWeight()));
+				txtTareWeight.setText(Double
+						.toString(container.getTaraWeight()));
 			}
 			blId = container.getBl().getBlId();
 			containerId = container.getContainerId();
 		}
 	}
 
-	public void clear() {
-		loadToPanel(new Container());
-	}
-
-	public void add() {
-		Container container = generateRecordFromGUI();
-		long tempId = ContainerOperation.getInstance().create(container);
-		if (tempId > 0) {
-			containerId = tempId;
-			StatusHelper.getInstance().kayitEklendi();
-			updateContainers();
-		} else {
-			StatusHelper.getInstance().hataOlustu();
-		}
-	}
-
-	public void delete() {
-		if (ContainerOperation.getInstance().delete(generateRecordFromGUI())) {
-			StatusHelper.getInstance().kayitSilindi();
-			updateContainers();
-		} else {
-			StatusHelper.getInstance().hataOlustu();
-		}
-	}
-
-	public void first() {
-		// Ilk container'i getirmemiz gerekiyor
-		Container container = (Container) ContainerOperation.getInstance()
-				.next(new Long(0));
-		if (container != null) {
-			loadToPanel(container);
-		}
-	}
-
-	public void last() {
-		// Son container'i getirmemiz gerekiyor
-		Container container = (Container) ContainerOperation.getInstance()
-				.previous(Long.MAX_VALUE);
-		if (container != null) {
-			loadToPanel(container);
-		}
-	}
-
 	public void next() {
 		// Sonraki Container
-		Container container = (Container) ContainerOperation.getInstance()
-				.next(containerId);
+		final Container container = (Container) ContainerOperation
+				.getInstance().next(containerId);
 		if (container != null) {
 			loadToPanel(container);
 		}
@@ -297,11 +384,28 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 
 	public void previous() {
 		// Sonraki Container
-		Container container = (Container) ContainerOperation.getInstance()
-				.previous(containerId);
+		final Container container = (Container) ContainerOperation
+				.getInstance().previous(containerId);
 		if (container != null) {
 			loadToPanel(container);
 		}
+	}
+
+	public void refresh() {
+		LogHelper.getLogger().info("ContainerPanel yenileniyor!");
+
+		cmbContainerType.updateItems(ContainerTypeOperation.getInstance()
+				.findAll().toArray());
+		cmbContainerSize.updateItems(ContainerSizeOperation.getInstance()
+				.findAll().toArray());
+
+	}
+
+	public void setBlId(final Long selectedBlId) {
+		// Detay ekrani temizlensin
+		clear();
+		blId = selectedBlId;
+		updateContainers();
 	}
 
 	public void update() {
@@ -313,97 +417,11 @@ public class ContainerPanel extends JPanel implements ToolbarInterface {
 		}
 	}
 
-	private JSteppedComboBox getCmbContainerSize() {
-		if (cmbContainerSize == null) {
-			cmbContainerSize = new JSteppedComboBox(ContainerSizeOperation
-					.getInstance().findAll().toArray());
-			cmbContainerSize
-					.setBounds(new java.awt.Rectangle(161, 110, 93, 21));
-		}
-		return cmbContainerSize;
-	}
-
-	private JButton getBtnAddCargo() {
-		if (btnNewCargo == null) {
-			btnNewCargo = new JButton("New Cargo");
-			btnNewCargo.setBounds(new Rectangle(135, 420, 120, 30));
-			btnNewCargo.setMnemonic('n');
-			btnNewCargo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (containerId != null) {
-						cargoPanel = GUIHelper.getInstance().showPanel(
-								"New Cargo", new CargoPanel(self, containerId));
-					}
-				}
-			});
-		}
-		return btnNewCargo;
-	}
-
-	private JButton getBtnDeleteCargo() {
-		if (btnDeleteCargo == null) {
-			btnDeleteCargo = new JButton("Delete Cargo");
-			btnDeleteCargo.setBounds(new Rectangle(295, 420, 120, 30));
-			btnDeleteCargo.setMnemonic('d');
-			btnDeleteCargo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (cargoId != null) {
-						CargoOperation.getInstance().delete(cargoId);
-						loadCargos();
-					}
-				}
-			});
-		}
-		return btnDeleteCargo;
-	}
-
-	private JButton getBtnUpdateCargo() {
-		if (btnUpdateCargo == null) {
-			btnUpdateCargo = new JButton("Update Cargo");
-			btnUpdateCargo.setBounds(new Rectangle(455, 420, 120, 30));
-			btnUpdateCargo.setMnemonic('u');
-			btnUpdateCargo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (containerId != null && cargoId != null) {
-						cargoPanel = GUIHelper.getInstance().showPanel(
-								"Update Cargo",
-								new CargoPanel(self, containerId, cargoId));
-					}
-				}
-			});
-		}
-		return btnUpdateCargo;
-	}
-
-	public void setBlId(Long selectedBlId) {
-		// Detay ekrani temizlensin
-		clear();
-		blId = selectedBlId;
-		updateContainers();
-	}
-
-	private void updateContainers() {		
-			lstContainer.listeGuncelle(ContainerOperation.getInstance().containerOfBl(blId));
-			// Container'in kargolari yuklensin
-			loadCargos();
-			this.updateUI();		
-	}
-
-	void loadCargos(Long _containerId) {
-		// Container secilmemisse herhangi bir cargo gostermemeli
-		if (_containerId == null) {
-			lstCargo.listeGuncelle(null);
-		} else {
-			lstCargo.listeGuncelle(CargoOperation.getInstance().cargoOfContainer(_containerId));
-		}
-	}
-
-	protected void loadCargos() {
-		loadCargos(containerId);
-	}
-
-	public void closeCargoDialog() {
-		cargoPanel.dispose();
-		cargoPanel = null;
+	private void updateContainers() {
+		lstContainer.listeGuncelle(ContainerOperation.getInstance()
+				.containerOfBl(blId));
+		// Container'in kargolari yuklensin
+		loadCargos();
+		this.updateUI();
 	}
 }
