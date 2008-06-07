@@ -192,7 +192,7 @@ public class DBConnectionManager {
 	class DBConnectionPool {
 		private int checkedOut;
 
-		private Vector freeConnections = new Vector();
+		private Vector<Connection> freeConnections = new Vector<Connection>();
 
 		private int maxConn;
 

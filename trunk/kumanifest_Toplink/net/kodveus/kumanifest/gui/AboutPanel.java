@@ -146,7 +146,7 @@ public class AboutPanel extends JDialog implements HyperlinkListener {
 			+ "Database: <a href=\"http://www.mysql.com\">MySQL</a><br>"
 			+ "Embedded Database: <a href=\"http://developers.sun.com/javadb/\">Java DB (Derby)</a><br>"
 			+ "Installer: <a href=\"http://www.izforge.com/izpack/\">IzPack</a><br>"
-			+ "UI: <a href=\"http://personales.ya.com/nimrod/index-en.html\">Nimrod</a><br>"
+			+ "UI: <a href=\"http://personales.ya.com/nimrod/index-en.html\">Nimrod</a>,<a href=\"http://swinglabs.org/\">SwingX</a><br>"
 			+ "Profiler: <a href=http://www.yourkit.com/java/profiler/index.jsp>YourKit Java Profiler</a><br>"
 			+ "</font><br>"
 			+ "(Please check legal folder for license files)"
