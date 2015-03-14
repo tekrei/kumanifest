@@ -1,0 +1,79 @@
+# Kullanıcı Kılavuzu #
+
+Kumanifest konşimento, konteyner, mal tanımları bilgilerinizi girebilmenizi kolaylaştıracağı gibi, bilgilerinizin bilgisayar ortamında tutulmasını, korunmasını ve yedeklenebilmesini sağlayacaktır. Yalnızca bir defa veri girişi yaparak, aynı bilgiyi farklı şekillerde çıktılara dönüştürebilecek, farklı amaçlar için kullanabilecek ve arşivleyebileceksiniz.
+
+Kumanifest halen geliştirilmekte olan bir programdır ve sizlerden gelecek isteklerin geliştirme takımımız tarafından değerlendirilmesi ve eklenmesi sonucu ilerde çıkacak olan sürümler yeni özelliklere sahip olacaktır. Şu an elinize gelecek olan sürüm sadece temel ihtiyaçlara karşılık verebilir.
+
+Bir sonraki sürümde yapılması planlanan özellikler şunlardır:
+  1. Gümrük tescil işlemlerinizi kolaylaştırmak için EDI dosyalama, yani elektronik veri transferi dosyasının hazırlanması özelliğinin eklenmesi. Bu özellik sayesinde gümrük tescil işlemlerinizi internet üzerinden yapabilen programlara, tescil bilgilerini doğrudan aktarabilecek; bu sayede elle yapılan birçok işlemi hızlandırıp hatasız hale getirebileceksiniz ve tekrar tekrar aynı verilerin bilgisayar ortamına girilmesine gerek duymayacaksınız.
+  1. Girilen kayıtlar arasında BL veya konteyner arama özelliği. Yaptığınız veri girişleri arasında aradığınız bir kaydı kumanifest sizin için bulup getirecek, hızlı bir şekilde erişmenizi sağlayacaktır.
+  1. Open Office ve Excel gibi uygulamalardan veri okuyabilme ve aktarma özelliğinin eklenmesi. Excele belli bir düzende girdiğiniz gemi,BL veya konteyner bilgilerini otomatik olarak programın içine aktarabileceksiniz. Aynı şekilde program içerisinde bulunan verilerin de farklı düzen ve dosya tipleri ile dışa aktarımı mümkün olacaktır.
+
+Kumanifest'in ilk sürümüne http://code.google.com/p/kumanifest/downloads/list adresinden ulaşabilirsiniz. Programı indirebilir, kurulum yönergelerini uygulayarak kurabilir ve ücretsiz olarak kullanabilirsiniz. Kullanıcı kılavuzunu http://code.google.com/p/kumanifest/wiki/KullaniciKilavuzu adresinde bulabilirsiniz.
+
+Kumanifest, Genel Kamu Lisansı(GPL) na sahiptir; bu kapsamda ücretsiz olarak kullanabilir, paylaşabilir hatta değiştirebilirsiniz. Lisansın Türkçesi, İngilizcesi ve programın kurulum yönergeleri indireceğiniz kurulum paketi içerisinde ve projenin sayfasında bulunmaktadır: http://kodveus.blogcu.com
+
+Kumanifest programı maddi bir beklenti ile geliştirilmedi. Tamamen özgür yazılım felsefesi gözetilerek ve faydalı bir yazılım olması amaçlanarak geliştirildi. Tasarım ve geliştirme aşamasında yine kendisi gibi özgür yazılımlar kullanıldı.
+
+Programın kurulumu ve kullanımı sırasında karşılaşacağınız tüm sorunları kodveus@gmail.com eposta adresine yazabilirsiniz. Kumanifest hakkında daha detaylı ve en güncel bilgiye http://code.google.com/p/kumanifest/w/list adresinden ulaşabilirsiniz.
+
+## Program Arayüzü ##
+
+Kumanifest programı temel olarak 3 bölümden oluşmaktadır:
+
+1) Ekranın sol tarafında bulunan ağaç görünümünden gemi ve seferlere ulaşılabilir.
+2) Sağ tarafta bulunan BL panelinde BL detayları görülebilir.
+3) Yine sağ tarafta BL paneli ile yanyana bulunan konteyner panelinde konteyner detayları görülebilecektir.
+
+Ana ekranın sağ tarafında bulunan bu paneller, Bl, konteyner ve kargo kayıtlarının girişi ve düzenlenmesinde kullanılacak olan bölümlerdir. Kayıt girişleri ve düzenlenmesi yine ekranın sağ üst bölümünde bulunan tuşlar yardımı ile yapılır. Yapılan girişlerin çıktıları rapor olarak alınabilir.
+
+Kumanifest açıldığında üst bölümde File, Reports, Additional v.b. seçenekleri olan ana menüyü göreceksiniz. Programda kullanılacak olan liman/ofis, gemi gibi değişmez bilgilerin girileceği yer ve çıktı olarak alınacak raporların görülebileceği yerlere ana menüdeki seçeneklerden ulaşılacaktır.
+
+Kurulum tamamlandıktan sonra program kullanılırken ihtiyaç duyulacak liman,ofis,paket tipi v.b. değişmez verilerin tanımlanması gerekecektir.
+
+Bu veri girişleri, ana ekranda bulunan üst menüdeki Tools seçeneği altındaki Parameters altseçeneğinde görülebilecek olan Pack, Office, Commodity gibi değerlerin teker teker girilmesi ile yapılır. Buradaki bazı girişler birbiri ile bağımlıdır; bu nedenle veri girişlerini yukarıdan aşağıya doğru, yani sırasıyla Pack, Office, Commodity, Container Size, Container Type ,... şeklinde yapmanız sorun yaşamanızı engelleyecektir.
+
+Değişmez verileri tanımladıktan sonra konşimento(BL) girişlerinizi yapmaya başlayabilirsiniz. Ana ekranın sol tarafındaki ağaç görünümünde, ilgili yukleme bilgilerine fare ile çift tıklayarak tanımladığınız bir sefere ulaşabilirsiniz.
+
+Ana ekran görüntüsünün üst bölümünde bulunan menüdeki seçeneklerin bir kısmı program ilk açıldığında etkin olmayacaktır. Bu seçeneklerin bir kısmı seferlere bir kısmı da konşimentolara ait özellikler olduğundan, ancak ilgili sefer veya konşimento seçildiğinde etkin hale gelecektir. Rapolar menüsü seçenekleri bunlara örnek olarak verilebilir.
+
+Ekran görüntülerinden de anlaşılacağı gibi programın sol tarafında, gemi/sefer ve BL leri listeleyen bir ağaç görünümü bulunmaktadır. Bu ağaç görünümünde bulunan Liman/Ofis, gemi ve sefer bilgileri, sizin parametreler bölümü olan "Tools->Parameters" menüsündeki seçeneklere yaptığınız tanımlamalardan oluşturulur. Seferler altına bilgilerini gireceğiniz BL numaraları da yine bu ağaç görünümünde listelenecektir.
+
+### BL kaydı girebilmek ###
+Yeni bir BL kaydı girebilmek için ilgili sefer seçildikten sonra; BL bilgilerini sağ taraftaki panelde doldurduktan sonra ekranın sağ üst köşesinde bulunan +(artı) işareti şeklindeki ekle tuşunu kullanarak kaydın saklanmasını sağlayabilirsiniz. Bu işlem sırasıyla şöyle yapılır:
+
+  1. Sol taraftaki ağaç görünümünden BL'in ilgili seferi seçilir
+  1. Sağ tarafta bulunan BL paneli içerisinde bulunan veri alanlarına gerekli bilgiler girilir
+  1. Sağ üst köşede bulunan +(artı) işareti şeklindeki ekle tuşu kullanılarak kayıt saklanır.
+
+Buradan seçilen BL bilgileri sağdaki panele yüklenecek ve seçme işlemi ile birlikte bu bilgiler üzerinde değiştirme/silme gibi işlemler yapılabilecektir.
+
+Seçilen BL'in konteyner detaylarını görebilmek için üst tarafta bulunan "Container" sekmesi seçilmelidir. Burada her bir konteyner içerisinde bulunan mal detayları da görülebilir ve değiştirilebilir.
+
+### Konteyner kaydı girebilmek ###
+Tanımladığınız BL'lere ilgili oldukları konteynerleri bağlayabilmek için sağ taraftaki panelde bulunan "Container" sekmesini seçerek konteyner panelini açmanız gerekir. Yeni bir konteyner kaydı girebilmek için sırasıyla:
+
+  1. Sol taraftaki ağaç görünümünden ilgili BL seçilir
+  1. Sağ tarafta bulunan panellerden "Container" sekmesi seçilerek konteyner paneli açılır
+  1. Bu panelin üst bölümünde bulunan "Container details" veri grubu içerisindeki alanlara gerekli bilgiler girilir
+  1. Sağ üst köşede bulunan +(artı) işareti şeklindeki ekle tuşu kullanılarak kayıt saklanır.
+
+### Kargo detay kaydı girebilmek ###
+Konteynerler içerisinde bulunan yük/kargo bilgileri de yine konteyner panelinde eklenebilir, görülebilir veya değiştirilebilir. Her bir konteynerin içerisindeki kargo bilgileri ayrı ayrı tanımlanmalıdır.
+
+Girilen kargo detayları, konteyner paneli içerisindeki, konteynerlerin listelendiği tabloda ilgili konteynerin seçilmesi ile altta bulunan kargo detay tablosunda listelenecektir. Bu liste üzerinde ilgili kargo seçilerek tablonun altında bulunan "New Cargo", "Delete Cargo" ve "Update Cargo" tuşları ile gerekli düzenlemeler yapılabilir.
+
+Yeni bir kargo detayı girebilmek için izlenecek yol şu şekildedir:
+  1. Sol taraftaki ağaç görünümünden ilgili BL seçilir
+  1. Sağ tarafta bulunan panellerden "Container" sekmesi seçilerek konteyner paneli açılır
+  1. Bu panelin orta bölümünde bulunan ve konteynerleri listeleyen tabloda ilgili konteyner seçilir.
+  1. Alt bölümde bulunan "New Cargo" tuşu kullanılarak yeni kargo tanımlama ekranı açılır.
+  1. "New Cargo" başlığına sahip bu pencerede gerekli alanlar doldurulur ve "OK" tuşuna basılarak yeni kayıt kaydedilmiş olunur.
+
+
+## Raporlar ##
+
+Kumanifestin kolaylaştırdığı en önemli özellik raporlamalardır. Konşimento, manifesto ve yükleme listeleri gibi raporları menüdeki "Reports" seçeneği altında bulabilirsiniz. Girişi yapılan tüm veriler bu raporlarda düzenlenmiş ve özetlenmiş bir şekilde karşınıza çıkacaktır.
+
+Her bir gemi/sefer için manifesto ve yükleme listesi hazırlayabilecek, konşimentolarınızın detaylarını gösteren "Bill Of Lading" raporu hazırlayabileceksiniz.
+Seçtiğiniz rapor görüntülendiğinde pencerenin sol üst bölümünde bulunan tuşlar ile yazıcı çıktısı alabilir yada raporu .pdf, .xls, .rtf, .html gibi dosya formatlarında saklayabilirsiniz.

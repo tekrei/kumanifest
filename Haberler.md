@@ -1,0 +1,5 @@
+# Haberler #
+
+07.08.2007 Kumanifest'in Derby Kullanması
+
+Kumanifest projesindeki MySQL kurma ve kullanma zorluğundan son kullanıcıyı kurtarmak amacıyla yoğun, yorucu ve yıpratıcı bir sürece girdik. Bu süreç henüz tam olarak sonuçlanmadı. Kumanifest içerisinde kalıcı katman olarak JPA (Toplink) ve veritabanı olarak gömülü Derby veritabanı kullanımını bir kaç aydır etkinleştirmeye çalışıyoruz. Raporlar konusunda yaşadığımız sıkıntıları aşar aşmaz ilk sürümümüzü (1.0) sunacağız.
