@@ -28,8 +28,6 @@ Programın kurulumu ve kullanımı sırasında karşılaşacağınız tüm sorun
 
 Kodveus'un bilgi paylaşım günlüğüne [http://kodveus.blogspot.com](http://kodveus.blogspot.com) adresinden ulaşabilirsiniz.
 
-[KodVeUs](http://kodveus.blogspot.com)
-
 Kurulum Kılavuzu
 ----------------
 
