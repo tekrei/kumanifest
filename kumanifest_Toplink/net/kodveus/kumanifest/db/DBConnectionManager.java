@@ -7,7 +7,7 @@ package net.kodveus.kumanifest.db;
  * NON-COMMERCIAL purposes and without fee is hereby granted
  * provided that this copyright notice appears in all copies.
  *
- * Modified by: Tahir Emre Kalaycı, 01/June/2008
+ * Modified by: T. E. Kalaycı, 01/June/2008
  */
 
 import java.sql.Connection;
